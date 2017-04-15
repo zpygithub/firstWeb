@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>FirstWeb</title>
+
+    <script type="text/javascript" src="app/src/login/js/login.js"></script>
+    <script type="text/javascript">
+        function changeBorder(id) {
+            $("#" + id).css("border", "1px solid #f9cfa5");
+        }
+        function backBorder(id) {
+            $("#" + id).css("border", "1px solid #93adc4");
+        }
+    </script>
+</head>
+<body>
+<div class="login-head">
+    <div class="login-logo">
+        <img src="images/logo_top_ca79a146.png">
+    </div>
+    <div>
+        <span id="chinese">中文</span>
+    </div>
+</div>
+<div class="login-body">
+    <div class="login-form">
+        <p>FirstWeb后台管理系统</p>
+        <div>
+            <form id="fml">
+                <!--用户-->
+                <div>
+                    <input class="login-input-text form-username" id="username" name="username" type="text"
+                           placeholder="用户名" style="font-family: 微软雅黑; color: #333;" onfocus="changeBorder('username')"
+                           onblur="backBorder('username')"/>
+                </div>
+                <!--密码-->
+                <div id="passwordDiv" style="display: block">
+                    <input class="login-input-text form-password" id="password" name="password" type="text"
+                           placeholder="密码" style="font-family: 微软雅黑; color: #333;" autocomplete="off"
+                           onfocus="changeBorder('password')"
+                           onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
+                </div>
+                <!--登录-->
+                <div id="submitDiv" class="login-btn-box">
+                    <input class="login-btn" id="submit" type="button" value="登录"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="login-foot">
+    <p id="copyright" style="line-height: 48px;">版权所有</p>
+</div>
+</body>
+</html>

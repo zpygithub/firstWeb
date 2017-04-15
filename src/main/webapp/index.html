@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>FirstWeb</title>
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap3.3.7.min.css"/>
+    </head>
+    <body ng-app="AppCtrl">
+        <div id="service-menus" ng-include="menus.url"></div>
+        <div id="service-content">
+            <div ui-view ng-animate="{enter:'fade-enter'}"></div>
+        </div>
+        <div id="service-footer" ng-include="footer.url"></div>
+        <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="../webapp/lib/angular/angular.js"></script>
+        <script type="text/javascript" src="lib/bootstrap/bootstrap3.3.7.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
