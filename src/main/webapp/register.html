@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>FirstWeb</title>
+
+    <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="app/src/register/js/register.js"></script>
+    <script type="text/javascript">
+        function changeBorder(id) {
+            $("#" + id).css("border", "1px solid #f9cfa5");
+        }
+        function backBorder(id) {
+            $("#" + id).css("border", "1px solid #93adc4");
+        }
+    </script>
+</head>
+<body>
+<div class="register-head">
+    <div class="register-logo">
+        <img src="images/logo_top_ca79a146.png">
+    </div>
+</div>
+<div class="register-body">
+    <div class="register-form">
+        <p style="font-size:22px;">FirstWeb后台管理注册</p>
+        <div>
+            <form id="fml">
+                <!--用户-->
+                <div>
+                    <input class="register-input-text form-account" id="account" name="account" type="text"
+                           placeholder="账号" style="font-family: 微软雅黑; color: #333;" onfocus="changeBorder('account')"
+                           onblur="backBorder('account')"/>
+                </div>
+                <!--昵称-->
+                <div>
+                    <input class="register-input-text form-nickname" id="nickname" name="nickname" type="text"
+                           placeholder="昵称" style="font-family: 微软雅黑; color: #333;" onfocus="changeBorder('nickname')"
+                           onblur="backBorder('nickname')"/>
+                </div>
+                <!--密码-->
+                <div id="passwordDiv" style="display: block">
+                    <input class="register-input-text form-password" id="password" name="password" type="text"
+                           placeholder="密码" style="font-family: 微软雅黑; color: #333;" autocomplete="off"
+                           onfocus="changeBorder('password')"
+                           onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
+                </div>
+                <!--确认密码-->
+                <div id="confirmPasswordDiv" style="display: block">
+                    <input class="register-input-text form-password" id="confirmPassword" name="confirmPassword"
+                           type="text"
+                           placeholder="确认密码" style="font-family: 微软雅黑; color: #333;" autocomplete="off"
+                           onfocus="changeBorder('password')"
+                           onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
+                </div>
+                <!--取消&注册-->
+                <div id="submitDiv" class="register-btn-box">
+                    <input class="register-btn" id="register" type="button" value="注册"/>
+                    <input class="register-btn" id="cancel" type="button" value="取消"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="register-foot">
+    <p id="copyright" style="line-height: 48px; font-size:12px;">版权所有111</p>
+</div>
+</body>
+</html>

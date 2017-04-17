@@ -2,18 +2,21 @@ $(document).ready(function () {
     msieversion();
     $("#refresh").attr("innerHTML", getLocaleMsg("refresh"));
     $("#refresh").attr("title", getLocaleMsg("refreshTip"));
-    $("#submit").attr("value", getLocaleMsg("loginBtn"));
     $("#reset").attr("value", getLocaleMsg("cancelBtn"));
     $("#refresh").bind("click", function () {
         getCpatchaCode();
     });
 
-    $("#submit").bind("click", function () {
-        var username = $("#username").val();
-        if ("" == username) {
+    $("#register").bind("click", function () {
+        window.location.href = "register.html";
+    });
+
+    $("#login").bind("click", function () {
+        var account = $("#account").val();
+        if ("" == account) {
             generateErrorDiv("requiredUsername");
             $("#status").attr("innerHTML", getLocaleMsg("requiredUsername"));
-            $("#username").focus();
+            $("#account").focus();
             return false;
         }
 
@@ -28,10 +31,9 @@ $(document).ready(function () {
         var errorCode = "";
 
         var data = {
-            "account": username,
+            "account": account,
             "passwd": password,
         };
-
         $.ajax({
             type: 'post',
             url: 'login/mainLogin',
@@ -50,13 +52,13 @@ $(document).ready(function () {
                     $("#j_captcha_parameter").focus();
                 } else if (errorCode == "00016") {
                     generateErrorDiv("UserNotExists");
-                    $("#username").focus();
+                    $("#account").focus();
                 } else if (errorCode == "00017") {
                     generateErrorDiv("AccountOrPasswordError");
                     $("#password").focus();
                 } else if (errorCode == "00062") {
                     generateErrorDiv("UserLock");
-                    $("#username").focus();
+                    $("#account").focus();
                 }
             },
             error: function (textStatus, xhr) {
@@ -69,13 +71,13 @@ $(document).ready(function () {
                     $("#j_captcha_parameter").focus();
                 } else if (errorCode == "2") {
                     generateErrorDiv("UserNotExists");
-                    $("#username").focus();
+                    $("#account").focus();
                 } else if (errorCode == "3") {
                     generateErrorDiv("AccountOrPasswordError");
                     $("#password").focus();
                 } else if (errorCode == "1") {
                     generateErrorDiv("UserLock");
-                    $("#username").focus();
+                    $("#account").focus();
                 }
             },
         });
@@ -124,7 +126,7 @@ function flushErrorBox() {
         if (newMessage.indexOf("~") != -1) {
             var messageArray = newMessage.split("~");
             $("status").attr("innerHTML", messageArray[0]);
-            $("username").attr("value", messageArray[1]);
+            $("account").attr("value", messageArray[1]);
             $("password").focus();
         }
     }
@@ -138,5 +140,6 @@ function generateErrorDiv(key) {
 }
 
 function getLocaleMsg(key) {
-    return login_msg[key] == undefined ? key : login_msg[key];
+    // return login_msg[key] == undefined ? key : login_msg[key];
+    return key;
 }

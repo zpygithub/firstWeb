@@ -1,13 +1,11 @@
 package com.firstWeb.service;
 
+import com.firstWeb.bean.model.User;
 import com.firstWeb.mapper.UserMapper;
-import com.firstWeb.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,16 +27,6 @@ public class UserService {
 
     public List<User> selectUserByConditions(String value) {
         List<User> user = userMapper.selectUserByConditions(value);
-        List<User> userArray = new ArrayList<User>();
-        for (User newUser : user) {
-            String newEmail = newUser.getEmail().replaceAll(AAA, " ");
-            if (!StringUtils.isEmpty(newEmail.trim())) {
-                newUser.setEmail(newEmail);
-                userArray.add(newUser);
-            }
-            /*System.out.println("--------------");
-            System.out.println(newEmail);*/
-        }
-        return userArray;
+        return user;
     }
 }

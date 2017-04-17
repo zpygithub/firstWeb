@@ -3,7 +3,7 @@
         PUBLIC "-//com.map.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.firstWeb.mapper.UserMapper">
-    <resultMap id="userMap" type="com.firstWeb.model.User">
+    <resultMap id="userMap" type="com.firstWeb.bean.model.User">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
         <result property="nickname" column="nickname"/>

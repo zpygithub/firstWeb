@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>FirstWeb</title>
 
+    <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="app/src/login/js/login.js"></script>
     <script type="text/javascript">
         function changeBorder(id) {
@@ -18,21 +20,17 @@
     <div class="login-logo">
         <img src="images/logo_top_ca79a146.png">
     </div>
-    <div>
-        <span id="chinese">中文</span>
-        <span id="english">English</span>
-    </div>
 </div>
 <div class="login-body">
     <div class="login-form">
-        <p>FirstWeb后台管理</p>
+        <p style="font-size:22px;">FirstWeb后台管理系统</p>
         <div>
             <form id="fml">
-                <!--用户名-->
+                <!--用户-->
                 <div>
-                    <input class="login-input-text form-username" id="username" name="username" type="text"
-                           placeholder="用户名" style="font-family: 微软雅黑; color: #333;" onfocus="changeBorder('username')"
-                           onblur="backBorder('username')"/>
+                    <input class="login-input-text form-account" id="account" name="account" type="text"
+                           placeholder="账号" style="font-family: 微软雅黑; color: #333;" onfocus="changeBorder('account')"
+                           onblur="backBorder('account')"/>
                 </div>
                 <!--密码-->
                 <div id="passwordDiv" style="display: block">
@@ -41,16 +39,17 @@
                            onfocus="changeBorder('password')"
                            onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
                 </div>
-                <!--登录-->
+                <!--注册&登录-->
                 <div id="submitDiv" class="login-btn-box">
-                    <input class="login-btn" id="submit" type="button" value="登录"/>
+                    <input class="login-btn" id="register" type="button" value="注册"/>
+                    <input class="login-btn" id="login" type="button" value="登录"/>
                 </div>
             </form>
         </div>
     </div>
 </div>
 <div class="login-foot">
-    <p id="copyright" style="line-height: 48px;">版权所有</p>
+    <p id="copyright" style="line-height: 48px; font-size:12px;">版权所有</p>
 </div>
 </body>
 </html>

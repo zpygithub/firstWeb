@@ -1,4 +1,4 @@
-package com.firstWeb.model;
+package com.firstWeb.bean.model;
 
 /**
  * Created by zpy on 2017/2/5.

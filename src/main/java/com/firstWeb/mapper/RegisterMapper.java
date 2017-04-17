@@ -1,16 +1,16 @@
 package com.firstWeb.mapper;
 
 import com.firstWeb.bean.model.User;
+import com.firstWeb.bean.param.RegisterParam;
 
 import java.util.List;
 
 /**
  * Created by zpy on 2017/2/13.
  */
-public interface UserMapper {
+public interface RegisterMapper {
 
-    User selectUserById(String id);
+    void mainRegister(RegisterParam registerParam);
 
-    List<User> selectUserByConditions(String value);
 
 }
