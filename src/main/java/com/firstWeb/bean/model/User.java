@@ -7,11 +7,11 @@ public class User {
     private String id;
     private String account;
     private String nickname;
-    private String password;
+    private transient String password;
     private String telephone;
     private String email;
     private String delFlag;
-    private String salt;
+    private transient String salt;
 
     public String getId() {
         return id;

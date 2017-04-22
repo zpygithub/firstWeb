@@ -6,10 +6,10 @@ require.config({
     "baseUrl": "./",
     "waitSeconds": 0,
     "paths": {
-        "can": "../webapp/lib/can", //桩路径
-        "app": "src/app",
-        "bootstrap": "./lib/bootstrap/bootstrap3.3.7.min",
-        "jquery": "./lib/jquery/jquery-3.1.1.min",
+        "can": "lib/can", //桩路径
+        "app": "app",
+        "bootstrap": "lib/bootstrap",
+        "jquery": "lib/jquery",
     },
     "shim": {
         "bootstrap/bootstrap.min": {
@@ -24,9 +24,8 @@ require.config({
 
 require([
         "app/framework/framework",
-        "app/services/accountService",
         "app/services/httpService"],
-    function (app, accountService, httpService) {
+    function (app, httpService) {
         var rootScope;
         var state;
 

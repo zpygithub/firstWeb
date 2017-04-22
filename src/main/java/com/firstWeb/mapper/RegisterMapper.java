@@ -12,5 +12,7 @@ public interface RegisterMapper {
 
     void mainRegister(RegisterParam registerParam);
 
+    boolean checkAccount(String account);
 
+    boolean checkNickname(String nickname);
 }

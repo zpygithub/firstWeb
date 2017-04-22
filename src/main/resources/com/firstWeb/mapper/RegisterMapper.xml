@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//com.map.mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.firstWeb.mapper.RegisterMapper">
+    <!--<resultMap id="userMap" type="com.firstWeb.bean.model.Token">
+        <result property="id" column="id"/>
+        <result property="account" column="account"/>
+        <result property="nickname" column="nickname"/>
+        <result property="password" column="password"/>
+        <result property="telephone" column="telephone"/>
+        <result property="email" column="email"/>
+        <result property="delFlag" column="delFlag"/>
+        <result property="salt" column="salt"/>
+    </resultMap>-->
+
+    <insert id="mainRegister" parameterType="com.firstWeb.bean.param.RegisterParam" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO tb_user(account, nickname, password, telephone, email, salt)
+        VALUES (#{account}, #{nickname}, #{passwd}, #{telephone}, #{email}, #{salt})
+    </insert>
+
+    <select id="checkAccount" parameterType="string" resultType="boolean">
+        SELECT COUNT(id) FROM tb_user WHERE account=#{account}
+    </select>
+
+    <select id="checkNickname" parameterType="string" resultType="boolean">
+        SELECT COUNT(id) FROM tb_user WHERE nickname=#{nickname}
+    </select>
+</mapper>
