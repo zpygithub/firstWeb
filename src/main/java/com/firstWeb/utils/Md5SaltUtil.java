@@ -2,7 +2,11 @@ package com.firstWeb.utils;
 
 import org.apache.commons.codec.binary.Hex;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -10,56 +14,55 @@ import java.util.Random;
  */
 public class Md5SaltUtil {
 
+    private static final String HEX_NUMS_STR = "0123456789ABCDEF";
+
     /**
-     * 生成含有随机盐的密码
+     * 生成含有盐的MD5密码
+     *
+     * @param passwd
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws UnsupportedEncodingException
      */
-    public static String generate(String password) {
-        Random r = new Random();
-        StringBuilder sb = new StringBuilder(16);
-        sb.append(r.nextInt(99999999)).append(r.nextInt(99999999));
-        int len = sb.length();
-        if (len < 16) {
-            for (int i = 0; i < 16 - len; i++) {
-                sb.append("0");
+    public static String getEncryptedPasswd(String passwd) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        md.update(passwd.getBytes("UTF-8"));
+        byte[] passwdByte = md.digest();
+        return byteToHexString(passwdByte);
+    }
+
+    /**
+     * 将指定byte数组转换成16进制字符串
+     *
+     * @param passwdByte
+     * @return
+     */
+    public static String byteToHexString(byte[] passwdByte) {
+        StringBuffer hexString = new StringBuffer();
+        for (int i = 0; i < passwdByte.length; i++) {
+            String hex = Integer.toHexString(passwdByte[i] & 0xFF);
+            if (hex.length() == 1) {
+                hex = '0' + hex;
             }
+            hexString.append(hex.toUpperCase());
         }
-        String salt = sb.toString();
-        password = md5Hex(password + salt);
-        char[] cs = new char[48];
-        for (int i = 0; i < 48; i += 3) {
-            cs[i] = password.charAt(i / 3 * 2);
-            char c = salt.charAt(i / 3);
-            cs[i + 1] = c;
-            cs[i + 2] = password.charAt(i / 3 * 2 + 1);
-        }
-        return new String(cs);
+        return hexString.toString();
     }
 
     /**
      * 校验密码是否正确
+     *
+     * @param passwd
+     * @param passwdInDb
+     * @return
+     * @throws NoSuchAlgorithmException
+     * @throws UnsupportedEncodingException
      */
-    public static boolean verify(String password, String md5) {
-        char[] cs1 = new char[32];
-        char[] cs2 = new char[16];
-        for (int i = 0; i < 48; i += 3) {
-            cs1[i / 3 * 2] = md5.charAt(i);
-            cs1[i / 3 * 2 + 1] = md5.charAt(i + 2);
-            cs2[i / 3] = md5.charAt(i + 1);
-        }
-        String salt = new String(cs2);
-        return md5Hex(password + salt).equals(new String(cs1));
-    }
-
-    /**
-     * 获取十六进制字符串形式的MD5摘要
-     */
-    public static String md5Hex(String src) {
-        try {
-            MessageDigest md5 = MessageDigest.getInstance("MD5");
-            byte[] bs = md5.digest(src.getBytes());
-            return new String(new Hex().encode(bs));
-        } catch (Exception e) {
-            return null;
+    public static boolean validPasswd(String passwd, String passwdInDb) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        if (getEncryptedPasswd(passwd).equals(passwdInDb)) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

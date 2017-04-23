@@ -28,8 +28,6 @@ $(document).ready(function () {
             return false;
         }
 
-        var errorCode = "";
-
         var data = {
             "account": account,
             "passwd": password,
@@ -40,44 +38,23 @@ $(document).ready(function () {
             dataType: 'json',
             async: false,
             data: data,
-            success: function (data, textStatus) {
-                if (textStatus == "success") {
-                    errorCode = data.code;
-                }
-                if (errorCode == "00000") {
+            success: function (data) {
+                if (data.code == "00000") {
+                    alert("chenggpng");
                     window.location.href = "index.html";
                     return;
-                } else if (errorCode == "00015") {
-                    generateErrorDiv("IncorrectCaptcha");
-                    $("#j_captcha_parameter").focus();
-                } else if (errorCode == "00016") {
+                } else if (data.code == "00016") {
                     generateErrorDiv("UserNotExists");
                     $("#account").focus();
-                } else if (errorCode == "00017") {
+                } else if (data.code == "00017") {
                     generateErrorDiv("AccountOrPasswordError");
                     $("#password").focus();
-                } else if (errorCode == "00062") {
+                } else if (data.code == "00062") {
                     generateErrorDiv("UserLock");
                     $("#account").focus();
-                }
-            },
-            error: function (textStatus, xhr) {
-                var errorCode = xhr.responseText;
-                if (errorCode == "00000") {
-                    window.location.href = "index.html";
+                } else {
+                    alert("AccountOrPasswordError");
                     return;
-                } else if (errorCode == "4") {
-                    generateErrorDiv("IncorrectCaptcha");
-                    $("#j_captcha_parameter").focus();
-                } else if (errorCode == "2") {
-                    generateErrorDiv("UserNotExists");
-                    $("#account").focus();
-                } else if (errorCode == "3") {
-                    generateErrorDiv("AccountOrPasswordError");
-                    $("#password").focus();
-                } else if (errorCode == "1") {
-                    generateErrorDiv("UserLock");
-                    $("#account").focus();
                 }
             },
         });

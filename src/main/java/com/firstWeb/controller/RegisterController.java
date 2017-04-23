@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by zpy on 2017/4/8.
@@ -28,9 +30,6 @@ public class RegisterController {
     @Autowired
     private RegisterService registerService;
 
-    @Autowired
-    private RegisterMapper registerMapper;
-
     private static final Logger LOGGER = LogManager.getLogger(RegisterController.class);
 
     /**
@@ -40,14 +39,16 @@ public class RegisterController {
      * @param request
      * @param response
      * @return
+     * @throws UnsupportedEncodingException
+     * @throws NoSuchAlgorithmException
      */
     @PutMapping(value = "/mainRegister")
     @ResponseBody
-    public ResultEntity<String> mainRegister(RegisterReqModel model, HttpServletRequest request, HttpServletResponse response) {
+    public ResultEntity<String> mainRegister(RegisterReqModel model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         LOGGER.info("mainRegister: begin");
         ResultEntity<String> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
-        //TODO 账号6-20位，昵称2-8位，密码6-20位
+        //TODO 参数都不能为空，账号6-20位、昵称2-8位、密码6-20位
         if (StringUtils.isEmpty(model.getAccount()) || StringUtils.isEmpty(model.getNickname()) || StringUtils.isEmpty(model.getPasswd()) || StringUtils.isEmpty(model.getConfirmPasswd())) {
             result.setCode(ResultCode.PARAMCANNOTBENULL);
             return result;
@@ -56,11 +57,11 @@ public class RegisterController {
             result.setCode(ResultCode.PASSWDCANNOTBRDIFFRENT);
             return result;
         }
-        if (!checkAccount(model.getAccount())) {
+        if (!registerService.checkAccount(model.getAccount())) {
             result.setCode(ResultCode.ACCOUNTISEXISTENCE);
             return result;
         }
-        if (!checkNickname(model.getNickname())) {
+        if (!registerService.checkNickname(model.getNickname())) {
             result.setCode(ResultCode.NICKNAMEISEXISTENCE);
             return result;
         }
@@ -76,30 +77,5 @@ public class RegisterController {
         return result;
     }
 
-    /**
-     * 校验账号唯一性
-     *
-     * @param account
-     * @return
-     */
-    private Boolean checkAccount(String account) {
-        if (registerMapper.checkAccount(account)) {
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * 校验昵称唯一性
-     *
-     * @param nickname
-     * @return
-     */
-    private Boolean checkNickname(String nickname) {
-        if (registerMapper.checkNickname(nickname)) {
-            return false;
-        }
-        return true;
-    }
 
 }

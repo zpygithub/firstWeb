@@ -12,4 +12,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class LoginService {
 
+    @Autowired
+    private LoginMapper loginMapper;
+
+    public String getSaltByAccount(String account) {
+        return (loginMapper.getSaltByAccount(account));
+    }
+
+    public String getPasswdByAccount(String account) {
+        return (loginMapper.getPasswdByAccount(account));
+    }
 }

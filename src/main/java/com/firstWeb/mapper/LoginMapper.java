@@ -5,5 +5,8 @@ package com.firstWeb.mapper;
  */
 public interface LoginMapper {
 
+    String getSaltByAccount(String account);
+
+    String getPasswdByAccount(String account);
 
 }

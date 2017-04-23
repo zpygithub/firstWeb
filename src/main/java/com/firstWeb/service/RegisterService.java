@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -20,12 +22,8 @@ public class RegisterService {
     @Autowired
     private RegisterMapper registerMapper;
 
-    /**
-     * 注册用户
-     *
-     * @param registerParam
-     */
-    public void mainRegister(RegisterParam registerParam) {
+    public void mainRegister(RegisterParam registerParam) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        //生成随机salt
         char[] chars = "0123456789abcdefghijklmnopqrwtuvzxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         char[] saltchars = new char[6];
         Random random = new SecureRandom();
@@ -35,37 +33,37 @@ public class RegisterService {
         }
         String salt = new String(saltchars);
 
-        String encryptedPwd = Md5SaltUtil.generate(registerParam.getAccount() + registerParam.getPasswd() + salt);
+        String encryptedPwd = Md5SaltUtil.getEncryptedPasswd(registerParam.getAccount() + registerParam.getPasswd() + salt);
 
         registerParam.setPasswd(encryptedPwd);
         registerParam.setSalt(salt);
         registerMapper.mainRegister(registerParam);
     }
 
-   /* *//**
+    /**
      * 校验账号唯一性
      *
      * @param account
      * @return
-     *//*
+     */
     public Boolean checkAccount(String account) {
-        Boolean a = registerMapper.checkAccount(account);
-        if (!registerMapper.checkAccount(account)) {
-            return true;
+        if (registerMapper.checkAccount(account)) {
+            return false;
         }
-        return false;
+        return true;
     }
 
-    *//**
+    /**
      * 校验昵称唯一性
      *
      * @param nickname
      * @return
-     *//*
+     */
     public Boolean checkNickname(String nickname) {
-        if (!registerMapper.checkNickname(nickname)) {
-            return true;
+        if (registerMapper.checkNickname(nickname)) {
+            return false;
         }
-        return false;
-    }*/
+        return true;
+    }
+
 }
