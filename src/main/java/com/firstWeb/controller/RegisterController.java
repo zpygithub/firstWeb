@@ -4,7 +4,9 @@ import com.firstWeb.bean.param.RegisterParam;
 import com.firstWeb.bean.request.RegisterReqModel;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constants.ResultCode;
+import com.firstWeb.exception.CommonException;
 import com.firstWeb.service.RegisterService;
+import com.firstWeb.utils.BasicDateValidateUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,15 +45,21 @@ public class RegisterController {
      */
     @PutMapping(value = "/mainRegister")
     @ResponseBody
-    public ResultEntity<String> mainRegister(RegisterReqModel model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public ResultEntity<String> mainRegister(RegisterReqModel model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, NoSuchAlgorithmException, CommonException {
         LOGGER.info("mainRegister: begin");
         ResultEntity<String> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
-        //TODO 参数都不能为空，账号6-20位、昵称2-8位、密码6-20位
-        if (StringUtils.isEmpty(model.getAccount()) || StringUtils.isEmpty(model.getNickname()) || StringUtils.isEmpty(model.getPasswd()) || StringUtils.isEmpty(model.getConfirmPasswd())) {
-            result.setCode(ResultCode.PARAMCANNOTBENULL);
-            return result;
-        }
+
+        BasicDateValidateUtil.validateIsEmpty(model.getAccount());
+        BasicDateValidateUtil.validateIsEmpty(model.getNickname());
+        BasicDateValidateUtil.validateIsEmpty(model.getPasswd());
+        BasicDateValidateUtil.validateIsEmpty(model.getConfirmPasswd());
+
+        //账号6-20位、昵称2-8位、密码6-20位
+        BasicDateValidateUtil.validateIsAccount(model.getAccount());
+        BasicDateValidateUtil.validateIsNickname(model.getNickname());
+        BasicDateValidateUtil.validateIsPasswd(model.getPasswd());
+
         if (!model.getPasswd().equals(model.getConfirmPasswd())) {
             result.setCode(ResultCode.PASSWDCANNOTBRDIFFRENT);
             return result;
