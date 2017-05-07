@@ -7,10 +7,10 @@ public class RegisterParam {
     private String id;
     private String account;
     private String nickname;
-    private String passwd;
+    private transient String passwd;
     private String telephone;
     private String email;
-    private String salt;
+    private transient String salt;
 
     public String getId() {
         return id;

@@ -40,7 +40,6 @@ $(document).ready(function () {
             data: data,
             success: function (data) {
                 if (data.code == "00000") {
-                    alert("chenggpng");
                     window.location.href = "index.html";
                     return;
                 } else if (data.code == "00016") {

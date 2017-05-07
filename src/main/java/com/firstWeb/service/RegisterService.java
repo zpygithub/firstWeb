@@ -6,6 +6,8 @@ import com.firstWeb.utils.Md5SaltUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
@@ -22,6 +24,7 @@ public class RegisterService {
     @Autowired
     private RegisterMapper registerMapper;
 
+    @Transactional(propagation = Propagation.REQUIRED)
     public void mainRegister(RegisterParam registerParam) throws UnsupportedEncodingException, NoSuchAlgorithmException {
         //生成随机salt
         char[] chars = "0123456789abcdefghijklmnopqrwtuvzxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();

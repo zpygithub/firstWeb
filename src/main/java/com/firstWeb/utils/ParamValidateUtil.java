@@ -13,17 +13,17 @@ public class ParamValidateUtil {
     /**
      * 账号正则（字母+数字）
      */
-    private static final String IS_ACCOUNT = "^[0-9a-zA-Z]{6,20}";
+    private static final String IS_ACCOUNT = "[0-9a-zA-Z]{6,20}";
 
     /**
      * 昵称正则（任意字符）
      */
-    private static final String IS_NICKNAME = "^.{2,8}$";
+    private static final String IS_NICKNAME = ".{2,8}";
 
     /**
      * 密码正则（字母+数字+特殊字符）
      */
-    private static final String IS_PASSWD = "^[0-9a-zA-Z`~!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?\\s]{6,20}";
+    private static final String IS_PASSWD = "[0-9a-zA-Z`~!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?]{6,20}";
 
     /**
      * 判断是否为空

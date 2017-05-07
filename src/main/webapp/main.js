@@ -1,6 +1,3 @@
-/**
- * Created by zpy on 2017/3/30.
- */
 "use strict";
 require.config({
     "baseUrl": "./",
