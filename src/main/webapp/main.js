@@ -6,19 +6,29 @@ require.config({
         "can": "lib/can", //桩路径
         "app": "app",
         "bootstrap": "lib/bootstrap",
-        "jquery": "lib/jquery",
+        "jquery": "lib/jquery/jquery-3.1.1.min",
+        "log": "lib/log/log"
     },
     "shim": {
         "bootstrap/bootstrap.min": {
             "exports": "bootstrap",
-            "deps": [""]
+            "deps": ["lib/jquery"]
         },
         "angular": {
-            "deps": [""]
+            "deps": ["lib/angular"]
+        },
+        "log":{
+            "deps": ['jquery'],
+            "exports": "log11111"
         }
     }
 });
 
+require(['jquery','log'], function ($,log) {
+    log.writeLog('测试测试！！！');
+});
+
+/*
 require([
         "app/framework/framework",
         "app/services/httpService"],
@@ -84,3 +94,4 @@ require([
             return "";
         }
     })
+*/

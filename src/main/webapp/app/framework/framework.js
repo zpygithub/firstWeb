@@ -1,4 +1,4 @@
-define(["./controllers/menusCtrl", "./configures/frameworkConfig"], function (menusCtrl, frameworkConfig) {
+define(["controllers/menusCtrl", "configures/frameworkConfig"], function (menusCtrl, frameworkConfig) {
     "use strict";
     var dependency = [
         "frameworkConfig.name",
