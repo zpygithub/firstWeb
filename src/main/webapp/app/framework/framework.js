@@ -1,8 +1,10 @@
-define(["controllers/menusCtrl", "configures/frameworkConfig"], function (menusCtrl, frameworkConfig) {
+define(["app/framework/controllers/menusCtrl", "app/framework/configures/frameworkConfig"], function (menusCtrl, frameworkConfig) {
     "use strict";
     var dependency = [
         "frameworkConfig.name",
     ];
+    console.log(1);
+
     var framework = angular.module("framework", dependency);
 
     framework.controller("menusCtrl", menusCtrl);

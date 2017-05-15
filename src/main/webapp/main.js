@@ -7,28 +7,20 @@ require.config({
         "app": "app",
         "bootstrap": "lib/bootstrap",
         "jquery": "lib/jquery/jquery-3.1.1.min",
-        "log": "lib/log/log"
+        "angular": "lib/angular"
     },
     "shim": {
         "bootstrap/bootstrap.min": {
-            "exports": "bootstrap",
-            "deps": ["lib/jquery"]
+            "deps": ["jquery"],
+            "exports": "bootstrap"
         },
         "angular": {
-            "deps": ["lib/angular"]
+            "deps": ["angular"],
+            "exports": "angular"
         },
-        "log":{
-            "deps": ['jquery'],
-            "exports": "log11111"
-        }
     }
 });
 
-require(['jquery','log'], function ($,log) {
-    log.writeLog('测试测试！！！');
-});
-
-/*
 require([
         "app/framework/framework",
         "app/services/httpService"],
@@ -94,4 +86,3 @@ require([
             return "";
         }
     })
-*/
