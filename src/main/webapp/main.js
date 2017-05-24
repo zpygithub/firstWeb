@@ -7,7 +7,7 @@ require.config({
         "app": "app",
         "bootstrap": "lib/bootstrap",
         "jquery": "lib/jquery/jquery-3.1.1.min",
-        "angular": "lib/angular/angular-ui-router"
+        "angular": "lib/angular/angular"
     },
     "shim": {
         "bootstrap/bootstrap.min": {
@@ -22,8 +22,8 @@ require.config({
 });
 
 require([
-
-        "app/services/httpService", "app/framework/framework"],
+        "app/framework/framework",
+        "app/services/httpService"],
     function (app, httpService) {
         var rootScope;
         var state;

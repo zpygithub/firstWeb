@@ -16,10 +16,12 @@ public class LoginService {
     private LoginMapper loginMapper;
 
     public String getSaltByAccount(String account) {
-        return (loginMapper.getSaltByAccount(account));
+        String salt = loginMapper.getSaltByAccount(account);
+        return salt;
     }
 
     public String getPasswdByAccount(String account) {
-        return (loginMapper.getPasswdByAccount(account));
+        String passwd = loginMapper.getPasswdByAccount(account);
+        return passwd;
     }
 }
