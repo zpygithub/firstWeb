@@ -1,6 +1,6 @@
 package com.firstWeb.service;
 
-import com.firstWeb.bean.model.ResourceMenu;
+import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.mapper.SystemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,18 +21,15 @@ public class SystemService {
     @Autowired
     private SystemMapper systemMapper;
 
-    public List<ResourceMenu> getResourceMenusById(long id) {
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("type", "0");
-        List<ResourceMenu> list = systemMapper.getResourceMenusById(map);
-
+    public List<MainMenu> getMainMenusByType(int type) {
+        List<MainMenu> list = systemMapper.getMainMenusByType(type);
         return createMenuTree(list);
     }
 
-    private List<ResourceMenu> createMenuTree(List<ResourceMenu> list) {
-        List<ResourceMenu> menus = new ArrayList<ResourceMenu>();
+    private List<MainMenu> createMenuTree(List<MainMenu> list) {
+        List<MainMenu> menus = new ArrayList<MainMenu>();
         if (null != list && list.size() > 0) {
-            for (ResourceMenu rm : list) {
+            for (MainMenu rm : list) {
                 if (rm.getParentId() == 0) {
                     menus.add(rm);
 //                    creatMenuTree(rm, list);

@@ -1,6 +1,6 @@
 package com.firstWeb.controller;
 
-import com.firstWeb.bean.model.ResourceMenu;
+import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.model.Token;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.service.SystemService;
@@ -19,11 +19,10 @@ public class SystemController extends BaseController {
     @Autowired
     private SystemService systemService;
 
-    public ResultEntity<List<ResourceMenu>> getResourceMenusById(@PathVariable String type, HttpServletRequest request, HttpServletResponse response) {
-        ResultEntity<List<ResourceMenu>> result = new ResultEntity<>();
-        Token token = getToken(request);
-        List<ResourceMenu> list = null;
-        list = systemService.getResourceMenusById(token.getId());
+    public ResultEntity<List<MainMenu>> getMainMenusByType(@PathVariable int type, HttpServletRequest request, HttpServletResponse response) {
+        ResultEntity<List<MainMenu>> result = new ResultEntity<>();
+//        Token token = getToken(request);
+        List<MainMenu> list = systemService.getMainMenusByType(type);
         result.setValue(list);
         return result;
     }

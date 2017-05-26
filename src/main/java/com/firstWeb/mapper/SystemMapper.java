@@ -1,6 +1,6 @@
 package com.firstWeb.mapper;
 
-import com.firstWeb.bean.model.ResourceMenu;
+import com.firstWeb.bean.model.MainMenu;
 
 import java.util.List;
 import java.util.Map;
@@ -10,6 +10,6 @@ import java.util.Map;
  */
 public interface SystemMapper {
 
-    List<ResourceMenu> getResourceMenusById(Map map);
+    List<MainMenu> getMainMenusByType(int type);
 
 }

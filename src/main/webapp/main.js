@@ -5,39 +5,44 @@ require.config({
     "paths": {
         "can": "lib/can", //桩路径
         "app": "app",
-        "bootstrap": "lib/bootstrap",
+        "ui-router": "lib/angular/angular-ui-router",
+        "bootstrap": "lib/bootstrap/bootstrap3.3.7.min",
         "jquery": "lib/jquery/jquery-3.1.1.min",
-        "angular": "lib/angular/angular"
+        "angular": "lib/angular/angular",
+        "i18n": "i18n"
     },
     "shim": {
-        "bootstrap/bootstrap.min": {
+        "bootstrap": {
             "deps": ["jquery"],
-            "exports": "bootstrap"
+            // "exports": "bootstrap"
         },
         "angular": {
             "deps": ["angular"],
-            "exports": "angular"
+            // "exports": "angular"
+        },
+        "ui-router": {
+            "deps": ["angular"]
         },
     }
 });
 
-require([
-        "app/framework/framework",
+require(["app/framework/framework",
+        "i18n/keyId",
         "app/services/httpService"],
-    function (app, httpService) {
+    function (framework, i18n, httpService) {
         var rootScope;
         var state;
-
+        console.log("main.js进来了");
         $.ajax({
             type: 'get',
             url: 'account/info',
             async: false,
             success: function (data) {
                 if (data.code === "00000") {
-                    var injector = angular.bootstrap($("html"), [app.name]);
+                    var injector = angular.bootstrap($("html"), [framework.name]);
                     rootScope = injector.get("$rootScope");
                     state = injector.get("state");
-
+                    rootScope.i18n = i18n;
                     rootScope.account = data.value;
                 } else {
                     window.location.href = "login.html";
@@ -55,8 +60,8 @@ require([
             async: false,
             success: function (data) {
                 if (data.code === "00000") {
-                    var resources = data.value;
-                    resources.unshift({
+                    var mainMenus = data.value;
+                    mainMenus.unshift({
                         createTime: new Date(),
                         id: 100,
                         parentId: 0,
@@ -64,10 +69,10 @@ require([
                         uri: "home"
                     });
 
-                    rootScope.resources = resources;
+                    rootScope.mainMenus = mainMenus;
                 } else {
                     window.location.href = "login.html";
-                    console.log("fail to get resources");
+                    console.log("fail to get mainMenus");
                 }
             },
             error: function (data) {
@@ -76,12 +81,12 @@ require([
             }
         });
 
-        function showFirstUri(resourceArray) {
-            if (resourceArray[0].uri) {
-                return resourceArray[0].uri;
+        function showFirstUri(menuArray) {
+            if (menuArray[0].uri) {
+                return menuArray[0].uri;
             }
-            if (resourceArray[0].children) {
-                return showFirstUri(resourceArray[0].children);
+            if (menuArray[0].children) {
+                return showFirstUri(menuArray[0].children);
             }
             return "";
         }
