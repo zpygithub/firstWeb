@@ -5,7 +5,6 @@ package com.firstWeb.bean.model;
  */
 public class Token {
     private long id;
-
     private String token;
 
     public long getId() {

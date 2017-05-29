@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//com.map.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.firstWeb.mapper.UserMapper">
-    <resultMap id="userMap" type="com.firstWeb.bean.model.User">
+<mapper namespace="com.firstWeb.mapper.AdministratorMapper">
+    <resultMap id="administratorMap" type="com.firstWeb.bean.model.Administrator">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
         <result property="nickname" column="nickname"/>
@@ -12,13 +12,12 @@
         <result property="email" column="email"/>
         <result property="status" column="status"/>
         <result property="salt" column="salt"/>
+        <collection property="menus" select="com.firstWeb.mapper.SystemMapper.getMainMenus"
+                    ofType="com.firstWeb.bean.model.MainMenu"></collection>
     </resultMap>
 
-    <select id="selectUserById" parameterType="String" resultMap="userMap">
-        SELECT * FROM tb_user WHERE id = #{id} AND status != -1
+    <select id="getAdministratorById" parameterType="long" resultMap="administratorMap">
+        SELECT * FROM tb_administrator WHERE id=#{id} AND status != -1
     </select>
 
-    <select id="selectUserByConditions" parameterType="String" resultMap="userMap">
-        SELECT * FROM tb_user WHERE email LIKE '%${value}%'
-    </select>
 </mapper>

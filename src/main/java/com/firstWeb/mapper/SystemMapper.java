@@ -10,6 +10,6 @@ import java.util.Map;
  */
 public interface SystemMapper {
 
-    List<MainMenu> getMainMenusByType(int type);
+    List<MainMenu> getMainMenus();
 
 }

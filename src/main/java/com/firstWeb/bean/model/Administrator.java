@@ -1,17 +1,20 @@
 package com.firstWeb.bean.model;
 
+import java.util.List;
+
 /**
- * Created by zpy on 2017/2/5.
+ * Created by zpy on 2017/5/28.
  */
-public class User {
+public class Administrator {
     private String id;
     private String account;
-    private String nickname;
     private transient String password;
+    private String nickname;
     private String telephone;
     private String email;
     private String status;
     private transient String salt;
+    private List<MainMenu> menus;
 
     public String getId() {
         return id;
@@ -29,20 +32,20 @@ public class User {
         this.account = account;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getTelephone() {
@@ -75,5 +78,13 @@ public class User {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public List<MainMenu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(List<MainMenu> menus) {
+        this.menus = menus;
     }
 }

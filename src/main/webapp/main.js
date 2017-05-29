@@ -35,7 +35,7 @@ require(["app/framework/framework",
         console.log("main.js进来了");
         $.ajax({
             type: 'get',
-            url: 'account/info',
+            url: 'account/getAdministratorById',
             async: false,
             success: function (data) {
                 if (data.code === "00000") {
@@ -56,7 +56,7 @@ require(["app/framework/framework",
 
         $.ajax({
             type: 'get',
-            url: 'system/resource/menu/0',
+            url: 'system/getMainMenus',
             async: false,
             success: function (data) {
                 if (data.code === "00000") {

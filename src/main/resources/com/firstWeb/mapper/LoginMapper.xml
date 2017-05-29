@@ -5,10 +5,10 @@
 <mapper namespace="com.firstWeb.mapper.LoginMapper">
 
     <select id="getSaltByAccount" parameterType="string" resultType="String">
-        SELECT salt FROM tb_user WHERE account=#{account}
+        SELECT salt FROM tb_administrator WHERE account=#{account}
     </select>
 
     <select id="getPasswdByAccount" parameterType="string" resultType="String">
-        SELECT password FROM tb_user WHERE account=#{account}
+        SELECT password FROM tb_administrator WHERE account=#{account}
     </select>
 </mapper>

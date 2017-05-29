@@ -21,8 +21,8 @@ public class SystemService {
     @Autowired
     private SystemMapper systemMapper;
 
-    public List<MainMenu> getMainMenusByType(int type) {
-        List<MainMenu> list = systemMapper.getMainMenusByType(type);
+    public List<MainMenu> getMainMenus() {
+        List<MainMenu> list = systemMapper.getMainMenus();
         return createMenuTree(list);
     }
 

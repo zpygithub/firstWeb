@@ -13,14 +13,15 @@
         <result property="uri" column="uri"/>
     </resultMap>
 
-    <select id="getMainMenusByType" parameterType="int" resultMap="mainMenuMap">
+    <select id="getMainMenus" resultMap="mainMenuMap">
         SELECT * FROM tb_main_menu
         <where>
-            status = 0
-            <if test="type != null and type != ''">
+            status != -1
+            <!--<if test="type != null and type != ''">
                 AND type=#{type}
-            </if>
+            </if>-->
         </where>
         ORDER BY id ASC
     </select>
+
 </mapper>

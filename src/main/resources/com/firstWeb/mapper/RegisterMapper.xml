@@ -10,21 +10,21 @@
         <result property="password" column="password"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>
-        <result property="delFlag" column="delFlag"/>
+        <result property="status" column="status"/>
         <result property="salt" column="salt"/>
     </resultMap>-->
 
     <insert id="mainRegister" parameterType="com.firstWeb.bean.param.RegisterParam" useGeneratedKeys="true"
             keyProperty="id">
-        INSERT INTO tb_user(account, nickname, password, telephone, email, salt)
+        INSERT INTO tb_administrator(account, nickname, password, telephone, email, salt)
         VALUES (#{account}, #{nickname}, #{passwd}, #{telephone}, #{email}, #{salt})
     </insert>
 
     <select id="checkAccount" parameterType="string" resultType="boolean">
-        SELECT COUNT(id) FROM tb_user WHERE account=#{account}
+        SELECT COUNT(id) FROM tb_administrator WHERE account=#{account}
     </select>
 
     <select id="checkNickname" parameterType="string" resultType="boolean">
-        SELECT COUNT(id) FROM tb_user WHERE nickname=#{nickname}
+        SELECT COUNT(id) FROM tb_administrator WHERE nickname=#{nickname}
     </select>
 </mapper>
