@@ -8,4 +8,6 @@ import com.firstWeb.bean.model.Administrator;
 public interface AdministratorMapper {
 
     Administrator getAdministratorById(long id);
+
+    Administrator getAdministratorByAccount(String account);
 }

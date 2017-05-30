@@ -21,4 +21,9 @@ public class AdministratorService {
         return administrator;
     }
 
+    public Administrator getAdministratorByAccount(String account) {
+        Administrator administrator = administratorMapper.getAdministratorByAccount(account);
+        return administrator;
+    }
+
 }

@@ -25,12 +25,21 @@ public class SystemController extends BaseController {
 
     private static final Logger LOGGER = LogManager.getLogger(SystemController.class);
 
+    /**
+     * 获取菜单
+     *
+     * @param request
+     * @param response
+     * @return
+     */
     @GetMapping(value = "/getMainMenus")
     public ResultEntity<List<MainMenu>> getMainMenus(HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.info("getMainMenus: begin");
         ResultEntity<List<MainMenu>> result = new ResultEntity<>();
 //        Token token = getToken(request);
         List<MainMenu> list = systemService.getMainMenus();
         result.setValue(list);
+        LOGGER.info("getMainMenus: end");
         return result;
     }
 }

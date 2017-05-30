@@ -42,14 +42,14 @@ $(document).ready(function () {
                 if (data.code == "00000") {
                     window.location.href = "index.html";
                     return;
-                } else if (data.code == "00016") {
-                    generateErrorDiv("UserNotExists");
+                } else if (data.code == "00010") {
+                    alert("账号不存在");
                     $("#account").focus();
                 } else if (data.code == "00017") {
                     generateErrorDiv("AccountOrPasswordError");
                     $("#password").focus();
-                } else if (data.code == "00062") {
-                    generateErrorDiv("UserLock");
+                } else if (data.code == "00011") {
+                    alert("账号已被锁定");
                     $("#account").focus();
                 } else {
                     alert("AccountOrPasswordError");

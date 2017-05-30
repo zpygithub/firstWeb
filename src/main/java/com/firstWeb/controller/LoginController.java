@@ -1,10 +1,14 @@
 package com.firstWeb.controller;
 
+import com.firstWeb.bean.model.Administrator;
 import com.firstWeb.bean.model.Token;
 import com.firstWeb.bean.request.LoginReqModel;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constants.ResultCode;
+import com.firstWeb.exception.CommonException;
+import com.firstWeb.service.AdministratorService;
 import com.firstWeb.service.LoginService;
+import com.firstWeb.utils.BasicDateValidateUtil;
 import com.firstWeb.utils.Md5SaltUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,7 +33,12 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
+    @Autowired
+    private AdministratorService administratorService;
+
     private static final Logger LOGGER = LogManager.getLogger(LoginController.class);
+
+    private static final String ACCOUNTISLOCKED = "-1";
 
     /**
      * 用户登录
@@ -43,10 +52,23 @@ public class LoginController {
      */
     @PostMapping(value = "/mainLogin")
     @ResponseBody
-    public ResultEntity<Token> mainLogin(LoginReqModel model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+    public ResultEntity<Token> mainLogin(LoginReqModel model, HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, NoSuchAlgorithmException, CommonException {
         LOGGER.info("mainLogin: begin");
         ResultEntity<Token> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
+
+        BasicDateValidateUtil.validateIsEmpty(model.getAccount());
+
+        Administrator administrator = administratorService.getAdministratorByAccount(model.getAccount());
+        if (null == administrator) {
+            result.setCode(ResultCode.ACCOUNTISNOTEXISTENCE);
+            return result;
+        }
+        if (ACCOUNTISLOCKED.equals(administrator.getStatus())) {
+            result.setCode(ResultCode.ACCOUNTISLOCKED);
+            return result;
+        }
+
         String salt = loginService.getSaltByAccount(model.getAccount());
         String passwdInDb = loginService.getPasswdByAccount(model.getAccount());
         if (Md5SaltUtil.validPasswd(model.getAccount() + model.getPasswd() + salt, passwdInDb)) {

@@ -20,11 +20,11 @@
         VALUES (#{account}, #{nickname}, #{passwd}, #{telephone}, #{email}, #{salt})
     </insert>
 
-    <select id="checkAccount" parameterType="string" resultType="boolean">
+    <select id="checkAccount" parameterType="String" resultType="boolean">
         SELECT COUNT(id) FROM tb_administrator WHERE account=#{account}
     </select>
 
-    <select id="checkNickname" parameterType="string" resultType="boolean">
+    <select id="checkNickname" parameterType="String" resultType="boolean">
         SELECT COUNT(id) FROM tb_administrator WHERE nickname=#{nickname}
     </select>
 </mapper>

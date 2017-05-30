@@ -6,7 +6,6 @@
     <resultMap id="mainMenuMap" type="com.firstWeb.bean.model.MainMenu">
         <result property="id" column="id"/>
         <result property="menuName" column="menuName"/>
-        <result property="type" column="type"/>
         <result property="parentId" column="parentId"/>
         <result property="status" column="status"/>
         <result property="createTime" column="createTime"/>

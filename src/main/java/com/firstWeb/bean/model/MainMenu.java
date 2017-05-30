@@ -8,7 +8,6 @@ import java.util.Date;
 public class MainMenu {
     private long id;
     private String menuName;
-    private int type;
     private long parentId;
     private int status;
     private Date createTime;
@@ -28,14 +27,6 @@ public class MainMenu {
 
     public void setMenuName(String menuName) {
         this.menuName = menuName;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 
     public long getParentId() {

@@ -44,4 +44,12 @@ public interface ResultCode {
      * 密码格式错误
      */
     String PASSWDFORMATEXCEPTION = "00009";
+    /**
+     * 账号不存在
+     */
+    String ACCOUNTISNOTEXISTENCE = "00010";
+    /**
+     * 账号已被锁
+     */
+    String ACCOUNTISLOCKED = "00011";
 }
