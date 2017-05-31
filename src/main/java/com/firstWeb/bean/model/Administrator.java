@@ -14,7 +14,6 @@ public class Administrator {
     private String email;
     private String status;
     private transient String salt;
-    private List<MainMenu> menus;
 
     public String getId() {
         return id;
@@ -80,11 +79,4 @@ public class Administrator {
         this.salt = salt;
     }
 
-    public List<MainMenu> getMenus() {
-        return menus;
-    }
-
-    public void setMenus(List<MainMenu> menus) {
-        this.menus = menus;
-    }
 }

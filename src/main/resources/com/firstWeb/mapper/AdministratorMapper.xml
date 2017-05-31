@@ -12,8 +12,6 @@
         <result property="email" column="email"/>
         <result property="status" column="status"/>
         <result property="salt" column="salt"/>
-        <!--<collection property="menus" select="getMainMenus"
-                    ofType="com.firstWeb.bean.model.MainMenu"></collection>-->
     </resultMap>
 
     <select id="getAdministratorById" parameterType="long" resultMap="administratorMap">

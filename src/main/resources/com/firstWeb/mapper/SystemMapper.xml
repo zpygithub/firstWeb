@@ -13,14 +13,7 @@
     </resultMap>
 
     <select id="getMainMenus" resultMap="mainMenuMap">
-        SELECT * FROM tb_main_menu
-        <where>
-            status != -1
-            <!--<if test="type != null and type != ''">
-                AND type=#{type}
-            </if>-->
-        </where>
-        ORDER BY id ASC
+        SELECT * FROM tb_main_menu WHERE status != -1 ORDER BY id ASC
     </select>
 
 </mapper>
