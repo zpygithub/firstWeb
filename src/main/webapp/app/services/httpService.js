@@ -22,18 +22,18 @@ define(['i18n/keyId'], function (i18n) {
             if ($('#console_frame_for_bidden_confirm').length === 0) {
                 var options = {
                     type: "error",
-                    content: i18n.console_term_errorForbidden_msg,
+                    content: i18n.term_errorForbidden_msg,
                     width: "550px",
                     modal: true,
                     "append-to": "body",
-                    close: function (evt) {
+                    close: function () {
                         window.location.href = homeLocation;
                     },
                     buttons: [{
                         key: "console_frame_forbidden_confirm",
-                        label: i18n.console_frame_forbidden_confirm,
+                        label: i18n.term_errorForbidden_msg,
                         focused: true,
-                        handler: function (event) {
+                        handler: function () {
                             msg.destroy();
                             window.location.href = homeLocation;
                         }

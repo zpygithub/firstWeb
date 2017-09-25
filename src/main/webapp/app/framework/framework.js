@@ -1,6 +1,6 @@
-define(["../services/httpService",
-        "./controllers/menusCtrl",
-        "./configures/frameworkConfig"],
+define(["app/services/httpService",
+        "app/framework/controllers/menusCtrl",
+        "app/framework/configures/frameworkConfig"],
     function (http, menusCtrl, frameworkConfig) {
         "use strict";
         var dependency = [

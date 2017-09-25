@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head ng-controller="serviceCtrl">
         <meta charset="UTF-8">
         <title>FirstWeb</title>
-        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap3.3.7.min.css"/>
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap3.3.7.css"/>
+        <link rel="stylesheet" type= "text/css" href="lib/bootstrap/bootstrap_fileinput4.4.4.css" />
     </head>
-    <body ng-app="AppCtrl">
+    <body>
         <div id="service-menus" ng-include="menus.url"></div>
         <div id="service-content">
             <div ui-view ng-animate="{enter:'fade-enter'}"></div>
@@ -14,7 +15,9 @@
         <script type="text/javascript" src="lib/require.js" data-main="main.js"></script>
         <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="lib/angular/angular-ui-router.js"></script>
-        <script type="text/javascript" src="lib/bootstrap/bootstrap3.3.7.min.js"></script>
-        <!--<script type="text/javascript" src="main.js"></script>-->
+        <script type="text/javascript" src="lib/bootstrap/bootstrap3.3.7.js"></script>
+        <script type="text/javascript" src="lib/bootstrap/bootstrap_fileinput4.4.4.js"></script>
+        <!--<script type="text/javascript" src="lib/bootstrap/bootstrap_fileinput_locale_zh4.4.4.js"></script>-->
+        <h1>123</h1>
     </body>
 </html>

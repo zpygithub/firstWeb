@@ -41,16 +41,16 @@ public class AdministratorController extends BaseController {
         LOGGER.info("getAdministratorById: begin");
         ResultEntity<Administrator> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
-        Token token = getToken(request);
-        if (null != token) {
-            long id = token.getId();
-            Administrator administrator = administratorService.getAdministratorById(id);
+//        Token token = getToken(request);
+//        if (null != token) {
+//            long id = token.getId();
+            Administrator administrator = administratorService.getAdministratorById(1);
             if (null == administrator) {
                 throw new CommonException(ResultCode.ACCOUNTISNOTEXISTENCE, "the administrator not exist.");
             }
             result.setValue(administrator);
             result.setCode(ResultCode.SUCCESS);
-        }
+//        }
         LOGGER.info("getAdministratorById: end");
         return result;
     }

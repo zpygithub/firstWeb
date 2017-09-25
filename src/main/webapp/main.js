@@ -5,20 +5,16 @@ require.config({
     "paths": {
         "can": "lib/can", //桩路径
         "app": "app",
-        "ui-router": "lib/angular/angular-ui-router",
-        "bootstrap": "lib/bootstrap/bootstrap3.3.7.min",
-        "jquery": "lib/jquery/jquery-3.1.1.min",
         "angular": "lib/angular/angular",
-        "i18n": "i18n"
+        "ui-router": "lib/angular/angular-ui-router",
+        "file-input": "lib/bootstrap/bootstrap_fileinput4.4.4",
+        "bootstrap": "lib/bootstrap/bootstrap3.3.7",
+        "jquery": "lib/jquery/jquery-3.1.1.min",
+        "i18n": "i18n/zh"
     },
     "shim": {
         "bootstrap": {
             "deps": ["jquery"],
-            // "exports": "bootstrap"
-        },
-        "angular": {
-            "deps": ["angular"],
-            // "exports": "angular"
         },
         "ui-router": {
             "deps": ["angular"]
@@ -26,30 +22,27 @@ require.config({
     }
 });
 
-require(["app/framework/framework",
-        "i18n/keyId",
-        "app/services/httpService"],
-    function (framework, i18n, httpService) {
+require(["app/framework/framework", "i18n/keyId", "angular"],
+    function (framework, i18n, angular) {
         var rootScope;
         var state;
-        console.log("main.js进来了");
         $.ajax({
             type: 'get',
             url: 'account/getAdministratorById',
             async: false,
             success: function (data) {
+                console.log(data);
                 if (data.code === "00000") {
                     var injector = angular.bootstrap($("html"), [framework.name]);
                     rootScope = injector.get("$rootScope");
-                    state = injector.get("state");
+                    // state = injector.get("state");
                     rootScope.i18n = i18n;
                     rootScope.account = data.value;
                 } else {
-                    window.location.href = "login.html";
+                    // window.location.href = "login.html";
                 }
             },
             error: function (data) {
-                console.log(data);
                 window.location.href = "login.html";
             }
         });
@@ -61,6 +54,7 @@ require(["app/framework/framework",
             success: function (data) {
                 if (data.code === "00000") {
                     var mainMenus = data.value;
+                    console.log(mainMenus);
                     mainMenus.unshift({
                         createTime: new Date(),
                         id: 100,
@@ -71,8 +65,8 @@ require(["app/framework/framework",
 
                     rootScope.mainMenus = mainMenus;
                 } else {
-                    window.location.href = "login.html";
-                    console.log("fail to get mainMenus");
+                    // window.location.href = "login.html";
+                    // alert("fail to get mainMenus");
                 }
             },
             error: function (data) {

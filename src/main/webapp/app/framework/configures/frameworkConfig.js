@@ -1,8 +1,9 @@
 define(["ui-router"], function (router) {
     "use strict";
+    console.log(router);
     var serviceConfigs = ["$stateProvider", "$urlRouterProvider", "controllerProvider", function ($stateProvider, $urlRouterProvider, $controllerProvider) {
+
         $urlRouterProvider.otherwise("/home");
-        console.log(1);
         $stateProvider.state("home", {
             url: "/home",
             templateUrl: "app/framework/views/home.html",

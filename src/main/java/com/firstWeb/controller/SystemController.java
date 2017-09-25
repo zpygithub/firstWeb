@@ -3,6 +3,7 @@ package com.firstWeb.controller;
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.model.Token;
 import com.firstWeb.common.ResultEntity;
+import com.firstWeb.constants.ResultCode;
 import com.firstWeb.service.SystemService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,9 +37,11 @@ public class SystemController extends BaseController {
     public ResultEntity<List<MainMenu>> getMainMenus(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("getMainMenus: begin");
         ResultEntity<List<MainMenu>> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
 //        Token token = getToken(request);
         List<MainMenu> list = systemService.getMainMenus();
         result.setValue(list);
+        result.setCode(ResultCode.SUCCESS);
         LOGGER.info("getMainMenus: end");
         return result;
     }
