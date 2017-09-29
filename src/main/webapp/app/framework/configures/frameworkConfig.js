@@ -1,7 +1,8 @@
-define(["ui-router"], function (router) {
+define(["angular", "ui-router"], function (angular, router) {
     "use strict";
     console.log(router);
-    var serviceConfigs = ["$stateProvider", "$urlRouterProvider", "controllerProvider", function ($stateProvider, $urlRouterProvider, $controllerProvider) {
+    var serviceConfigs = ["$stateProvider", "$urlRouterProvider", "controllerProvider", 
+        function ($stateProvider, $urlRouterProvider, $controllerProvider) {
 
         $urlRouterProvider.otherwise("/home");
         $stateProvider.state("home", {
@@ -11,7 +12,7 @@ define(["ui-router"], function (router) {
             resolve: {
                 deps: function ($q, $rootScope) {
                     var deferred = $q.defer();
-                    var dependencies = ["app/framework/controllers/homeCtrl"];
+                    var dependencies = ["app/framework/controllers/homeCtrl.js"];
                     require(dependencies, function (ctrl) {
                         $rootScope.$apply(function () {
                             $controllerProvider.register("home.ctrl", ctrl);
