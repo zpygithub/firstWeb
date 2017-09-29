@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head ng-controller="serviceCtrl">
+    <head>
         <title>FirstWeb</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
         <link rel="stylesheet" type= "text/css" href="lib/bootstrap/bootstrap_fileinput4.4.4.css" />
     </head>
     <body>
-        <div id="service-menus" ng-include="menus.url" class="container-fluid"></div>
+        <div id="service-menus"  ng-controller="serviceCtrl" ng-include="menus.url" class="container-fluid"></div>
         <div id="service-content">
             <div ui-view ng-animate="{enter:'fade-enter'}"></div>
         </div>
