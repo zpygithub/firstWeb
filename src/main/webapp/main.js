@@ -13,6 +13,9 @@ require.config({
         "i18n": "i18n/zh"
     },
     "shim": {
+        "angular": {
+            "deps": ["jquery"],
+        },
         "bootstrap": {
             "deps": ["jquery"],
         },
