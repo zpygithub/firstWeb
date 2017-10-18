@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-controller="serviceCtrl">
     <head>
         <title>FirstWeb</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -9,16 +9,17 @@
         <link rel="stylesheet" type= "text/css" href="lib/bootstrap/bootstrap_fileinput4.4.4.css" />
     </head>
     <body>
-        <div id="service-menus"  ng-controller="serviceCtrl" ng-include="menus.url" class="container-fluid"></div>
+        <div id="service-menus" ng-include="menus.url" class="container-fluid"></div>
         <div id="service-content">
             <div ui-view ng-animate="{enter:'fade-enter'}"></div>
         </div>
-        <div id="service-footer" ng-include="footer.url"></div>
+        <div id="service-footer" ng-include="footer.url" class="container-fluid"></div>
         <script type="text/javascript" src="lib/require.js" data-main="main"></script>
-        <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="lib/angular/angular-ui-router.js"></script>
-        <script type="text/javascript" src="lib/bootstrap/bootstrap3.3.7.js"></script>
-        <script type="text/javascript" src="lib/bootstrap/bootstrap_fileinput4.4.4.js"></script>
+        <script type="text/javascript" src="lib/angular/angular.js"></script>
+        <!--<script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>-->
+        <!--<script type="text/javascript" src="lib/angular/angular-ui-router.js"></script>-->
+        <!--<script type="text/javascript" src="lib/bootstrap/bootstrap3.3.7.js"></script>-->
+        <!--<script type="text/javascript" src="lib/bootstrap/bootstrap_fileinput4.4.4.js"></script>-->
         <!--<script type="text/javascript" src="lib/bootstrap/bootstrap_fileinput_locale_zh4.4.4.js"></script>-->
         <h1>123</h1>
     </body>
