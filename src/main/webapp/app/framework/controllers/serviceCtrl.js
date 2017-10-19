@@ -57,7 +57,7 @@ define(['i18n/keyId'], function (i18n) {
             }
 
             $rootScope.addOrReplaceUrlParam = function (href, key, value) {
-                if(!href || !key) {
+                if (!href || !key) {
                     return href;
                 }
                 var hrefs = href.split("#/");
@@ -101,8 +101,9 @@ define(['i18n/keyId'], function (i18n) {
             $rootScope.delUrlParam = function (url, name) {
                 return url.replace(new RegExp("[?&]" + name + "=[^&#]*(#.*)?$"), "$1")
                     .replace(new RegExp("[?&]" + name + "=[^&]*&"), "$1");
+            };
         };
-    };
-    ctrl.$injector = ["$rootScope", "$state", "$stateParams", "servicePlugin", "frameworkService"];
-    return ctrl;
+        ctrl.$injector = ["$rootScope", "$state", "$stateParams", "servicePlugin", "frameworkService"];
+        return ctrl;
+    }
 });
