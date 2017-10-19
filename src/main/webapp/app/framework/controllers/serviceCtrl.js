@@ -57,6 +57,9 @@ define(['i18n/keyId'], function (i18n) {
             }
 
             $rootScope.addOrReplaceUrlParam = function (href, key, value) {
+                if(!href || !key) {
+                    return href;
+                }
                 var hrefs = href.split("#/");
                 var hrefPostfix = "";
                 if (hrefs.length > 1) {
@@ -89,16 +92,15 @@ define(['i18n/keyId'], function (i18n) {
                         return $rootScope.userId;
                     } else if (paramKey === "region") {
                         return encodeURIComponent($rootScope.projectName || "");
-                    } else {
-                        return null;
                     }
+                } else {
+                    return null;
                 }
             };
 
             $rootScope.delUrlParam = function (url, name) {
                 return url.replace(new RegExp("[?&]" + name + "=[^&#]*(#.*)?$"), "$1")
                     .replace(new RegExp("[?&]" + name + "=[^&]*&"), "$1");
-            };
         };
     };
     ctrl.$injector = ["$rootScope", "$state", "$stateParams", "servicePlugin", "frameworkService"];
