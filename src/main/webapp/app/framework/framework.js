@@ -17,11 +17,11 @@ define(["angular",
 
         var framework = angular.module("framework", dependency);
 
-        framework.service("camel", http);
-        framework.service("mask", mask);
-        framework.controller("homeCtrl", homeCtrl);
         framework.controller("menusCtrl", menusCtrl);
         framework.controller("serviceCtrl", serviceCtrl);
+        
+        framework.service("camel", http);
+        framework.service("mask", mask);
 
         framework.config(["$controllerProvider", "$compileProvider", function ($controllerProvider, $compileProvider) {
             framework.controllerProvider = $controllerProvider;
