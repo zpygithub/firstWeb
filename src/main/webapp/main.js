@@ -66,7 +66,7 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
                         resourceName: "首页",
                         uri: "home"
                     });
-                    // rootScope.mainMenus = mainMenus;
+                    rootScope.mainMenus = mainMenus;
                 } else {
                     window.location.href = "login.html";
                 }
