@@ -10,7 +10,7 @@ define(["angular", "ui-router"], function (angular, router) {
                 resolve: {
                     deps: function ($q, $rootScope) {
                         var deferred = $q.defer();
-                        var dependencies = ["app/framework/controllers/homeCtrl.js"];
+                        var dependencies = ["app/framework/controllers/homeCtrl"];
                         require(dependencies, function (ctrl) {
                             $rootScope.$apply(function () {
                                 $controllerProvider.register("home.ctrl", ctrl);
