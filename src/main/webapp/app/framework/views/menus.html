@@ -1,15 +1,55 @@
-<div style="min-width: 1280px; max-width: 1440px; margin: 58px auto 0; border:1px solid #F00">  
-    <div>  
-        <ul>  
-            <li>  
-                <a ui-sref="login">login</a>  
-            </li>  
-            <li>  
-                <a ui-sref="c1">c1</a>  
-            </li>  
-            <li>  
-                <a ui-sref="c2">c2</a>  
-            </li>  
-        </ul>  
-    </div>  
-</div> 
+<div id="main_menu_div" ng-controller="menusCtrl">
+    <div id="tiny-menu" style="margin: 0 auto; max-width: 1360px">
+        <ul>
+            <li>
+                <div id="mani_icon_div" class="margin-horizon-beautifier">
+                    <img src="images/product_logo2.png"></div>
+            </li>
+            <li>
+                <div id="mani_logo_div"><img src="./theme/default/images/product_name.png"></div>
+            </li>
+			<li ng-repeat="plugin in mainMenus">
+				<a ui-sref="{{plugin.children[0].children[0].uri || plugin.uri || ''}}">
+                    <h1>{{i18n[plugin.resourceName]||plugin.resourceName}}</h1>
+                </a>
+                <ul ng-repeat="subPlugin in plugin.children">
+                    <li><a ui-sref="{{subPlugin.children[0].uri}}" ><h2>{{i18n[subPlugin.resourceName] || subPlugin.resourceName}}</h2></a></li>
+                    <li ng-repeat="menu in subPlugin.children" ui-sref="{{menu.uri}}"><a>{{i18n[menu.resourceName] || menu.resourceName}}</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<style>
+    #vdc-select-meun.dropdown-menu > li > span {
+        text-align: left;
+        color: #fff;
+        line-height: 20px;
+        padding: 4px;
+        display: inline-block;
+        width: 100%;;
+    }
+
+    #vdc-select-meun.dropdown-menu > li > span:hover {
+        color: #1f90c8;
+    }
+
+    #main_menu_div {
+        background-color: #484a4b;
+        width:100%;
+        top:0px;
+        z-index: 10000;
+        position:fixed;
+    }
+
+    .alarm > div {
+        float:left;
+        margin-right: 10px;;
+    }
+
+    .alarm > div > span {
+        padding: 0 0px 0 18px;
+        color: #fff;
+    }
+</style>
