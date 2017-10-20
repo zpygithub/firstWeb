@@ -66,10 +66,6 @@ $(document).ready(function () {
     }
 });
 
-function getCpatchaCode() {
-    $("#captchaImg").attr("src", $("#captchaImgHidden").attr("value") + "?now=" + new Date());
-}
-
 function msieversion() {
     var ua = window.navigator.userAgent;
     var msie = ua.indexOf("MSIE ");
