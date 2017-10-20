@@ -43,16 +43,16 @@ $(document).ready(function () {
                     window.location.href = "index.html";
                     return;
                 } else if (data.code == "00010") {
-                    alert("账号不存在");
+                	generateErrorDiv("账号不存在");
                     $("#account").focus();
                 } else if (data.code == "00017") {
-                    generateErrorDiv("AccountOrPasswordError");
+                    generateErrorDiv("账号或密码错误");
                     $("#password").focus();
                 } else if (data.code == "00011") {
-                    alert("账号已被锁定");
+                	generateErrorDiv("账号已被锁定");
                     $("#account").focus();
                 } else {
-                    alert("AccountOrPasswordError");
+                	generateErrorDiv("账号或密码错误");
                     return;
                 }
             }
