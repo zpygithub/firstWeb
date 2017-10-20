@@ -86,17 +86,17 @@ function msieversion() {
 }
 
 function flushErrorBox() {
-    var message = $("status").attr("innerHTML");
+    var message = $("#status").attr("innerHTML");
     if ("undefined" != typeof message) {
         var newMessage = message.replace(/<[^>]*>/g, "");
-        $("status").attr("innerHTML", newMessage);
+        $("#status").attr("innerHTML", newMessage);
     }
     if ("undefined" != typeof newMessage) {
         if (newMessage.indexOf("~") != -1) {
             var messageArray = newMessage.split("~");
-            $("status").attr("innerHTML", messageArray[0]);
-            $("account").attr("value", messageArray[1]);
-            $("password").focus();
+            $("#status").attr("innerHTML", messageArray[0]);
+            $("#account").attr("value", messageArray[1]);
+            $("#password").focus();
         }
     }
 }
