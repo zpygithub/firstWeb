@@ -1,12 +1,5 @@
 $(document).ready(function () {
     msieversion();
-    $("#refresh").attr("innerHTML", "refresh");
-    $("#refresh").attr("title", "refreshTip");
-    $("#reset").attr("value", "cancelBtn");
-    $("#refresh").bind("click", function () {
-        getCpatchaCode();
-    });
-
     $("#register").bind("click", function () {
         window.location.href = "register.html";
     });
@@ -43,16 +36,16 @@ $(document).ready(function () {
                     window.location.href = "index.html";
                     return;
                 } else if (data.code == "00010") {
-                	generateErrorDiv("账号不存在");
+                	generateErrorDiv("accountNotExist");
                     $("#account").focus();
                 } else if (data.code == "00017") {
-                    generateErrorDiv("账号或密码错误");
+                    generateErrorDiv("accountOrPasswordError");
                     $("#password").focus();
                 } else if (data.code == "00011") {
-                	generateErrorDiv("账号已被锁定");
+                	generateErrorDiv("accountLocked");
                     $("#account").focus();
                 } else {
-                	generateErrorDiv("账号或密码错误");
+                	generateErrorDiv("accountOrPasswordError");
                     return;
                 }
             }
