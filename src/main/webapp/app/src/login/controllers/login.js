@@ -8,7 +8,7 @@ $(document).ready(function () {
         var account = $("#account").val();
         if ("" == account) {
             generateErrorDiv("requiredUsername");
-            $("#status").attr("innerHTML", "requiredUsername");
+            $("#status").attr("innerHTML", getLocaleMsg("requiredUsername"));
             $("#account").focus();
             return false;
         }
@@ -16,7 +16,7 @@ $(document).ready(function () {
         var password = $("#password").val();
         if ("" == password) {
             generateErrorDiv("requiredPassword");
-            $("#status").attr("innerHTML", "requiredPassword");
+            $("#status").attr("innerHTML", getLocaleMsg("requiredPassword"));
             $("#password").focus();
             return false;
         }
@@ -105,4 +105,9 @@ function generateErrorDiv(key) {
     var strDiv = "<div id=\"status\" class=\"errors\">" + key + "</div>";
     $("#errorId").attr("innerHTML", strDiv);
     flushErrorBox();
+}
+
+function getLocaleMsg(key)
+{
+    return msg[key] == undefined ? key : msg[key];
 }
