@@ -5,13 +5,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link type="image/x-icon" href="images/favicon.ico" rel="icon">
-    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap_fileinput4.4.4.css"/>
     <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="lib/bootstrap/bootstrap_fileinput4.4.4.js"></script>
-    <script type="text/javascript" src="lib/bootstrap/bootstrap_fileinput_locale_zh4.4.4.js"></script>
     <script type="text/javascript" src="app/src/login/controllers/login.js"></script>
     <script type="text/javascript">
-        function changeBorder(id) {
+    	document.write("<script type='text/javascript' src=\"i18n/zh/login_zh_CN.js \"><\/script>");
+    	function changeBorder(id) {
             $("#" + id).css("border", "1px solid #f9cfa5");
         }
         function backBorder(id) {
@@ -48,24 +46,6 @@
                     <input class="login-btn" id="register" type="button" value="注册"/>
                     <input class="login-btn" id="login" type="button" value="登录"/>
                 </div>
-
-
-                <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-                    <!--<div class="modal-dialog modal-lg" role="document">-->
-                        <!--<div class="modal-content">-->
-                            <!--<div class="modal-header">-->
-                                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-                                    <!--<span aria-hidden="true">×</span>-->
-                                <!--</button>-->
-                                <!--<h4 class="modal-title" id="myModalLabel">请选择Excel文件</h4>-->
-                            <!--</div>-->
-                            <!--<div class="modal-body">-->
-                                <!--<a href="~/Data/ExcelTemplate/Order.xlsx" class="form-control" style="border:none;">下载导入模板</a>-->
-                                <!--<input type="file" id="txt_file" multiple class="file-loading"/>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
 
             </form>
         </div>
