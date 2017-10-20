@@ -55,55 +55,54 @@ define(['i18n/keyId'], function (i18n) {
                 tmpHrefs[1] = tmpHrefs[1].replace("?", "&");
                 return tmpHrefs[0] + "&root_url=" + tmpHrefs[1];
             }
-
-            $rootScope.addOrReplaceUrlParam = function (href, key, value) {
-                if (!href || !key) {
-                    return href;
-                }
-                var hrefs = href.split("#/");
-                var hrefPostfix = "";
-                if (hrefs.length > 1) {
-                    hrefPostfix = "#/" + hrefs[1];
-                }
-                hrefs[0] = $rootScope.delUrlParam(hrefs[0], key);
-                if (value) {
-                    if (hrefs[0].indexOf("?") !== -1) {
-                        hrefs[0] = hrefs[0] + "&" + key + "=" + value;
-                    } else {
-                        hrefs[0] = hrefs[0] + "?" + key + "=" + value;
-                    }
-                }
-                return hrefs[0] + hrefPostfix;
-            };
-
-            $rootScope.getUrlParam = function (paramKey, scopeFlag) {
-                var pageUrl = window.location.search.substring(1);
-                if (pageUrl) {
-                    var urlVariables = pageUrl.split("&");
-                    for (var i = 0; i < urlVariables.length; i++) {
-                        var paramName = urlVariables[i].split("=");
-                        if (paramName[0] === paramKey) {
-                            return paramName[1];
-                        }
-                    }
-                }
-                if (scopeFlag) {
-                    if (paramKey === "agencyId") {
-                        return $rootScope.userId;
-                    } else if (paramKey === "region") {
-                        return encodeURIComponent($rootScope.projectName || "");
-                    }
-                } else {
-                    return null;
-                }
-            };
-
-            $rootScope.delUrlParam = function (url, name) {
-                return url.replace(new RegExp("[?&]" + name + "=[^&#]*(#.*)?$"), "$1")
-                    .replace(new RegExp("[?&]" + name + "=[^&]*&"), "$1");
-            };
         };
-        ctrl.$injector = ["$rootScope", "$state", "$stateParams", "servicePlugin", "frameworkService"];
-        return ctrl;
-    }
+        $rootScope.addOrReplaceUrlParam = function (href, key, value) {
+            if (!href || !key) {
+                return href;
+            }
+            var hrefs = href.split("#/");
+            var hrefPostfix = "";
+            if (hrefs.length > 1) {
+                hrefPostfix = "#/" + hrefs[1];
+            }
+            hrefs[0] = $rootScope.delUrlParam(hrefs[0], key);
+            if (value) {
+                if (hrefs[0].indexOf("?") !== -1) {
+                    hrefs[0] = hrefs[0] + "&" + key + "=" + value;
+                } else {
+                    hrefs[0] = hrefs[0] + "?" + key + "=" + value;
+                }
+            }
+            return hrefs[0] + hrefPostfix;
+        };
+
+        $rootScope.getUrlParam = function (paramKey, scopeFlag) {
+            var pageUrl = window.location.search.substring(1);
+            if (pageUrl) {
+                var urlVariables = pageUrl.split("&");
+                for (var i = 0; i < urlVariables.length; i++) {
+                    var paramName = urlVariables[i].split("=");
+                    if (paramName[0] === paramKey) {
+                        return paramName[1];
+                    }
+                }
+            }
+            if (scopeFlag) {
+                if (paramKey === "agencyId") {
+                    return $rootScope.userId;
+                } else if (paramKey === "region") {
+                    return encodeURIComponent($rootScope.projectName || "");
+                }
+            } else {
+                return null;
+            }
+        };
+
+        $rootScope.delUrlParam = function (url, name) {
+            return url.replace(new RegExp("[?&]" + name + "=[^&#]*(#.*)?$"), "$1")
+                .replace(new RegExp("[?&]" + name + "=[^&]*&"), "$1");
+        };
+    };
+    ctrl.$injector = ["$rootScope", "$state", "$stateParams", "servicePlugin", "frameworkService"];
+    return ctrl;
 });
