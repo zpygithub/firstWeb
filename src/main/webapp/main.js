@@ -8,7 +8,7 @@ require.config({
         "ui-router": "lib/angular/angular-ui-router",
         "file-input": "lib/bootstrap/bootstrap_fileinput4.4.4",
         "bootstrap": "lib/bootstrap/bootstrap3.3.7",
-        "jquery": "lib/jquery/jquery-3.1.1.min",
+        "jquery": "lib/jquery/jquery-3.2.1",
         "i18n": "i18n/zh"
     },
     "shim": {
