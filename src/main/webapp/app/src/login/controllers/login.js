@@ -54,16 +54,6 @@ $(document).ready(function () {
 
     $("input:visible:enabled:first").focus();
     flushErrorBox();
-
-    $("#userType").change(function () {
-        var selectedValue = $(this).val();
-        sessionStorage.setItem('loginScene', selectedValue);
-    });
-
-    var loginScene = sessionStorage.getItem('loginScene');
-    if (loginScene) {
-        $("#userType").val(loginScene);
-    }
 });
 
 function msieversion() {
@@ -82,25 +72,25 @@ function msieversion() {
 }
 
 function flushErrorBox() {
-    var message = $("#status").attr("innerHTML");
+    var message = $("#status").html();
     if ("undefined" != typeof message) {
-        var newMessage = message.replace(/<[^>]*>/g, "");
-        $("#status").attr("innerHTML", newMessage);
+        $("#status").val() = "";
     }
-    if ("undefined" != typeof newMessage) {
-        if (newMessage.indexOf("~") != -1) {
-            var messageArray = newMessage.split("~");
-            $("#status").attr("innerHTML", messageArray[0]);
-            $("#account").attr("value", messageArray[1]);
-            $("#password").focus();
-        }
-    }
+    // if ("undefined" != typeof newMessage) {
+    //     if (newMessage.indexOf("~") != -1) {
+    //         var messageArray = newMessage.split("~");
+    //         $("#status").append(messageArray[0]);
+    //         $("#account").attr("value", messageArray[1]);
+    //         $("#password").focus();
+    //     }
+    // }
 }
 
 function generateErrorDiv(key) {
-    var strDiv = "<div id=\"status\" class=\"errors\">" + key + "</div>";
-    $("#errorId").attr("innerHTML", strDiv);
     flushErrorBox();
+    var strDiv = "<div id=\"status\" class=\"errors\">" + getLocaleMsg(key) + "</div>";
+    $("#errorId").append(strDiv);
+
 }
 
 function getLocaleMsg(key)

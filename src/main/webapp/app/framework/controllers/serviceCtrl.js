@@ -1,6 +1,6 @@
 define(['i18n/keyId'], function (i18n) {
     "use strict";
-    var ctrl = function ($rootScope, $state, $stateParams, servicePlugin, frameworkService, mask) {
+    var ctrl = function ($rootScope, $state, $stateParams, mask) {
         $rootScope.i18n = i18n;
         mask.pageInitShow();
         $rootScope.menus = {
@@ -103,6 +103,6 @@ define(['i18n/keyId'], function (i18n) {
                 .replace(new RegExp("[?&]" + name + "=[^&]*&"), "$1");
         };
     };
-    ctrl.$injector = ["$rootScope", "$state", "$stateParams", "servicePlugin", "frameworkService"];
+    ctrl.$injector = ["$rootScope", "$state", "$stateParams"];
     return ctrl;
 });

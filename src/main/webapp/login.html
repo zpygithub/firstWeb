@@ -8,8 +8,8 @@
     <script type="text/javascript" src="lib/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="app/src/login/controllers/login.js"></script>
     <script type="text/javascript">
-    	document.write("<script type='text/javascript' src=\"i18n/zh/login_zh_CN.js \"><\/script>");
-    	function changeBorder(id) {
+        document.write("<script type='text/javascript' src=\"i18n/zh/login_zh_CN.js \"><\/script>");
+        function changeBorder(id) {
             $("#" + id).css("border", "1px solid #f9cfa5");
         }
         function backBorder(id) {
@@ -27,7 +27,8 @@
     <div class="login-form">
         <p style="font-size:22px;">FirstWeb后台管理系统</p>
         <div>
-            <form id="fml">
+            <form id="formId">
+                <div id="errorId"></div>
                 <!--用户-->
                 <div>
                     <input class="login-input-text form-account" id="account" name="account" type="text"
