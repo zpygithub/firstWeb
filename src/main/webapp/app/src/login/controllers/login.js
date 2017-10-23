@@ -34,24 +34,22 @@ $(document).ready(function () {
                     window.location.href = "index.html";
                     return;
                 } else if (data.code == "00010") {
-                	generateErrorDiv("accountNotExist");
+                    generateErrorDiv("accountNotExist");
                     $("#account").focus();
                 } else if (data.code == "00017") {
                     generateErrorDiv("accountOrPasswordError");
                     $("#password").focus();
                 } else if (data.code == "00011") {
-                	generateErrorDiv("accountLocked");
+                    generateErrorDiv("accountLocked");
                     $("#account").focus();
                 } else {
-                	generateErrorDiv("accountOrPasswordError");
+                    generateErrorDiv("accountOrPasswordError");
                     return;
                 }
             }
         });
     });
-
     $("input:visible:enabled:first").focus();
-    flushErrorBox();
 });
 
 function msieversion() {
@@ -76,7 +74,6 @@ function generateErrorDiv(key) {
 
 }
 
-function getLocaleMsg(key)
-{
+function getLocaleMsg(key) {
     return msg[key] == undefined ? key : msg[key];
 }
