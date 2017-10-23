@@ -8,7 +8,6 @@ $(document).ready(function () {
         var account = $("#account").val();
         if ("" == account) {
             generateErrorDiv("requiredUsername");
-            $("#status").attr("innerHTML", getLocaleMsg("requiredUsername"));
             $("#account").focus();
             return false;
         }
@@ -16,7 +15,6 @@ $(document).ready(function () {
         var password = $("#password").val();
         if ("" == password) {
             generateErrorDiv("requiredPassword");
-            $("#status").attr("innerHTML", getLocaleMsg("requiredPassword"));
             $("#password").focus();
             return false;
         }
@@ -71,23 +69,8 @@ function msieversion() {
     }
 }
 
-function flushErrorBox() {
-    var message = $("#status").html();
-    if ("undefined" != typeof message) {
-        $("#status").val() = "";
-    }
-    // if ("undefined" != typeof newMessage) {
-    //     if (newMessage.indexOf("~") != -1) {
-    //         var messageArray = newMessage.split("~");
-    //         $("#status").append(messageArray[0]);
-    //         $("#account").attr("value", messageArray[1]);
-    //         $("#password").focus();
-    //     }
-    // }
-}
-
 function generateErrorDiv(key) {
-    flushErrorBox();
+    $("#errorId").empty();
     var strDiv = "<div id=\"status\" class=\"errors\">" + getLocaleMsg(key) + "</div>";
     $("#errorId").append(strDiv);
 
