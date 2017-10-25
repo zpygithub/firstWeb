@@ -3,7 +3,7 @@ define([], function () {
     var service = function () {
         this.background = $('<div>').css({
             "z-index": 10000000000,
-            "background": "#aaaaaa url('theme/default/images/mask-cover.png') 50% 50% repeat-x",
+            "background": "#aaaaaa url('images/mask-cover.png') 50% 50% repeat-x",
             "opacity": ".30",
             "filter": "Alpha(Opacity=30)",
             "position": "fixed",
@@ -21,7 +21,7 @@ define([], function () {
             "width": "100%",
             "height": "100%",
             "top": 0,
-            "background-image": "url('images/mask_loading.gif')",
+            "background-image": "url('images/loading.gif')",
             "background-repeat": "no-repeat",
             "background-position": "50%"
         });
@@ -44,7 +44,7 @@ define([], function () {
             "width": "100%",
             "height": "100%",
             "top": 0,
-            "background-image": "url('theme/default/images/loading_big.gif')",
+            "background-image": "url('images/mask_loading.gif')",
             "background-repeat": "no-repeat",
             "background-position": "50%"
         });
