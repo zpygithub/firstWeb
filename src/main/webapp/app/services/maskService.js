@@ -21,7 +21,7 @@ define([], function () {
             "width": "100%",
             "height": "100%",
             "top": 0,
-            "background-image": "url('theme/default/images/mask-loading.gif')",
+            "background-image": "url('images/mask_loading.gif')",
             "background-repeat": "no-repeat",
             "background-position": "50%"
         });
