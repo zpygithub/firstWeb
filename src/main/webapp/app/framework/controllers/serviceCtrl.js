@@ -4,10 +4,10 @@ define(['i18n/keyId'], function (i18n) {
         $rootScope.i18n = i18n;
         mask.pageInitShow();
         $rootScope.menus = {
-            url: "src/app/framework/views/menus.html"
+            url: "app/framework/views/menus.html"
         };
         $rootScope.footer = {
-            url: "src/app/framework/views/footer.html"
+            url: "app/framework/views/footer.html"
         };
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
