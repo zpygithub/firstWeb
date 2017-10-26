@@ -13,7 +13,6 @@ define(["angular",
             "ui.router",
             frameworkConfig.name
         ];
-        console.log("framework1");
 
         var framework = angular.module("framework", dependency);
 
