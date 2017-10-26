@@ -4,7 +4,6 @@
 define(['i18n/keyId'], function (i18n) {
     "use strict";
     var subRegRex = /\{s*([^\|\}]+?)\s*(?:\|([^\}]*))?\s*\}/g;
-    console.log("httpService");
     var homeLocation = "login.html";
     var sub = function (s, o) {
         return ((s.replace) ? s.replace(subRegRex, function (match, key) {
