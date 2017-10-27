@@ -38,8 +38,6 @@ define(['i18n/keyId'], function (i18n) {
                         }
                     }]
                 };
-                var msg = new tinyWidget.Message(options);
-                msg.show();
             }
         }
     };

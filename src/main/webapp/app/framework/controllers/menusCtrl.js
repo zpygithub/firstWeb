@@ -3,6 +3,7 @@ define([], function () {
 //         $rootScope.menus = {
 //             "url": "app/framework/views/menus.html"
 //         };
+        console.log($rootScope.mainMenus);
     }];
     return menusCtrl;
 })  
