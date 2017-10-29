@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link type="image/x-icon" href="images/favicon.ico" rel="icon">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap3.3.7.css"/>
     <script type="text/javascript" src="lib/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="app/src/login/controllers/login.js"></script>
     <script type="text/javascript">
@@ -25,45 +26,63 @@
             width: 100px;
             background-color: rgb(255, 238, 221);
         }
+
+        li {
+            display: inline;
+        }
     </style>
 </head>
 <body>
-<div class="login-head">
-    <div class="login-logo">
-        <img src="images/logo_top_ca79a146.png">
+<div class="header">
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <a class="navbar-brand" href="#">FirstWeb后台管理系统</a>
+            <ul class="pull-right">
+                <li><a href="#/login">login</a></li>
+                <li><a href="#/register">register</a></li>
+            </ul>
+        </div>
     </div>
 </div>
 <div class="login-body">
     <div class="login-form">
-        <p style="font-size:22px;">FirstWeb后台管理系统</p>
         <div>
-            <form id="formId">
+            <form class="form-horizontal">
                 <div id="errorId"></div>
                 <!--用户-->
-                <div>
-                    <input class="login-input-text form-account" id="account" name="account" type="text"
-                           placeholder="账号" style="font-family: 微软雅黑; color: #333;" onfocus="changeBorder('account')"
-                           onblur="backBorder('account')"/>
+                <div class="form-group">
+                    <label for="account" class="col-sm-1 control-label">账号</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="account" type="text"
+                               placeholder="账号" onfocus="changeBorder('account')"
+                               onblur="backBorder('account')"/>
+                    </div>
                 </div>
                 <!--密码-->
-                <div id="passwordDiv" style="display: block">
-                    <input class="login-input-text form-password" id="password" name="password" type="password"
-                           placeholder="密码" style="font-family: 微软雅黑; color: #333;" autocomplete="off"
-                           onfocus="changeBorder('password')"
-                           onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
+                <div class="form-group">
+                    <label for="password" class="col-sm-1 control-label">密码</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="password" type="password"
+                               placeholder="密码" autocomplete="off" onfocus="changeBorder('password')"
+                               onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
+                    </div>
                 </div>
                 <!--注册&登录-->
-                <div id="submitDiv" class="login-btn-box">
-                    <input class="login-btn" id="register" type="button" value="注册"/>
-                    <input class="login-btn" id="login" type="button" value="登录"/>
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-2">
+                        <button id="login" type="button" class="btn btn-primary">登录</button>
+                        <button id="register" type="button" class="btn btn-default">注册</button>
+                    </div>
                 </div>
 
             </form>
         </div>
     </div>
 </div>
-<div class="login-foot">
-    <p id="copyright" style="line-height: 48px; font-size:12px;">版权所有</p>
+<div class="footer">
+    <div class="container">
+        <p>版权所有</p>
+    </div>
 </div>
 </body>
 </html>
