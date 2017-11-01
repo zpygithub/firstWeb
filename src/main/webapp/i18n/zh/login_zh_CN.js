@@ -15,6 +15,6 @@ var msg = {
     "confirmPasswordCanNotBeEmpty": "确认密码不能为空。",
     "passwordMustBeConsistent": "密码必须一致。",
     "registrationSuccess": "注册成功！",
-    "accountAlreadyExists": "账号已存在！",
-    "nicknameAlreadyExists": "昵称已存在！",
+    "accountAlreadyExists": "账号已存在。",
+    "nicknameAlreadyExists": "昵称已存在。",
 };
