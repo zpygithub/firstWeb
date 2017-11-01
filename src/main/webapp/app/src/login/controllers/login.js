@@ -7,14 +7,14 @@ $(document).ready(function () {
     $("#login").bind("click", function () {
         var account = $("#account").val();
         if ("" == account) {
-            generateErrorDiv("requiredUsername");
+            alert(getLocaleMsg("requiredUsername"));
             $("#account").focus();
             return false;
         }
 
         var password = $("#password").val();
         if ("" == password) {
-            generateErrorDiv("requiredPassword");
+            alert(getLocaleMsg("requiredPassword"));
             $("#password").focus();
             return false;
         }
@@ -34,16 +34,16 @@ $(document).ready(function () {
                     window.location.href = "index.html";
                     return;
                 } else if (data.code == "00010") {
-                    generateErrorDiv("accountNotExist");
+                    alert(getLocaleMsg("accountNotExist"));
                     $("#account").focus();
                 } else if (data.code == "00017") {
-                    generateErrorDiv("accountOrPasswordError");
+                    alert(getLocaleMsg("accountOrPasswordError"));
                     $("#password").focus();
                 } else if (data.code == "00011") {
-                    generateErrorDiv("accountLocked");
+                    alert(getLocaleMsg("accountLocked"));
                     $("#account").focus();
                 } else {
-                    generateErrorDiv("accountOrPasswordError");
+                    alert(getLocaleMsg("accountOrPasswordError"));
                     return;
                 }
             }
@@ -54,6 +54,7 @@ $(document).ready(function () {
 
 function msieversion() {
     var ua = window.navigator.userAgent;
+    console.log(ua);
     var msie = ua.indexOf("MSIE ");
     if (msie > 0) {
         var version = parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
@@ -65,13 +66,6 @@ function msieversion() {
     } else {
         return true;
     }
-}
-
-function generateErrorDiv(key) {
-    $("#errorId").empty();
-    var strDiv = "<div id=\"status\" class=\"errors\">" + getLocaleMsg(key) + "</div>";
-    $("#errorId").append(strDiv);
-
 }
 
 function getLocaleMsg(key) {
