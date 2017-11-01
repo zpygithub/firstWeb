@@ -18,15 +18,6 @@
         }
     </script>
     <style type="text/css">
-        .errors {
-            border: 1px dotted #c0c0c0;
-            font-size: 12px;
-            line-height: 18px;
-            color: #8a2124;
-            width: 100px;
-            background-color: rgb(255, 238, 221);
-        }
-
         li {
             display: inline;
         }
@@ -44,45 +35,34 @@
         </div>
     </div>
 </div>
-<div class="login-body">
-    <div class="login-form">
-        <div>
-            <form class="form-horizontal">
-                <div id="errorId"></div>
-                <!--用户-->
-                <div class="form-group">
-                    <label for="account" class="col-sm-1 control-label">账号</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" id="account" type="text"
-                               placeholder="账号" onfocus="changeBorder('account')"
-                               onblur="backBorder('account')"/>
-                    </div>
-                </div>
-                <!--密码-->
-                <div class="form-group">
-                    <label for="password" class="col-sm-1 control-label">密码</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" id="password" type="password"
-                               placeholder="密码" autocomplete="off" onfocus="changeBorder('password')"
-                               onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
-                    </div>
-                </div>
-                <!--注册&登录-->
-                <div class="form-group">
-                    <div class="col-sm-offset-1 col-sm-2">
-                        <button id="login" type="button" class="btn btn-primary">登录</button>
-                        <button id="register" type="button" class="btn btn-default">注册</button>
-                    </div>
-                </div>
-
-            </form>
+<div>
+    <form class="form-horizontal">
+        <!--用户-->
+        <div class="form-group">
+            <label for="account" class="col-sm-1 control-label">账号</label>
+            <div class="col-sm-2">
+                <input class="form-control" id="account" type="text"
+                       placeholder="账号" onfocus="changeBorder('account')"
+                       onblur="backBorder('account')"/>
+            </div>
         </div>
-    </div>
-</div>
-<div class="footer">
-    <div class="container">
-        <p>版权所有</p>
-    </div>
+        <!--密码-->
+        <div class="form-group">
+            <label for="password" class="col-sm-1 control-label">密码</label>
+            <div class="col-sm-2">
+                <input class="form-control" id="password" type="password"
+                       placeholder="密码" autocomplete="off" onfocus="changeBorder('password')"
+                       onblur="backBorder('password')" ondragstart="return false" onpaste="return false"/>
+            </div>
+        </div>
+        <!--注册&登录-->
+        <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-2">
+                <button id="login" type="button" class="btn btn-primary">登录</button>
+                <button id="register" type="button" class="btn btn-default">注册</button>
+            </div>
+        </div>
+    </form>
 </div>
 </body>
 </html>
