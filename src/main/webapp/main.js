@@ -9,6 +9,7 @@ require.config({
         "file-input": "lib/bootstrap/bootstrap_fileinput4.4.4",
         "bootstrap": "lib/bootstrap/bootstrap3.3.7",
         "jquery": "lib/jquery/jquery-3.2.1",
+        "lobibox": "lib/lobibox/lobibox",
         "i18n": "i18n/zh"
     },
     "shim": {
@@ -25,6 +26,10 @@ require.config({
         },
         "jquery": {
             "exports": "$"
+        },
+        "lobibox": {
+            "deps": ["jquery"],
+            "exports": "lobibox"
         }
     }
 });
