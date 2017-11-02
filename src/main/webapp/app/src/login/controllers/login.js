@@ -7,14 +7,14 @@ $(document).ready(function () {
     $("#login").bind("click", function () {
         var account = $("#account").val();
         if ("" == account) {
-            alert(getLocaleMsg("requiredUsername"));
+            Lobibox.notify("error", {msg: getLocaleMsg("requiredUsername")});
             $("#account").focus();
             return false;
         }
 
         var password = $("#password").val();
         if ("" == password) {
-            alert(getLocaleMsg("requiredPassword"));
+            Lobibox.notify("error", {msg: getLocaleMsg("requiredPassword")});
             $("#password").focus();
             return false;
         }
@@ -32,19 +32,17 @@ $(document).ready(function () {
             success: function (data) {
                 if (data.code == "00000") {
                     window.location.href = "index.html";
-                    return;
                 } else if (data.code == "00010") {
-                    alert(getLocaleMsg("accountNotExist"));
+                    Lobibox.notify("error", {msg: getLocaleMsg("accountNotExist")});
                     $("#account").focus();
                 } else if (data.code == "00017") {
-                    alert(getLocaleMsg("accountOrPasswordError"));
+                    Lobibox.notify("error", {msg: getLocaleMsg("accountOrPasswordError")});
                     $("#password").focus();
                 } else if (data.code == "00011") {
-                    alert(getLocaleMsg("accountLocked"));
+                    Lobibox.notify("error", {msg: getLocaleMsg("accountLocked")});
                     $("#account").focus();
                 } else {
-                    alert(getLocaleMsg("accountOrPasswordError"));
-                    return;
+                    Lobibox.notify("error", {msg: getLocaleMsg("accountOrPasswordError")});
                 }
             }
         });
