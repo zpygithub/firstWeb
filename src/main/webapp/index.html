@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-controller="serviceCtrl">
     <head>
-        <meta charset="UTF-8">
         <title>FirstWeb</title>
-        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap3.3.7.min.css"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link type="image/x-icon" href="images/favicon.ico" rel="icon">
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap3.3.7.css"/>
     </head>
-    <body ng-app="AppCtrl">
-        <div id="service-menus" ng-include="menus.url"></div>
+    <body>
+        <div id="service-menus" ng-include="menus.url" class="container-fluid"></div>
         <div id="service-content">
             <div ui-view ng-animate="{enter:'fade-enter'}"></div>
         </div>
-        <div id="service-footer" ng-include="footer.url"></div>
-        <script type="text/javascript" src="lib/jquery/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="../webapp/lib/angular/angular.js"></script>
-        <script type="text/javascript" src="lib/bootstrap/bootstrap3.3.7.min.js"></script>
-        <script type="text/javascript" src="main.js"></script>
+        <div id="service-footer" ng-include="footer.url" class="container-fluid"></div>
+        <script type="text/javascript" src="lib/require.js" data-main="main"></script>
     </body>
 </html>

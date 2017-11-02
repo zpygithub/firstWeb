@@ -3,21 +3,22 @@
         PUBLIC "-//com.map.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.firstWeb.mapper.UserMapper">
-    <resultMap id="userMap" type="com.firstWeb.model.User">
+    <resultMap id="userMap" type="com.firstWeb.bean.model.User">
         <result property="id" column="id"/>
-        <result property="userName" column="userName"/>
-        <result property="nickName" column="nickName"/>
+        <result property="account" column="account"/>
+        <result property="nickname" column="nickname"/>
         <result property="password" column="password"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>
         <result property="delFlag" column="delFlag"/>
+        <result property="salt" column="salt"/>
     </resultMap>
 
     <select id="selectUserById" parameterType="String" resultMap="userMap">
-        SELECT * FROM tb_user_info WHERE id = #{id} AND delFlag = 0
+        SELECT * FROM tb_user WHERE id = #{id} AND delFlag = 0
     </select>
 
     <select id="selectUserByConditions" parameterType="String" resultMap="userMap">
-        SELECT * FROM tb_user_info WHERE email LIKE '%${value}%'
+        SELECT * FROM tb_user WHERE email LIKE '%${value}%'
     </select>
 </mapper>

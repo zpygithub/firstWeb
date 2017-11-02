@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//com.map.mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.firstWeb.mapper.SystemMapper">
+    <resultMap id="mainMenuMap" type="com.firstWeb.bean.model.MainMenu">
+        <result property="id" column="id"/>
+        <result property="menuName" column="menuName"/>
+        <result property="parentId" column="parentId"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="createTime"/>
+        <result property="uri" column="uri"/>
+    </resultMap>
+
+    <select id="getMainMenus" resultMap="mainMenuMap">
+        SELECT * FROM tb_main_menu WHERE status != -1 ORDER BY id ASC
+    </select>
+
+</mapper>

@@ -1,11 +1,11 @@
 package com.firstWeb.controller;
 
-import com.firstWeb.model.User;
+import com.firstWeb.bean.model.User;
 import com.firstWeb.service.UserService;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,9 +21,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/selectUserById", method = RequestMethod.GET)
-    public String selectUserById(String id, HttpServletRequest request, HttpServletResponse response) {
-        User user = userService.selectUserById("1");
+    private static final Logger LOGGER = LogManager.getLogger(RegisterController.class);
+
+    @GetMapping(value = "/selectUserById/{id}")
+    public String selectUserById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.info("selectUserById: begin");
+        User user = userService.selectUserById(id);
         return user.getEmail();
     }
 

@@ -5,11 +5,6 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!--<context-param>
-        <param-name>Safety.config</param-name>
-        <param-value>safety/safety.properties</param-value>
-    </context-param>-->
-
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -17,7 +12,7 @@
     <!-- 程序Session配置 -->
     <session-config>
         <!-- Session过期时间(单位：分) -->
-        <session-timeout>30</session-timeout>
+        <session-timeout>1</session-timeout>
     </session-config>
 
     <!-- 字符编码配置 -->
@@ -42,7 +37,7 @@
         </init-param>
         <init-param>
             <param-name>logoutUrl</param-name>
-            <param-value>http://localhost:8080/login.html</param-value>
+            <param-value>http://localhost:8099/server/login.html</param-value>
         </init-param>
     </filter>
 

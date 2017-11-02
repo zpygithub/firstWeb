@@ -1,6 +1,6 @@
 package com.firstWeb.mapper;
 
-import com.firstWeb.model.User;
+import com.firstWeb.bean.model.User;
 
 import java.util.List;
 

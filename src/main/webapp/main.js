@@ -1,89 +1,92 @@
-/**
- * Created by zpy on 2017/3/30.
- */
 "use strict";
 require.config({
     "baseUrl": "./",
     "waitSeconds": 0,
     "paths": {
-        "can": "../webapp/lib/can", //桩路径
-        "app": "src/app",
-        "bootstrap": "./lib/bootstrap/bootstrap3.3.7.min",
-        "jquery": "./lib/jquery/jquery-3.1.1.min",
+        "app": "app",
+        "angular": "lib/angular/angular",
+        "ui-router": "lib/angular/angular-ui-router",
+        "file-input": "lib/bootstrap/bootstrap_fileinput4.4.4",
+        "bootstrap": "lib/bootstrap/bootstrap3.3.7",
+        "jquery": "lib/jquery/jquery-3.2.1",
+        "lobibox": "lib/lobibox/lobibox",
+        "i18n": "i18n/zh"
     },
     "shim": {
-        "bootstrap/bootstrap.min": {
-            "exports": "bootstrap",
-            "deps": [""]
-        },
         "angular": {
-            "deps": [""]
+            "deps": ["jquery"],
+            "exports": "angular"
+        },
+        "bootstrap": {
+            "deps": ["jquery"],
+            "exports": "bootstrap"
+        },
+        "ui-router": {
+            "deps": ["angular"]
+        },
+        "jquery": {
+            "exports": "$"
+        },
+        "lobibox": {
+            "deps": ["jquery"],
+            "exports": "lobibox"
         }
     }
 });
 
-require([
-        "app/framework/framework",
-        "app/services/accountService",
-        "app/services/httpService"],
-    function (app, accountService, httpService) {
-        var rootScope;
-        var state;
+require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
+    function (framework, i18n, angular, $) {
+        var injector = angular.bootstrap($("html"), [framework.name]);
+        var rootScope = injector.get("$rootScope");
+        var state = injector.get("$state");
 
         $.ajax({
             type: 'get',
-            url: 'account/info',
+            url: 'account/getAdministratorById',
             async: false,
             success: function (data) {
                 if (data.code === "00000") {
-                    var injector = angular.bootstrap($("html"), [app.name]);
-                    rootScope = injector.get("$rootScope");
-                    state = injector.get("state");
-
+                    rootScope.i18n = i18n;
                     rootScope.account = data.value;
                 } else {
                     window.location.href = "login.html";
                 }
             },
-            error: function (data) {
-                console.log(data);
+            error: function () {
                 window.location.href = "login.html";
             }
         });
 
         $.ajax({
             type: 'get',
-            url: 'system/resource/menu/0',
+            url: 'system/getMainMenus',
             async: false,
             success: function (data) {
                 if (data.code === "00000") {
-                    var resources = data.value;
-                    resources.unshift({
+                    var mainMenus = data.value;
+                    mainMenus.unshift({
                         createTime: new Date(),
                         id: 100,
                         parentId: 0,
                         resourceName: "首页",
                         uri: "home"
                     });
-
-                    rootScope.resources = resources;
+                    rootScope.mainMenus = mainMenus;
                 } else {
                     window.location.href = "login.html";
-                    console.log("fail to get resources");
                 }
             },
-            error: function (data) {
+            error: function () {
                 window.location.href = "login.html";
-                console.log(data);
             }
         });
 
-        function showFirstUri(resourceArray) {
-            if (resourceArray[0].uri) {
-                return resourceArray[0].uri;
+        function showFirstUri(menuArray) {
+            if (menuArray[0].uri) {
+                return menuArray[0].uri;
             }
-            if (resourceArray[0].children) {
-                return showFirstUri(resourceArray[0].children);
+            if (menuArray[0].children) {
+                return showFirstUri(menuArray[0].children);
             }
             return "";
         }
