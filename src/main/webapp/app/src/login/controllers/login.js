@@ -52,7 +52,6 @@ $(document).ready(function () {
 
 function msieversion() {
     var ua = window.navigator.userAgent;
-    console.log(ua);
     var msie = ua.indexOf("MSIE ");
     if (msie > 0) {
         var version = parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)));
