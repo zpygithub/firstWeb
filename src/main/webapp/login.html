@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="lib/lobibox/lobibox.css"/>
     <script type="text/javascript" src="lib/jquery/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="lib/lobibox/lobibox.js"></script>
-    <script type='text/javascript' src="i18n/zh/login_zh_CN.js"></script>
+    <script type="text/javascript" src="i18n/zh/login_zh_CN.js"></script>
     <script type="text/javascript" src="app/src/login/controllers/login.js"></script>
     <script type="text/javascript">
         function changeBorder(id) {
@@ -60,5 +60,12 @@
         </div>
     </form>
 </div>
+<script type="text/javascript">
+    $("html").bind("keydown", function (event) {
+        if (event.keyCode == 13) {
+            $("#login").click();
+        }
+    });
+</script>
 </body>
 </html>
