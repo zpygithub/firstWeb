@@ -1285,15 +1285,15 @@ var Lobibox = Lobibox || {};
         title: true,                // Title of notification. If you do not include the title in options it will automatically takes its value 
         //from Lobibox.notify.OPTIONS object depending of the type of the notifications or set custom string. Set this false to disable title
         size: 'normal',             // normal, mini, large
-        soundPath: 'src/sounds/',   // The folder path where sounds are located
+        soundPath: './sounds/',   // The folder path where sounds are located
         soundExt: '.ogg',           // Default extension for all sounds
         showClass: 'zoomIn',        // Show animation class.
         hideClass: 'zoomOut',       // Hide animation class.
-        icon: true,                 // Icon of notification. Leave as is for default icon or set custom string
+        icon: false,                 // Icon of notification. Leave as is for default icon or set custom string
         msg: '',                    // Message of notification
         img: null,                  // Image source string
         closable: true,             // Make notifications closable
-        delay: 5000,                // Hide notification after this time (in miliseconds)
+        delay: 3000,                // Hide notification after this time (in miliseconds)
         delayIndicator: true,       // Show timer indicator
         closeOnClick: true,         // Close notifications by clicking on them
         width: 400,                 // Width of notification box
