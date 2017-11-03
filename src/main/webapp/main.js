@@ -63,15 +63,7 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
             async: false,
             success: function (data) {
                 if (data.code === "00000") {
-                    var mainMenus = data.value;
-                    mainMenus.unshift({
-                        createTime: new Date(),
-                        id: 100,
-                        parentId: 0,
-                        resourceName: "首页",
-                        uri: "home"
-                    });
-                    rootScope.mainMenus = mainMenus;
+                    rootScope.mainMenus = data.value;
                 } else {
                     window.location.href = "login.html";
                 }
@@ -80,14 +72,4 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
                 window.location.href = "login.html";
             }
         });
-
-        function showFirstUri(menuArray) {
-            if (menuArray[0].uri) {
-                return menuArray[0].uri;
-            }
-            if (menuArray[0].children) {
-                return showFirstUri(menuArray[0].children);
-            }
-            return "";
-        }
     })
