@@ -1,3 +1,5 @@
+package com.firstWeb.constants;
+
 public enum GoodsClassification
 {
     /**
