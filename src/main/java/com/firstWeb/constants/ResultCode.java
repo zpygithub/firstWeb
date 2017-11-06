@@ -1,8 +1,5 @@
 package com.firstWeb.constants;
 
-/**
- * Created by zpy on 2017/4/22.
- */
 public interface ResultCode {
     /**
      * 成功
