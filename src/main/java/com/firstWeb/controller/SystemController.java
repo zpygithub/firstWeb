@@ -1,9 +1,8 @@
 package com.firstWeb.controller;
 
 import com.firstWeb.bean.model.MainMenu;
-import com.firstWeb.bean.model.Token;
 import com.firstWeb.common.ResultEntity;
-import com.firstWeb.constants.ResultCode;
+import com.firstWeb.constant.ResultCode;
 import com.firstWeb.service.SystemService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

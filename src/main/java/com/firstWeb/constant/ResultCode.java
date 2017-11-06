@@ -1,4 +1,4 @@
-package com.firstWeb.constants;
+package com.firstWeb.constant;
 
 public interface ResultCode {
     /**

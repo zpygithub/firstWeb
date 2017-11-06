@@ -1,7 +1,6 @@
-package com.firstWeb.constants;
+package com.firstWeb.constant;
 
-public enum GoodsClassification
-{
+public enum GoodsClassification {
     /**
      * 带确认
      */
@@ -10,16 +9,14 @@ public enum GoodsClassification
      * 客户确认可以解决问题
      */
     resolved(1);
-    
+
     private int value;
-    
-    GoodsClassification(int value)
-    {
+
+    GoodsClassification(int value) {
         this.value = value;
     }
-    
-    public int getValue()
-    {
+
+    public int getValue() {
         return this.value;
     }
 }

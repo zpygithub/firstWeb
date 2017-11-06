@@ -1,4 +1,4 @@
-package com.firstWeb.utils;
+package com.firstWeb.util;
 
 /**
  * Created by zpy on 2017/4/24.

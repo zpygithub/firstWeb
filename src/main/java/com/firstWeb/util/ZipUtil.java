@@ -1,4 +1,4 @@
-package com.firstWeb.utils;
+package com.firstWeb.util;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;

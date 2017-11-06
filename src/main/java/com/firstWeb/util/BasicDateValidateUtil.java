@@ -1,6 +1,6 @@
-package com.firstWeb.utils;
+package com.firstWeb.util;
 
-import com.firstWeb.constants.ResultCode;
+import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
 
 /**

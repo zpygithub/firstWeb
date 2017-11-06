@@ -1,13 +1,8 @@
-package com.firstWeb.utils;
-
-import org.apache.commons.codec.binary.Hex;
+package com.firstWeb.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.util.Arrays;
-import java.util.Random;
 
 /**
  * Created by zpy on 2017/4/17.

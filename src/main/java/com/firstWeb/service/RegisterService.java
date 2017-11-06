@@ -2,7 +2,7 @@ package com.firstWeb.service;
 
 import com.firstWeb.bean.param.RegisterParam;
 import com.firstWeb.mapper.RegisterMapper;
-import com.firstWeb.utils.Md5SaltUtil;
+import com.firstWeb.util.Md5SaltUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
