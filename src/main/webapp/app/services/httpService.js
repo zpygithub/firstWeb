@@ -3,7 +3,7 @@
  */
 define(['i18n/keyId'], function (i18n) {
     "use strict";
-    var subRegRex = /\{s*([^\|\}]+?)\s*(?:\|([^\}]*))?\s*\}/g;
+    var subRegRex = /\{\s*([^\|\}]+?)\s*(?:\|([^\}]*))?\s*\}/g;
     var homeLocation = "login.html";
     var sub = function (s, o) {
         return ((s.replace) ? s.replace(subRegRex, function (match, key) {
@@ -54,7 +54,7 @@ define(['i18n/keyId'], function (i18n) {
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
                 "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": config.param || {},
+                "data": config.params || {},
                 "beforeSend": function (request, setting) {
                     if (config.mask) {
                         mask.show();
@@ -92,7 +92,7 @@ define(['i18n/keyId'], function (i18n) {
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
                 "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": typeof config.param === "string" ? config.params : JSON.stringify(config.params),
+                "data": typeof config.params === "string" ? config.params : JSON.stringify(config.params),
                 "beforeSend": function (request, setting) {
                     if (config.mask) {
                         mask.show();
@@ -130,7 +130,7 @@ define(['i18n/keyId'], function (i18n) {
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
                 "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": !config.params ? null : (typeof config.param === "string" ? config.params : JSON.stringify(config.params || {})),
+                "data": !config.params ? null : (typeof config.params === "string" ? config.params : JSON.stringify(config.params || {})),
                 "beforeSend": function (request, setting) {
                     if (config.mask) {
                         mask.show();
@@ -168,7 +168,7 @@ define(['i18n/keyId'], function (i18n) {
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
                 "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": !config.params ? null : (typeof config.param === "string" ? config.params : JSON.stringify(config.params || {})),
+                "data": !config.params ? null : (typeof config.params === "string" ? config.params : JSON.stringify(config.params || {})),
                 "beforeSend": function (request, setting) {
                     if (config.mask) {
                         mask.show();
@@ -206,7 +206,7 @@ define(['i18n/keyId'], function (i18n) {
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
                 "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": typeof config.param === "string" ? config.params : JSON.stringify(config.params || {}),
+                "data": typeof config.params === "string" ? config.params : JSON.stringify(config.params || {}),
                 "beforeSend": function (request, setting) {
                     if (config.mask) {
                         mask.show();
@@ -244,7 +244,7 @@ define(['i18n/keyId'], function (i18n) {
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
                 "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": typeof config.param === "string" ? config.params : JSON.stringify(config.params || {}),
+                "data": typeof config.params === "string" ? config.params : JSON.stringify(config.params || {}),
                 "beforeSend": function (request, setting) {
                     if (config.mask) {
                         mask.show();
@@ -281,7 +281,7 @@ define(['i18n/keyId'], function (i18n) {
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
                 "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": typeof config.param === "string" ? config.params : JSON.stringify(config.params),
+                "data": typeof config.params === "string" ? config.params : JSON.stringify(config.params),
                 "beforeSend": function (request, setting) {
                     if (config.mask) {
                         mask.show();
