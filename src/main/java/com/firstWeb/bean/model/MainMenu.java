@@ -1,10 +1,8 @@
 package com.firstWeb.bean.model;
 
 import java.util.Date;
+import java.util.List;
 
-/**
- * Created by zpy on 2017/5/15.
- */
 public class MainMenu {
     private long id;
     private String menuName;
@@ -12,6 +10,7 @@ public class MainMenu {
     private int status;
     private Date createTime;
     private String uri;
+    private List<MainMenu> children;
 
     public long getId() {
         return id;
@@ -47,6 +46,14 @@ public class MainMenu {
 
     public Date getCreateTime() {
         return createTime;
+    }
+
+    public List<MainMenu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<MainMenu> children) {
+        this.children = children;
     }
 
     public void setCreateTime(Date createTime) {
