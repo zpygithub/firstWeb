@@ -4,9 +4,8 @@ define(["angular",
         "app/services/maskService",
         "app/framework/configures/frameworkConfig",
         "app/framework/controllers/homeCtrl",
-        "app/framework/controllers/menusCtrl",
         "app/framework/controllers/serviceCtrl"],
-    function (angular, router, http, mask, frameworkConfig, homeCtrl, menusCtrl, serviceCtrl) {
+    function (angular, router, http, mask, frameworkConfig, homeCtrl, serviceCtrl) {
         "use strict";
         var dependency = [
             "ng",
@@ -16,9 +15,8 @@ define(["angular",
 
         var framework = angular.module("framework", dependency);
 
-        framework.controller("menusCtrl", menusCtrl);
         framework.controller("serviceCtrl", serviceCtrl);
-        
+
         framework.service("camel", http);
         framework.service("mask", mask);
 
