@@ -1,23 +1,18 @@
-<div class="navbar navbar-inverse" ng-controller="menusCtrl">
-    <div class="container">
-        <ul>
-            <!--<li>-->
-            <!--<div>-->
-            <!--<img src="./theme/default/images/product_name.png">-->
-            <!--</div>-->
-            <!--</li>-->
-            <li ng-repeat="plugin in mainMenus">
-                <a ui-sref="{{plugin.children[0].uri || plugin.uri || ''}}">
-                    <h3>{{i18n[plugin.menuName]||plugin.menuName}}</h3>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li class="dropdown" ng-repeat="plugin in mainMenus">
+                <a ui-sref="{{plugin.uri}}" class="dropdown-toggle" ng-if="!plugin.children">
+                    <h4>{{i18n[plugin.menuName]}}</h4>
                 </a>
-                <!--<ul ng-repeat="subPlugin in plugin.children">-->
-                <!--<li><a ui-sref="{{subPlugin.uri}}"><h2>{{i18n[subPlugin.menuName] ||-->
-                <!--subPlugin.menuName}}</h2></a></li>-->
-                <!--<li ng-repeat="menu in subPlugin.children" ui-sref="{{menu.uri}}"><a>{{i18n[menu.menuName] ||-->
-                <!--menu.menuName}}</a>-->
-                <!--</li>-->
-                <!--</ul>-->
+                <a ui-sref="{{plugin.uri}}" class="dropdown-toggle" data-toggle="dropdown" ng-if="plugin.children">
+                    <h4>{{i18n[plugin.menuName]}}<b class="caret"></b></h4>
+                </a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="subPlugin in plugin.children" ui-sref="{{subPlugin.uri}}"><a>{{i18n[subPlugin.menuName]}}</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
-</div>
+</nav>
