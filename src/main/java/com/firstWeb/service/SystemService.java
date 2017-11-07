@@ -11,9 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by zpy on 2017/2/13.
- */
 @Service
 @EnableTransactionManagement
 public class SystemService {
@@ -29,14 +26,26 @@ public class SystemService {
     private List<MainMenu> createMenuTree(List<MainMenu> list) {
         List<MainMenu> menus = new ArrayList<MainMenu>();
         if (null != list && list.size() > 0) {
-            for (MainMenu rm : list) {
-                if (rm.getParentId() == 0) {
-                    menus.add(rm);
-//                    creatMenuTree(rm, list);
+            for (MainMenu mm : list) {
+                if (mm.getParentId() == 0) {
+                    menus.add(mm);
+                    createMenuTree(mm, list);
                 }
             }
         }
         return menus;
+    }
+
+    private void createMenuTree(MainMenu parent, List<MainMenu> list) {
+        for (MainMenu mm : list) {
+            if (parent.getId() == (mm.getParentId())) {
+                if (null == parent.getChildren()) {
+                    parent.setChildren(new ArrayList<MainMenu>());
+                }
+                parent.getChildren().add(mm);
+                createMenuTree(mm, list);
+            }
+        }
     }
 
 }
