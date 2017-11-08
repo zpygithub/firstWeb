@@ -13,7 +13,7 @@ define([], function () {
             id: "modifyPersonalInfoId",
             title: i18n.personal_info,
             click: function () {
-                $("#modifyPersonalInfoId").modal({
+                $("#mo1").modal({
                     remote: "app/src/system/views/modifyPersonalInfo.html"
                 });
             }

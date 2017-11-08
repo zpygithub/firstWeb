@@ -9,8 +9,8 @@
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('angular')) :
-        typeof define === 'function' && define.amd ? define(['exports', 'angular'], factory) :
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('lib/js/angular/angular')) :
+        typeof define === 'function' && define.amd ? define(['exports', 'lib/js/angular/angular'], factory) :
             (factory((global['@uirouter/angularjs'] = global['@uirouter/angularjs'] || {}),global.angular));
 }(this, (function (exports,ng_from_import) { 'use strict';
 

@@ -4,15 +4,18 @@ require.config({
     "waitSeconds": 0,
     "paths": {
         "app": "app",
-        "angular": "lib/angular/angular",
-        "ui-router": "lib/angular/angular-ui-router",
-        "file-input": "lib/bootstrap/bootstrap_fileinput4.4.4",
-        "bootstrap": "lib/bootstrap/bootstrap3.3.7",
-        "jquery": "lib/jquery/jquery-3.2.1",
-        "lobibox": "lib/lobibox/lobibox",
+        "jquery": "lib/js/jquery/jquery-3.2.1",
+        "angular": "lib/js/angular/angular",
+        "ui-router": "lib/js/angular/angular-ui-router",
+        "file-input": "lib/js/bootstrap/bootstrap_fileinput4.4.4",
+        "bootstrap": "lib/js/bootstrap/bootstrap3.3.7",
+        "lobibox": "lib/js/lobibox/lobibox",
         "i18n": "i18n/zh"
     },
     "shim": {
+        "jquery": {
+            "exports": "$"
+        },
         "angular": {
             "deps": ["jquery"],
             "exports": "angular"
@@ -23,9 +26,6 @@ require.config({
         },
         "ui-router": {
             "deps": ["angular"]
-        },
-        "jquery": {
-            "exports": "$"
         },
         "lobibox": {
             "deps": ["jquery"],
@@ -47,7 +47,7 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
             success: function (data) {
                 if (data.code === "00000") {
                     rootScope.i18n = i18n;
-                    rootScope.account = data.value;
+                    rootScope.personalInfo = data.value;
                 } else {
                     window.location.href = "login.html";
                 }
