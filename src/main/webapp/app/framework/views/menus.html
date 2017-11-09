@@ -21,12 +21,18 @@
                     <h5>{{personalInfo.text}}<b class="caret"></b></h5>
                 </a>
                 <ul class="dropdown-menu">
-                    <li ><a id="mo" ng-click="modifyPersonalInfo.click()">{{modifyPersonalInfo.title}}</a></li>
-                    <li ><a ng-click="logout.click()">{{logout.title}}</a></li>
+                    <li><a data-toggle="modal" href="app/src/system/views/modifyPersonalInfo.html"
+                           data-target="#personalInfoModal" data-backdrop="static">{{modifyPersonalInfo.title}}</a></li>
+                    <li><a ng-click="logout.click()">{{logout.title}}</a></li>
                 </ul>
             </li>
         </ul>
     </div>
+    <div class="modal fade" id="personalInfoModal" tabindex="-1" role="dialog" aria-labelledby="modal"
+         data-backdrop="false">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
 </div>
-
-<button id="mo1">123</button>
