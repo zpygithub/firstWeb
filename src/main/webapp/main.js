@@ -10,6 +10,8 @@ require.config({
         "file-input": "lib/js/bootstrap/bootstrap_fileinput4.4.4",
         "bootstrap": "lib/js/bootstrap/bootstrap3.3.7",
         "lobibox": "lib/js/lobibox/lobibox",
+        "lazy-load": "lib/js/lazyLoad/lazyLoad",
+        "layer": "lib/js/layer/layer",
         "i18n": "i18n/zh"
     },
     "shim": {
