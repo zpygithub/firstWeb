@@ -49,7 +49,7 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
             success: function (data) {
                 if (data.code === "00000") {
                     rootScope.i18n = i18n;
-                    rootScope.personalInfo = data.value;
+                    rootScope.adminInfo = data.value;
                 } else {
                     window.location.href = "login.html";
                 }
@@ -66,6 +66,7 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
             success: function (data) {
                 if (data.code === "00000") {
                     rootScope.mainMenus = data.value;
+                    console.log(data.value);
                 } else {
                     window.location.href = "login.html";
                 }
