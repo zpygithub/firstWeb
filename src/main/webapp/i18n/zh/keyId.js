@@ -1,7 +1,7 @@
 define(function () {
     var keyId = {
         "term_errorForbidden_msg": "系统错误",
-        "personal_info": "个人信息",
+        "admin_info": "个人信息",
         "logout": "退出",
         "home_label": "首页",
         "user_label": "用户",
