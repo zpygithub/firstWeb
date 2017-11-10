@@ -1,4 +1,4 @@
-<div id="modifyPersonalInfo" ng-controller="modifyPersonalInfoCtrl" modal-backdrop="static">
+<div id="modifyAdminInfo" ng-controller="modifyAdminInfoCtrl">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                 aria-hidden="true">&times;</span>
@@ -23,11 +23,11 @@
     </div>
 </div>
 <script type="application/javascript">
-    require(["app/src/system/controllers/modifyPersonalInfoCtrl"],
+    require(["app/src/system/controllers/modifyAdminInfoCtrl"],
         function () {
             angular.element(document).injector().invoke(function ($compile) {
-                var scope = $("#modifyPersonalInfo").scope();
-                $compile($("#modifyPersonalInfo"))(scope);
+                var scope = $("#modifyAdminInfo").scope();
+                $compile($("#modifyAdminInfo"))(scope);
                 scope.$digest();
             })
         });
