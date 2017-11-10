@@ -1,17 +1,17 @@
 define([], function () {
     "use strict";
     var menusCtrl = ["$rootScope", "$scope", "$compile", "storage", function ($rootScope, $scope, $compile, storage) {
-        var personalInfo = $rootScope.personalInfo;
+        var adminInfo = $rootScope.adminInfo;
         var i18n = $rootScope.i18n;
 
-        $scope.personalInfo = {
-            id: "personalInfoId",
-            text: personalInfo.account
+        $scope.adminInfo = {
+            id: "adminInfoId",
+            text: adminInfo.account
         };
 
-        $scope.modifyPersonalInfo = {
-            id: "modifyPersonalInfoId",
-            title: i18n.personal_info
+        $scope.modifyAdminInfo = {
+            id: "modifyAdminInfoId",
+            title: i18n.admin_info
         };
 
         $scope.logout = {
