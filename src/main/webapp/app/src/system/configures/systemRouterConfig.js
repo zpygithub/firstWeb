@@ -2,21 +2,21 @@ define(["lazy-load"], function (lazyLoad) {
     "use strict";
     var configArr = [
         {
-            name: "systemMgr",
-            url: "/systemMgr",
-            templateUrl: "src/app/business/system/views/system.html",
+            name: "system",
+            url: "/system",
+            templateUrl: "app/src/system/views/system.html",
             controller: "system",
             scripts: {
-                'controllers': ['src/app/business/system/controllers/systemCtrl'],
+                "controllers": ["app/src/system/controllers/systemCtrl"],
                 "js": []
             }
         }, {
-            name: "systemMgr.admin",
+            name: "system.admin",
             url: "/admin",
-            templateUrl: "src/app/business/system/views/manageAdmin.html",
-            controller: "systemMgr.admin",
+            templateUrl: "app/src/system/views/adminList.html",
+            controller: "system.admin",
             scripts: {
-                'controllers': ['src/app/business/system/controllers/manageAdminCtrl'],
+                "controllers": ["app/src/system/controllers/adminListCtrl"],
                 "js": []
             }
         }
