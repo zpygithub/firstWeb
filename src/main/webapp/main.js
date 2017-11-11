@@ -9,6 +9,7 @@ require.config({
         "ui-router": "lib/js/angular/angular-ui-router",
         "file-input": "lib/js/bootstrap/bootstrap_fileinput4.4.4",
         "bootstrap": "lib/js/bootstrap/bootstrap3.3.7",
+        "bootstrap-table": "lib/js/bootstrap/bootstrap-table1.11.1",
         "lobibox": "lib/js/lobibox/lobibox",
         "lazy-load": "lib/js/lazyLoad/lazyLoad",
         "layer": "lib/js/layer/layer",
@@ -25,6 +26,10 @@ require.config({
         "bootstrap": {
             "deps": ["jquery"],
             "exports": "bootstrap"
+        },
+        "bootstrap-table": {
+            "deps": ["jquery", "bootstrap"],
+            "exports": "bootstrap-table"
         },
         "ui-router": {
             "deps": ["angular"]
@@ -66,7 +71,6 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
             success: function (data) {
                 if (data.code === "00000") {
                     rootScope.mainMenus = data.value;
-                    console.log(data.value);
                 } else {
                     window.location.href = "login.html";
                 }
