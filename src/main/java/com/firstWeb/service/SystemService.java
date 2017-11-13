@@ -50,6 +50,11 @@ public class SystemService {
         }
     }
 
+    public List<Administrator> getAdminList(AdministratorParam params) {
+        List<Administrator> list = systemMapper.getAdminList(params);
+        return list;
+    }
+
     public String modifyAdminInfo(AdministratorParam param) {
         String resultCode = systemMapper.modifyAdminInfo(param);
         return resultCode;

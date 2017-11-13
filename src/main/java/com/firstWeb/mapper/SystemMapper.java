@@ -11,6 +11,8 @@ public interface SystemMapper {
 
     List<MainMenu> getMainMenus();
 
+    List<Administrator> getAdminList(AdministratorParam params);
+
     String modifyAdminInfo(AdministratorParam param);
 
     Administrator getAdministratorById(long id);

@@ -11,7 +11,7 @@
         <result property="createTime" column="createTime"/>
         <result property="uri" column="uri"/>
     </resultMap>
-    <resultMap id="administratorMap" type="com.firstWeb.bean.model.Administrator">
+    <resultMap id="adminMap" type="com.firstWeb.bean.model.Administrator">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
         <result property="nickname" column="nickname"/>
@@ -27,7 +27,18 @@
         SELECT * FROM tb_main_menu WHERE status != -1 ORDER BY id ASC
     </select>
 
-    <select id="getAdministratorById" parameterType="long" resultMap="administratorMap">
+    <select id="getAdminList" parameterType="com.firstWeb.bean.param.AdministratorParam" resultMap="adminMap">
+        SELECT * FROM tb_administrator
+        <where>
+            status != -1
+            <if test="account != '' and account != null">
+                AND account LIKE CONCAT(#{account},"%")
+            </if>
+        </where>
+        ORDER BY id ASC
+    </select>
+
+    <select id="getAdministratorById" parameterType="long" resultMap="adminMap">
         SELECT * FROM tb_administrator WHERE id=#{id} AND status != -1
     </select>
 

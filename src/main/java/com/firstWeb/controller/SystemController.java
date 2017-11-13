@@ -55,7 +55,32 @@ public class SystemController extends BaseController {
     }
 
     /**
-     * 获取菜单
+     * 获取管理员列表
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @GetMapping(value = "/getAdminList")
+    public ResultEntity<List<Administrator>> getAdminList(Administrator model, HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.info("getAdminList: begin");
+        ResultEntity<List<Administrator>> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+//        Token token = getToken(request);
+        AdministratorParam params = new AdministratorParam();
+        params.setAccount(model.getAccount());
+        params.setNickname(model.getNickname());
+        params.setEmail(model.getEmail());
+        params.setTelephone(model.getTelephone());
+        List<Administrator> list = systemService.getAdminList(params);
+        result.setValue(list);
+        result.setCode(ResultCode.SUCCESS);
+        LOGGER.info("getAdminList: end");
+        return result;
+    }
+
+    /**
+     * 修改管理员
      *
      * @param request
      * @param response
