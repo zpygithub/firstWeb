@@ -12,7 +12,6 @@ require.config({
         "bootstrap-table": "lib/js/bootstrap/bootstrap-table1.11.1",
         "lobibox": "lib/js/lobibox/lobibox",
         "lazy-load": "lib/js/lazyLoad/lazyLoad",
-        "layer": "lib/js/layer/layer",
         "i18n": "i18n/zh"
     },
     "shim": {
@@ -49,7 +48,7 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
 
         $.ajax({
             type: 'get',
-            url: 'account/getAdministratorById',
+            url: 'account/getAdministrator',
             async: false,
             success: function (data) {
                 if (data.code === "00000") {
@@ -60,7 +59,12 @@ require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
                 }
             },
             error: function () {
-                window.location.href = "login.html";
+                var index = window.location.href.indexOf("#");
+                if (index == -1) {
+                    window.location.href = "login.html";
+                } else {
+                    window.location.href = "login.html?service=" + window.location.href.substring(index);
+                }
             }
         });
 
