@@ -1,9 +1,15 @@
 package com.firstWeb.controller;
 
+import com.firstWeb.bean.model.Administrator;
 import com.firstWeb.bean.model.MainMenu;
+import com.firstWeb.bean.param.AdministratorParam;
+import com.firstWeb.bean.param.RegisterParam;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constant.ResultCode;
+import com.firstWeb.exception.CommonException;
+import com.firstWeb.service.RegisterService;
 import com.firstWeb.service.SystemService;
+import com.firstWeb.util.BasicDateValidateUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +28,9 @@ public class SystemController extends BaseController {
 
     @Autowired
     private SystemService systemService;
+
+    @Autowired
+    private RegisterService registerService;
 
     private static final Logger LOGGER = LogManager.getLogger(SystemController.class);
 
@@ -44,4 +53,61 @@ public class SystemController extends BaseController {
         LOGGER.info("getMainMenus: end");
         return result;
     }
+
+    /**
+     * 获取菜单
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @GetMapping(value = "/modifyAdminInfo")
+    public ResultEntity<String> modifyAdminInfo(Administrator model, HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        LOGGER.info("modifyAdminInfo: begin");
+        ResultEntity<String> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+//        Token token = getToken(request);
+
+        BasicDateValidateUtil.validateIsEmpty(model.getNickname());
+        BasicDateValidateUtil.validateIsNickname(model.getNickname());
+
+        if (!registerService.checkNickname(model.getNickname())) {
+            result.setCode(ResultCode.NICKNAMEISEXISTENCE);
+            return result;
+        }
+
+        AdministratorParam param = new AdministratorParam();
+        param.setNickname(model.getNickname());
+        param.setEmail(model.getEmail());
+        param.setTelephone(model.getTelephone());
+        systemService.modifyAdminInfo(param);
+
+        result.setCode(ResultCode.SUCCESS);
+        LOGGER.info("modifyAdminInfo: end");
+        return result;
+    }
+
+    /**
+     * 获取管理员信息
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws CommonException
+     */
+    @GetMapping(value = "/getAdministratorById")
+    public ResultEntity<Administrator> getAdministratorById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        LOGGER.info("getAdministratorById: begin");
+        ResultEntity<Administrator> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+        Administrator administrator = systemService.getAdministratorById(Long.valueOf(id));
+        if (null == administrator) {
+            throw new CommonException(ResultCode.ACCOUNTISNOTEXISTENCE, "the administrator not exist.");
+        }
+        result.setValue(administrator);
+        result.setCode(ResultCode.SUCCESS);
+        LOGGER.info("getAdministratorById: end");
+        return result;
+    }
+
 }
