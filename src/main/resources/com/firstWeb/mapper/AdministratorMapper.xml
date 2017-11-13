@@ -14,7 +14,7 @@
         <result property="salt" column="salt"/>
     </resultMap>
 
-    <select id="getAdministratorById" parameterType="long" resultMap="administratorMap">
+    <select id="getAdministrator" parameterType="long" resultMap="administratorMap">
         SELECT * FROM tb_administrator WHERE id=#{id} AND status != -1
     </select>
 
