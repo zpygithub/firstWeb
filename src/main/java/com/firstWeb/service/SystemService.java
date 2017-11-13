@@ -1,6 +1,8 @@
 package com.firstWeb.service;
 
+import com.firstWeb.bean.model.Administrator;
 import com.firstWeb.bean.model.MainMenu;
+import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.mapper.SystemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +48,16 @@ public class SystemService {
                 createMenuTree(mm, list);
             }
         }
+    }
+
+    public String modifyAdminInfo(AdministratorParam param) {
+        String resultCode = systemMapper.modifyAdminInfo(param);
+        return resultCode;
+    }
+
+    public Administrator getAdministratorById(long id) {
+        Administrator administrator = systemMapper.getAdministratorById(id);
+        return administrator;
     }
 
 }
