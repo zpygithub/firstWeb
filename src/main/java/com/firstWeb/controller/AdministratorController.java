@@ -35,22 +35,22 @@ public class AdministratorController extends BaseController {
      * @return
      * @throws CommonException
      */
-    @GetMapping(value = "/getAdministratorById")
-    public ResultEntity<Administrator> getAdministratorById(HttpServletRequest request, HttpServletResponse response) throws CommonException {
-        LOGGER.info("getAdministratorById: begin");
+    @GetMapping(value = "/getAdministrator")
+    public ResultEntity<Administrator> getAdministrator(String adminId, HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        LOGGER.info("getAdministrator: begin");
         ResultEntity<Administrator> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
 //        Token token = getToken(request);
 //        if (null != token) {
 //            long id = token.getId();
-            Administrator administrator = administratorService.getAdministratorById(1);
-            if (null == administrator) {
-                throw new CommonException(ResultCode.ACCOUNTISNOTEXISTENCE, "the administrator not exist.");
-            }
-            result.setValue(administrator);
-            result.setCode(ResultCode.SUCCESS);
+        Administrator administrator = administratorService.getAdministrator(1);
+        if (null == administrator) {
+            throw new CommonException(ResultCode.ACCOUNTISNOTEXISTENCE, "the administrator not exist.");
+        }
+        result.setValue(administrator);
+        result.setCode(ResultCode.SUCCESS);
 //        }
-        LOGGER.info("getAdministratorById: end");
+        LOGGER.info("getAdministrator: end");
         return result;
     }
 }
