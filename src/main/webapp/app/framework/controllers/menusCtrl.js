@@ -6,17 +6,17 @@ define([], function () {
 
         $scope.adminInfo = {
             id: "adminInfoId",
-            text: adminInfo.account
+            label: adminInfo.account
         };
 
         $scope.modifyAdminInfo = {
             id: "modifyAdminInfoId",
-            title: i18n.admin_info
+            label: i18n.admin_info
         };
 
         $scope.logout = {
             id: "logoutId",
-            title: i18n.logout,
+            label: i18n.logout,
             click: function () {
                 storage.flush();
                 window.location = "./logout";
