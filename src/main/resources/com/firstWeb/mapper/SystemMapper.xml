@@ -42,4 +42,12 @@
         SELECT * FROM tb_administrator WHERE id=#{id} AND status != -1
     </select>
 
+    <update id="modifyAdminInfo" parameterType="com.firstWeb.bean.param.AdministratorParam">
+        UPDATE tb_administrator SET
+            nickname = #{nickname},
+            telephone = #{telephone},
+            email = #{email}
+        WHERE id = #{id}
+    </update>
+
 </mapper>
