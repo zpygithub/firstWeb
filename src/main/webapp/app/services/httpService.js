@@ -59,7 +59,7 @@ define(['i18n/keyId'], function (i18n) {
                     if (config.mask) {
                         mask.show();
                     }
-                    config.beforeSend(request, setting);
+                    // config.beforeSend(request, setting);
                 },
                 "complete": function (xhr, status) {
                     if (config.mask) {
@@ -97,7 +97,7 @@ define(['i18n/keyId'], function (i18n) {
                     if (config.mask) {
                         mask.show();
                     }
-                    config.beforeSend(request, setting);
+                    // config.beforeSend(request, setting);
                 },
                 "complete": function (xhr, status) {
                     if (config.mask) {
@@ -135,45 +135,7 @@ define(['i18n/keyId'], function (i18n) {
                     if (config.mask) {
                         mask.show();
                     }
-                    config.beforeSend(request, setting);
-                },
-                "complete": function (xhr, status) {
-                    if (config.mask) {
-                        mask.hide();
-                    }
-                    redirect302(xhr);
-                    redirect401(xhr);
-                    redirect403(xhr);
-                }
-            };
-            if (config.contentType) {
-                settings.contentType = config.contentType;
-            }
-            if (config.dataType) {
-                settings.dataType = config.dataType;
-            }
-            var $ajax = $.ajax(settings);
-            $ajax.success(function () {
-                deferred.resolve.apply(deferred, arguments);
-            }).error(function () {
-                deferred.reject.apply(deferred, arguments);
-            });
-            return deferred.promise;
-        };
-
-        this.deleter = function (config) {
-            var deferred = $q.defer();
-            var settings = {
-                "type": "DELETE",
-                "contentType": "application/json; charset=UTF-8",
-                "timeout": config.timeout || timeOut,
-                "url": !angular.isString(config.url) ? sub(config.url.s, config.url.o) : config.url,
-                "data": !config.params ? null : (typeof config.params === "string" ? config.params : JSON.stringify(config.params || {})),
-                "beforeSend": function (request, setting) {
-                    if (config.mask) {
-                        mask.show();
-                    }
-                    config.beforeSend(request, setting);
+                    // config.beforeSend(request, setting);
                 },
                 "complete": function (xhr, status) {
                     if (config.mask) {
@@ -211,7 +173,7 @@ define(['i18n/keyId'], function (i18n) {
                     if (config.mask) {
                         mask.show();
                     }
-                    config.beforeSend(request, setting);
+                    // config.beforeSend(request, setting);
                 },
                 "complete": function (xhr, status) {
                     if (config.mask) {
@@ -249,7 +211,7 @@ define(['i18n/keyId'], function (i18n) {
                     if (config.mask) {
                         mask.show();
                     }
-                    config.beforeSend(request, setting);
+                    // config.beforeSend(request, setting);
                 },
                 "complete": function (xhr, status) {
                     if (config.mask) {
@@ -286,7 +248,7 @@ define(['i18n/keyId'], function (i18n) {
                     if (config.mask) {
                         mask.show();
                     }
-                    config.beforeSend(request, setting);
+                    // config.beforeSend(request, setting);
                 },
                 "complete": function (xhr, status) {
                     if (config.mask) {
