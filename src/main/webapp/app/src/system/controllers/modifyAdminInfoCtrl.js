@@ -1,7 +1,8 @@
-define(["i18n/keyId"], function (i18n) {
+define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, SystemService) {
     "use strict";
-    var modifyAdminInfoCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
-        var adminInfo = $rootScope.adminInfo;
+    var modifyAdminInfoCtrl = ["$rootScope", "$scope", "camel", function ($rootScope, $scope, camel) {
+        var systemService = new SystemService(camel, $scope);
+        var id = $rootScope.adminInfo.id;
 
         $scope.modifyAdminInfo = {
             id: "modifyAdminInfoId",
@@ -45,6 +46,8 @@ define(["i18n/keyId"], function (i18n) {
         };
 
         $("#confirmId").bind("click", function () {
+            var account = $("#account").val();
+
             var nickname = $("#nickname").val();
             if ("" == nickname) {
                 Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});
@@ -67,11 +70,13 @@ define(["i18n/keyId"], function (i18n) {
             // }
 
             var data = {
+                "id": id,
+                "account": account,
                 "nickname": nickname,
                 "email": email,
                 "telephone": telephone
             };
-
+            console.log(data);
             $.ajax({
                 type: 'post',
                 url: 'system/modifyAdminInfo',
@@ -80,7 +85,7 @@ define(["i18n/keyId"], function (i18n) {
                 data: data,
                 success: function (data) {
                     if (data.code == "00000") {
-                        window.location.href = "index.html";
+                        // window.location.href = "index.html";
                     } else if (data.code == "00003") {
                         Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});
                     } else if (data.code == "00006") {
@@ -92,30 +97,35 @@ define(["i18n/keyId"], function (i18n) {
             });
         });
 
-        function getAdministratorById() {
+        function getAdministratorById(id) {
             $.ajax({
                 type: 'get',
-                url: 'system/getAdministratorById',
+                url: 'system/getAdministratorById/' + id,
                 dataType: 'json',
                 async: false,
-                data: {id: adminInfo.id},
                 success: function (data) {
-                    // if (data.code == "00000") {
-                    //     window.location.href = "index.html";
-                    // } else if (data.code == "00003") {
-                    //     Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});
-                    // } else if (data.code == "00006") {
-                    //     Lobibox.notify("warning", {msg: i18n.nicknameAlreadyExists});
-                    // } else if (data.code == "00008") {
-                    //     Lobibox.notify("error", {msg: i18n.nicknameFormatError});
-                    // }
-                    console.log(data);
+                    if (data.code === "00000") {
+                        $scope.account.value = data.value.account;
+                        $scope.nickname.value = data.value.nickname;
+                        $scope.email.value = data.value.email;
+                        $scope.telephone.value = data.value.telephone;
+                    }
                 }
             });
+            // var deferred = systemService.getAdministratorById(id);
+            // deferred.then(function (data) {
+            //     if (data.code === "00000") {
+            //         console.log(data);
+            //         $scope.account.value = data.value.account;
+            //         $scope.nickname.value = data.value.nickname;
+            //         $scope.email.value = data.value.email;
+            //         $scope.telephone.value = data.value.telephone;
+            //     }
+            // });
         }
 
         function init() {
-            getAdministratorById();
+            getAdministratorById(id);
         }
 
         init();
