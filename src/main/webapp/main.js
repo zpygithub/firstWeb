@@ -4,7 +4,7 @@ require.config({
     "waitSeconds": 0,
     "paths": {
         "app": "app",
-        "jquery": "lib/js/jquery/jquery-3.2.1",
+        "jquery": "lib/js/jquery/jquery-1.12.4",
         "angular": "lib/js/angular/angular",
         "ui-router": "lib/js/angular/angular-ui-router",
         "file-input": "lib/js/bootstrap/bootstrap_fileinput4.4.4",
