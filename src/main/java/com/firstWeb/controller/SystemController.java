@@ -19,9 +19,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/**
- * Created by zpy on 2017/5/15.
- */
 @RestController
 @RequestMapping({"/system"})
 public class SystemController extends BaseController {
@@ -86,7 +83,7 @@ public class SystemController extends BaseController {
      * @param response
      * @return
      */
-    @GetMapping(value = "/modifyAdminInfo")
+    @PostMapping(value = "/modifyAdminInfo")
     public ResultEntity<String> modifyAdminInfo(Administrator model, HttpServletRequest request, HttpServletResponse response) throws CommonException {
         LOGGER.info("modifyAdminInfo: begin");
         ResultEntity<String> result = new ResultEntity<>();
@@ -102,6 +99,7 @@ public class SystemController extends BaseController {
         }
 
         AdministratorParam param = new AdministratorParam();
+        param.setId(model.getId());
         param.setNickname(model.getNickname());
         param.setEmail(model.getEmail());
         param.setTelephone(model.getTelephone());
@@ -120,7 +118,7 @@ public class SystemController extends BaseController {
      * @return
      * @throws CommonException
      */
-    @GetMapping(value = "/getAdministratorById")
+    @GetMapping(value = "/getAdministratorById/{id}")
     public ResultEntity<Administrator> getAdministratorById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws CommonException {
         LOGGER.info("getAdministratorById: begin");
         ResultEntity<Administrator> result = new ResultEntity<>();
