@@ -1,13 +1,19 @@
 package com.firstWeb.bean.param;
 
-/**
- * Created by zpy on 2017/5/28.
- */
 public class AdministratorParam {
+    private String id;
     private String account;
     private String nickname;
     private String telephone;
     private String email;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getAccount() {
         return account;
@@ -16,7 +22,6 @@ public class AdministratorParam {
     public void setAccount(String account) {
         this.account = account;
     }
-
 
     public String getNickname() {
         return nickname;
