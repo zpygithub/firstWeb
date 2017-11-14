@@ -13,7 +13,7 @@ public interface SystemMapper {
 
     List<Administrator> getAdminList(AdministratorParam params);
 
-    String modifyAdminInfo(AdministratorParam param);
+    void modifyAdminInfo(AdministratorParam param);
 
     Administrator getAdministratorById(long id);
 
