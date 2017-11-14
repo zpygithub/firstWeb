@@ -3,6 +3,7 @@ package com.firstWeb.service;
 import com.firstWeb.bean.model.Administrator;
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
+import com.firstWeb.constant.ResultCode;
 import com.firstWeb.mapper.SystemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,8 +57,8 @@ public class SystemService {
     }
 
     public String modifyAdminInfo(AdministratorParam param) {
-        String resultCode = systemMapper.modifyAdminInfo(param);
-        return resultCode;
+        systemMapper.modifyAdminInfo(param);
+        return ResultCode.SUCCESS;
     }
 
     public Administrator getAdministratorById(long id) {
