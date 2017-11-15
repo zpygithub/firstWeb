@@ -1,4 +1,4 @@
-define(['jquery', "angular"], function ($, angular) {
+define(["angular"], function (angular) {
     "use strict";
     var ctrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
         var user = $rootScope.user;
