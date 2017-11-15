@@ -19,7 +19,6 @@ require.config({
             "exports": "$"
         },
         "angular": {
-            "deps": ["jquery"],
             "exports": "angular"
         },
         "bootstrap": {
@@ -40,8 +39,8 @@ require.config({
     }
 });
 
-require(["app/framework/framework", "i18n/keyId", "angular", "jquery"],
-    function (framework, i18n, angular, $) {
+require(["app/framework/framework", "i18n/keyId", "angular"],
+    function (framework, i18n, angular) {
         var injector = angular.bootstrap($("html"), [framework.name]);
         var rootScope = injector.get("$rootScope");
         var state = injector.get("$state");
