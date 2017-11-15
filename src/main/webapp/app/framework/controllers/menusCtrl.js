@@ -11,7 +11,13 @@ define([], function () {
 
         $scope.modifyAdminInfo = {
             id: "modifyAdminInfoId",
-            label: i18n.admin_info
+            label: i18n.admin_info,
+            click: function () {
+                $("#adminInfoModal").modal({
+                    remote: "app/src/system/views/modifyAdminInfo.html",
+                    backdrop: "static"
+                });
+            }
         };
 
         $scope.logout = {
@@ -19,7 +25,7 @@ define([], function () {
             label: i18n.logout,
             click: function () {
                 storage.flush();
-                window.location = "./logout";
+                window.location = "./login.html";
             }
         };
 
