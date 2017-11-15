@@ -21,15 +21,13 @@
                     <h5>{{adminInfo.label}}<b class="caret"></b></h5>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a data-toggle="modal" href="app/src/system/views/modifyAdminInfo.html"
-                           data-target="#adminInfoModal" data-backdrop="static">{{modifyAdminInfo.label}}</a></li>
+                    <li><a ng-click="modifyAdminInfo.click()">{{modifyAdminInfo.label}}</a></li>
                     <li><a ng-click="logout.click()">{{logout.label}}</a></li>
                 </ul>
             </li>
         </ul>
     </div>
-    <div class="modal fade" id="adminInfoModal" tabindex="-1" role="dialog" aria-labelledby="modal"
-         data-backdrop="false">
+    <div class="modal fade" id="adminInfoModal" tabindex="-1" role="dialog" aria-labelledby="modal" data-backdrop="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             </div>
