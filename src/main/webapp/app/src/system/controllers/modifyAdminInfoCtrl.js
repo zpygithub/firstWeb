@@ -41,13 +41,10 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
 
         $scope.confirm = {
             id: "confirmId",
-            label: i18n.confirm,
-            value: ""
+            label: i18n.confirm
         };
 
         $("#confirmId").bind("click", function () {
-            var account = $("#account").val();
-
             var nickname = $("#nickname").val();
             if ("" == nickname) {
                 Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});
@@ -71,7 +68,6 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
 
             var data = {
                 "id": id,
-                "account": account,
                 "nickname": nickname,
                 "email": email,
                 "telephone": telephone
@@ -85,7 +81,8 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                 data: data,
                 success: function (data) {
                     if (data.code == "00000") {
-                        // window.location.href = "index.html";
+                        Lobibox.notify("success", {msg: i18n.operation_succeeded});
+                        $("#adminInfoModal").modal("hide");
                     } else if (data.code == "00003") {
                         Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});
                     } else if (data.code == "00006") {
@@ -98,30 +95,30 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
         });
 
         function getAdministratorById(id) {
-            $.ajax({
-                type: 'get',
-                url: 'system/getAdministratorById/' + id,
-                dataType: 'json',
-                async: false,
-                success: function (data) {
-                    if (data.code === "00000") {
-                        $scope.account.value = data.value.account;
-                        $scope.nickname.value = data.value.nickname;
-                        $scope.email.value = data.value.email;
-                        $scope.telephone.value = data.value.telephone;
-                    }
-                }
-            });
-            // var deferred = systemService.getAdministratorById(id);
-            // deferred.then(function (data) {
-            //     if (data.code === "00000") {
-            //         console.log(data);
-            //         $scope.account.value = data.value.account;
-            //         $scope.nickname.value = data.value.nickname;
-            //         $scope.email.value = data.value.email;
-            //         $scope.telephone.value = data.value.telephone;
+            // $.ajax({
+            //     type: 'get',
+            //     url: 'system/getAdministratorById/' + id,
+            //     dataType: 'json',
+            //     async: false,
+            //     success: function (data) {
+            //         if (data.code === "00000") {
+            //             $scope.account.value = data.value.account;
+            //             $scope.nickname.value = data.value.nickname;
+            //             $scope.email.value = data.value.email;
+            //             $scope.telephone.value = data.value.telephone;
+            //         }
             //     }
             // });
+            var deferred = systemService.getAdministratorById(id);
+            deferred.then(function (data) {
+                if (data.code === "00000") {
+                    console.log(data);
+                    $scope.account.value = data.value.account;
+                    $scope.nickname.value = data.value.nickname;
+                    $scope.email.value = data.value.email;
+                    $scope.telephone.value = data.value.telephone;
+                }
+            });
         }
 
         function init() {
