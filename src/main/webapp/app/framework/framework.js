@@ -4,17 +4,17 @@ define(["angular",
         "app/services/maskService",
         "app/services/cookieService",
         "app/framework/configures/frameworkConfig",
-        "app/src/system/configures/systemRouterConfig",
+        "app/src/system/configures/systemConfig",
         "app/framework/controllers/homeCtrl",
         "app/framework/controllers/menusCtrl",
         "app/framework/controllers/serviceCtrl"],
-    function (angular, router, http, mask, storage, frameworkConfig, systemRouterConfig, homeCtrl, menusCtrl, serviceCtrl) {
+    function (angular, router, http, mask, storage, frameworkConfig, systemConfig, homeCtrl, menusCtrl, serviceCtrl) {
         "use strict";
         var dependency = [
             "ng",
             "ui.router",
             frameworkConfig.name,
-            systemRouterConfig.name
+            systemConfig.name
         ];
 
         var framework = angular.module("framework", dependency);
@@ -26,10 +26,11 @@ define(["angular",
         framework.service("mask", mask);
         framework.service("storage", storage);
 
-        framework.config(["$controllerProvider", "$compileProvider", function ($controllerProvider, $compileProvider) {
+        framework.config(["$controllerProvider", "$compileProvider", '$locationProvider', function ($controllerProvider, $compileProvider, $locationProvider) {
             framework.controllerProvider = $controllerProvider;
             framework.compileProvider = $compileProvider;
+            $locationProvider.hashPrefix('');
         }]);
 
         return framework;
-    })
+    });
