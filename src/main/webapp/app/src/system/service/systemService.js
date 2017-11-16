@@ -1,13 +1,11 @@
 define(function () {
     "use strict";
-    var service = function (camel, scope) {
+    var service = function (camel) {
         this.getAdministratorById = function (id) {
             var deferred = camel.get({
                 url: {
                     s: "system/getAdministratorById/{id}",
-                    o: {
-                        id: id
-                    }
+                    o: {id: id}
                 }
             });
             return deferred;
