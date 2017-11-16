@@ -48,38 +48,34 @@ require(["app/framework/framework", "i18n/keyId", "angular"],
         $.ajax({
             type: 'get',
             url: 'account/getAdministrator',
-            async: false,
-            success: function (data) {
-                if (data.code === "00000") {
-                    rootScope.i18n = i18n;
-                    rootScope.adminInfo = data.value;
-                } else {
-                    window.location.href = "login.html";
-                }
-            },
-            error: function () {
-                var index = window.location.href.indexOf("#");
-                if (index == -1) {
-                    window.location.href = "login.html";
-                } else {
-                    window.location.href = "login.html?service=" + window.location.href.substring(index);
-                }
+            async: false
+        }).done(function (data) {
+            if (data.code === "00000") {
+                rootScope.i18n = i18n;
+                rootScope.adminInfo = data.value;
+            } else {
+                window.location.href = "login.html";
+            }
+        }).fail(function () {
+            var index = window.location.href.indexOf("#");
+            if (index == -1) {
+                window.location.href = "login.html";
+            } else {
+                window.location.href = "login.html?service=" + window.location.href.substring(index);
             }
         });
 
         $.ajax({
             type: 'get',
             url: 'system/getMainMenus',
-            async: false,
-            success: function (data) {
-                if (data.code === "00000") {
-                    rootScope.mainMenus = data.value;
-                } else {
-                    window.location.href = "login.html";
-                }
-            },
-            error: function () {
+            async: false
+        }).done(function (data) {
+            if (data.code === "00000") {
+                rootScope.mainMenus = data.value;
+            } else {
                 window.location.href = "login.html";
             }
+        }).fail(function () {
+            window.location.href = "login.html";
         });
-    })
+    });
