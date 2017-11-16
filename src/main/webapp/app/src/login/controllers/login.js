@@ -28,22 +28,21 @@ $(document).ready(function () {
             url: 'login/mainLogin',
             dataType: 'json',
             async: false,
-            data: data,
-            success: function (data) {
-                if (data.code == "00000") {
-                    window.location.href = "index.html";
-                } else if (data.code == "00010") {
-                    Lobibox.notify("error", {msg: getLocaleMsg("accountNotExist")});
-                    $("#account").focus();
-                } else if (data.code == "00017") {
-                    Lobibox.notify("error", {msg: getLocaleMsg("accountOrPasswordError")});
-                    $("#password").focus();
-                } else if (data.code == "00011") {
-                    Lobibox.notify("error", {msg: getLocaleMsg("accountLocked")});
-                    $("#account").focus();
-                } else {
-                    Lobibox.notify("error", {msg: getLocaleMsg("accountOrPasswordError")});
-                }
+            data: data
+        }).done(function (data) {
+            if (data.code == "00000") {
+                window.location.href = "index.html";
+            } else if (data.code == "00010") {
+                Lobibox.notify("error", {msg: getLocaleMsg("accountNotExist")});
+                $("#account").focus();
+            } else if (data.code == "00017") {
+                Lobibox.notify("error", {msg: getLocaleMsg("accountOrPasswordError")});
+                $("#password").focus();
+            } else if (data.code == "00011") {
+                Lobibox.notify("error", {msg: getLocaleMsg("accountLocked")});
+                $("#account").focus();
+            } else {
+                Lobibox.notify("error", {msg: getLocaleMsg("accountOrPasswordError")});
             }
         });
     });
