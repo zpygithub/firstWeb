@@ -1,6 +1,3 @@
-/**
- * Created by zpy on 2017/4/20.
- */
 define(['i18n/keyId'], function (i18n) {
     "use strict";
     var subRegRex = /\{\s*([^\|\}]+?)\s*(?:\|([^\}]*))?\s*\}/g;
@@ -18,7 +15,7 @@ define(['i18n/keyId'], function (i18n) {
     };
     var redirect403 = function (xhr) {
         if (xhr.status === 403) {
-            if ($('#console_frame_for_bidden_confirm').length === 0) {
+            if ($('#console_frame_forbidden_confirm').length === 0) {
                 var options = {
                     type: "error",
                     content: i18n.term_errorForbidden_msg,
@@ -50,6 +47,7 @@ define(['i18n/keyId'], function (i18n) {
         this.get = function (config) {
             var deferred = $q.defer();
             var settings = {
+                "traditional": config.traditional || false,
                 "type": "GET",
                 "contentType": "application/json; charset=UTF-8",
                 "timeout": config.timeout || timeOut,
