@@ -55,19 +55,18 @@ $(document).ready(function () {
             url: "register/mainRegister",
             dataType: "json",
             async: false,
-            data: data,
-            success: function (data) {
-                if (data.code == "00000") {
-                    Lobibox.notify("success", {msg: getLocaleMsg("registrationSuccess")});
-                    window.location.href = "login.html";
-                } else if (data.code == "00004") {
-                    Lobibox.notify("error", {msg: getLocaleMsg("passwordMustBeConsistent")});
-                } else if (data.code == "00005") {
-                    Lobibox.notify("warning", {msg: getLocaleMsg("accountAlreadyExists")});
-                } else if (data.code == "00006") {
-                    Lobibox.notify("warning", {msg: getLocaleMsg("nicknameAlreadyExists")});
-                }
-            },
+            data: data
+        }).done(function (data) {
+            if (data.code == "00000") {
+                Lobibox.notify("success", {msg: getLocaleMsg("registrationSuccess")});
+                window.location.href = "login.html";
+            } else if (data.code == "00004") {
+                Lobibox.notify("error", {msg: getLocaleMsg("passwordMustBeConsistent")});
+            } else if (data.code == "00005") {
+                Lobibox.notify("warning", {msg: getLocaleMsg("accountAlreadyExists")});
+            } else if (data.code == "00006") {
+                Lobibox.notify("warning", {msg: getLocaleMsg("nicknameAlreadyExists")});
+            }
         });
     });
 
