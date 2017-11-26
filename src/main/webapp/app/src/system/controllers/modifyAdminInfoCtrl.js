@@ -11,26 +11,26 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
 
             $scope.account = {
                 id: "accountId",
-                label: i18n.admin_account,
+                label: i18n.account,
                 value: "",
                 disable: true
             };
 
             $scope.nickname = {
                 id: "nicknameId",
-                label: i18n.admin_nickname,
+                label: i18n.nickname,
                 value: ""
             };
 
             $scope.email = {
                 id: "emailId",
-                label: i18n.admin_email,
+                label: i18n.email,
                 value: ""
             };
 
             $scope.telephone = {
                 id: "telephoneId",
-                label: i18n.admin_telephone,
+                label: i18n.telephone,
                 value: ""
             };
 
@@ -44,7 +44,7 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                 label: i18n.confirm
             };
 
-            $("#confirmId").bind("click", function () {
+            $("#confirm").bind("click", function () {
                 var nickname = $("#nickname").val();
                 if ("" == nickname) {
                     Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});

@@ -1,7 +1,64 @@
-define(["bootstrap-table"], function (bootstrapTable) {
+define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
     "use strict";
     var adminListCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
         initTable();
+
+        $scope.account = {
+            id: "accountId",
+            label: i18n.account,
+            value: ""
+        };
+
+        $scope.nickname = {
+            id: "nicknameId",
+            label: i18n.nickname,
+            value: ""
+        };
+
+        $scope.email = {
+            id: "emailId",
+            label: i18n.email,
+            value: ""
+        };
+
+        $scope.telephone = {
+            id: "telephoneId",
+            label: i18n.telephone,
+            value: ""
+        };
+
+        $scope.query = {
+            id: "queryId",
+            label: i18n.query
+        };
+
+        $scope.reset = {
+            id: "resetId",
+            label: i18n.reset
+        };
+
+        $("#query").bind("click", function () {
+            var data = {
+                "account": $("#account").val().trim(),
+                "nickname": $("#nickname").val().trim(),
+                "email": $("#email").val().trim(),
+                "telephone": $("#telephone").val().trim()
+            };
+            $.ajax({
+                type: 'post',
+                url: 'system/modifyAdminInfo',
+                dataType: 'json',
+                async: false,
+                data: data
+            }).done(function (data) {
+                if (data.code == "00000") {
+                    Lobibox.notify("success", {msg: i18n.operation_succeeded});
+                    $("#adminInfoModal").modal("hide");
+                } else {
+                    Lobibox.notify("error", {msg: i18n.nicknameFormatError});
+                }
+            });
+        });
 
         function initTable() {
             $("#tb_departments").bootstrapTable({
@@ -31,40 +88,51 @@ define(["bootstrap-table"], function (bootstrapTable) {
                 columns: [
                     {
                         field: "id",
-                        title: "Id",
+                        title: "id",
                         align: "center",
                         valign: "middle",
                         sortable: true
                     }, {
                         field: "account",
-                        title: "账号",
+                        title: i18n.account,
                         align: "center",
                         valign: "middle",
                         sortable: true
                     }, {
                         field: "nickname",
-                        title: "昵称",
+                        title: i18n.nickname,
                         align: "center",
                         valign: "middle"
                     }, {
                         field: "email",
-                        title: "邮箱",
-                        align: "center",
-                        valign: "middle",
-                        sortable: true
-                    }, {
-                        field: "telephone",
-                        title: "电话",
+                        title: i18n.email,
                         align: "center",
                         valign: "middle"
-                    // }, {
-                    //     field: "createTime",
-                    //     title: "Create Time",
-                    //     align: "center",
-                    //     valign: "left",
-                    //     formatter: function (value, row, index) {
-                    //         return new Date(value).format("yyyy-MM-dd hh:mm:ss");
-                    //     }
+                    }, {
+                        field: "telephone",
+                        title: i18n.telephone,
+                        align: "center",
+                        valign: "middle"
+                    }, {
+                        field: "status",
+                        title: i18n.status,
+                        align: "center",
+                        valign: "middle",
+                        formatter: function (status) {
+                            if (status == 0) {
+                                return i18n.normal;
+                            } else {
+                                return i18n.freeze;
+                            }
+                        }
+                        // }, {
+                        //     field: "status",
+                        //     title: "Create Time",
+                        //     align: "center",
+                        //     valign: "left",
+                        //     formatter: function (value, row, index) {
+                        //         return new Date(value).format("yyyy-MM-dd hh:mm:ss");
+                        //     }
                     }]
             });
         }

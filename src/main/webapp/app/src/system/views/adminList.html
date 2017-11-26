@@ -1,30 +1,34 @@
 <div>
-    <div class="container" id="query" style="width: 100%">
+    <div class="container" style="width: 100%">
         <ol class="breadcrumb">
-            <li><strong><span style="color: #27a0d7">用户列表</span></strong></li>
+            <li><strong><span style="color: #27a0d7">管理员列表</span></strong></li>
         </ol>
         <form class="form-inline" role="form" style="float: left; width: 100%" method="post" id="queryForm">
             <div class="form-group">
-                <label for="orgCode">部门:</label>
-                <select class="form-control" id="orgCode" name="orgCode">
-                    <option value="">默认选择</option>
-                </select>
+                <label>{{account.label}}</label>
+                <input type="text" class="form-control" id="account">
             </div>
             <div class="form-group">
-                <label for="userName">名称:</label>
-                <input type="text" class="form-control" name="userName" id="userName" placeholder="请输入名称">
+                <label>{{nickname.label}}</label>
+                <input type="text" class="form-control" id="nickname">
             </div>
             <div class="form-group">
-                <label>日期:</label>
-                <input placeholder="开始日期" class="form-control layer-date" id="startDate" name="startDate">
-                <input placeholder="结束日期" class="form-control layer-date" id="endDate" name="endDate">
+                <label>{{email.label}}</label>
+                <input type="text" class="form-control" id="email">
             </div>
             <div class="form-group">
-                <button type="button" id="queryBtn" onclick="doQuery();" class="btn btn-primary">查询</button>
+                <label>{{telephone.label}}</label>
+                <input type="text" class="form-control" id="telephone">
             </div>
-            <div class="form-group btn-right">
-                <button type="button" class="btn btn-primary" id="addBtn" onclick="addUser();">新增用户</button>
+            <div class="form-group">
+                <button id="query" class="btn btn-primary">{{query.label}}</button>
             </div>
+            <div class="form-group">
+                <button id="reset" class="btn btn-primary">{{reset.label}}</button>
+            </div>
+            <!--<div class="form-group btn-right">-->
+                <!--<button type="button" class="btn btn-primary" id="addBtn" onclick="addUser();">新增用户</button>-->
+            <!--</div>-->
         </form>
     </div>
     <div class="container" style="width: 100%">

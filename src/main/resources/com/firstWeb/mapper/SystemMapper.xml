@@ -30,7 +30,6 @@
     <select id="getAdminList" parameterType="com.firstWeb.bean.param.AdministratorParam" resultMap="adminMap">
         SELECT * FROM tb_administrator
         <where>
-            status != -1
             <if test="account != '' and account != null">
                 AND account LIKE CONCAT(#{account},"%")
             </if>
