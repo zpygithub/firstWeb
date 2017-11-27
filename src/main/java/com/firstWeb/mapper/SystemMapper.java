@@ -11,7 +11,7 @@ public interface SystemMapper {
 
     List<MainMenu> getMainMenus();
 
-    List<Administrator> getAdminList(AdministratorParam params);
+    List<Administrator> getAdminListOnCondition(AdministratorParam params);
 
     void modifyAdminInfo(AdministratorParam param);
 
