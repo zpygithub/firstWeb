@@ -1,6 +1,8 @@
 define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
     "use strict";
     var adminListCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
+        var queryParams;
+
         initTable();
 
         $scope.account = {
@@ -38,31 +40,35 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
         };
 
         $("#query").bind("click", function () {
-            var data = {
+            queryParams = {
                 "account": $("#account").val().trim(),
                 "nickname": $("#nickname").val().trim(),
                 "email": $("#email").val().trim(),
                 "telephone": $("#telephone").val().trim()
             };
-            $.ajax({
-                type: 'post',
-                url: 'system/modifyAdminInfo',
-                dataType: 'json',
-                async: false,
-                data: data
-            }).done(function (data) {
-                if (data.code == "00000") {
-                    Lobibox.notify("success", {msg: i18n.operation_succeeded});
-                    $("#adminInfoModal").modal("hide");
-                } else {
-                    Lobibox.notify("error", {msg: i18n.nicknameFormatError});
-                }
-            });
+            alert("请联系qq873333508");
+            console.log(queryParams);
+            initTable();
+            // $.ajax({
+            //     type: 'get',
+            //     url: 'system/getAdminListOnCondition',
+            //     dataType: 'json',
+            //     async: false,
+            //     data: data
+            // }).done(function (data) {
+            //     if (data.code == "00000") {
+            //         console.log(data.value);
+            //         $("#tb_departments").columns = data.value;
+            //     } else {
+            //         return;
+            //     }
+            // });
         });
 
         function initTable() {
-            $("#tb_departments").bootstrapTable({
-                url: "system/getAdminList",         //请求后台的URL（*）
+            console.log(queryParams);
+            $("#adminList").bootstrapTable({
+                url: "system/getAdminListOnCondition",         //请求后台的URL（*）
                 method: "get",                      //请求方式（*）
                 toolbar: "#toolbar",                //工具按钮用哪个容器
                 striped: true,                      //是否显示行间隔色
@@ -70,7 +76,7 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
                 pagination: true,                   //是否显示分页（*）
                 sortable: false,                    //是否启用排序
                 sortOrder: "asc",                   //排序方式
-                // queryParams: queryParams,           //传递参数（*）
+                queryParams: queryParams,           //传递参数（*）
                 sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
                 dataType: "json",
                 pageNumber: 1,                      //初始化加载第一页，默认第一页
@@ -84,7 +90,7 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
                 showToggle: true,                   //是否显示详细视图和列表视图的切换按钮
                 showExport: true,
                 exportDataType: "all",
-                responseHandler: getAdminList,
+                responseHandler: getAdminListOnCondition,
                 columns: [
                     {
                         field: "id",
@@ -137,9 +143,9 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
             });
         }
 
-        function getAdminList(res) {
+        function getAdminListOnCondition(res) {
+            console.log(res);
             if (res) {
-                console.log(res);
                 return {
                     "rows": res.value,
                     "total": res.value.length
