@@ -17,4 +17,5 @@ public interface SystemMapper {
 
     Administrator getAdministratorById(long id);
 
+    String checkOwnNickname(long id);
 }
