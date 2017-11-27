@@ -11,10 +11,10 @@ define(["lazy-load"], function (lazyLoad) {
                 "js": []
             }
         }, {
-            name: "system.admin",
-            url: "/admin",
+            name: "system.adminList",
+            url: "/adminList",
             templateUrl: "app/src/system/views/adminList.html",
-            controller: "system.admin",
+            controller: "system.adminList",
             scripts: {
                 "controllers": ["app/src/system/controllers/adminListCtrl"],
                 "js": []
