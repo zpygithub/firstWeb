@@ -66,4 +66,11 @@ public class SystemService {
         return administrator;
     }
 
+    public Boolean checkOwnNickname(String nickname, String id) {
+        String oldNickname = systemMapper.checkOwnNickname(Long.valueOf(id));
+        if (nickname.equals(oldNickname)) {
+            return true;
+        }
+        return false;
+    }
 }
