@@ -51,8 +51,8 @@ public class SystemService {
         }
     }
 
-    public List<Administrator> getAdminList(AdministratorParam params) {
-        List<Administrator> list = systemMapper.getAdminList(params);
+    public List<Administrator> getAdminListOnCondition(AdministratorParam params) {
+        List<Administrator> list = systemMapper.getAdminListOnCondition(params);
         return list;
     }
 
