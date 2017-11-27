@@ -93,7 +93,7 @@ public class SystemController extends BaseController {
         BasicDateValidateUtil.validateIsEmpty(model.getNickname());
         BasicDateValidateUtil.validateIsNickname(model.getNickname());
 
-        if (!registerService.checkNickname(model.getNickname())) {
+        if (!registerService.checkNickname(model.getNickname()) && !systemService.checkOwnNickname(model.getNickname(), model.getId())) {
             result.setCode(ResultCode.NICKNAMEISEXISTENCE);
             return result;
         }
