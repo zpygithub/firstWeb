@@ -154,6 +154,6 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
     }];
 
     var systemModule = angular.module("system.config");
-    systemModule.controller("system.admin", adminListCtrl);
+    systemModule.controller("system.adminList", adminListCtrl);
     return systemModule;
 });
