@@ -58,9 +58,9 @@ public class SystemController extends BaseController {
      * @param response
      * @return
      */
-    @GetMapping(value = "/getAdminList")
-    public ResultEntity<List<Administrator>> getAdminList(Administrator model, HttpServletRequest request, HttpServletResponse response) {
-        LOGGER.info("getAdminList: begin");
+    @GetMapping(value = "/getAdminListOnCondition")
+    public ResultEntity<List<Administrator>> getAdminListOnCondition(Administrator model, HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.info("getAdminListOnCondition: begin");
         ResultEntity<List<Administrator>> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
 //        Token token = getToken(request);
@@ -69,10 +69,10 @@ public class SystemController extends BaseController {
         params.setNickname(model.getNickname());
         params.setEmail(model.getEmail());
         params.setTelephone(model.getTelephone());
-        List<Administrator> list = systemService.getAdminList(params);
+        List<Administrator> list = systemService.getAdminListOnCondition(params);
         result.setValue(list);
         result.setCode(ResultCode.SUCCESS);
-        LOGGER.info("getAdminList: end");
+        LOGGER.info("getAdminListOnCondition: end");
         return result;
     }
 
