@@ -6,19 +6,19 @@
         <form class="form-inline" role="form" style="float: left; width: 100%" method="post" id="queryForm">
             <div class="form-group">
                 <label>{{account.label}}</label>
-                <input type="text" class="form-control" id="account">
+                <input type="text" class="form-control" id="account" ng-model="account.value">
             </div>
             <div class="form-group">
                 <label>{{nickname.label}}</label>
-                <input type="text" class="form-control" id="nickname">
+                <input type="text" class="form-control" id="nickname" ng-model="nickname.value">
             </div>
             <div class="form-group">
                 <label>{{email.label}}</label>
-                <input type="text" class="form-control" id="email">
+                <input type="text" class="form-control" id="email" ng-model="email.value">
             </div>
             <div class="form-group">
                 <label>{{telephone.label}}</label>
-                <input type="text" class="form-control" id="telephone">
+                <input type="text" class="form-control" id="telephone" ng-model="telephone.value">
             </div>
             <div class="form-group">
                 <button id="query" class="btn btn-primary">{{query.label}}</button>
@@ -27,7 +27,7 @@
                 <button id="reset" class="btn btn-primary">{{reset.label}}</button>
             </div>
             <!--<div class="form-group btn-right">-->
-                <!--<button type="button" class="btn btn-primary" id="addBtn" onclick="addUser();">新增用户</button>-->
+            <!--<button type="button" class="btn btn-primary" id="addBtn" onclick="addUser();">新增用户</button>-->
             <!--</div>-->
         </form>
     </div>
