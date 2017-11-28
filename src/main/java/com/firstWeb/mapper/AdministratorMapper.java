@@ -1,10 +1,10 @@
 package com.firstWeb.mapper;
 
-import com.firstWeb.bean.model.Administrator;
+import com.firstWeb.bean.response.AdministratorInfo;
 
 public interface AdministratorMapper {
 
-    Administrator getAdministrator(long id);
+    AdministratorInfo getAdministrator(long id);
 
-    Administrator getAdministratorByAccount(String account);
+    AdministratorInfo getAdministratorByAccount(String account);
 }

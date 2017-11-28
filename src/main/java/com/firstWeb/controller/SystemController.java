@@ -1,9 +1,9 @@
 package com.firstWeb.controller;
 
-import com.firstWeb.bean.model.Administrator;
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
-import com.firstWeb.bean.param.RegisterParam;
+import com.firstWeb.bean.request.AdministratorReqModel;
+import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
@@ -59,9 +59,9 @@ public class SystemController extends BaseController {
      * @return
      */
     @GetMapping(value = "/getAdminListOnCondition")
-    public ResultEntity<List<Administrator>> getAdminListOnCondition(Administrator model, HttpServletRequest request, HttpServletResponse response) {
+    public ResultEntity<List<AdministratorInfo>> getAdminListOnCondition(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("getAdminListOnCondition: begin");
-        ResultEntity<List<Administrator>> result = new ResultEntity<>();
+        ResultEntity<List<AdministratorInfo>> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
 //        Token token = getToken(request);
         AdministratorParam params = new AdministratorParam();
@@ -69,7 +69,7 @@ public class SystemController extends BaseController {
         params.setNickname(model.getNickname());
         params.setEmail(model.getEmail());
         params.setTelephone(model.getTelephone());
-        List<Administrator> list = systemService.getAdminListOnCondition(params);
+        List<AdministratorInfo> list = systemService.getAdminListOnCondition(params);
         result.setValue(list);
         result.setCode(ResultCode.SUCCESS);
         LOGGER.info("getAdminListOnCondition: end");
@@ -84,7 +84,7 @@ public class SystemController extends BaseController {
      * @return
      */
     @PostMapping(value = "/modifyAdminInfo")
-    public ResultEntity<String> modifyAdminInfo(Administrator model, HttpServletRequest request, HttpServletResponse response) throws CommonException {
+    public ResultEntity<String> modifyAdminInfo(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) throws CommonException {
         LOGGER.info("modifyAdminInfo: begin");
         ResultEntity<String> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
@@ -119,11 +119,11 @@ public class SystemController extends BaseController {
      * @throws CommonException
      */
     @GetMapping(value = "/getAdministratorById/{id}")
-    public ResultEntity<Administrator> getAdministratorById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws CommonException {
+    public ResultEntity<AdministratorInfo> getAdministratorById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) throws CommonException {
         LOGGER.info("getAdministratorById: begin");
-        ResultEntity<Administrator> result = new ResultEntity<>();
+        ResultEntity<AdministratorInfo> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
-        Administrator administrator = systemService.getAdministratorById(Long.valueOf(id));
+        AdministratorInfo administrator = systemService.getAdministratorById(Long.valueOf(id));
         if (null == administrator) {
             throw new CommonException(ResultCode.ACCOUNTISNOTEXISTENCE, "the administrator not exist.");
         }

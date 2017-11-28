@@ -1,14 +1,12 @@
-package com.firstWeb.bean.model;
+package com.firstWeb.bean.request;
 
-public class Administrator {
+public class AdministratorReqModel extends Pagination {
     private String id;
     private String account;
-    private transient String password;
     private String nickname;
     private String telephone;
     private String email;
     private String status;
-    private transient String salt;
 
     public String getId() {
         return id;
@@ -26,13 +24,6 @@ public class Administrator {
         this.account = account;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getNickname() {
         return nickname;
@@ -66,12 +57,5 @@ public class Administrator {
         this.status = status;
     }
 
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
 
 }

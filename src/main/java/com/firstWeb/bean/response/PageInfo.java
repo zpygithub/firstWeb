@@ -1,8 +1,5 @@
-package com.firstWeb.bean.model;
+package com.firstWeb.bean.response;
 
-/**
- * Created by zpy on 2017/4/20.
- */
 public class PageInfo {
 
     private int totalRecords;

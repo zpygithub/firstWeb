@@ -1,20 +1,18 @@
-package com.firstWeb.bean.model;
+package com.firstWeb.bean.response;
 
-public class Administrator {
-    private String id;
+public class AdministratorInfo extends PageInfo {
+    private long id;
     private String account;
-    private transient String password;
     private String nickname;
     private String telephone;
     private String email;
-    private String status;
-    private transient String salt;
+    private int status;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -24,14 +22,6 @@ public class Administrator {
 
     public void setAccount(String account) {
         this.account = account;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getNickname() {
@@ -58,20 +48,11 @@ public class Administrator {
         this.email = email;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
 }

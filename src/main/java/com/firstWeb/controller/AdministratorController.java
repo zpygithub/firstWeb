@@ -1,6 +1,6 @@
 package com.firstWeb.controller;
 
-import com.firstWeb.bean.model.Administrator;
+import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
@@ -36,14 +36,14 @@ public class AdministratorController extends BaseController {
      * @throws CommonException
      */
     @GetMapping(value = "/getAdministrator")
-    public ResultEntity<Administrator> getAdministrator(String adminId, HttpServletRequest request, HttpServletResponse response) throws CommonException {
+    public ResultEntity<AdministratorInfo> getAdministrator(String adminId, HttpServletRequest request, HttpServletResponse response) throws CommonException {
         LOGGER.info("getAdministrator: begin");
-        ResultEntity<Administrator> result = new ResultEntity<>();
+        ResultEntity<AdministratorInfo> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
 //        Token token = getToken(request);
 //        if (null != token) {
 //            long id = token.getId();
-        Administrator administrator = administratorService.getAdministrator(1);
+        AdministratorInfo administrator = administratorService.getAdministrator(1);
         if (null == administrator) {
             throw new CommonException(ResultCode.ACCOUNTISNOTEXISTENCE, "the administrator not exist.");
         }

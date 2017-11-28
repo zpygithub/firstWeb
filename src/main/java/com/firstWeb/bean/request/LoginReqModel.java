@@ -1,8 +1,5 @@
 package com.firstWeb.bean.request;
 
-/**
- * Created by zpy on 2017/4/16.
- */
 public class LoginReqModel {
     private String account;
     private String passwd;

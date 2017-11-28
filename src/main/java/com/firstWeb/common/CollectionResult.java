@@ -1,6 +1,6 @@
 package com.firstWeb.common;
 
-import com.firstWeb.bean.model.PageInfo;
+import com.firstWeb.bean.response.PageInfo;
 
 import java.util.List;
 

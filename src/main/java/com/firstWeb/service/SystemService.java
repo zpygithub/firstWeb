@@ -1,8 +1,8 @@
 package com.firstWeb.service;
 
-import com.firstWeb.bean.model.Administrator;
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
+import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.mapper.SystemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 @EnableTransactionManagement
@@ -51,8 +49,8 @@ public class SystemService {
         }
     }
 
-    public List<Administrator> getAdminListOnCondition(AdministratorParam params) {
-        List<Administrator> list = systemMapper.getAdminListOnCondition(params);
+    public List<AdministratorInfo> getAdminListOnCondition(AdministratorParam params) {
+        List<AdministratorInfo> list = systemMapper.getAdminListOnCondition(params);
         return list;
     }
 
@@ -61,8 +59,8 @@ public class SystemService {
         return ResultCode.SUCCESS;
     }
 
-    public Administrator getAdministratorById(long id) {
-        Administrator administrator = systemMapper.getAdministratorById(id);
+    public AdministratorInfo getAdministratorById(long id) {
+        AdministratorInfo administrator = systemMapper.getAdministratorById(id);
         return administrator;
     }
 
