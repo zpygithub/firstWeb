@@ -40,7 +40,7 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
             $scope.nickname.value = $("#nickname").val().trim();
             $scope.email.value = $("#email").val().trim();
             $scope.telephone.value = $("#telephone").val().trim();
-            $("#adminList").bootstrapTable('refresh', {});
+            $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
         $("#reset").bind("click", function () {
@@ -48,7 +48,7 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
             $scope.nickname.value = "";
             $scope.email.value = "";
             $scope.telephone.value = "";
-            $("#adminList").bootstrapTable('refresh', {});
+            $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
         $scope.operate = {
@@ -61,17 +61,18 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
                     pagination: true,                   //是否显示分页（*）
                     sortable: true,                    //是否启用排序
                     sortOrder: "asc",                   //排序方式
+                    queryParamsType: 'limit',
                     queryParams: queryParams,           //传递参数（*）
                     sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
                     dataType: "json",
                     pageNumber: 1,                      //初始化加载第一页，默认第一页
-                    pageSize: 10,                       //每页的记录行数（*）
+                    pageSize: 5,                       //每页的记录行数（*）
                     pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
                     minimumCountColumns: 2,             //最少允许的列数
                     clickToSelect: true,                //是否启用点击选中行
                     uniqueId: "id",                     //每一行的唯一标识，一般为主键列
-                    showExport: true,
-                    exportDataType: "all",
+                    // paginationPreText: "上一页",
+                    // paginationNextText: "下一页",
                     responseHandler: getAdminListOnCondition,
                     columns: [
                         {
@@ -129,8 +130,8 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
 
         function queryParams() {
             var options = {
-                // page: $scope.defectInfo.page,
-                // size: $scope.defectInfo.size,
+                page: this.pageNumber,
+                size: this.pageSize,
                 account: $scope.account.value,
                 nickname: $scope.nickname.value,
                 email: $scope.email.value,
@@ -142,8 +143,8 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
         function getAdminListOnCondition(res) {
             if (res) {
                 return {
-                    "rows": res.value,
-                    "total": res.value.length
+                    "rows": res.value.list,
+                    "total": res.value.pageInfo.totalRecords
                 };
             } else {
                 return {
