@@ -1,5 +1,7 @@
 package com.firstWeb.bean.response;
 
+import java.util.Date;
+
 public class AdministratorInfo extends PageInfo {
     private long id;
     private String account;
@@ -7,6 +9,7 @@ public class AdministratorInfo extends PageInfo {
     private String telephone;
     private String email;
     private int status;
+    private Date createTime;
 
     public long getId() {
         return id;
@@ -54,5 +57,13 @@ public class AdministratorInfo extends PageInfo {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }
