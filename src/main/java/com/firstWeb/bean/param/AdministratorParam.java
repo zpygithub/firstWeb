@@ -1,6 +1,6 @@
 package com.firstWeb.bean.param;
 
-public class AdministratorParam {
+public class AdministratorParam extends BaseParam {
     private String id;
     private String account;
     private String nickname;
