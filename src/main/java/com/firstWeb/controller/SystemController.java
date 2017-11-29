@@ -4,6 +4,7 @@ import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.request.AdministratorReqModel;
 import com.firstWeb.bean.response.AdministratorInfo;
+import com.firstWeb.common.CollectionResult;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
@@ -59,9 +60,9 @@ public class SystemController extends BaseController {
      * @return
      */
     @GetMapping(value = "/getAdminListOnCondition")
-    public ResultEntity<List<AdministratorInfo>> getAdminListOnCondition(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) {
+    public ResultEntity<CollectionResult<AdministratorInfo>> getAdminListOnCondition(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("getAdminListOnCondition: begin");
-        ResultEntity<List<AdministratorInfo>> result = new ResultEntity<>();
+        ResultEntity<CollectionResult<AdministratorInfo>> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
 //        Token token = getToken(request);
         AdministratorParam params = new AdministratorParam();
@@ -69,7 +70,8 @@ public class SystemController extends BaseController {
         params.setNickname(model.getNickname());
         params.setEmail(model.getEmail());
         params.setTelephone(model.getTelephone());
-        List<AdministratorInfo> list = systemService.getAdminListOnCondition(params);
+        params.setPageInfo(createPageInfo(model.getPage(), model.getSize()));
+        CollectionResult<AdministratorInfo> list = systemService.getAdminListOnCondition(params);
         result.setValue(list);
         result.setCode(ResultCode.SUCCESS);
         LOGGER.info("getAdminListOnCondition: end");
