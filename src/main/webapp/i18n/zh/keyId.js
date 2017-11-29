@@ -31,9 +31,9 @@ define(function () {
         //系统
         "admin_info": "个人信息",
         "modify_admin_info": "修改个人信息",
-        "nicknameCanNotBeEmpty": "昵称不能为空。",
-        "nicknameFormatError": "昵称格式位2至8位任意字符。",
-        "nicknameAlreadyExists": "昵称已存在。",
+        "nickname_cannot_be_empty": "昵称不能为空。",
+        "nickname_format_error": "昵称格式位2至8位任意字符。",
+        "nickname_already_exists": "昵称已存在。",
         "logout": "退出",
     };
     return keyId;
