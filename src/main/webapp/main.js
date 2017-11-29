@@ -47,7 +47,7 @@ require(["app/framework/framework", "i18n/keyId", "angular"],
 
         $.ajax({
             type: 'get',
-            url: 'account/getAdministrator',
+            url: 'system/getAdministrator',
             async: false
         }).done(function (data) {
             if (data.code === "00000") {
