@@ -3,18 +3,24 @@
         PUBLIC "-//com.map.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.firstWeb.mapper.LoginMapper">
+    <resultMap id="adminInfoMap" type="com.firstWeb.bean.response.AdministratorInfo">
+        <result property="id" column="id"/>
+        <result property="account" column="account"/>
+        <result property="nickname" column="nickname"/>
+        <result property="telephone" column="telephone"/>
+        <result property="email" column="email"/>
+        <result property="status" column="status"/>
+    </resultMap>
 
     <select id="getSaltByAccount" parameterType="String" resultType="String">
         SELECT salt FROM tb_administrator WHERE account=#{account} AND status != -1
-        <!--<where>
-            status != -1
-            <if test="account != '' and account != null">
-                AND account=#{account}
-            </if>
-        </where>-->
     </select>
 
     <select id="getPasswdByAccount" parameterType="String" resultType="String">
         SELECT password FROM tb_administrator WHERE account=#{account}
+    </select>
+
+    <select id="getAdministratorByAccount" parameterType="String" resultMap="adminInfoMap">
+        SELECT * FROM tb_administrator WHERE account=#{account}
     </select>
 </mapper>
