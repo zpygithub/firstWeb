@@ -9,6 +9,7 @@ define(function () {
         "email": "邮箱",
         "telephone": "电话",
         "status": "状态",
+        "createTime": "创建时间",
         "normal": "正常",
         "freeze": "冻结",
         "query": "查询",
