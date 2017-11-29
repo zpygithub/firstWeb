@@ -1,6 +1,8 @@
-define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
+define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function (i18n, bootstrapTable, CommonService) {
     "use strict";
     var adminListCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
+        var commonService = new CommonService($scope);
+
         $scope.account = {
             id: "accountId",
             label: i18n.account,
@@ -103,6 +105,15 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
                             align: "center",
                             valign: "middle"
                         }, {
+                            field: "createTime",
+                            title: i18n.createTime,
+                            align: "center",
+                            valign: "left",
+                            formatter: function (value) {
+                                value = commonService.getFormatTime(value);
+                                return value;
+                            }
+                        }, {
                             field: "status",
                             title: i18n.status,
                             align: "center",
@@ -114,14 +125,6 @@ define(["i18n/keyId", "bootstrap-table"], function (i18n, bootstrapTable) {
                                     return i18n.freeze;
                                 }
                             }
-                            // }, {
-                            //     field: "status",
-                            //     title: "Create Time",
-                            //     align: "center",
-                            //     valign: "left",
-                            //     formatter: function (value, row, index) {
-                            //         return new Date(value).format("yyyy-MM-dd hh:mm:ss");
-                            //     }
                         }]
                 });
             }
