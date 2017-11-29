@@ -12,6 +12,8 @@ public interface SystemMapper {
 
     List<AdministratorInfo> getAdminListOnCondition(AdministratorParam params);
 
+    int getAdminListSize(AdministratorParam params);
+
     void modifyAdminInfo(AdministratorParam param);
 
     AdministratorInfo getAdministratorById(long id);
