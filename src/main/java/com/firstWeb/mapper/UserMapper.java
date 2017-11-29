@@ -1,16 +1,13 @@
 package com.firstWeb.mapper;
 
-import com.firstWeb.bean.model.User;
+import com.firstWeb.bean.response.UserInfo;
 
 import java.util.List;
 
-/**
- * Created by zpy on 2017/2/13.
- */
 public interface UserMapper {
 
-    User selectUserById(String id);
+    UserInfo selectUserById(String id);
 
-    List<User> selectUserByConditions(String value);
+    List<UserInfo> selectUserByConditions(String value);
 
 }
