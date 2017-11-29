@@ -1,8 +1,7 @@
 package com.firstWeb.bean.param;
 
-/**
- * Created by zpy on 2017/4/16.
- */
+import java.util.Date;
+
 public class RegisterParam {
     private String id;
     private String account;
@@ -11,6 +10,7 @@ public class RegisterParam {
     private String telephone;
     private String email;
     private transient String salt;
+    private Date createTime;
 
     public String getId() {
         return id;
@@ -66,5 +66,13 @@ public class RegisterParam {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }
