@@ -7,6 +7,7 @@ import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
 import com.firstWeb.service.RegisterService;
 import com.firstWeb.util.BasicDateValidateUtil;
+import com.firstWeb.util.DateUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,7 @@ public class RegisterController {
         registerParam.setAccount(model.getAccount());
         registerParam.setNickname(model.getNickname());
         registerParam.setPasswd(model.getPasswd());
+        registerParam.setCreateTime(DateUtil.getUTCDate());
         registerService.mainRegister(registerParam);
 
         result.setCode(ResultCode.SUCCESS);
