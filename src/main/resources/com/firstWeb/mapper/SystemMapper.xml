@@ -11,15 +11,13 @@
         <result property="createTime" column="createTime"/>
         <result property="uri" column="uri"/>
     </resultMap>
-    <resultMap id="adminMap" type="com.firstWeb.bean.model.Administrator">
+    <resultMap id="adminInfoMap" type="com.firstWeb.bean.response.AdministratorInfo">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
         <result property="nickname" column="nickname"/>
-        <result property="password" column="password"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>
         <result property="status" column="status"/>
-        <result property="salt" column="salt"/>
     </resultMap>
 
 
@@ -27,7 +25,7 @@
         SELECT * FROM tb_main_menu WHERE status != -1 ORDER BY id ASC
     </select>
 
-    <select id="getAdminListOnCondition" parameterType="com.firstWeb.bean.param.AdministratorParam" resultMap="adminMap">
+    <select id="getAdminListOnCondition" parameterType="com.firstWeb.bean.param.AdministratorParam" resultMap="adminInfoMap">
         SELECT * FROM tb_administrator
         <where>
             <if test="account != '' and account != null">
@@ -44,9 +42,30 @@
             </if>
         </where>
         ORDER BY id ASC
+        <if test="pageInfo.currentPage > 0 and pageInfo.perPageRecords > 0">
+            LIMIT #{pageInfo.from}, #{pageInfo.perPageRecords}
+        </if>
     </select>
 
-    <select id="getAdministratorById" parameterType="long" resultMap="adminMap">
+    <select id="getAdminListSize" parameterType="com.firstWeb.bean.param.AdministratorParam" resultType="int">
+        SELECT COUNT(*) FROM tb_administrator
+        <where>
+            <if test="account != '' and account != null">
+                AND account LIKE CONCAT(#{account},"%")
+            </if>
+            <if test="nickname != '' and nickname != null">
+                AND nickname LIKE CONCAT(#{nickname},"%")
+            </if>
+            <if test="email != '' and email != null">
+                AND email LIKE CONCAT(#{email},"%")
+            </if>
+            <if test="telephone != '' and telephone != null">
+                AND telephone LIKE CONCAT(#{telephone},"%")
+            </if>
+        </where>
+    </select>
+
+    <select id="getAdministratorById" parameterType="long" resultMap="adminInfoMap">
         SELECT * FROM tb_administrator WHERE id=#{id} AND status != -1
     </select>
 
