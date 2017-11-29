@@ -6,7 +6,6 @@ import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
-import com.firstWeb.service.AdministratorService;
 import com.firstWeb.service.LoginService;
 import com.firstWeb.util.BasicDateValidateUtil;
 import com.firstWeb.util.Md5SaltUtil;
@@ -29,9 +28,6 @@ public class LoginController {
 
     @Autowired
     private LoginService loginService;
-
-    @Autowired
-    private AdministratorService administratorService;
 
     private static final Logger LOGGER = LogManager.getLogger(LoginController.class);
 
@@ -56,7 +52,7 @@ public class LoginController {
 
         BasicDateValidateUtil.validateIsEmpty(model.getAccount());
 
-        AdministratorInfo administrator = administratorService.getAdministratorByAccount(model.getAccount());
+        AdministratorInfo administrator = loginService.getAdministratorByAccount(model.getAccount());
         if (null == administrator) {
             result.setCode(ResultCode.ACCOUNTISNOTEXISTENCE);
             return result;
