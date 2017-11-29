@@ -16,8 +16,8 @@
 
     <insert id="mainRegister" parameterType="com.firstWeb.bean.param.RegisterParam" useGeneratedKeys="true"
             keyProperty="id">
-        INSERT INTO tb_administrator(account, nickname, password, telephone, email, salt)
-        VALUES (#{account}, #{nickname}, #{passwd}, #{telephone}, #{email}, #{salt})
+        INSERT INTO tb_administrator(account, nickname, password, telephone, email, salt, createTime)
+        VALUES (#{account}, #{nickname}, #{passwd}, #{telephone}, #{email}, #{salt}, #{createTime})
     </insert>
 
     <select id="checkAccount" parameterType="String" resultType="boolean">
