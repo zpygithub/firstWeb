@@ -1,8 +1,8 @@
 package com.firstWeb.controller;
 
-import com.firstWeb.bean.model.Administrator;
 import com.firstWeb.bean.model.Token;
 import com.firstWeb.bean.request.LoginReqModel;
+import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
@@ -23,9 +23,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
-/**
- * Created by zpy on 2017/4/8.
- */
 @RestController
 @RequestMapping({"/login"})
 public class LoginController {
@@ -59,7 +56,7 @@ public class LoginController {
 
         BasicDateValidateUtil.validateIsEmpty(model.getAccount());
 
-        Administrator administrator = administratorService.getAdministratorByAccount(model.getAccount());
+        AdministratorInfo administrator = administratorService.getAdministratorByAccount(model.getAccount());
         if (null == administrator) {
             result.setCode(ResultCode.ACCOUNTISNOTEXISTENCE);
             return result;
