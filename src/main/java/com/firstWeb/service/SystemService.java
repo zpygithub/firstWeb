@@ -3,6 +3,8 @@ package com.firstWeb.service;
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.response.AdministratorInfo;
+import com.firstWeb.bean.response.PageInfo;
+import com.firstWeb.common.CollectionResult;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.mapper.SystemMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +51,15 @@ public class SystemService {
         }
     }
 
-    public List<AdministratorInfo> getAdminListOnCondition(AdministratorParam params) {
-        List<AdministratorInfo> list = systemMapper.getAdminListOnCondition(params);
-        return list;
+    public CollectionResult<AdministratorInfo> getAdminListOnCondition(AdministratorParam params) {
+        CollectionResult<AdministratorInfo> result = new CollectionResult<AdministratorInfo>();
+        result.setList(systemMapper.getAdminListOnCondition(params));
+
+        PageInfo pageInfo = params.getPageInfo();
+        pageInfo.setTotalRecords(systemMapper.getAdminListSize(params));
+        result.setPageInfo(pageInfo);
+
+        return result;
     }
 
     public String modifyAdminInfo(AdministratorParam param) {
