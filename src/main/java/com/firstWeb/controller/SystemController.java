@@ -135,4 +135,31 @@ public class SystemController extends BaseController {
         return result;
     }
 
+    /**
+     * 获取管理员信息
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws CommonException
+     */
+    @GetMapping(value = "/getAdministrator")
+    public ResultEntity<AdministratorInfo> getAdministrator(HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        LOGGER.info("getAdministrator: begin");
+        ResultEntity<AdministratorInfo> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+//        Token token = getToken(request);
+//        if (null != token) {
+//            long id = token.getId();
+        AdministratorInfo administrator = systemService.getAdministratorById(1);
+        if (null == administrator) {
+            throw new CommonException(ResultCode.ACCOUNTISNOTEXISTENCE, "the administrator not exist.");
+        }
+        result.setValue(administrator);
+        result.setCode(ResultCode.SUCCESS);
+//        }
+        LOGGER.info("getAdministrator: end");
+        return result;
+    }
+
 }
