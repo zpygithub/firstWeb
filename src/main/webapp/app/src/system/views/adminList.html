@@ -4,32 +4,42 @@
             <li><strong><span style="color: #27a0d7">管理员列表</span></strong></li>
         </ol>
         <form class="form-inline" role="form" style="float: left; width: 100%" method="post" id="queryForm">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 five-columns">
                 <label>{{account.label}}</label>
                 <input type="text" class="form-control" id="account" ng-model="account.value">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 five-columns">
                 <label>{{nickname.label}}</label>
                 <input type="text" class="form-control" id="nickname" ng-model="nickname.value">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 five-columns">
                 <label>{{email.label}}</label>
                 <input type="text" class="form-control" id="email" ng-model="email.value">
             </div>
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-3 five-columns">
                 <label>{{telephone.label}}</label>
                 <input type="text" class="form-control" id="telephone" ng-model="telephone.value">
             </div>
-            <div class="form-group">
-                <button id="query" class="btn btn-primary">{{query.label}}</button>
-            </div>
-            <div class="form-group">
-                <button id="reset" class="btn btn-primary">{{reset.label}}</button>
+            <div style="margin-top: 15px" class="col-md-6 col-md-offset-3 text-center">
+                <div class="form-group">
+                    <button id="query" class="btn btn-primary">{{query.label}}</button>
+                </div>
+                <div class="form-group">
+                    <button id="reset" class="btn btn-warning">{{reset.label}}</button>
+                </div>
+                <div class="form-group">
+                    <button id="export" class="btn btn-info">{{export.label}}</button>
+                </div>
             </div>
         </form>
     </div>
-    <div class="container" style="width: 100%">
+    <div class="container" style="width: 100%; margin-top: 15px">
         <table id="adminList">
         </table>
     </div>
 </div>
+<style>
+    /*.five-columns {*/
+        /*width: 20%;*/
+    /*}*/
+</style>

@@ -37,6 +37,11 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             label: i18n.reset
         };
 
+        $scope.export = {
+            id: "exportId",
+            label: i18n.export
+        };
+
         $("#query").bind("click", function () {
             $scope.account.value = $("#account").val().trim();
             $scope.nickname.value = $("#nickname").val().trim();
@@ -51,6 +56,14 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             $scope.email.value = "";
             $scope.telephone.value = "";
             $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
+        });
+
+        $("#export").bind("click", function () {
+            $scope.account.value = $("#account").val().trim();
+            $scope.nickname.value = $("#nickname").val().trim();
+            $scope.email.value = $("#email").val().trim();
+            $scope.telephone.value = $("#telephone").val().trim();
+            $scope.operate.export();
         });
 
         $scope.operate = {
@@ -127,6 +140,9 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                             }
                         }]
                 });
+            },
+            "export": function () {
+
             }
         }
 

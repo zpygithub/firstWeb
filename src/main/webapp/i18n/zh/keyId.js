@@ -14,6 +14,7 @@ define(function () {
         "freeze": "冻结",
         "query": "查询",
         "reset": "重置",
+        "export": "导出",
         "operation_succeeded": "操作成功",
         //菜单
         "home_label": "首页",
