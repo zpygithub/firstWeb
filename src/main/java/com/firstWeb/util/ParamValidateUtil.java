@@ -1,8 +1,5 @@
 package com.firstWeb.util;
 
-/**
- * Created by zpy on 2017/4/24.
- */
 public class ParamValidateUtil {
 
     /**
@@ -73,5 +70,24 @@ public class ParamValidateUtil {
             return false;
         }
         return str.matches(IS_PASSWD);
+    }
+
+    /**
+     * 替换特殊字符
+     */
+    public static String escapeSpecialCharacter(String str) {
+
+        str = avoidNull(str).trim();
+        str = str.replaceAll("\\\\", "\\\\\\\\");
+        str = str.replaceAll("_", "\\\\_");
+        str = str.replaceAll("%", "\\\\%");
+        return str;
+    }
+
+    private static String avoidNull(String value) {
+        if (null != value) {
+            return value;
+        }
+        return "";
     }
 }
