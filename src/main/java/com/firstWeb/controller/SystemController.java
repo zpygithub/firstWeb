@@ -163,4 +163,30 @@ public class SystemController extends BaseController {
         return result;
     }
 
+    /**
+     * 导出管理员列表
+     *
+     * @param model
+     * @param request
+     * @param response
+     * @return
+     */
+    @PostMapping(value = "/exportAdminList")
+    public ResultEntity<String> exportAdminList(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) {
+        LOGGER.info("exportAdminList: begin");
+        ResultEntity<String> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+
+        AdministratorParam params = new AdministratorParam();
+        params.setAccount(ParamValidateUtil.escapeSpecialCharacter(model.getAccount()));
+        params.setNickname(ParamValidateUtil.escapeSpecialCharacter(model.getNickname()));
+        params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
+        params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
+        systemService.exportAdminList(params);
+
+        result.setCode(ResultCode.SUCCESS);
+        LOGGER.info("exportAdminList: end");
+        return result;
+    }
+
 }
