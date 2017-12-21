@@ -59,11 +59,13 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         });
 
         $("#export").bind("click", function () {
-            $scope.account.value = $("#account").val().trim();
-            $scope.nickname.value = $("#nickname").val().trim();
-            $scope.email.value = $("#email").val().trim();
-            $scope.telephone.value = $("#telephone").val().trim();
-            $scope.operate.export();
+            var options = {
+                account: $("#account").val().trim(),
+                nickname: $("#nickname").val().trim(),
+                email: $("#email").val().trim(),
+                telephone: $("#telephone").val().trim()
+            };
+            $scope.operate.export(options);
         });
 
         $scope.operate = {
@@ -141,8 +143,18 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                         }]
                 });
             },
-            "export": function () {
-
+            "export": function (options) {
+                $.ajax({
+                    type: 'post',
+                    url: 'system/exportAdminList/',
+                    dataType: 'json',
+                    async: false,
+                    data: options
+                }).done(function (data) {
+                    if (data.code === "00000") {
+                        Lobibox.notify("success", {msg: i18n.operation_succeeded});
+                    }
+                });
             }
         }
 
