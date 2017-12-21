@@ -5,12 +5,20 @@ import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.bean.response.PageInfo;
 import com.firstWeb.common.CollectionResult;
+import com.firstWeb.constant.ExportEnum;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.mapper.SystemMapper;
+import com.firstWeb.util.DateUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +28,8 @@ public class SystemService {
 
     @Autowired
     private SystemMapper systemMapper;
+
+    private static final Logger LOGGER = LogManager.getLogger(SystemService.class);
 
     public List<MainMenu> getMainMenus() {
         List<MainMenu> list = systemMapper.getMainMenus();
@@ -78,5 +88,61 @@ public class SystemService {
             return true;
         }
         return false;
+    }
+
+    public String exportAdminList(AdministratorParam params) {
+        HSSFWorkbook wb = new HSSFWorkbook();
+        HSSFSheet sheet = wb.createSheet(ExportEnum.adminList.getValue());
+        HSSFRow row = sheet.createRow(0);
+        HSSFCellStyle style = wb.createCellStyle();
+        style.setAlignment(HorizontalAlignment.CENTER); // 创建一个居中格式
+
+        HSSFCell cell = row.createCell(0);
+        cell.setCellValue(ExportEnum.id.getValue());
+        cell.setCellStyle(style);
+        cell = row.createCell(1);
+        cell.setCellValue(ExportEnum.account.getValue());
+        cell.setCellStyle(style);
+        cell = row.createCell(2);
+        cell.setCellValue(ExportEnum.nickname.getValue());
+        cell.setCellStyle(style);
+        cell = row.createCell(3);
+        cell.setCellValue(ExportEnum.email.getValue());
+        cell.setCellStyle(style);
+        cell = row.createCell(4);
+        cell.setCellValue(ExportEnum.telephone.getValue());
+        cell.setCellStyle(style);
+        cell = row.createCell(5);
+        cell.setCellValue(ExportEnum.createTime.getValue());
+        cell.setCellStyle(style);
+        cell = row.createCell(6);
+        cell.setCellValue(ExportEnum.status.getValue());
+        cell.setCellStyle(style);
+
+        List<AdministratorInfo> list = systemMapper.exportAdminList(params);
+        for (int i = 0; i < list.size(); i++) {
+            row = sheet.createRow((int) i + 1);
+            AdministratorInfo adminInfo = (AdministratorInfo) list.get(i);
+            row.createCell(0).setCellValue(adminInfo.getId());
+            row.createCell(1).setCellValue(adminInfo.getAccount());
+            row.createCell(2).setCellValue(adminInfo.getNickname());
+            row.createCell(3).setCellValue(adminInfo.getEmail());
+            row.createCell(4).setCellValue(adminInfo.getTelephone());
+            row.createCell(5).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));
+            if (0 == adminInfo.getStatus()) {
+                row.createCell(6).setCellValue(ExportEnum.normal.getValue());
+            } else {
+                row.createCell(6).setCellValue(ExportEnum.freeze.getValue());
+            }
+        }
+
+        try {
+            FileOutputStream fos = new FileOutputStream("D:/AdministratorInfos.xls");
+            wb.write(fos);
+            fos.close();
+        } catch (Exception e) {
+            LOGGER.error(e);
+        }
+        return ResultCode.SUCCESS;
     }
 }
