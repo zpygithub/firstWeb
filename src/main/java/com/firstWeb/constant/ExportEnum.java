@@ -3,7 +3,7 @@ package com.firstWeb.constant;
 public enum ExportEnum {
     adminList("管理员列表"),
 
-    id("id"),
+    id("序号"),
 
     account("账号"),
 
