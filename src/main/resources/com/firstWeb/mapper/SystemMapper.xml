@@ -26,7 +26,8 @@
         SELECT * FROM tb_main_menu WHERE status != -1 ORDER BY id ASC
     </select>
 
-    <select id="getAdminListOnCondition" parameterType="com.firstWeb.bean.param.AdministratorParam" resultMap="adminInfoMap">
+    <select id="getAdminListOnCondition" parameterType="com.firstWeb.bean.param.AdministratorParam"
+            resultMap="adminInfoMap">
         SELECT * FROM tb_administrator
         <where>
             <if test="account != '' and account != null">
@@ -80,6 +81,25 @@
 
     <select id="checkOwnNickname" parameterType="long" resultType="String">
         SELECT nickname FROM tb_administrator WHERE id = #{id}
+    </select>
+
+    <select id="exportAdminList" parameterType="com.firstWeb.bean.param.AdministratorParam" resultMap="adminInfoMap">
+        SELECT * FROM tb_administrator
+        <where>
+            <if test="account != '' and account != null">
+                AND account LIKE CONCAT(#{account},"%")
+            </if>
+            <if test="nickname != '' and nickname != null">
+                AND nickname LIKE CONCAT(#{nickname},"%")
+            </if>
+            <if test="email != '' and email != null">
+                AND email LIKE CONCAT(#{email},"%")
+            </if>
+            <if test="telephone != '' and telephone != null">
+                AND telephone LIKE CONCAT(#{telephone},"%")
+            </if>
+        </where>
+        ORDER BY id ASC
     </select>
 
 </mapper>
