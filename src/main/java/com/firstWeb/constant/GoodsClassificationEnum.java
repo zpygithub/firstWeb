@@ -1,18 +1,18 @@
 package com.firstWeb.constant;
 
-public enum GoodsClassification {
+public enum GoodsClassificationEnum {
     /**
-     * 带确认
+     * 衣服
      */
-    waiteConfirm(0),
+    clothes(0),
     /**
-     * 客户确认可以解决问题
+     * 生活用品
      */
-    resolved(1);
+    dailyNecessities(1);
 
     private int value;
 
-    GoodsClassification(int value) {
+    GoodsClassificationEnum(int value) {
         this.value = value;
     }
 
