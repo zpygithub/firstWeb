@@ -66,4 +66,17 @@ public class AdministratorInfo extends PageInfo {
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
+
+    @Override
+    public String toString() {
+        return "AdministratorInfo{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                '}';
+    }
 }
