@@ -1,6 +1,8 @@
 package com.firstWeb.constant;
 
 public enum ExportEnum {
+    export("导出"),
+
     adminList("管理员列表"),
 
     id("序号"),
