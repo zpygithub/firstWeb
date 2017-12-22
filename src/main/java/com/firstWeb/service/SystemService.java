@@ -17,7 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.io.FileOutputStream;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -90,14 +93,15 @@ public class SystemService {
         return false;
     }
 
-    public String exportAdminList(AdministratorParam params) {
+    public String exportAdminList(AdministratorParam params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet = wb.createSheet(ExportEnum.adminList.getValue());
         HSSFRow row = sheet.createRow(0);
         HSSFCellStyle style = wb.createCellStyle();
         style.setAlignment(HorizontalAlignment.CENTER); // 创建一个居中格式
 
-        HSSFCell cell = row.createCell(0);
+        HSSFCell cell;
+        cell = row.createCell(0);
         cell.setCellValue(ExportEnum.id.getValue());
         cell.setCellStyle(style);
         cell = row.createCell(1);
@@ -121,8 +125,8 @@ public class SystemService {
 
         List<AdministratorInfo> list = systemMapper.exportAdminList(params);
         for (int i = 0; i < list.size(); i++) {
-            row = sheet.createRow((int) i + 1);
-            AdministratorInfo adminInfo = (AdministratorInfo) list.get(i);
+            row = sheet.createRow(i + 1);
+            AdministratorInfo adminInfo = list.get(i);
             row.createCell(0).setCellValue(adminInfo.getId());
             row.createCell(1).setCellValue(adminInfo.getAccount());
             row.createCell(2).setCellValue(adminInfo.getNickname());
@@ -136,12 +140,43 @@ public class SystemService {
             }
         }
 
+//        try {
+//            FileOutputStream fos = new FileOutputStream("C:/Users/zwx388880/Desktop/AdministratorInfos.xls");
+//            wb.write(fos);
+//            fos.close();
+//        } catch (Exception e) {
+//            LOGGER.error(e);
+//        }
+
+        String fileName = "XXX表";
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        wb.write(os);
+        byte[] content = os.toByteArray();
+        InputStream is = new ByteArrayInputStream(content);
+        // 设置response参数，可以打开下载页面
+        response.reset();
+        response.setContentType("application/vnd.ms-excel;charset=utf-8");
+        response.setHeader("Content-Disposition", "attachment;filename=" + new String((fileName + ".xls").getBytes(), "iso-8859-1"));
+        ServletOutputStream out = response.getOutputStream();
+        BufferedInputStream bis = null;
+        BufferedOutputStream bos = null;
+
         try {
-            FileOutputStream fos = new FileOutputStream("D:/AdministratorInfos.xls");
-            wb.write(fos);
-            fos.close();
+            bis = new BufferedInputStream(is);
+            bos = new BufferedOutputStream(out);
+            byte[] buff = new byte[2048];
+            int bytesRead;
+            // Simple read/write loop.
+            while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
+                bos.write(buff, 0, bytesRead);
+            }
         } catch (Exception e) {
-            LOGGER.error(e);
+            e.printStackTrace();
+        } finally {
+            if (bis != null)
+                bis.close();
+            if (bos != null)
+                bos.close();
         }
         return ResultCode.SUCCESS;
     }
