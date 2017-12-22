@@ -50,4 +50,78 @@ public class TaskService {
         return passwd;
     }
 
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public String updateTask(TaskInfo taskInfo)
+    {
+        taskMapper.updateTask(taskInfo);
+        return ResultCode.Success;
+    }
+
+    public void finishTask(List<String> downloadPaths, TaskInfo taskInfo)
+    {
+        try
+        {
+            if (!downloadPaths.isEmpty())
+            {
+                String downloadURL = "";
+                if (taskInfo.getTaskName().equals(EXPORT_MEMBER_INFO))
+                {
+                    downloadURL = this.encryptCompressFile(downloadPaths, taskInfo);
+                }
+                else
+                {
+                    downloadURL = this.compressFile(downloadPaths, taskInfo.getFileName());
+                }
+
+                taskInfo.setDownloadURL(downloadURL);
+                taskInfo.setStatus(TASK_SUCCESS_STATUS);
+            }
+            else
+            {
+                taskInfo.setStatus(TASK_NOT_EXPORT_FILE_STATUS);
+            }
+            this.updateTask(taskInfo);
+        }
+        catch (Exception e)
+        {
+            LOGGER.error(e);
+        }
+    }
+
+    /**
+     * 加密压缩
+     * @param pathNames
+     */
+    private String encryptCompressFile(List<String> downloadPaths, TaskInfo taskInfo)
+            throws Exception
+    {
+        String dest_file_name = taskInfo.getFileName();
+        String relativePath = "temp" + File.separator + getDateStoragePath()
+                + (new StringBuffer(UUID.randomUUID().toString())) + File.separator + dest_file_name;
+        String compressPath = ATTACHMENT_STORAGE_PATH + relativePath;
+
+        File dest = FileUtils.getFile(compressPath);
+        if (null != dest)
+        {
+            if (null != dest.getParentFile() && !dest.getParentFile().exists())
+            {
+                if (!dest.getParentFile().mkdirs())
+                {
+                    throw new Exception("mkdirs error.");
+                }
+            }
+        }
+
+        ZipUtils zc = new ZipUtils(compressPath);
+        zc.encryptCompress(downloadPaths, compressPath, taskInfo.getRemark());
+
+        for (String path : downloadPaths)
+        {
+            FileUtil.deletefile(new File(PathUtils.FilePathFormat(path)).getParentFile().getPath());
+        }
+
+        return relativePath;
+    }
+
 }
