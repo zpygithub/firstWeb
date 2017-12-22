@@ -29,6 +29,8 @@ import java.util.List;
 @Service
 @EnableTransactionManagement
 public class SystemService {
+    @Autowired
+    private TaskService taskService;
 
     @Autowired
     private SystemMapper systemMapper;
@@ -141,6 +143,12 @@ public class SystemService {
             }
         }
 
+        try {
+            List<String> downloadPaths = taskService.excuteExportTask(list, exportTaskparams);
+            taskService.updateExportTask(downloadPaths, exportTaskparams);
+        } catch (Exception e) {
+            LOGGER.error(e);
+        }
 //        try {
 //            FileOutputStream fos = new FileOutputStream("C:/Users/zwx388880/Desktop/AdministratorInfos.xls");
 //            wb.write(fos);
@@ -152,23 +160,4 @@ public class SystemService {
         return ResultCode.SUCCESS;
     }
 
-    private boolean excuteDefectTask(TaskInfo exportTaskInfo)
-    {
-        boolean flag = false;
-        try
-        {
-            List<List<DefectDto>> defectDtos = taskService.excuteQueryDefect(exportTaskInfo);
-
-            List<String> downloadPaths = taskService.excuteExportTask(defectDtos, exportTaskInfo);
-
-            taskService.finishTask(downloadPaths, exportTaskInfo);
-            flag = true;
-        }
-        catch (Exception e)
-        {
-            LOGGER.error(e);
-        }
-
-        return flag;
-    }
 }

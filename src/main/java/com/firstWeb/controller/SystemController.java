@@ -193,7 +193,6 @@ public class SystemController extends BaseController {
         exportTaskparams.setFileName("export_adminList");
         exportTaskparams = taskService.addExportTask(exportTaskparams);
 
-
         AdministratorParam params = new AdministratorParam();
         params.setAccount(ParamValidateUtil.escapeSpecialCharacter(model.getAccount()));
         params.setNickname(ParamValidateUtil.escapeSpecialCharacter(model.getNickname()));
