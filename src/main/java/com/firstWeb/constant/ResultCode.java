@@ -49,4 +49,8 @@ public interface ResultCode {
      * 账号已被锁
      */
     String ACCOUNTISLOCKED = "00011";
+    /**
+     * 导出任务正在进行
+     */
+    String EXPORTTASKISRUNNING = "00012";
 }
