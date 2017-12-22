@@ -199,7 +199,7 @@ public class SystemController extends BaseController {
         params.setNickname(ParamValidateUtil.escapeSpecialCharacter(model.getNickname()));
         params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
-//        systemService.exportAdminList(params, request, response);
+        systemService.exportAdminList(params, exportTaskparams);
 
         result.setCode(ResultCode.SUCCESS);
         LOGGER.info("exportAdminList: end");
