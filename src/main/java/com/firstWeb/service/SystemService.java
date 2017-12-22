@@ -2,6 +2,7 @@ package com.firstWeb.service;
 
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
+import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.bean.response.PageInfo;
 import com.firstWeb.common.CollectionResult;
@@ -93,7 +94,7 @@ public class SystemService {
         return false;
     }
 
-    public String exportAdminList(AdministratorParam params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException {
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet = wb.createSheet(ExportEnum.adminList.getValue());
         HSSFRow row = sheet.createRow(0);
@@ -148,36 +149,26 @@ public class SystemService {
 //            LOGGER.error(e);
 //        }
 
-        String fileName = "XXX表";
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        wb.write(os);
-        byte[] content = os.toByteArray();
-        InputStream is = new ByteArrayInputStream(content);
-        // 设置response参数，可以打开下载页面
-        response.reset();
-        response.setContentType("application/vnd.ms-excel;charset=utf-8");
-        response.setHeader("Content-Disposition", "attachment;filename=" + new String((fileName + ".xls").getBytes(), "iso-8859-1"));
-        ServletOutputStream out = response.getOutputStream();
-        BufferedInputStream bis = null;
-        BufferedOutputStream bos = null;
-
-        try {
-            bis = new BufferedInputStream(is);
-            bos = new BufferedOutputStream(out);
-            byte[] buff = new byte[2048];
-            int bytesRead;
-            // Simple read/write loop.
-            while (-1 != (bytesRead = bis.read(buff, 0, buff.length))) {
-                bos.write(buff, 0, bytesRead);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (bis != null)
-                bis.close();
-            if (bos != null)
-                bos.close();
-        }
         return ResultCode.SUCCESS;
+    }
+
+    private boolean excuteDefectTask(TaskInfo exportTaskInfo)
+    {
+        boolean flag = false;
+        try
+        {
+            List<List<DefectDto>> defectDtos = taskService.excuteQueryDefect(exportTaskInfo);
+
+            List<String> downloadPaths = taskService.excuteExportTask(defectDtos, exportTaskInfo);
+
+            taskService.finishTask(downloadPaths, exportTaskInfo);
+            flag = true;
+        }
+        catch (Exception e)
+        {
+            LOGGER.error(e);
+        }
+
+        return flag;
     }
 }
