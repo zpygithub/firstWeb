@@ -1,15 +1,20 @@
 package com.firstWeb.controller;
 
+import com.firstWeb.bean.model.ExportTask;
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
+import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.request.AdministratorReqModel;
 import com.firstWeb.bean.response.AdministratorInfo;
+import com.firstWeb.bean.response.ExportTaskInfo;
 import com.firstWeb.common.CollectionResult;
 import com.firstWeb.common.ResultEntity;
+import com.firstWeb.constant.ExportEnum;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
 import com.firstWeb.service.RegisterService;
 import com.firstWeb.service.SystemService;
+import com.firstWeb.service.TaskService;
 import com.firstWeb.util.BasicDateValidateUtil;
 import com.firstWeb.util.ParamValidateUtil;
 import org.apache.logging.log4j.LogManager;
@@ -19,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -30,6 +36,9 @@ public class SystemController extends BaseController {
 
     @Autowired
     private RegisterService registerService;
+
+    @Autowired
+    private TaskService taskService;
 
     private static final Logger LOGGER = LogManager.getLogger(SystemController.class);
 
@@ -172,17 +181,25 @@ public class SystemController extends BaseController {
      * @return
      */
     @PostMapping(value = "/exportAdminList")
-    public ResultEntity<String> exportAdminList(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) {
+    public ResultEntity<String> exportAdminList(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) throws IOException, CommonException {
         LOGGER.info("exportAdminList: begin");
         ResultEntity<String> result = new ResultEntity<>();
         result.setCode(ResultCode.FAIL);
+//        Token token = getToken(request);
+//        long id = token.getId();
+        ExportTaskParam exportTaskparams = new ExportTaskParam();
+        exportTaskparams.setCreatorId(1);
+        exportTaskparams.setTaskName(ExportEnum.export.getValue() + ExportEnum.adminList.getValue());
+        exportTaskparams.setFileName("export_adminList");
+        exportTaskparams = taskService.addExportTask(exportTaskparams);
+
 
         AdministratorParam params = new AdministratorParam();
         params.setAccount(ParamValidateUtil.escapeSpecialCharacter(model.getAccount()));
         params.setNickname(ParamValidateUtil.escapeSpecialCharacter(model.getNickname()));
         params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
-        systemService.exportAdminList(params);
+//        systemService.exportAdminList(params, request, response);
 
         result.setCode(ResultCode.SUCCESS);
         LOGGER.info("exportAdminList: end");
