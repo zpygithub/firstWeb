@@ -1,27 +1,27 @@
 package com.firstWeb.constant;
 
 public enum ExportEnum {
-    export("导出"),
+    EXPORT("导出"),
 
-    adminList("管理员列表"),
+    ADMINLIST("管理员列表"),
 
-    id("序号"),
+    ID("序号"),
 
-    account("账号"),
+    ACCOUNT("账号"),
 
-    nickname("昵称"),
+    NICKNAME("昵称"),
 
-    email("邮箱"),
+    EMAIL("邮箱"),
 
-    telephone("电话"),
+    TELEPHONE("电话"),
 
-    createTime("创建时间"),
+    CREATETIME("创建时间"),
 
-    status("状态"),
+    STATUS("状态"),
 
-    normal("正常"),
+    NORMAL("正常"),
 
-    freeze("冻结");
+    FREEZE("冻结");
 
     private String value;
 

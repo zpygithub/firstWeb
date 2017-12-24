@@ -189,7 +189,7 @@ public class SystemController extends BaseController {
 //        long id = token.getId();
         ExportTaskParam exportTaskparams = new ExportTaskParam();
         exportTaskparams.setCreatorId(1);
-        exportTaskparams.setTaskName(ExportEnum.export.getValue() + ExportEnum.adminList.getValue());
+        exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINLIST.getValue());
         exportTaskparams.setFileName("export_adminList");
         exportTaskparams = taskService.addExportTask(exportTaskparams);
 

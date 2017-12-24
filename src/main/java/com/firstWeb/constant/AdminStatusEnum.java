@@ -1,18 +1,18 @@
 package com.firstWeb.constant;
 
-public enum GoodsClassificationEnum {
+public enum AdminStatusEnum {
     /**
-     * 衣服
+     * 正常
      */
-    CLOTHES(0),
+    NORMAL(0),
     /**
-     * 生活用品
+     * 冻结
      */
-    DAILYNECESSITIES(1);
+    FREEZE(-1);
 
     private int value;
 
-    GoodsClassificationEnum(int value) {
+    AdminStatusEnum(int value) {
         this.value = value;
     }
 
