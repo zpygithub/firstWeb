@@ -2,6 +2,7 @@ package com.firstWeb.service;
 
 import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.response.ExportTaskInfo;
+import com.firstWeb.constant.ExportStatusEnum;
 import com.firstWeb.constant.ResultCode;
 import com.firstWeb.exception.CommonException;
 import com.firstWeb.mapper.TaskMapper;
@@ -27,17 +28,13 @@ public class TaskService {
 
     private static final Logger LOGGER = LogManager.getLogger(TaskService.class);
 
-    private static final int EXPORTTASKSUCCESS = 1;
-
-    private static final int EXPORTTASKNODATA = 2;
-
     public ExportTaskParam addExportTask(ExportTaskParam params) throws CommonException {
-        if (0 != this.getRunningTaskQuantities(params.getCreatorId())) {
+        if (ExportStatusEnum.EXPORTISRUNNING.getValue() != this.getRunningTaskQuantities(params.getCreatorId())) {
             throw new CommonException(ResultCode.EXPORTTASKISRUNNING, "export task is running");
         }
         params.setFileName(params.getFileName() + ".zip");
         params.setCreateTime(DateUtil.getUTCDate());
-        params.setStatus(0);
+        params.setStatus(ExportStatusEnum.EXPORTISRUNNING.getValue());
         params.setRemark(this.getSixRandomPasswd());
         taskMapper.addExportTask(params);
         return params;
@@ -74,9 +71,9 @@ public class TaskService {
             if (!downloadPaths.isEmpty()) {
                 String downloadURL = this.encryptCompressFile(downloadPaths, params);
                 params.setDownloadURL(downloadURL);
-                params.setStatus(EXPORTTASKSUCCESS);
+                params.setStatus(ExportStatusEnum.SUCCESS.getValue());
             } else {
-                params.setStatus(EXPORTTASKNODATA);
+                params.setStatus(ExportStatusEnum.EXPORTNODATA.getValue());
             }
             this.updateExportTask(params);
         } catch (Exception e) {
