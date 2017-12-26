@@ -10,8 +10,10 @@ import com.firstWeb.constant.AdminStatusEnum;
 import com.firstWeb.constant.ExcelRowEnum;
 import com.firstWeb.constant.ExportEnum;
 import com.firstWeb.constant.ResultCode;
+import com.firstWeb.exception.CommonException;
 import com.firstWeb.mapper.SystemMapper;
 import com.firstWeb.util.DateUtil;
+import com.firstWeb.util.PropertiesUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.hssf.usermodel.*;
@@ -20,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,6 +38,14 @@ public class SystemService {
     private SystemMapper systemMapper;
 
     private static final Logger LOGGER = LogManager.getLogger(SystemService.class);
+
+    private static final String EXPORTADMINLIST = "export_adminList";
+
+    private static final String ADMINLIST = "AdminList";
+
+    private static final String XLS = ".xls";
+
+    private static String EXPORTFILEPATH = PropertiesUtil.getValue("export.file.path");
 
     public List<MainMenu> getMainMenus() {
         List<MainMenu> list = systemMapper.getMainMenus();
@@ -95,7 +106,11 @@ public class SystemService {
         return false;
     }
 
-    public String exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException {
+    public String exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException, CommonException {
+        exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINLIST.getValue());
+        exportTaskparams.setFileName(EXPORTADMINLIST);
+        exportTaskparams = taskService.addExportTask(exportTaskparams);
+
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet = wb.createSheet(ExportEnum.ADMINLIST.getValue());
         HSSFRow row = sheet.createRow(ExcelRowEnum.FIRSTROW.getValue());
@@ -143,20 +158,14 @@ public class SystemService {
         }
 
         try {
-//            List<String> downloadPaths = taskService.excuteExportTask(list, exportTaskparams);
-//            taskService.updateExportTask(downloadPaths, exportTaskparams);
+            FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ADMINLIST + XLS);
+            wb.write(fos);
+            fos.close();
         } catch (Exception e) {
             LOGGER.error(e);
         }
-//        try {
-//            FileOutputStream fos = new FileOutputStream("C:/Users/zwx388880/Desktop/AdministratorInfos.xls");
-//            wb.write(fos);
-//            fos.close();
-//        } catch (Exception e) {
-//            LOGGER.error(e);
-//        }
-
-        return ResultCode.SUCCESS;
+        String downloadUrl = taskService.updateExportTask(EXPORTFILEPATH + ADMINLIST + XLS, exportTaskparams);
+        return downloadUrl;
     }
 
 }
