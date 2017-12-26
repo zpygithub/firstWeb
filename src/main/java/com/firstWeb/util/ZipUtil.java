@@ -14,20 +14,24 @@ import java.util.List;
 public class ZipUtil {
     private static final Logger LOGGER = LogManager.getLogger(ZipUtil.class);
 
+    private File zipFile;
+
+    public ZipUtil(String filePath) {
+        zipFile = new File(filePath);
+    }
+
     /**
      * 加密压缩
      *
-     * @param filePaths
+     * @param filePath
      * @param zipPath
      * @param pw
      */
-    public void encryptCompress(List<String> filePaths, String zipPath, String pw) {
+    public void encryptCompress(String filePath, String zipPath, String pw) {
         try {
             ZipFile zipFile = new ZipFile(zipPath); // 创建zip包，指定了zip路径和zip名称
-            ArrayList<File> fileAddZip = new ArrayList<File>(); // 向zip包中添加文件集合
-            for (String path : filePaths) {
-                fileAddZip.add(new File(path)); // 向zip包中添加文件
-            }
+            ArrayList<File> fileAddZip = new ArrayList<>(); // 向zip包中添加文件集合
+            fileAddZip.add(new File(filePath)); // 向zip包中添加文件
             ZipParameters parameters = new ZipParameters(); // 设置zip包的一些参数集合
             parameters.setEncryptFiles(true); // 是否设置密码
             parameters.setCompressionMethod(Zip4jConstants.COMP_DEFLATE); // 压缩方式
