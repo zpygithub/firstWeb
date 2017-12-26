@@ -189,16 +189,15 @@ public class SystemController extends BaseController {
 //        long id = token.getId();
         ExportTaskParam exportTaskparams = new ExportTaskParam();
         exportTaskparams.setCreatorId(1);
-        exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINLIST.getValue());
-        exportTaskparams.setFileName("export_adminList");
-        exportTaskparams = taskService.addExportTask(exportTaskparams);
 
         AdministratorParam params = new AdministratorParam();
         params.setAccount(ParamValidateUtil.escapeSpecialCharacter(model.getAccount()));
         params.setNickname(ParamValidateUtil.escapeSpecialCharacter(model.getNickname()));
         params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
-        systemService.exportAdminList(params, exportTaskparams);
+        String downloadUrl = systemService.exportAdminList(params, exportTaskparams);
+
+//        this.downloadToPage(downloadUrl, response);
 
         result.setCode(ResultCode.SUCCESS);
         LOGGER.info("exportAdminList: end");
