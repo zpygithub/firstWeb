@@ -16,6 +16,7 @@ define(function () {
         "reset": "重置",
         "export": "导出",
         "export_task_is_running": "已有导出任务正在进行，请稍后重试",
+        "export_no_data": "导出数据为空",
         "operation_succeeded": "操作成功",
         "operation_failed": "操作失败",
         //菜单

@@ -7,10 +7,7 @@ import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.bean.response.ExportTaskInfo;
 import com.firstWeb.bean.response.PageInfo;
 import com.firstWeb.common.CollectionResult;
-import com.firstWeb.constant.AdminStatusEnum;
-import com.firstWeb.constant.ExcelRowEnum;
-import com.firstWeb.constant.ExportEnum;
-import com.firstWeb.constant.ResultCode;
+import com.firstWeb.constant.*;
 import com.firstWeb.exception.CommonException;
 import com.firstWeb.mapper.SystemMapper;
 import com.firstWeb.util.DateUtil;
@@ -112,61 +109,66 @@ public class SystemService {
         exportTaskparams.setFileName(EXPORTADMINLIST);
         exportTaskparams = taskService.addExportTask(exportTaskparams);
 
-        HSSFWorkbook wb = new HSSFWorkbook();
-        HSSFSheet sheet = wb.createSheet(ExportEnum.ADMINLIST.getValue());
-        HSSFRow row = sheet.createRow(ExcelRowEnum.FIRSTROW.getValue());
-        HSSFCellStyle style = wb.createCellStyle();
-        style.setAlignment(HorizontalAlignment.CENTER); // 创建一个居中格式
-
-        HSSFCell cell;
-        cell = row.createCell(ExcelRowEnum.FIRSTROW.getValue());
-        cell.setCellValue(ExportEnum.ID.getValue());
-        cell.setCellStyle(style);
-        cell = row.createCell(ExcelRowEnum.SECONDROW.getValue());
-        cell.setCellValue(ExportEnum.ACCOUNT.getValue());
-        cell.setCellStyle(style);
-        cell = row.createCell(ExcelRowEnum.THIRDROW.getValue());
-        cell.setCellValue(ExportEnum.NICKNAME.getValue());
-        cell.setCellStyle(style);
-        cell = row.createCell(ExcelRowEnum.FOURTHROW.getValue());
-        cell.setCellValue(ExportEnum.EMAIL.getValue());
-        cell.setCellStyle(style);
-        cell = row.createCell(ExcelRowEnum.FIFTHROW.getValue());
-        cell.setCellValue(ExportEnum.TELEPHONE.getValue());
-        cell.setCellStyle(style);
-        cell = row.createCell(ExcelRowEnum.SIXTHROW.getValue());
-        cell.setCellValue(ExportEnum.CREATETIME.getValue());
-        cell.setCellStyle(style);
-        cell = row.createCell(ExcelRowEnum.SeventhROW.getValue());
-        cell.setCellValue(ExportEnum.STATUS.getValue());
-        cell.setCellStyle(style);
-
         List<AdministratorInfo> list = systemMapper.exportAdminList(params);
-        for (int i = 0; i < list.size(); i++) {
-            row = sheet.createRow(i + 1);
-            AdministratorInfo adminInfo = list.get(i);
-            row.createCell(ExcelRowEnum.FIRSTROW.getValue()).setCellValue(adminInfo.getId());
-            row.createCell(ExcelRowEnum.SECONDROW.getValue()).setCellValue(adminInfo.getAccount());
-            row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(adminInfo.getNickname());
-            row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(adminInfo.getEmail());
-            row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(adminInfo.getTelephone());
-            row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));
-            if (AdminStatusEnum.NORMAL.getValue() == adminInfo.getStatus()) {
-                row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(ExportEnum.NORMAL.getValue());
-            } else {
-                row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(ExportEnum.FREEZE.getValue());
-            }
-        }
+        ExportTaskInfo exportTaskInfo = new ExportTaskInfo();
+        if (null == list || 0 == list.size()) {
+            exportTaskparams.setStatus(ExportStatusEnum.EXPORTNODATA.getValue());
+            taskService.updateExportTask(exportTaskparams);
+            return exportTaskInfo;
+        } else {
+            HSSFWorkbook wb = new HSSFWorkbook();
+            HSSFSheet sheet = wb.createSheet(ExportEnum.ADMINLIST.getValue());
+            HSSFRow row = sheet.createRow(ExcelRowEnum.FIRSTROW.getValue());
+            HSSFCellStyle style = wb.createCellStyle();
+            style.setAlignment(HorizontalAlignment.CENTER); // 创建一个居中格式
 
-        try {
-            FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ADMINLIST + XLS);
-            wb.write(fos);
-            fos.close();
-        } catch (Exception e) {
-            LOGGER.error(e);
+            HSSFCell cell;
+            cell = row.createCell(ExcelRowEnum.FIRSTROW.getValue());
+            cell.setCellValue(ExportEnum.ID.getValue());
+            cell.setCellStyle(style);
+            cell = row.createCell(ExcelRowEnum.SECONDROW.getValue());
+            cell.setCellValue(ExportEnum.ACCOUNT.getValue());
+            cell.setCellStyle(style);
+            cell = row.createCell(ExcelRowEnum.THIRDROW.getValue());
+            cell.setCellValue(ExportEnum.NICKNAME.getValue());
+            cell.setCellStyle(style);
+            cell = row.createCell(ExcelRowEnum.FOURTHROW.getValue());
+            cell.setCellValue(ExportEnum.EMAIL.getValue());
+            cell.setCellStyle(style);
+            cell = row.createCell(ExcelRowEnum.FIFTHROW.getValue());
+            cell.setCellValue(ExportEnum.TELEPHONE.getValue());
+            cell.setCellStyle(style);
+            cell = row.createCell(ExcelRowEnum.SIXTHROW.getValue());
+            cell.setCellValue(ExportEnum.CREATETIME.getValue());
+            cell.setCellStyle(style);
+            cell = row.createCell(ExcelRowEnum.SeventhROW.getValue());
+            cell.setCellValue(ExportEnum.STATUS.getValue());
+            cell.setCellStyle(style);
+            for (int i = 0; i < list.size(); i++) {
+                row = sheet.createRow(i + 1);
+                AdministratorInfo adminInfo = list.get(i);
+                row.createCell(ExcelRowEnum.FIRSTROW.getValue()).setCellValue(adminInfo.getId());
+                row.createCell(ExcelRowEnum.SECONDROW.getValue()).setCellValue(adminInfo.getAccount());
+                row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(adminInfo.getNickname());
+                row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(adminInfo.getEmail());
+                row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(adminInfo.getTelephone());
+                row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));
+                if (AdminStatusEnum.NORMAL.getValue() == adminInfo.getStatus()) {
+                    row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(ExportEnum.NORMAL.getValue());
+                } else {
+                    row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(ExportEnum.FREEZE.getValue());
+                }
+            }
+            try {
+                FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ADMINLIST + XLS);
+                wb.write(fos);
+                fos.close();
+            } catch (Exception e) {
+                LOGGER.error(e);
+            }
+            taskService.updateExportTask(EXPORTFILEPATH + ADMINLIST + XLS, exportTaskparams);
+            exportTaskInfo = taskService.getExportTaskInfo(exportTaskparams.getId());
         }
-        taskService.updateExportTask(EXPORTFILEPATH + ADMINLIST + XLS, exportTaskparams);
-        ExportTaskInfo exportTaskInfo = taskService.getExportTaskInfo(exportTaskparams.getId());
         return exportTaskInfo;
     }
 

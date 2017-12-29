@@ -153,10 +153,12 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                     data: options
                 }).done(function (data) {
                     if (data.code === "00000") {
-                        Lobibox.notify("success", {msg: i18n.operation_succeeded});
                         if (data.value.downloadUrl && data.value.remark) {
+                            Lobibox.notify("success", {msg: i18n.operation_succeeded});
                             $("#compressPw").text(data.value.remark);
                             commonService.downLoadToPage('system/downLoadToPage', data.value.downloadUrl);
+                        } else {
+                            Lobibox.notify("warning", {msg: i18n.export_no_data});
                         }
                     } else if (data.code === "00012") {
                         Lobibox.notify("warning", {msg: i18n.export_task_is_running});
