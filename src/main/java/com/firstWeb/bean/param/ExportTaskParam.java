@@ -9,7 +9,7 @@ public class ExportTaskParam {
 
     private String fileName;
 
-    private String downloadURL;
+    private String downloadUrl;
 
     private long creatorId;
 
@@ -43,12 +43,12 @@ public class ExportTaskParam {
         this.fileName = fileName;
     }
 
-    public String getDownloadURL() {
-        return downloadURL;
+    public String getDownloadUrl() {
+        return downloadUrl;
     }
 
-    public void setDownloadURL(String downloadURL) {
-        this.downloadURL = downloadURL;
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
     }
 
     public long getCreatorId() {
