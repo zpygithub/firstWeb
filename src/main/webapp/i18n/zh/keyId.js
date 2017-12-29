@@ -15,7 +15,9 @@ define(function () {
         "query": "查询",
         "reset": "重置",
         "export": "导出",
+        "export_task_is_running": "已有导出任务正在进行，请稍后重试",
         "operation_succeeded": "操作成功",
+        "operation_failed": "操作失败",
         //菜单
         "home_label": "首页",
         "user_label": "用户",
