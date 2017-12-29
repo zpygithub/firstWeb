@@ -153,6 +153,16 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                 }).done(function (data) {
                     if (data.code === "00000") {
                         Lobibox.notify("success", {msg: i18n.operation_succeeded});
+                        console.log(data.value);
+                        if (data.value.downloadUrl && data.value.remark) {
+
+                            // $("#compressPw").val(data.value.compressPw);
+                            // commonService.openPostWindow('terminalActivity/downLoadToPage', data.value.downloadURL);
+                        }
+                    } else if (data.code === "00012") {
+                        Lobibox.notify("warning", {msg: i18n.export_task_is_running});
+                    } else {
+                        Lobibox.notify("error", {msg: i18n.operation_failed});
                     }
                 });
             }
