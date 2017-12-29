@@ -68,23 +68,25 @@ public class TaskService {
         return passwd;
     }
 
-
     @Transactional(propagation = Propagation.REQUIRED)
     public void updateExportTask(ExportTaskParam params) {
         taskMapper.updateExportTask(params);
     }
 
-    public String updateExportTask(String filePath, ExportTaskParam params) {
-        String downloadURL = "";
+    public void updateExportTask(String filePath, ExportTaskParam params) {
         try {
-            downloadURL = this.encryptCompressFile(filePath, params);
-            params.setDownloadURL(downloadURL);
+            String downloadUrl = this.encryptCompressFile(filePath, params);
+            params.setDownloadUrl(downloadUrl);
             params.setStatus(ExportStatusEnum.SUCCESS.getValue());
             this.updateExportTask(params);
         } catch (Exception e) {
             LOGGER.error(e);
         }
-        return downloadURL;
+    }
+
+    public ExportTaskInfo getExportTaskInfo(long id) {
+        ExportTaskInfo exportTaskInfo = taskMapper.getExportTaskInfo(id);
+        return exportTaskInfo;
     }
 
     /**
