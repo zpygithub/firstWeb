@@ -156,8 +156,8 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                         console.log(data.value);
                         if (data.value.downloadUrl && data.value.remark) {
 
-                            // $("#compressPw").val(data.value.compressPw);
-                            // commonService.openPostWindow('terminalActivity/downLoadToPage', data.value.downloadURL);
+                            $("#compressPw").val(data.value.compressPw);
+                            openPostWindow('system/downLoadToPage', data.value.downloadUrl);
                         }
                     } else if (data.code === "00012") {
                         Lobibox.notify("warning", {msg: i18n.export_task_is_running});
@@ -166,6 +166,30 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                     }
                 });
             }
+        }
+
+        var openPostWindow = function (url, attachAddress) {
+            var tempForm = document.createElement("form");
+            tempForm.id = "tempForm1";
+            tempForm.method = "post";
+            tempForm.action = url;
+
+            var hideInput1 = document.createElement("input");
+            hideInput1.type = "hidden";
+            hideInput1.name = "attachAddress";
+            hideInput1.value = attachAddress;
+
+            tempForm.appendChild(hideInput1);
+            if (document.all) {
+                tempForm.attachEvent("onsubmit", function () {
+                });
+            } else {
+                var subObj = tempForm.addEventListener("submit", function () {
+                }, false);
+            }
+            document.body.appendChild(tempForm);
+            tempForm.submit();
+            document.body.removeChild(tempForm);
         }
 
 
