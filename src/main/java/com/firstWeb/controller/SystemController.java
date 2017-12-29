@@ -197,18 +197,22 @@ public class SystemController extends BaseController {
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
         ExportTaskInfo exportTaskInfo = systemService.exportAdminList(params, exportTaskparams);
 
-//        downloadToPage(downloadUrl, response);
-
         result.setValue(exportTaskInfo);
         result.setCode(ResultCode.SUCCESS);
         LOGGER.info("exportAdminList: end");
         return result;
     }
 
+    /**
+     * 下载
+     *
+     * @param downloadUrl
+     * @param request
+     * @param response
+     */
     @PostMapping(value = "/downLoadToPage")
-    public void downLoadToPage(String attachAddress, HttpServletRequest request, HttpServletResponse response)
-            throws IOException, CommonException {
-        downloadToPage(attachAddress, response);
+    public void downLoadToPage(String downloadUrl, HttpServletRequest request, HttpServletResponse response) {
+        downloadToPage(downloadUrl, response);
     }
 
 }

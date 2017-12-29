@@ -49,16 +49,12 @@ public class BaseController {
 
         File file = new File(path);
         String filename = file.getName();
-        // 以流的形式下载文件。
-//            InputStream fis = new BufferedInputStream(new FileInputStream(path));
-//            byte[] buffer = new byte[fis.available()];
-//            fis.read(buffer);
-//            fis.close();
-        // 清空response
+
         response.reset();
         response.setHeader("Content-Disposition", "attachment;filename=" + filename);
         response.setHeader("Content-Length", String.valueOf(file.length()));
         response.setContentType("application/octet-stream");
+
         try {
             in = new BufferedInputStream(new FileInputStream(file));
             out = new BufferedOutputStream(response.getOutputStream());

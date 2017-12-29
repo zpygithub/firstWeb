@@ -1,6 +1,23 @@
 define([], function () {
     "use strict";
-    var commonService = function ($scope) {
+    var commonService = function () {
+        this.downLoadToPage = function (url, downloadUrl) {
+            var tempForm = document.createElement("form");
+            tempForm.id = "tempFormId";
+            tempForm.method = "post";
+            tempForm.action = url;
+
+            var hideInput = document.createElement("input");
+            hideInput.type = "hidden";
+            hideInput.name = "downloadUrl";
+            hideInput.value = downloadUrl;
+
+            tempForm.appendChild(hideInput);
+            document.body.appendChild(tempForm);
+            tempForm.submit();
+            document.body.removeChild(tempForm);
+        }
+
         this.getFormatTime = function (d) {
             if (d === null || d === "" || !d) {
                 return '';
