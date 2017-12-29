@@ -4,6 +4,7 @@ import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.response.AdministratorInfo;
+import com.firstWeb.bean.response.ExportTaskInfo;
 import com.firstWeb.bean.response.PageInfo;
 import com.firstWeb.common.CollectionResult;
 import com.firstWeb.constant.AdminStatusEnum;
@@ -106,7 +107,7 @@ public class SystemService {
         return false;
     }
 
-    public String exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException, CommonException {
+    public ExportTaskInfo exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException, CommonException {
         exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINLIST.getValue());
         exportTaskparams.setFileName(EXPORTADMINLIST);
         exportTaskparams = taskService.addExportTask(exportTaskparams);
@@ -164,8 +165,9 @@ public class SystemService {
         } catch (Exception e) {
             LOGGER.error(e);
         }
-        String downloadUrl = taskService.updateExportTask(EXPORTFILEPATH + ADMINLIST + XLS, exportTaskparams);
-        return downloadUrl;
+        taskService.updateExportTask(EXPORTFILEPATH + ADMINLIST + XLS, exportTaskparams);
+        ExportTaskInfo exportTaskInfo = taskService.getExportTaskInfo(exportTaskparams.getId());
+        return exportTaskInfo;
     }
 
 }
