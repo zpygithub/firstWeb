@@ -5,7 +5,7 @@
         <result property="id" column="id"/>
         <result property="taskName" column="taskName"/>
         <result property="fileName" column="fileName"/>
-        <result property="downloadURL" column="downloadURL"/>
+        <result property="downloadUrl" column="downloadUrl"/>
         <result property="creatorId" column="creatorId"/>
         <result property="createTime" column="createTime"/>
         <result property="status" column="status"/>
@@ -15,17 +15,21 @@
     <insert id="addExportTask" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.firstWeb.bean.param.ExportTaskParam">
         INSERT INTO
-		tb_export_task(taskName,fileName,downloadURL,creatorId,status,createTime,remark)
+		tb_export_task(taskName,fileName,downloadUrl,creatorId,status,createTime,remark)
 		VALUES
-		(#{taskName},#{fileName},#{downloadURL},#{creatorId},#{status},#{createTime},#{remark})
+		(#{taskName},#{fileName},#{downloadUrl},#{creatorId},#{status},#{createTime},#{remark})
     </insert>
 
     <update id="updateExportTask" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.firstWeb.bean.param.ExportTaskParam">
-        UPDATE tb_export_task SET downloadURL = #{downloadURL},status = #{status} WHERE id = #{id}
+        UPDATE tb_export_task SET downloadUrl = #{downloadUrl},status = #{status} WHERE id = #{id}
     </update>
 
     <select id="getRunningTaskQuantities" parameterType="long" resultType="int">
         SELECT COUNT(*) FROM tb_export_task WHERE creatorId = #{creatorId} AND status = 0
+    </select>
+
+    <select id="getExportTaskInfo" parameterType="long" resultMap="exportTaskInfoMap">
+        SELECT * FROM tb_export_task WHERE id = #{id}
     </select>
 </mapper>
