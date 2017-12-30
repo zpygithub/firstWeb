@@ -51,7 +51,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         });
 
         $("#reset").bind("click", function () {
-            $("#compressPw").text("");
+            $("#unzipPw").text("");
             $scope.account.value = "";
             $scope.nickname.value = "";
             $scope.email.value = "";
@@ -155,7 +155,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                     if (data.code === "00000") {
                         if (data.value.downloadUrl && data.value.remark) {
                             Lobibox.notify("success", {msg: i18n.operation_succeeded});
-                            $("#compressPw").text(data.value.remark);
+                            $("#unzipPw").text(i18n.unzip_password + data.value.remark);
                             commonService.downLoadToPage('system/downLoadToPage', data.value.downloadUrl);
                         } else {
                             Lobibox.notify("warning", {msg: i18n.export_no_data});

@@ -17,6 +17,7 @@ define(function () {
         "export": "导出",
         "export_task_is_running": "已有导出任务正在进行，请稍后重试",
         "export_no_data": "导出数据为空",
+        "unzip_password": "解压密码：",
         "operation_succeeded": "操作成功",
         "operation_failed": "操作失败",
         //菜单
