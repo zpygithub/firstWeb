@@ -4,16 +4,18 @@ define(["angular",
         "app/services/maskService",
         "app/services/cookieService",
         "app/framework/configures/frameworkConfig",
+        "app/src/user/configures/userConfig",
         "app/src/system/configures/systemConfig",
         "app/framework/controllers/homeCtrl",
         "app/framework/controllers/menusCtrl",
         "app/framework/controllers/serviceCtrl"],
-    function (angular, router, http, mask, storage, frameworkConfig, systemConfig, homeCtrl, menusCtrl, serviceCtrl) {
+    function (angular, router, http, mask, storage, frameworkConfig, userConfig, systemConfig, homeCtrl, menusCtrl, serviceCtrl) {
         "use strict";
         var dependency = [
             "ng",
             "ui.router",
             frameworkConfig.name,
+            userConfig.name,
             systemConfig.name
         ];
 
