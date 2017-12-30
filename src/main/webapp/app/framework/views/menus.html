@@ -5,7 +5,7 @@
                 <a href="#" class="dropdown-toggle" ng-if="!plugin.children">
                     <h4>{{i18n[plugin.menuName]}}</h4>
                 </a>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-if="plugin.children">
+                <a class="dropdown-toggle" data-toggle="dropdown" ng-if="plugin.children">
                     <h4>{{i18n[plugin.menuName]}}<b class="caret"></b></h4>
                 </a>
                 <ul class="dropdown-menu">
@@ -27,10 +27,16 @@
             </li>
         </ul>
     </div>
-    <div class="modal fade" id="adminInfoModal" tabindex="-1" role="dialog" aria-labelledby="modal" data-backdrop="true">
+    <div class="modal fade" id="adminInfoModal" tabindex="-1" role="dialog" aria-labelledby="modal"
+         data-backdrop="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             </div>
         </div>
     </div>
 </div>
+<style>
+    a {
+        cursor: pointer;
+    }
+</style>

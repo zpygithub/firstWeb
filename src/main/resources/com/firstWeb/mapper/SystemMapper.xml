@@ -50,7 +50,7 @@
     </select>
 
     <select id="getAdminListSize" parameterType="com.firstWeb.bean.param.AdministratorParam" resultType="int">
-        SELECT COUNT(*) FROM tb_administrator
+        SELECT COUNT(1) FROM tb_administrator
         <where>
             <if test="account != '' and account != null">
                 AND account LIKE CONCAT(#{account},"%")
