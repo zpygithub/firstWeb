@@ -72,7 +72,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         $scope.operate = {
             "query": function () {
                 $("#adminList").bootstrapTable({
-                    url: "system/getAdminListOnCondition",         //请求后台的URL（*）
+                    url: "user/getRegisterUserListOnCondition",         //请求后台的URL（*）
                     method: "get",                      //请求方式（*）
                     toolbar: "#toolbar",                //工具按钮用哪个容器
                     striped: false,                      //是否显示行间隔色
@@ -133,21 +133,14 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                             field: "status",
                             title: i18n.status,
                             align: "center",
-                            valign: "middle",
-                            formatter: function (status) {
-                                if (status == 0) {
-                                    return i18n.normal;
-                                } else {
-                                    return i18n.freeze;
-                                }
-                            }
+                            valign: "middle"
                         }]
                 });
             },
             "export": function (options) {
                 $.ajax({
                     type: 'post',
-                    url: 'system/exportAdminList/',
+                    url: 'user/exportRegisterUserList/',
                     dataType: 'json',
                     async: false,
                     data: options
@@ -156,7 +149,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                         if (data.value.downloadUrl && data.value.remark) {
                             Lobibox.notify("success", {msg: i18n.operation_succeeded});
                             $("#unzipPw").text(i18n.unzip_password + data.value.remark);
-                            commonService.downLoadToPage('system/downLoadToPage', data.value.downloadUrl);
+                            commonService.downLoadToPage('user/downLoadToPage', data.value.downloadUrl);
                         } else {
                             Lobibox.notify("warning", {msg: i18n.export_no_data});
                         }

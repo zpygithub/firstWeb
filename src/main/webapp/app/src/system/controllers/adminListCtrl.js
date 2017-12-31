@@ -133,14 +133,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                             field: "status",
                             title: i18n.status,
                             align: "center",
-                            valign: "middle",
-                            formatter: function (status) {
-                                if (status == 0) {
-                                    return i18n.normal;
-                                } else {
-                                    return i18n.freeze;
-                                }
-                            }
+                            valign: "middle"
                         }]
                 });
             },

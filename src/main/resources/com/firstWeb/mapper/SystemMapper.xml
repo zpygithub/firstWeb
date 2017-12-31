@@ -30,17 +30,18 @@
             resultMap="adminInfoMap">
         SELECT * FROM tb_administrator
         <where>
+            1 = 1
             <if test="account != '' and account != null">
-                AND account LIKE CONCAT(#{account},"%")
+                AND account LIKE CONCAT("%",#{account},"%")
             </if>
             <if test="username != '' and username != null">
-                AND username LIKE CONCAT(#{username},"%")
+                AND username LIKE CONCAT("%",#{username},"%")
             </if>
             <if test="email != '' and email != null">
-                AND email LIKE CONCAT(#{email},"%")
+                AND email LIKE CONCAT("%",#{email},"%")
             </if>
             <if test="telephone != '' and telephone != null">
-                AND telephone LIKE CONCAT(#{telephone},"%")
+                AND telephone LIKE CONCAT("%",#{telephone},"%")
             </if>
         </where>
         ORDER BY id ASC
@@ -52,17 +53,18 @@
     <select id="getAdminListSize" parameterType="com.firstWeb.bean.param.AdministratorParam" resultType="int">
         SELECT COUNT(1) FROM tb_administrator
         <where>
+            1 = 1
             <if test="account != '' and account != null">
-                AND account LIKE CONCAT(#{account},"%")
+                AND account LIKE CONCAT("%",#{account},"%")
             </if>
             <if test="username != '' and username != null">
-                AND username LIKE CONCAT(#{username},"%")
+                AND username LIKE CONCAT("%",#{username},"%")
             </if>
             <if test="email != '' and email != null">
-                AND email LIKE CONCAT(#{email},"%")
+                AND email LIKE CONCAT("%",#{email},"%")
             </if>
             <if test="telephone != '' and telephone != null">
-                AND telephone LIKE CONCAT(#{telephone},"%")
+                AND telephone LIKE CONCAT("%",#{telephone},"%")
             </if>
         </where>
     </select>
@@ -86,17 +88,18 @@
     <select id="exportAdminList" parameterType="com.firstWeb.bean.param.AdministratorParam" resultMap="adminInfoMap">
         SELECT * FROM tb_administrator
         <where>
+            1 = 1
             <if test="account != '' and account != null">
-                AND account LIKE CONCAT(#{account},"%")
+                AND account LIKE CONCAT("%",#{account},"%")
             </if>
             <if test="username != '' and username != null">
-                AND username LIKE CONCAT(#{username},"%")
+                AND username LIKE CONCAT("%",#{username},"%")
             </if>
             <if test="email != '' and email != null">
-                AND email LIKE CONCAT(#{email},"%")
+                AND email LIKE CONCAT("%",#{email},"%")
             </if>
             <if test="telephone != '' and telephone != null">
-                AND telephone LIKE CONCAT(#{telephone},"%")
+                AND telephone LIKE CONCAT("%",#{telephone},"%")
             </if>
         </where>
         ORDER BY id ASC

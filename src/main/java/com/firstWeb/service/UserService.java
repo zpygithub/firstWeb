@@ -1,6 +1,9 @@
 package com.firstWeb.service;
 
+import com.firstWeb.bean.param.RegisterUserParam;
+import com.firstWeb.bean.response.PageInfo;
 import com.firstWeb.bean.response.RegisterUserInfo;
+import com.firstWeb.common.CollectionResult;
 import com.firstWeb.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,15 +18,15 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    private static final String AAA = "<.*?>";
+    public CollectionResult<RegisterUserInfo> getRegisterUserListOnCondition(RegisterUserParam params) {
+        CollectionResult<RegisterUserInfo> result = new CollectionResult<>();
+        result.setList(userMapper.getRegisterUserListOnCondition(params));
 
-    public RegisterUserInfo selectUserById(String id) {
-        RegisterUserInfo user = userMapper.selectUserById(id);
-        return user;
+        PageInfo pageInfo = params.getPageInfo();
+        pageInfo.setTotalRecords(userMapper.getRegisterUserListSize(params));
+        result.setPageInfo(pageInfo);
+
+        return result;
     }
 
-    public List<RegisterUserInfo> selectUserByConditions(String value) {
-        List<RegisterUserInfo> user = userMapper.selectUserByConditions(value);
-        return user;
-    }
 }

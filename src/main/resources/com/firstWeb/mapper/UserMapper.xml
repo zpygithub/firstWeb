@@ -3,22 +3,77 @@
         PUBLIC "-//com.map.mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.firstWeb.mapper.UserMapper">
-    <resultMap id="userMap" type="com.firstWeb.bean.model.RegisterUser">
+    <resultMap id="registerUserInfoMap" type="com.firstWeb.bean.response.RegisterUserInfo">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
         <result property="username" column="username"/>
-        <result property="password" column="password"/>
+        <result property="sex" column="sex"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>
+        <result property="district" column="district"/>
+        <result property="address" column="address"/>
         <result property="status" column="status"/>
-        <result property="salt" column="salt"/>
+        <result property="createTime" column="createTime"/>
     </resultMap>
 
-    <select id="selectUserById" parameterType="String" resultMap="userMap">
-        SELECT * FROM tb_user WHERE id = #{id} AND status != -1
+    <select id="getRegisterUserListOnCondition" parameterType="com.firstWeb.bean.param.RegisterUserParam"
+            resultMap="registerUserInfoMap">
+        SELECT * FROM tb_register_user
+        <where>
+            1 = 1
+            <if test="account != '' and account != null">
+                AND account LIKE CONCAT("%",#{account},"%")
+            </if>
+            <if test="username != '' and username != null">
+                AND username LIKE CONCAT("%",#{username},"%")
+            </if>
+            <if test="sex != '' and sex != null">
+                AND sex = #{sex}
+            </if>
+            <if test="email != '' and email != null">
+                AND email LIKE CONCAT("%",#{email},"%")
+            </if>
+            <if test="telephone != '' and telephone != null">
+                AND telephone LIKE CONCAT("%",#{telephone},"%")
+            </if>
+            <if test="district != '' and district != null">
+                AND district = #{district}
+            </if>
+            <if test="address != '' and address != null">
+                AND address LIKE CONCAT("%",#{address},"%")
+            </if>
+        </where>
+        ORDER BY id ASC
+        <if test="pageInfo.currentPage > 0 and pageInfo.perPageRecords > 0">
+            LIMIT #{pageInfo.from}, #{pageInfo.perPageRecords}
+        </if>
     </select>
 
-    <select id="selectUserByConditions" parameterType="String" resultMap="userMap">
-        SELECT * FROM tb_user WHERE email LIKE '%${value}%'
+    <select id="getRegisterUserListSize" parameterType="com.firstWeb.bean.param.RegisterUserParam" resultType="int">
+        SELECT COUNT(1) FROM tb_register_user
+        <where>
+            1 = 1
+            <if test="account != '' and account != null">
+                AND account LIKE CONCAT("%",#{account},"%")
+            </if>
+            <if test="username != '' and username != null">
+                AND username LIKE CONCAT("%",#{username},"%")
+            </if>
+            <if test="sex != '' and sex != null">
+                AND sex = #{sex}
+            </if>
+            <if test="email != '' and email != null">
+                AND email LIKE CONCAT("%",#{email},"%")
+            </if>
+            <if test="telephone != '' and telephone != null">
+                AND telephone LIKE CONCAT("%",#{telephone},"%")
+            </if>
+            <if test="district != '' and district != null">
+                AND district = #{district}
+            </if>
+            <if test="address != '' and address != null">
+                AND address LIKE CONCAT("%",#{address},"%")
+            </if>
+        </where>
     </select>
 </mapper>

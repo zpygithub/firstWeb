@@ -1,13 +1,18 @@
 package com.firstWeb.mapper;
 
+import com.firstWeb.bean.param.RegisterUserParam;
 import com.firstWeb.bean.response.RegisterUserInfo;
 
 import java.util.List;
 
 public interface UserMapper {
 
-    RegisterUserInfo selectUserById(String id);
+    List<RegisterUserInfo> getRegisterUserListOnCondition(RegisterUserParam params);
 
-    List<RegisterUserInfo> selectUserByConditions(String value);
+    int getRegisterUserListSize(RegisterUserParam params);
+
+    RegisterUserInfo getRegisterUserById(long id);
+
+    List<RegisterUserInfo> exportRegisterUserList(RegisterUserParam params);
 
 }
