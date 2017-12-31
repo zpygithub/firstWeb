@@ -3,7 +3,7 @@ package com.firstWeb.bean.param;
 import java.util.Date;
 
 public class RegisterParam {
-    private String id;
+    private long id;
     private String account;
     private String username;
     private transient String passwd;
@@ -12,11 +12,11 @@ public class RegisterParam {
     private transient String salt;
     private Date createTime;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

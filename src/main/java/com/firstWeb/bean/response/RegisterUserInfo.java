@@ -1,17 +1,17 @@
-package com.firstWeb.bean.model;
+package com.firstWeb.bean.response;
 
 import java.util.Date;
 
-public class Administrator {
+public class RegisterUserInfo extends PageInfo {
     private long id;
     private String account;
-    private transient String password;
     private String username;
+    private int sex;
     private String telephone;
     private String email;
+    private String address;
     private int status;
     private Date createTime;
-    private transient String salt;
 
     public long getId() {
         return id;
@@ -29,20 +29,20 @@ public class Administrator {
         this.account = account;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
     }
 
     public String getTelephone() {
@@ -61,6 +61,14 @@ public class Administrator {
         this.email = email;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public int getStatus() {
         return status;
     }
@@ -77,26 +85,18 @@ public class Administrator {
         this.createTime = createTime;
     }
 
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
     @Override
     public String toString() {
-        return "Administrator{" +
+        return "RegisterUserInfo{" +
                 "id=" + id +
                 ", account='" + account + '\'' +
-                ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
+                ", sex=" + sex +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
                 ", status=" + status +
                 ", createTime=" + createTime +
-                ", salt='" + salt + '\'' +
                 '}';
     }
 }

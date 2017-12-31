@@ -1,17 +1,17 @@
 package com.firstWeb.bean.param;
 
 public class AdministratorParam extends BaseParam {
-    private String id;
+    private long id;
     private String account;
     private String username;
     private String telephone;
     private String email;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

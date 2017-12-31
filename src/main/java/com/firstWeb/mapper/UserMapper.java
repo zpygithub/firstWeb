@@ -1,13 +1,13 @@
 package com.firstWeb.mapper;
 
-import com.firstWeb.bean.response.UserInfo;
+import com.firstWeb.bean.response.RegisterUserInfo;
 
 import java.util.List;
 
 public interface UserMapper {
 
-    UserInfo selectUserById(String id);
+    RegisterUserInfo selectUserById(String id);
 
-    List<UserInfo> selectUserByConditions(String value);
+    List<RegisterUserInfo> selectUserByConditions(String value);
 
 }

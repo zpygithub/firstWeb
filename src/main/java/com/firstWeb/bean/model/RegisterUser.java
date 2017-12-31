@@ -2,13 +2,15 @@ package com.firstWeb.bean.model;
 
 import java.util.Date;
 
-public class Administrator {
+public class RegisterUser {
     private long id;
     private String account;
     private transient String password;
     private String username;
+    private int sex;
     private String telephone;
     private String email;
+    private String address;
     private int status;
     private Date createTime;
     private transient String salt;
@@ -45,6 +47,14 @@ public class Administrator {
         this.username = username;
     }
 
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
     public String getTelephone() {
         return telephone;
     }
@@ -59,6 +69,14 @@ public class Administrator {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getStatus() {
@@ -87,13 +105,15 @@ public class Administrator {
 
     @Override
     public String toString() {
-        return "Administrator{" +
+        return "RegisterUser{" +
                 "id=" + id +
                 ", account='" + account + '\'' +
                 ", password='" + password + '\'' +
                 ", username='" + username + '\'' +
+                ", sex=" + sex +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
                 ", status=" + status +
                 ", createTime=" + createTime +
                 ", salt='" + salt + '\'' +

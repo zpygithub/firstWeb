@@ -1,14 +1,11 @@
-package com.firstWeb.bean.model;
+package com.firstWeb.bean.param;
 
-public class User {
+public class RegisterUserParam extends BaseParam {
     private String id;
     private String account;
     private String username;
-    private transient String password;
     private String telephone;
     private String email;
-    private String status;
-    private transient String salt;
 
     public String getId() {
         return id;
@@ -34,14 +31,6 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getTelephone() {
         return telephone;
     }
@@ -58,19 +47,4 @@ public class User {
         this.email = email;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
 }

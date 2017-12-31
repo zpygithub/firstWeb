@@ -1,6 +1,6 @@
 package com.firstWeb.controller;
 
-import com.firstWeb.bean.response.UserInfo;
+import com.firstWeb.bean.response.RegisterUserInfo;
 import com.firstWeb.service.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,14 +23,14 @@ public class UserController {
     @GetMapping(value = "/selectUserById/{id}")
     public String selectUserById(@PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("selectUserById: begin");
-        UserInfo user = userService.selectUserById(id);
+        RegisterUserInfo user = userService.selectUserById(id);
         return user.getEmail();
     }
 
     @RequestMapping(value = "/selectUserByConditions", method = RequestMethod.GET)
 //    @ResponseBody
-    public List<UserInfo> selectUserByConditions(String value, HttpServletRequest request, HttpServletResponse response) {
-        List<UserInfo> user = userService.selectUserByConditions("zxc");
+    public List<RegisterUserInfo> selectUserByConditions(String value, HttpServletRequest request, HttpServletResponse response) {
+        List<RegisterUserInfo> user = userService.selectUserByConditions("zxc");
         return user;
     }
 }

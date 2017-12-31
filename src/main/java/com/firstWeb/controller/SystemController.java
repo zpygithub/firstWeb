@@ -111,7 +111,7 @@ public class SystemController extends BaseController {
         }
 
         AdministratorParam param = new AdministratorParam();
-        param.setId(model.getId());
+        param.setId(Long.valueOf(model.getId()));
         param.setUsername(model.getUsername());
         param.setEmail(model.getEmail());
         param.setTelephone(model.getTelephone());
