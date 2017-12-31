@@ -14,5 +14,5 @@ public interface RegisterMapper {
 
     boolean checkAccount(String account);
 
-    boolean checkNickname(String nickname);
+    boolean checkUsername(String username);
 }

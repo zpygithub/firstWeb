@@ -9,9 +9,9 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             value: ""
         };
 
-        $scope.nickname = {
-            id: "nicknameId",
-            label: i18n.nickname,
+        $scope.username = {
+            id: "usernameId",
+            label: i18n.username,
             value: ""
         };
 
@@ -44,7 +44,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
 
         $("#query").bind("click", function () {
             $scope.account.value = $("#account").val().trim();
-            $scope.nickname.value = $("#nickname").val().trim();
+            $scope.username.value = $("#username").val().trim();
             $scope.email.value = $("#email").val().trim();
             $scope.telephone.value = $("#telephone").val().trim();
             $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
@@ -53,7 +53,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         $("#reset").bind("click", function () {
             $("#unzipPw").text("");
             $scope.account.value = "";
-            $scope.nickname.value = "";
+            $scope.username.value = "";
             $scope.email.value = "";
             $scope.telephone.value = "";
             $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
@@ -62,7 +62,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         $("#export").bind("click", function () {
             var options = {
                 account: $("#account").val().trim(),
-                nickname: $("#nickname").val().trim(),
+                username: $("#username").val().trim(),
                 email: $("#email").val().trim(),
                 telephone: $("#telephone").val().trim()
             };
@@ -106,8 +106,8 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                             valign: "middle",
                             sortable: true
                         }, {
-                            field: "nickname",
-                            title: i18n.nickname,
+                            field: "username",
+                            title: i18n.username,
                             align: "center",
                             valign: "middle"
                         }, {
@@ -174,7 +174,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                 page: this.pageNumber,
                 size: this.pageSize,
                 account: $scope.account.value,
-                nickname: $scope.nickname.value,
+                username: $scope.username.value,
                 email: $scope.email.value,
                 telephone: $scope.telephone.value
             };

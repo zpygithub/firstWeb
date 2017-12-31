@@ -5,7 +5,7 @@ import java.util.Date;
 public class AdministratorInfo extends PageInfo {
     private long id;
     private String account;
-    private String nickname;
+    private String username;
     private String telephone;
     private String email;
     private int status;
@@ -27,12 +27,12 @@ public class AdministratorInfo extends PageInfo {
         this.account = account;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getTelephone() {
@@ -72,7 +72,7 @@ public class AdministratorInfo extends PageInfo {
         return "AdministratorInfo{" +
                 "id=" + id +
                 ", account='" + account + '\'' +
-                ", nickname='" + nickname + '\'' +
+                ", username='" + username + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
                 ", status=" + status +

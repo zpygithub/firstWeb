@@ -18,7 +18,7 @@ public interface SystemMapper {
 
     AdministratorInfo getAdministratorById(long id);
 
-    String checkOwnNickname(long id);
+    String checkOwnUsername(long id);
 
     List<AdministratorInfo> exportAdminList(AdministratorParam params);
 }

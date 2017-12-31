@@ -59,11 +59,11 @@ public class RegisterService {
     /**
      * 校验昵称唯一性
      *
-     * @param nickname
+     * @param username
      * @return
      */
-    public Boolean checkNickname(String nickname) {
-        if (registerMapper.checkNickname(nickname)) {
+    public Boolean checkUsername(String username) {
+        if (registerMapper.checkUsername(username)) {
             return false;
         }
         return true;

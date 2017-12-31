@@ -77,7 +77,7 @@ public class SystemController extends BaseController {
 //        Token token = getToken(request);
         AdministratorParam params = new AdministratorParam();
         params.setAccount(ParamValidateUtil.escapeSpecialCharacter(model.getAccount()));
-        params.setNickname(ParamValidateUtil.escapeSpecialCharacter(model.getNickname()));
+        params.setUsername(ParamValidateUtil.escapeSpecialCharacter(model.getUsername()));
         params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
         params.setPageInfo(createPageInfo(model.getPage(), model.getSize()));
@@ -102,17 +102,17 @@ public class SystemController extends BaseController {
         result.setCode(ResultCode.FAIL);
 //        Token token = getToken(request);
 
-        BasicDateValidateUtil.validateIsEmpty(model.getNickname());
-        BasicDateValidateUtil.validateIsNickname(model.getNickname());
+        BasicDateValidateUtil.validateIsEmpty(model.getUsername());
+        BasicDateValidateUtil.validateIsUsername(model.getUsername());
 
-        if (!registerService.checkNickname(model.getNickname()) && !systemService.checkOwnNickname(model.getNickname(), model.getId())) {
-            result.setCode(ResultCode.NICKNAMEISEXISTENCE);
+        if (!registerService.checkUsername(model.getUsername()) && !systemService.checkOwnUsername(model.getUsername(), model.getId())) {
+            result.setCode(ResultCode.USERNAMEISEXISTENCE);
             return result;
         }
 
         AdministratorParam param = new AdministratorParam();
         param.setId(model.getId());
-        param.setNickname(model.getNickname());
+        param.setUsername(model.getUsername());
         param.setEmail(model.getEmail());
         param.setTelephone(model.getTelephone());
         systemService.modifyAdminInfo(param);
@@ -192,7 +192,7 @@ public class SystemController extends BaseController {
 
         AdministratorParam params = new AdministratorParam();
         params.setAccount(ParamValidateUtil.escapeSpecialCharacter(model.getAccount()));
-        params.setNickname(ParamValidateUtil.escapeSpecialCharacter(model.getNickname()));
+        params.setUsername(ParamValidateUtil.escapeSpecialCharacter(model.getUsername()));
         params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
         ExportTaskInfo exportTaskInfo = systemService.exportAdminList(params, exportTaskparams);

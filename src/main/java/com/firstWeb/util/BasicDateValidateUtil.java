@@ -37,9 +37,9 @@ public class BasicDateValidateUtil {
     /**
      * 昵称是否合法
      */
-    public static void validateIsNickname(String str) throws CommonException {
-        if (!ParamValidateUtil.isNickname(str)) {
-            throw new CommonException(ResultCode.NICKNAMEFORMATEXCEPTION, "the nickname format exist error");
+    public static void validateIsUsername(String str) throws CommonException {
+        if (!ParamValidateUtil.isUsername(str)) {
+            throw new CommonException(ResultCode.USERNAMEFORMATEXCEPTION, "the username format exist error");
         }
     }
 

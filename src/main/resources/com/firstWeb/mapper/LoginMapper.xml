@@ -6,7 +6,7 @@
     <resultMap id="adminInfoMap" type="com.firstWeb.bean.response.AdministratorInfo">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
-        <result property="nickname" column="nickname"/>
+        <result property="username" column="username"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>
         <result property="status" column="status"/>

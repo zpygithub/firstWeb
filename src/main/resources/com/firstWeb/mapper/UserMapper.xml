@@ -6,7 +6,7 @@
     <resultMap id="userMap" type="com.firstWeb.bean.model.User">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
-        <result property="nickname" column="nickname"/>
+        <result property="username" column="username"/>
         <result property="password" column="password"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>

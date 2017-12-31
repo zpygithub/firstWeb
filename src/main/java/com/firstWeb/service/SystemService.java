@@ -96,9 +96,9 @@ public class SystemService {
         return administrator;
     }
 
-    public Boolean checkOwnNickname(String nickname, String id) {
-        String oldNickname = systemMapper.checkOwnNickname(Long.valueOf(id));
-        if (nickname.equals(oldNickname)) {
+    public Boolean checkOwnUsername(String username, String id) {
+        String oldUsername = systemMapper.checkOwnUsername(Long.valueOf(id));
+        if (username.equals(oldUsername)) {
             return true;
         }
         return false;
@@ -130,7 +130,7 @@ public class SystemService {
             cell.setCellValue(ExportEnum.ACCOUNT.getValue());
             cell.setCellStyle(style);
             cell = row.createCell(ExcelRowEnum.THIRDROW.getValue());
-            cell.setCellValue(ExportEnum.NICKNAME.getValue());
+            cell.setCellValue(ExportEnum.USERNAME.getValue());
             cell.setCellStyle(style);
             cell = row.createCell(ExcelRowEnum.FOURTHROW.getValue());
             cell.setCellValue(ExportEnum.EMAIL.getValue());
@@ -149,7 +149,7 @@ public class SystemService {
                 AdministratorInfo adminInfo = list.get(i);
                 row.createCell(ExcelRowEnum.FIRSTROW.getValue()).setCellValue(adminInfo.getId());
                 row.createCell(ExcelRowEnum.SECONDROW.getValue()).setCellValue(adminInfo.getAccount());
-                row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(adminInfo.getNickname());
+                row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(adminInfo.getUsername());
                 row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(adminInfo.getEmail());
                 row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(adminInfo.getTelephone());
                 row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));

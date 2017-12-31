@@ -51,13 +51,13 @@ public class RegisterController {
         result.setCode(ResultCode.FAIL);
 
         BasicDateValidateUtil.validateIsEmpty(model.getAccount());
-        BasicDateValidateUtil.validateIsEmpty(model.getNickname());
+        BasicDateValidateUtil.validateIsEmpty(model.getUsername());
         BasicDateValidateUtil.validateIsEmpty(model.getPasswd());
         BasicDateValidateUtil.validateIsEmpty(model.getConfirmPasswd());
 
         //账号6-20位、昵称2-8位、密码6-20位
         BasicDateValidateUtil.validateIsAccount(model.getAccount());
-        BasicDateValidateUtil.validateIsNickname(model.getNickname());
+        BasicDateValidateUtil.validateIsUsername(model.getUsername());
         BasicDateValidateUtil.validateIsPasswd(model.getPasswd());
 
         if (!model.getPasswd().equals(model.getConfirmPasswd())) {
@@ -68,14 +68,14 @@ public class RegisterController {
             result.setCode(ResultCode.ACCOUNTISEXISTENCE);
             return result;
         }
-        if (!registerService.checkNickname(model.getNickname())) {
-            result.setCode(ResultCode.NICKNAMEISEXISTENCE);
+        if (!registerService.checkUsername(model.getUsername())) {
+            result.setCode(ResultCode.USERNAMEISEXISTENCE);
             return result;
         }
 
         RegisterParam registerParam = new RegisterParam();
         registerParam.setAccount(model.getAccount());
-        registerParam.setNickname(model.getNickname());
+        registerParam.setUsername(model.getUsername());
         registerParam.setPasswd(model.getPasswd());
         registerParam.setCreateTime(DateUtil.getUTCDate());
         registerService.mainRegister(registerParam);

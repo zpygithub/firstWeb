@@ -9,7 +9,7 @@ public enum ExportEnum {
 
     ACCOUNT("账号"),
 
-    NICKNAME("昵称"),
+    USERNAME("用户名"),
 
     EMAIL("邮箱"),
 

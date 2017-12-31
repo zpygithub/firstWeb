@@ -15,7 +15,7 @@ public class ParamValidateUtil {
     /**
      * 昵称正则（任意字符）
      */
-    private static final String IS_NICKNAME = ".{2,8}";
+    private static final String IS_USERNAME = ".{2,8}";
 
     /**
      * 密码正则（字母+数字+特殊字符）
@@ -55,11 +55,11 @@ public class ParamValidateUtil {
     /**
      * 判断昵称
      */
-    public static boolean isNickname(String str) {
+    public static boolean isUsername(String str) {
         if (isEmpty(str)) {
             return false;
         }
-        return str.matches(IS_NICKNAME);
+        return str.matches(IS_USERNAME);
     }
 
     /**

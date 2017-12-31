@@ -16,9 +16,9 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                 disable: true
             };
 
-            $scope.nickname = {
-                id: "nicknameId",
-                label: i18n.nickname,
+            $scope.username = {
+                id: "usernameId",
+                label: i18n.username,
                 value: ""
             };
 
@@ -45,30 +45,30 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
             };
 
             $("#confirm").bind("click", function () {
-                var nickname = $("#nickname").val();
-                if ("" == nickname) {
-                    Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});
-                    $("#nickname").focus();
+                var username = $("#username").val();
+                if ("" == username) {
+                    Lobibox.notify("error", {msg: i18n.usernameCanNotBeEmpty});
+                    $("#username").focus();
                     return false;
                 }
 
                 var email = $("#email").val();
-                // if ("" == nickname) {
+                // if ("" == username) {
                 //     Lobibox.notify("error", {msg: getLocaleMsg("requiredPassword")});
-                //     $("#nickname").focus();
+                //     $("#username").focus();
                 //     return false;
                 // }
 
                 var telephone = $("#telephone").val();
-                // if ("" == nickname) {
+                // if ("" == username) {
                 //     Lobibox.notify("error", {msg: getLocaleMsg("requiredPassword")});
-                //     $("#nickname").focus();
+                //     $("#username").focus();
                 //     return false;
                 // }
 
                 var data = {
                     "id": id,
-                    "nickname": nickname,
+                    "username": username,
                     "email": email,
                     "telephone": telephone
                 };
@@ -83,11 +83,11 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                         Lobibox.notify("success", {msg: i18n.operation_succeeded});
                         $("#adminInfoModal").modal("hide");
                     } else if (data.code == "00003") {
-                        Lobibox.notify("error", {msg: i18n.nicknameCanNotBeEmpty});
+                        Lobibox.notify("error", {msg: i18n.usernameCanNotBeEmpty});
                     } else if (data.code == "00006") {
-                        Lobibox.notify("warning", {msg: i18n.nicknameAlreadyExists});
+                        Lobibox.notify("warning", {msg: i18n.usernameAlreadyExists});
                     } else if (data.code == "00008") {
-                        Lobibox.notify("error", {msg: i18n.nicknameFormatError});
+                        Lobibox.notify("error", {msg: i18n.usernameFormatError});
                     }
                 });
             });
@@ -101,7 +101,7 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                 }).done(function (data) {
                     if (data.code === "00000") {
                         $scope.account.value = data.value.account;
-                        $scope.nickname.value = data.value.nickname;
+                        $scope.username.value = data.value.username;
                         $scope.email.value = data.value.email;
                         $scope.telephone.value = data.value.telephone;
                     }
@@ -111,7 +111,7 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                 //     if (data.code === "00000") {
                 //         console.log(data);
                 //         $scope.account.value = data.value.account;
-                //         $scope.nickname.value = data.value.nickname;
+                //         $scope.username.value = data.value.username;
                 //         $scope.email.value = data.value.email;
                 //         $scope.telephone.value = data.value.telephone;
                 //     }

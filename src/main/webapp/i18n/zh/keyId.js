@@ -5,7 +5,7 @@ define(function () {
         "close": "关闭",
         "confirm": "确认",
         "account": "账号",
-        "nickname": "昵称",
+        "username": "昵称",
         "email": "邮箱",
         "telephone": "电话",
         "status": "状态",
@@ -36,9 +36,9 @@ define(function () {
         //系统
         "admin_info": "个人信息",
         "modify_admin_info": "修改个人信息",
-        "nickname_cannot_be_empty": "昵称不能为空。",
-        "nickname_format_error": "昵称格式位2至8位任意字符。",
-        "nickname_already_exists": "昵称已存在。",
+        "username_cannot_be_empty": "用户名不能为空。",
+        "username_format_error": "用户名格式位2至8位任意字符。",
+        "username_already_exists": "用户名已存在。",
         "logout": "退出",
     };
     return keyId;

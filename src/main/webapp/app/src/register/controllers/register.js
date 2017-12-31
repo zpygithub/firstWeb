@@ -11,14 +11,14 @@ $(document).ready(function () {
             return false;
         }
 
-        var nickname = $("#nickname").val();
-        if ("" == nickname) {
-            Lobibox.notify("error", {msg: getLocaleMsg("nicknameCanNotBeEmpty")});
+        var username = $("#username").val();
+        if ("" == username) {
+            Lobibox.notify("error", {msg: getLocaleMsg("usernameCanNotBeEmpty")});
             return false;
         }
-        var isNickname = /.{2,8}/;
-        if (!isNickname.test(nickname)) {
-            Lobibox.notify("error", {msg: getLocaleMsg("nicknameFormatError")});
+        var isUsername = /.{2,8}/;
+        if (!isUsername.test(username)) {
+            Lobibox.notify("error", {msg: getLocaleMsg("usernameFormatError")});
             return false;
         }
 
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
         var data = {
             "account": account,
-            "nickname": nickname,
+            "username": username,
             "passwd": password,
             "confirmPasswd": confirmPassword,
         };
@@ -65,7 +65,7 @@ $(document).ready(function () {
             } else if (data.code == "00005") {
                 Lobibox.notify("warning", {msg: getLocaleMsg("accountAlreadyExists")});
             } else if (data.code == "00006") {
-                Lobibox.notify("warning", {msg: getLocaleMsg("nicknameAlreadyExists")});
+                Lobibox.notify("warning", {msg: getLocaleMsg("usernameAlreadyExists")});
             }
         });
     });

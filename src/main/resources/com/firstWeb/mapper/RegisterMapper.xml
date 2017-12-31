@@ -6,7 +6,7 @@
     <!--<resultMap id="userMap" type="com.firstWeb.bean.model.Token">
         <result property="id" column="id"/>
         <result property="account" column="account"/>
-        <result property="nickname" column="nickname"/>
+        <result property="username" column="username"/>
         <result property="password" column="password"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>
@@ -16,15 +16,15 @@
 
     <insert id="mainRegister" parameterType="com.firstWeb.bean.param.RegisterParam" useGeneratedKeys="true"
             keyProperty="id">
-        INSERT INTO tb_administrator(account, nickname, password, telephone, email, salt, createTime)
-        VALUES (#{account}, #{nickname}, #{passwd}, #{telephone}, #{email}, #{salt}, #{createTime})
+        INSERT INTO tb_administrator(account, username, password, telephone, email, salt, createTime)
+        VALUES (#{account}, #{username}, #{passwd}, #{telephone}, #{email}, #{salt}, #{createTime})
     </insert>
 
     <select id="checkAccount" parameterType="String" resultType="boolean">
         SELECT COUNT(id) FROM tb_administrator WHERE account=#{account}
     </select>
 
-    <select id="checkNickname" parameterType="String" resultType="boolean">
-        SELECT COUNT(id) FROM tb_administrator WHERE nickname=#{nickname}
+    <select id="checkUsername" parameterType="String" resultType="boolean">
+        SELECT COUNT(id) FROM tb_administrator WHERE username=#{username}
     </select>
 </mapper>

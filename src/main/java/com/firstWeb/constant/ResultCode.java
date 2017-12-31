@@ -26,17 +26,17 @@ public interface ResultCode {
      */
     String ACCOUNTISEXISTENCE = "00005";
     /**
-     * 昵称已存在
+     * 用户名已存在
      */
-    String NICKNAMEISEXISTENCE = "00006";
+    String USERNAMEISEXISTENCE = "00006";
     /**
      * 账号格式错误
      */
     String ACCOUNTFORMATEXCEPTION = "00007";
     /**
-     * 昵称格式错误
+     * 用户名格式错误
      */
-    String NICKNAMEFORMATEXCEPTION = "00008";
+    String USERNAMEFORMATEXCEPTION = "00008";
     /**
      * 密码格式错误
      */
