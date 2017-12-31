@@ -7,6 +7,7 @@ public class RegisterUserReqModel extends Pagination {
     private String sex;
     private String telephone;
     private String email;
+    private String district;
     private String address;
     private String status;
 
@@ -58,6 +59,14 @@ public class RegisterUserReqModel extends Pagination {
         this.email = email;
     }
 
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -83,6 +92,7 @@ public class RegisterUserReqModel extends Pagination {
                 ", sex='" + sex + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
+                ", district='" + district + '\'' +
                 ", address='" + address + '\'' +
                 ", status='" + status + '\'' +
                 '}';

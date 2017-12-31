@@ -6,11 +6,12 @@ public class RegisterUserInfo extends PageInfo {
     private long id;
     private String account;
     private String username;
-    private int sex;
+    private String sex;
     private String telephone;
     private String email;
+    private String district;
     private String address;
-    private int status;
+    private String status;
     private Date createTime;
 
     public long getId() {
@@ -37,14 +38,6 @@ public class RegisterUserInfo extends PageInfo {
         this.username = username;
     }
 
-    public int getSex() {
-        return sex;
-    }
-
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
     public String getTelephone() {
         return telephone;
     }
@@ -61,6 +54,18 @@ public class RegisterUserInfo extends PageInfo {
         this.email = email;
     }
 
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -69,11 +74,11 @@ public class RegisterUserInfo extends PageInfo {
         this.address = address;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -94,6 +99,7 @@ public class RegisterUserInfo extends PageInfo {
                 ", sex=" + sex +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
+                ", district=" + district +
                 ", address='" + address + '\'' +
                 ", status=" + status +
                 ", createTime=" + createTime +

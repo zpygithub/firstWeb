@@ -26,6 +26,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.firstWeb.util.DateUtil.getLocalTime;
+
 @Service
 @EnableTransactionManagement
 public class SystemService {
@@ -37,11 +39,17 @@ public class SystemService {
 
     private static final Logger LOGGER = LogManager.getLogger(SystemService.class);
 
-    private static final String EXPORTADMINLIST = "export_adminList";
+    private static final String EXPORTADMINLIST = "export_adminList_";
 
     private static final String ADMINLIST = "AdminList";
 
     private static final String XLS = ".xls";
+
+    private static final String COLONREG = ":";
+
+    private static final String HYPHENREG = "-";
+
+    private static final String BLANKREG = " ";
 
     private static String EXPORTFILEPATH = PropertiesUtil.getValue("export.file.path");
 
@@ -106,7 +114,7 @@ public class SystemService {
 
     public ExportTaskInfo exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException, CommonException {
         exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINLIST.getValue());
-        exportTaskparams.setFileName(EXPORTADMINLIST);
+        exportTaskparams.setFileName(EXPORTADMINLIST + getLocalTime().replace(COLONREG, "").replace(HYPHENREG, "").replace(BLANKREG,""));
         exportTaskparams = taskService.addExportTask(exportTaskparams);
 
         List<AdministratorInfo> list = systemMapper.exportAdminList(params);
@@ -153,11 +161,7 @@ public class SystemService {
                 row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(adminInfo.getEmail());
                 row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(adminInfo.getTelephone());
                 row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));
-                if (AdminStatusEnum.NORMAL.getValue() == adminInfo.getStatus()) {
-                    row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(ExportEnum.NORMAL.getValue());
-                } else {
-                    row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(ExportEnum.FREEZE.getValue());
-                }
+                row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(adminInfo.getStatus());
             }
             try {
                 FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ADMINLIST + XLS);

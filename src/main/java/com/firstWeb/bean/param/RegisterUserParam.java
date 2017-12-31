@@ -1,17 +1,21 @@
 package com.firstWeb.bean.param;
 
 public class RegisterUserParam extends BaseParam {
-    private String id;
+    private long id;
     private String account;
     private String username;
+    private int sex;
     private String telephone;
     private String email;
+    private String district;
+    private String address;
+    private int status;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -31,6 +35,14 @@ public class RegisterUserParam extends BaseParam {
         this.username = username;
     }
 
+    public int getSex() {
+        return sex;
+    }
+
+    public void setSex(int sex) {
+        this.sex = sex;
+    }
+
     public String getTelephone() {
         return telephone;
     }
@@ -47,4 +59,42 @@ public class RegisterUserParam extends BaseParam {
         this.email = email;
     }
 
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "RegisterUserParam{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", username='" + username + '\'' +
+                ", sex=" + sex +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ", district='" + district + '\'' +
+                ", address='" + address + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

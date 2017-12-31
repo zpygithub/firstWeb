@@ -10,6 +10,7 @@ public class RegisterUser {
     private int sex;
     private String telephone;
     private String email;
+    private int district;
     private String address;
     private int status;
     private Date createTime;
@@ -71,6 +72,14 @@ public class RegisterUser {
         this.email = email;
     }
 
+    public int getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(int district) {
+        this.district = district;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -113,6 +122,7 @@ public class RegisterUser {
                 ", sex=" + sex +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
+                ", district=" + district +
                 ", address='" + address + '\'' +
                 ", status=" + status +
                 ", createTime=" + createTime +

@@ -156,7 +156,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                         if (data.value.downloadUrl && data.value.remark) {
                             Lobibox.notify("success", {msg: i18n.operation_succeeded});
                             $("#unzipPw").text(i18n.unzip_password + data.value.remark);
-                            commonService.downLoadToPage('system/downLoadToPage', data.value.downloadUrl);
+                            commonService.downLoadToPage("system/downLoadToPage", data.value.downloadUrl);
                         } else {
                             Lobibox.notify("warning", {msg: i18n.export_no_data});
                         }

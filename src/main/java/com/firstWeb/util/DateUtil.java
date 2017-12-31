@@ -1,5 +1,6 @@
 package com.firstWeb.util;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -12,8 +13,7 @@ public class DateUtil {
         return new Date(cal.getTimeInMillis());
     }
 
-    public static Date getLocalTimeFromUTC(Date utcTime)
-    {
+    public static Date getLocalTimeFromUTC(Date utcTime) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(utcTime);
         int zoneOffset = cal.get(Calendar.ZONE_OFFSET);
@@ -21,4 +21,12 @@ public class DateUtil {
         cal.add(Calendar.MILLISECOND, +(zoneOffset + dstOffset));
         return cal.getTime();
     }
+
+    public static String getLocalTime() {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String localTime = sdf.format(date);
+        return localTime;
+    }
+
 }

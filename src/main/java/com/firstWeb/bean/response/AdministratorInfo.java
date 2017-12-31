@@ -1,5 +1,8 @@
 package com.firstWeb.bean.response;
 
+import com.firstWeb.constant.AdminStatusEnum;
+import com.firstWeb.constant.ExportEnum;
+
 import java.util.Date;
 
 public class AdministratorInfo extends PageInfo {
@@ -8,7 +11,7 @@ public class AdministratorInfo extends PageInfo {
     private String username;
     private String telephone;
     private String email;
-    private int status;
+    private String status;
     private Date createTime;
 
     public long getId() {
@@ -51,12 +54,16 @@ public class AdministratorInfo extends PageInfo {
         this.email = email;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setStatus(String status) {
+        if ((AdminStatusEnum.NORMAL.getValue() + "").equals(status)) {
+            this.status = ExportEnum.NORMAL.getValue();
+        } else {
+            this.status = ExportEnum.FREEZE.getValue();
+        }
     }
 
     public Date getCreateTime() {
