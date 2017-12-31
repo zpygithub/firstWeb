@@ -13,7 +13,7 @@ public class ParamValidateUtil {
     private static final String IS_ACCOUNT = "[0-9a-zA-Z]{6,20}";
 
     /**
-     * 昵称正则（任意字符）
+     * 用户名正则（任意字符）
      */
     private static final String IS_USERNAME = ".{2,8}";
 
@@ -53,7 +53,7 @@ public class ParamValidateUtil {
     }
 
     /**
-     * 判断昵称
+     * 判断用户名
      */
     public static boolean isUsername(String str) {
         if (isEmpty(str)) {

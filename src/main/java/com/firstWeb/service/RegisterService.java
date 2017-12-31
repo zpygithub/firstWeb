@@ -57,7 +57,7 @@ public class RegisterService {
     }
 
     /**
-     * 校验昵称唯一性
+     * 校验用户名唯一性
      *
      * @param username
      * @return

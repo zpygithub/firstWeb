@@ -5,7 +5,7 @@ define(function () {
         "close": "关闭",
         "confirm": "确认",
         "account": "账号",
-        "username": "昵称",
+        "username": "用户名",
         "email": "邮箱",
         "telephone": "电话",
         "status": "状态",

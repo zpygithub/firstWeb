@@ -35,7 +35,7 @@ public class BasicDateValidateUtil {
     }
 
     /**
-     * 昵称是否合法
+     * 用户名是否合法
      */
     public static void validateIsUsername(String str) throws CommonException {
         if (!ParamValidateUtil.isUsername(str)) {

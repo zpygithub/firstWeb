@@ -55,7 +55,7 @@ public class RegisterController {
         BasicDateValidateUtil.validateIsEmpty(model.getPasswd());
         BasicDateValidateUtil.validateIsEmpty(model.getConfirmPasswd());
 
-        //账号6-20位、昵称2-8位、密码6-20位
+        //账号6-20位、用户名2-8位、密码6-20位
         BasicDateValidateUtil.validateIsAccount(model.getAccount());
         BasicDateValidateUtil.validateIsUsername(model.getUsername());
         BasicDateValidateUtil.validateIsPasswd(model.getPasswd());
