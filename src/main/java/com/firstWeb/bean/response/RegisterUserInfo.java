@@ -1,5 +1,9 @@
 package com.firstWeb.bean.response;
 
+import com.firstWeb.constant.UserSexEnum;
+import com.firstWeb.constant.UserStatusEnum;
+import com.firstWeb.constant.ExportEnum;
+
 import java.util.Date;
 
 public class RegisterUserInfo extends PageInfo {
@@ -54,8 +58,18 @@ public class RegisterUserInfo extends PageInfo {
         this.email = email;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
     public void setSex(String sex) {
-        this.sex = sex;
+        if ((UserSexEnum.MALE.getValue() + "").equals(sex)) {
+            this.sex = ExportEnum.MALE.getValue();
+        } else if ((UserSexEnum.FEMALE.getValue() + "").equals(sex)) {
+            this.sex = ExportEnum.FEMALE.getValue();
+        } else {
+            this.sex = ExportEnum.UNKNOWN.getValue();
+        }
     }
 
     public String getDistrict() {
@@ -79,7 +93,11 @@ public class RegisterUserInfo extends PageInfo {
     }
 
     public void setStatus(String status) {
-        this.status = status;
+        if ((UserStatusEnum.NORMAL.getValue() + "").equals(status)) {
+            this.status = ExportEnum.NORMAL.getValue();
+        } else {
+            this.status = ExportEnum.FREEZE.getValue();
+        }
     }
 
     public Date getCreateTime() {

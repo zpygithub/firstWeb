@@ -15,6 +15,12 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             value: ""
         };
 
+        $scope.sex = {
+            id: "sexId",
+            label: i18n.sex,
+            value: ""
+        };
+
         $scope.email = {
             id: "emailId",
             label: i18n.email,
@@ -24,6 +30,18 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         $scope.telephone = {
             id: "telephoneId",
             label: i18n.telephone,
+            value: ""
+        };
+
+        $scope.district = {
+            id: "districtId",
+            label: i18n.district,
+            value: ""
+        };
+
+        $scope.address = {
+            id: "addressId",
+            label: i18n.address,
             value: ""
         };
 
@@ -47,7 +65,9 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             $scope.username.value = $("#username").val().trim();
             $scope.email.value = $("#email").val().trim();
             $scope.telephone.value = $("#telephone").val().trim();
-            $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
+            $scope.address.value = $("#address").val().trim();
+            $scope.sex.value = $("#sex").val();
+            $("#registerUserList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
         $("#reset").bind("click", function () {
@@ -56,7 +76,9 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             $scope.username.value = "";
             $scope.email.value = "";
             $scope.telephone.value = "";
-            $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
+            $scope.address.value = "";
+            $scope.sex.value = "";
+            $("#registerUserList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
         $("#export").bind("click", function () {
@@ -64,14 +86,16 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                 account: $("#account").val().trim(),
                 username: $("#username").val().trim(),
                 email: $("#email").val().trim(),
-                telephone: $("#telephone").val().trim()
+                telephone: $("#telephone").val().trim(),
+                address: $("#address").val().trim(),
+                sex: $("#sex").val()
             };
             $scope.operate.export(options);
         });
 
         $scope.operate = {
             "query": function () {
-                $("#adminList").bootstrapTable({
+                $("#registerUserList").bootstrapTable({
                     url: "user/getRegisterUserListOnCondition",         //请求后台的URL（*）
                     method: "get",                      //请求方式（*）
                     toolbar: "#toolbar",                //工具按钮用哪个容器
@@ -94,37 +118,39 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                     responseHandler: getAdminListOnCondition,
                     columns: [
                         {
-                            field: "id",
-                            title: "id",
-                            align: "center",
-                            valign: "middle",
-                            sortable: true
-                        }, {
                             field: "account",
                             title: i18n.account,
                             align: "center",
-                            valign: "middle",
                             sortable: true
                         }, {
                             field: "username",
                             title: i18n.username,
                             align: "center",
-                            valign: "middle"
+                            visible: false
+                        }, {
+                            field: "sex",
+                            title: i18n.sex,
+                            align: "center"
                         }, {
                             field: "email",
                             title: i18n.email,
-                            align: "center",
-                            valign: "middle"
+                            align: "center"
                         }, {
                             field: "telephone",
                             title: i18n.telephone,
-                            align: "center",
-                            valign: "middle"
+                            align: "center"
+                        }, {
+                            field: "district",
+                            title: i18n.district,
+                            align: "center"
+                        }, {
+                            field: "address",
+                            title: i18n.address,
+                            align: "center"
                         }, {
                             field: "createTime",
                             title: i18n.createTime,
                             align: "center",
-                            valign: "left",
                             formatter: function (value) {
                                 value = commonService.getFormatTime(value);
                                 return value;
@@ -132,8 +158,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                         }, {
                             field: "status",
                             title: i18n.status,
-                            align: "center",
-                            valign: "middle"
+                            align: "center"
                         }]
                 });
             },
@@ -168,9 +193,12 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                 size: this.pageSize,
                 account: $scope.account.value,
                 username: $scope.username.value,
+                sex: $scope.sex.value,
                 email: $scope.email.value,
-                telephone: $scope.telephone.value
+                telephone: $scope.telephone.value,
+                address: $scope.address.value
             };
+            console.log(options);
             return options;
         }
 

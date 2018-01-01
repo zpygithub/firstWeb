@@ -94,37 +94,26 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                     responseHandler: getAdminListOnCondition,
                     columns: [
                         {
-                            field: "id",
-                            title: "id",
-                            align: "center",
-                            valign: "middle",
-                            sortable: true
-                        }, {
                             field: "account",
                             title: i18n.account,
                             align: "center",
-                            valign: "middle",
                             sortable: true
                         }, {
                             field: "username",
                             title: i18n.username,
-                            align: "center",
-                            valign: "middle"
+                            align: "center"
                         }, {
                             field: "email",
                             title: i18n.email,
-                            align: "center",
-                            valign: "middle"
+                            align: "center"
                         }, {
                             field: "telephone",
                             title: i18n.telephone,
-                            align: "center",
-                            valign: "middle"
+                            align: "center"
                         }, {
                             field: "createTime",
                             title: i18n.createTime,
                             align: "center",
-                            valign: "left",
                             formatter: function (value) {
                                 value = commonService.getFormatTime(value);
                                 return value;
@@ -132,8 +121,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                         }, {
                             field: "status",
                             title: i18n.status,
-                            align: "center",
-                            valign: "middle"
+                            align: "center"
                         }]
                 });
             },

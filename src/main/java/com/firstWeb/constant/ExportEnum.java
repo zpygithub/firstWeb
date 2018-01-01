@@ -21,7 +21,13 @@ public enum ExportEnum {
 
     NORMAL("正常"),
 
-    FREEZE("冻结");
+    FREEZE("冻结"),
+
+    UNKNOWN("未知"),
+
+    MALE("男"),
+
+    FEMALE("女");
 
     private String value;
 

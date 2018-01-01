@@ -27,7 +27,7 @@
             <if test="username != '' and username != null">
                 AND username LIKE CONCAT("%",#{username},"%")
             </if>
-            <if test="sex != '' and sex != null">
+            <if test="sex &gt; -1">
                 AND sex = #{sex}
             </if>
             <if test="email != '' and email != null">
@@ -59,7 +59,7 @@
             <if test="username != '' and username != null">
                 AND username LIKE CONCAT("%",#{username},"%")
             </if>
-            <if test="sex != '' and sex != null">
+            <if test="sex &gt; -1">
                 AND sex = #{sex}
             </if>
             <if test="email != '' and email != null">

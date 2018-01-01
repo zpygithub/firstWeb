@@ -1,6 +1,6 @@
 package com.firstWeb.constant;
 
-public enum AdminStatusEnum {
+public enum UserStatusEnum {
     /**
      * 正常
      */
@@ -12,7 +12,7 @@ public enum AdminStatusEnum {
 
     private int value;
 
-    AdminStatusEnum(int value) {
+    UserStatusEnum(int value) {
         this.value = value;
     }
 

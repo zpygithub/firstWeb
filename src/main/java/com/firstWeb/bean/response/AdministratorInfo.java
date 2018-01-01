@@ -1,6 +1,6 @@
 package com.firstWeb.bean.response;
 
-import com.firstWeb.constant.AdminStatusEnum;
+import com.firstWeb.constant.UserStatusEnum;
 import com.firstWeb.constant.ExportEnum;
 
 import java.util.Date;
@@ -59,7 +59,7 @@ public class AdministratorInfo extends PageInfo {
     }
 
     public void setStatus(String status) {
-        if ((AdminStatusEnum.NORMAL.getValue() + "").equals(status)) {
+        if ((UserStatusEnum.NORMAL.getValue() + "").equals(status)) {
             this.status = ExportEnum.NORMAL.getValue();
         } else {
             this.status = ExportEnum.FREEZE.getValue();
