@@ -4,19 +4,12 @@ import java.util.Date;
 
 public class ExportTaskParam {
     private long id;
-
     private String taskName;
-
     private String fileName;
-
     private String downloadUrl;
-
     private long creatorId;
-
     private Date createTime;
-
     private int status;
-
     private String remark;
 
     public long getId() {
