@@ -27,6 +27,12 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             value: ""
         };
 
+        $scope.createTime = {
+            id: "createTimeId",
+            label: i18n.createTime,
+            value: ""
+        };
+
         $scope.query = {
             id: "queryId",
             label: i18n.query
@@ -43,10 +49,6 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         };
 
         $("#query").bind("click", function () {
-            $scope.account.value = $("#account").val().trim();
-            $scope.username.value = $("#username").val().trim();
-            $scope.email.value = $("#email").val().trim();
-            $scope.telephone.value = $("#telephone").val().trim();
             $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
@@ -61,10 +63,10 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
 
         $("#export").bind("click", function () {
             var options = {
-                account: $("#account").val().trim(),
-                username: $("#username").val().trim(),
-                email: $("#email").val().trim(),
-                telephone: $("#telephone").val().trim()
+                account: $scope.account.value,
+                username: $scope.username.value,
+                email: $scope.email.value,
+                telephone: $scope.telephone.value
             };
             $scope.operate.export(options);
         });
