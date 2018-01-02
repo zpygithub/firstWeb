@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="adbe32bb-1796-48ea-8171-a145573f5692" name="Default" comment="``">
+    <list default="true" id="adbe32bb-1796-48ea-8171-a145573f5692" name="Default" comment="nickname变更为username">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/lib/js/bootstrap/bootstrap-table-zh-CN1.11.1.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/lib/js/bootstrap/bootstrap_fileinput_locale_zh4.4.4.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/SystemMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/SystemMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/TaskMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/TaskMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/app/framework/views/menus.html" afterPath="$PROJECT_DIR$/src/main/webapp/app/framework/views/menus.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/firstWeb/mapper/UserMapper.xml" afterPath="$PROJECT_DIR$/target/classes/com/firstWeb/mapper/UserMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,14 +17,90 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SystemService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/SystemService.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
-              <caret line="115" column="59" lean-forward="false" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
+            <state relative-caret-position="0">
+              <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParamValidateUtil.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/ParamValidateUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserMapper.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/UserMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="56" column="59" lean-forward="true" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registerUserListCtrl.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/user/controllers/registerUserListCtrl.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1649">
+              <caret line="97" column="20" lean-forward="false" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1514557243245" expanded="true" signature="7580:7587" ph="{...}" />
+                <marker date="1514902229273" expanded="true" signature="575:652" ph="{&quot;id&quot;: &quot;sexId&quot;...}" />
+                <marker date="1514902229273" expanded="true" signature="7674:7713" ph="{...}" />
+                <marker date="1514902229273" expanded="true" signature="7761:8086" ph="{...}" />
+                <marker date="1514902229273" expanded="true" signature="7784:7948" ph="{...}" />
+                <marker date="1514902229273" expanded="true" signature="7809:7933" ph="{&quot;rows&quot;: res.value.list...}" />
+                <marker date="1514902229273" expanded="true" signature="7954:8076" ph="{...}" />
+                <marker date="1514902229273" expanded="true" signature="7979:8061" ph="{...}" />
+                <marker date="1514902229273" expanded="true" signature="8112:8159" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registerUserList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/user/views/registerUserList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1514902229273" expanded="true" signature="2951:3264" ph="..." />
+                <marker date="1514902229273" expanded="false" signature="3327:3356" ph="..." />
+                <marker date="1514902229273" expanded="true" signature="3357:3423" ph="..." />
+                <marker date="1514902229273" expanded="true" signature="3395:3412" ph="..." />
+                <marker date="1514902229273" expanded="true" signature="3438:3501" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminList.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/views/adminList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+              <folding>
+                <marker date="1514902229273" expanded="true" signature="3070:3078" ph="..." />
               </folding>
             </state>
           </provider>
@@ -33,114 +109,54 @@
       <file leaf-file-name="adminListCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/controllers/adminListCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="154" column="48" lean-forward="true" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminList.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/views/adminList.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
+            <state relative-caret-position="1632">
+              <caret line="98" column="28" lean-forward="false" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1514902229260" expanded="true" signature="163:6795" ph="[...]" />
+                <marker date="1514902229260" expanded="true" signature="240:6794" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="1934:1948" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="1934:2003" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="2032:5945" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="2067:4775" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="2116:4759" ph="{&quot;url&quot;: &quot;system/getAdminListOnCondition&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="3239:3355" ph="//..." />
+                <marker date="1514902229260" expanded="true" signature="3447:4741" ph="[...]" />
+                <marker date="1514902229260" expanded="true" signature="3473:3475" ph="{&quot;field&quot;: &quot;id&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="3473:3683" ph="{&quot;field&quot;: &quot;account&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="3475:3683" ph="{&quot;field&quot;: &quot;account&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="3685:3853" ph="{&quot;field&quot;: &quot;username&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="3855:4017" ph="{&quot;field&quot;: &quot;email&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="4019:4189" ph="{&quot;field&quot;: &quot;telephone&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="4191:4574" ph="{&quot;field&quot;: &quot;createTime&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="4395:4548" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="4576:4740" ph="{&quot;field&quot;: &quot;status&quot;...}" />
+                <marker date="1514902229260" expanded="true" signature="4818:5935" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="4843:5054" ph="{&quot;type&quot;: 'post'...}" />
+                <marker date="1514902229260" expanded="true" signature="5077:5919" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="5126:5650" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="5201:5512" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="5518:5628" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="5683:5793" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="5799:5901" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="5978:6325" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="6006:6286" ph="{&quot;account&quot;: $scope.account.value...}" />
+                <marker date="1514902229260" expanded="true" signature="6373:6698" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="6396:6560" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="6421:6545" ph="{&quot;rows&quot;: res.value.list...}" />
+                <marker date="1514902229260" expanded="true" signature="6566:6688" ph="{...}" />
+                <marker date="1514902229260" expanded="true" signature="6591:6673" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menusCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/framework/controllers/menusCtrl.js">
+      <file leaf-file-name="RegisterUserParam.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/RegisterUserParam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-182">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menus.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/app/framework/views/menus.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-46">
-              <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+            <state relative-caret-position="34">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/LoginMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1511952949711" expanded="true" signature="789:864" ph="SELECT salt tb_administrator" />
-                <marker date="1511952949711" expanded="true" signature="968:1030" ph="SELECT passw... tb_administrator" />
-                <marker date="1511952949711" expanded="true" signature="1146:1201" ph="SELECT * FRO... tb_administrator" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegisterMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/RegisterMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1511952949712" expanded="true" signature="883:1076" ph="INSERT INTO tb_administrator... " />
-                <marker date="1511952949712" expanded="true" signature="1175:1238" ph="SELECT COUNT... tb_administrator" />
-                <marker date="1511952949712" expanded="true" signature="1338:1403" ph="SELECT COUNT... tb_administrator" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SystemMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/SystemMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-442">
-              <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
-              <folding>
-                <marker date="1514612498005" expanded="true" signature="1172:1233" ph="SELECT * FRO... tb_main_menu" />
-                <marker date="1514612498005" expanded="true" signature="3014:3076" ph="SELECT * FRO... tb_administrator" />
-                <marker date="1514612498005" expanded="true" signature="3193:3348" ph="UPDATE tb_ad... " />
-                <marker date="1514612498005" expanded="true" signature="3448:3502" ph="SELECT nickn... tb_administrator" />
-                <marker date="1514612498005" expanded="true" signature="3644:4263" ph="SELECT * FRO... tb_administrator" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/TaskMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-              <folding>
-                <marker date="1514612514268" expanded="true" signature="903:1096" ph="INSERT INTO tb_export_task" />
-                <marker date="1514612514268" expanded="true" signature="1264:1354" ph="UPDATE tb_ex... " />
-                <marker date="1514612514268" expanded="true" signature="1459:1540" ph="SELECT COUNT... tb_export_task" />
-                <marker date="1514612514268" expanded="true" signature="1651:1696" ph="SELECT * FRO... tb_export_task" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserMapper.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/UserMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1496041939123" expanded="true" signature="809:864" ph="SELECT * FRO... tb_user" />
-                <marker date="1496041939123" expanded="true" signature="972:1023" ph="SELECT * FRO... tb_user" />
+                <marker date="1514902229260" expanded="true" signature="1870:1899" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -157,10 +173,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lg</find>
-      <find>lib/</find>
-      <find>ing, please w</find>
-      <find>'</find>
       <find>admin_account</find>
       <find>admin_nickname</find>
       <find>admin_telephone</find>
@@ -179,10 +191,27 @@
       <find>EXPORTTASKSUCCESS</find>
       <find>common</find>
       <find>compressPw</find>
+      <find>system</find>
+      <find>Nickname</find>
+      <find>nickname</find>
+      <find>NICKNAME</find>
+      <find>昵称</find>
+      <find>export.file.path</find>
+      <find>EXPORTFILEPATH</find>
+      <find>style=&quot;width:300px;&quot;</find>
+      <find>No matching records found</find>
+      <find>UserSt</find>
+      <find>adminList</find>
+      <find>getRegisterUserListOnCondition</find>
     </findStrings>
     <replaceStrings>
       <replace>md</replace>
       <replace>&quot;</replace>
+      <replace>user</replace>
+      <replace>Username</replace>
+      <replace>username</replace>
+      <replace>USERNAME</replace>
+      <replace>registerUserList</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,54 +228,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/app/framework/views/home.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/lobibox/lobibox.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constants/GoodsClassification.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/utils/XssUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/GoodsClassification.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app/framework/controllers/homeCtrl.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app/framework/controllers/menusCtrl.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/register.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/login.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/AdministratorParam.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/lib/js/jquery/jquery-1.12.4.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app/src/system/views/modifyAdminInfo.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/framework/framework.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/user/controllers/userCtrl.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/user/views/user.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/src/system/controllers/modifyAdminInfoCtrl.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/PageInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/Pagination.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/LoginReqModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/Administrator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/AdministratorReqModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/AdministratorMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/SystemMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/service/AdministratorService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/controller/AdministratorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/AdministratorInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/AdministratorReqModel.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/system/views/modifyAdminInfo.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/register/controllers/register.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/i18n/zh/login_zh_CN.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/FirstWebApplication.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExportEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/GoodsClassificationEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExcelRowEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/AdminStatusEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/service/TaskService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExportStatusEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/controller/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/TaskMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/controller/SystemController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/RegisterReqModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/UserInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ResultCode.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/RegisterMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/SystemMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/LoginMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/RegisterMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/register.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/util/ParamValidateUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/util/BasicDateValidateUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/service/RegisterService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/controller/RegisterController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/Administrator.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/RegisterParam.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/AdministratorParam.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/AdministratorReqModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/RegisterUserReqModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/RegisterUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/RegisterUserParam.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/ExportTaskInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/AdministratorInfo.java" />
+        <option value="$PROJECT_DIR$/../tools/repository/org/springframework/spring-core/4.3.6.RELEASE/spring-core-4.3.6.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/util/DateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/config.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/controller/SystemController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/services/commonService.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/service/SystemService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/i18n/zh/keyId.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app/src/system/views/adminList.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/main.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/app/src/system/controllers/adminListCtrl.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/app/framework/views/menus.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/SystemMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/TaskMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/lib/js/bootstrap/bootstrap-table1.11.1.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/i18n/zh/keyId.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/UserSexEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/UserStatusEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExportEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/RegisterUserInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/system/controllers/adminListCtrl.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/system/views/adminList.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/user/controllers/registerUserListCtrl.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/firstWeb/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/app/src/user/views/registerUserList.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/UserMapper.xml" />
       </list>
     </option>
   </component>
@@ -350,6 +382,55 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="param" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="request" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="bean" type="462c0819:PsiDirectoryNode" />
+              <item name="response" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
               <item name="constant" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -368,7 +449,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -415,7 +514,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -424,7 +523,18 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -434,7 +544,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="framework" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -444,7 +555,8 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -454,26 +566,7 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -484,7 +577,7 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -519,6 +612,25 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="firstWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="firstWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -529,7 +641,7 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="lobibox" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -547,19 +659,22 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Project\firstWeb\src\main\webapp\lib\css\fonts" />
-      <recent name="E:\Project\firstWeb\src\main\webapp\lib\css\bootstrap" />
       <recent name="E:\Project\firstWeb\src\main\webapp\lib\js\bootstrap" />
+      <recent name="E:\Project\firstWeb\src\main\webapp\lib\css\bootstrap" />
+      <recent name="E:\Project\firstWeb\src\main\webapp\lib\css\fonts" />
       <recent name="E:\Project\firstWeb\src\main\webapp\lib\css\lobibox" />
       <recent name="E:\Project\firstWeb\src\main\webapp\lib\js" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.firstWeb.constant" />
-      <recent name="com.firstWeb.bean.response" />
-      <recent name="com.firstWeb.bean.request" />
       <recent name="com.firstWeb.bean.param" />
+      <recent name="com.firstWeb.bean.request" />
+      <recent name="com.firstWeb.bean.response" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Project\firstWeb\src\main\webapp\app\src\user\controllers" />
+      <recent name="E:\Project\firstWeb\src\main\webapp\app\src\user\views" />
+      <recent name="E:\Project\firstWeb\src\main\webapp\app\src\user" />
       <recent name="E:\Project\firstWeb\src\main\webapp\lib\js\bootstrap" />
     </key>
   </component>
@@ -774,7 +889,11 @@
       <workItem from="1514093218974" duration="3720000" />
       <workItem from="1514340558146" duration="43000" />
       <workItem from="1514549349803" duration="4419000" />
-      <workItem from="1514605584606" duration="4123000" />
+      <workItem from="1514605584606" duration="6883000" />
+      <workItem from="1514696032609" duration="6137000" />
+      <workItem from="1514706383396" duration="10525000" />
+      <workItem from="1514795980665" duration="9205000" />
+      <workItem from="1514902311136" duration="202000" />
     </task>
     <task id="LOCAL-00001" summary="homeCtrl">
       <created>1509463066055</created>
@@ -930,11 +1049,67 @@
       <option name="project" value="LOCAL" />
       <updated>1514609470504</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="``">
+      <created>1514613464545</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1514613464545</updated>
+    </task>
+    <task id="LOCAL-00024" summary="用户列表">
+      <created>1514644490951</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1514644490951</updated>
+    </task>
+    <task id="LOCAL-00025" summary="nickname变更为username">
+      <created>1514701514898</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1514701514898</updated>
+    </task>
+    <task id="LOCAL-00026" summary="nickname变更为username">
+      <created>1514701880398</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1514701880398</updated>
+    </task>
+    <task id="LOCAL-00027" summary="注册用户">
+      <created>1514706479439</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1514706479439</updated>
+    </task>
+    <task id="LOCAL-00028" summary="优化导出">
+      <created>1514720156033</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1514720156033</updated>
+    </task>
+    <task id="LOCAL-00029" summary="注册用户">
+      <created>1514727124873</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1514727124873</updated>
+    </task>
+    <task id="LOCAL-00030" summary="注册用户">
+      <created>1514813296807</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1514813296807</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70380000" />
+    <option name="totallyTimeSpent" value="99209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -942,31 +1117,31 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18059702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18059702" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08059701" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14328358" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985073" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23572475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30087847" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18208955" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23432836" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111273795" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39104477" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -988,190 +1163,30 @@
     <MESSAGE value="导出枚举类" />
     <MESSAGE value="导出" />
     <MESSAGE value="``" />
-    <option name="LAST_COMMIT_MESSAGE" value="``" />
+    <MESSAGE value="用户列表" />
+    <MESSAGE value="nickname变更为username" />
+    <MESSAGE value="优化导出" />
+    <MESSAGE value="注册用户" />
+    <option name="LAST_COMMIT_MESSAGE" value="注册用户" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/views/modifyAdminInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/PageInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/LoginReqModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/Administrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="26" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/AdministratorMapper.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/AdministratorController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/Pagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/AdministratorReqModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/AdministratorInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/AdministratorService.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://E:/Java/jdk1.8.0_66/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48501">
-          <caret line="2938" column="25" lean-forward="false" selection-start-line="2938" selection-start-column="25" selection-end-line="2938" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/FirstWebApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/ParamValidateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-918">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/XssUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/Md5SaltUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-544">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/DateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/BasicDateValidateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ResultCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-400">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="84" column="20" lean-forward="false" selection-start-line="84" selection-start-column="20" selection-end-line="84" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/RegisterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="146">
+          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/LoginService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/SystemMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/GoodsClassificationEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExcelRowEnum.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/service/systemService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="30" lean-forward="true" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1179,212 +1194,459 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/ExportTaskInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/AdminStatusEnum.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/Token.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/TaskMapper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/Administrator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="42" lean-forward="false" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+        <state relative-caret-position="221">
+          <caret line="13" column="34" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="13" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/BaseParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/ExportTaskParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/RegisterParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/AdministratorParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/AdministratorReqModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#282#283#0" expanded="false" />
+            <element signature="e#307#308#0" expanded="false" />
+            <element signature="e#343#344#0" expanded="false" />
+            <element signature="e#371#372#0" expanded="false" />
+            <element signature="e#405#406#0" expanded="false" />
+            <element signature="e#435#436#0" expanded="false" />
+            <element signature="e#481#482#0" expanded="false" />
+            <element signature="e#519#520#0" expanded="false" />
+            <element signature="e#555#556#0" expanded="false" />
+            <element signature="e#586#587#0" expanded="false" />
+            <element signature="e#634#635#0" expanded="false" />
+            <element signature="e#674#675#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/config.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/RegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="697">
+          <caret line="60" column="66" lean-forward="false" selection-start-line="60" selection-start-column="66" selection-end-line="60" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/FileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/model/RegisterUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="115" column="18" lean-forward="false" selection-start-line="115" selection-start-column="18" selection-end-line="115" selection-end-column="18" />
+          <folding>
+            <element signature="e#1436#1437#0" expanded="false" />
+            <element signature="e#1467#1468#0" expanded="false" />
+            <element signature="e#1512#1513#0" expanded="false" />
+            <element signature="e#1552#1553#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExportStatusEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/services/commonService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="69" column="29" lean-forward="false" selection-start-line="69" selection-start-column="29" selection-end-line="69" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/SystemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2924">
-          <caret line="197" column="61" lean-forward="false" selection-start-line="197" selection-start-column="61" selection-end-line="197" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExportEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/ExportTaskInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../tools/repository/org/springframework/spring-core/4.3.6.RELEASE/spring-core-4.3.6.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="33" column="110" lean-forward="false" selection-start-line="33" selection-start-column="110" selection-end-line="33" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../tools/repository/org/springframework/spring-aop/4.3.6.RELEASE/spring-aop-4.3.6.RELEASE-sources.jar!/org/springframework/aop/framework/CglibAopProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="651" column="0" lean-forward="false" selection-start-line="651" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/DateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="24" column="37" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/TaskService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="44" column="68" lean-forward="false" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="68" />
-          <folding>
-            <marker date="1514549375636" expanded="true" signature="3735:3742" ph="{...}" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="104" column="37" lean-forward="false" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/i18n/zh/keyId.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/ZipUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="168">
+          <caret line="29" column="16" lean-forward="false" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/main.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/config.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="34">
+          <caret line="2" column="20" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/controllers/adminListCtrl.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/services/commonService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="154" column="48" lean-forward="true" selection-start-line="154" selection-start-column="48" selection-end-line="154" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="153">
+          <caret line="9" column="60" lean-forward="true" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/SystemService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/BaseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
-          <caret line="115" column="59" lean-forward="false" selection-start-line="115" selection-start-column="59" selection-end-line="115" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1514557243245" expanded="true" signature="7580:7587" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/views/adminList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="9" column="46" lean-forward="true" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/framework/controllers/menusCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="126">
+          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/app/framework/views/menus.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/LoginMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/SystemMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1511952949711" expanded="true" signature="789:864" ph="SELECT salt tb_administrator" />
-            <marker date="1511952949711" expanded="true" signature="968:1030" ph="SELECT passw... tb_administrator" />
-            <marker date="1511952949711" expanded="true" signature="1146:1201" ph="SELECT * FRO... tb_administrator" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="22" selection-end-column="71" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/RegisterMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/SystemService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1511952949712" expanded="true" signature="883:1076" ph="INSERT INTO tb_administrator... " />
-            <marker date="1511952949712" expanded="true" signature="1175:1238" ph="SELECT COUNT... tb_administrator" />
-            <marker date="1511952949712" expanded="true" signature="1338:1403" ph="SELECT COUNT... tb_administrator" />
-          </folding>
+        <state relative-caret-position="202">
+          <caret line="87" column="48" lean-forward="false" selection-start-line="87" selection-start-column="48" selection-end-line="87" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/SystemMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="52" column="22" lean-forward="false" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+        <state relative-caret-position="314">
+          <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
           <folding>
-            <marker date="1514612498005" expanded="true" signature="1172:1233" ph="SELECT * FRO... tb_main_menu" />
-            <marker date="1514612498005" expanded="true" signature="3014:3076" ph="SELECT * FRO... tb_administrator" />
-            <marker date="1514612498005" expanded="true" signature="3193:3348" ph="UPDATE tb_ad... " />
-            <marker date="1514612498005" expanded="true" signature="3448:3502" ph="SELECT nickn... tb_administrator" />
-            <marker date="1514612498005" expanded="true" signature="3644:4263" ph="SELECT * FRO... tb_administrator" />
+            <marker date="1514721827643" expanded="true" signature="1172:1233" ph="SELECT * FRO... tb_main_menu" />
+            <marker date="1514721827643" expanded="true" signature="3082:3144" ph="SELECT * FRO... tb_administrator" />
+            <marker date="1514721827643" expanded="true" signature="3261:3416" ph="UPDATE tb_ad... " />
+            <marker date="1514721827643" expanded="true" signature="3516:3570" ph="SELECT usern... tb_administrator" />
+            <marker date="1514721827643" expanded="true" signature="3712:4365" ph="SELECT * FRO... tb_administrator" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/TaskMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/js/bootstrap/bootstrap-table1.11.1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state relative-caret-position="253">
+          <caret line="477" column="36" lean-forward="true" selection-start-line="477" selection-start-column="36" selection-end-line="477" selection-end-column="36" />
           <folding>
-            <marker date="1514612514268" expanded="true" signature="903:1096" ph="INSERT INTO tb_export_task" />
-            <marker date="1514612514268" expanded="true" signature="1264:1354" ph="UPDATE tb_ex... " />
-            <marker date="1514612514268" expanded="true" signature="1459:1540" ph="SELECT COUNT... tb_export_task" />
-            <marker date="1514612514268" expanded="true" signature="1651:1696" ph="SELECT * FRO... tb_export_task" />
+            <marker date="1514726269177" expanded="true" signature="18566:18578" ph="..." />
+            <marker date="1514726269177" expanded="true" signature="81462:81468" ph="&amp;nbsp;" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/i18n/zh/keyId.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/UserStatusEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/SystemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="90" column="7" lean-forward="true" selection-start-line="90" selection-start-column="7" selection-end-line="90" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/ExportEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/constant/UserSexEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="10" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/AdministratorInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="65" column="9" lean-forward="false" selection-start-line="61" selection-start-column="8" selection-end-line="65" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/response/RegisterUserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="60" column="23" lean-forward="false" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/request/RegisterUserReqModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="64" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/controllers/modifyAdminInfoCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/controllers/adminListCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="98" column="28" lean-forward="false" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="28" />
+          <folding>
+            <marker date="1514902229260" expanded="true" signature="163:6795" ph="[...]" />
+            <marker date="1514902229260" expanded="true" signature="240:6794" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="1934:1948" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="1934:2003" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="2032:5945" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="2067:4775" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="2116:4759" ph="{&quot;url&quot;: &quot;system/getAdminListOnCondition&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="3239:3355" ph="//..." />
+            <marker date="1514902229260" expanded="true" signature="3447:4741" ph="[...]" />
+            <marker date="1514902229260" expanded="true" signature="3473:3475" ph="{&quot;field&quot;: &quot;id&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="3473:3683" ph="{&quot;field&quot;: &quot;account&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="3475:3683" ph="{&quot;field&quot;: &quot;account&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="3685:3853" ph="{&quot;field&quot;: &quot;username&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="3855:4017" ph="{&quot;field&quot;: &quot;email&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="4019:4189" ph="{&quot;field&quot;: &quot;telephone&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="4191:4574" ph="{&quot;field&quot;: &quot;createTime&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="4395:4548" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="4576:4740" ph="{&quot;field&quot;: &quot;status&quot;...}" />
+            <marker date="1514902229260" expanded="true" signature="4818:5935" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="4843:5054" ph="{&quot;type&quot;: 'post'...}" />
+            <marker date="1514902229260" expanded="true" signature="5077:5919" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="5126:5650" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="5201:5512" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="5518:5628" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="5683:5793" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="5799:5901" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="5978:6325" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="6006:6286" ph="{&quot;account&quot;: $scope.account.value...}" />
+            <marker date="1514902229260" expanded="true" signature="6373:6698" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="6396:6560" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="6421:6545" ph="{&quot;rows&quot;: res.value.list...}" />
+            <marker date="1514902229260" expanded="true" signature="6566:6688" ph="{...}" />
+            <marker date="1514902229260" expanded="true" signature="6591:6673" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/system/views/adminList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding>
+            <marker date="1514902229273" expanded="true" signature="3070:3078" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/user/controllers/registerUserListCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="97" column="20" lean-forward="false" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          <folding>
+            <marker date="1514902229273" expanded="true" signature="575:652" ph="{&quot;id&quot;: &quot;sexId&quot;...}" />
+            <marker date="1514902229273" expanded="true" signature="7674:7713" ph="{...}" />
+            <marker date="1514902229273" expanded="true" signature="7761:8086" ph="{...}" />
+            <marker date="1514902229273" expanded="true" signature="7784:7948" ph="{...}" />
+            <marker date="1514902229273" expanded="true" signature="7809:7933" ph="{&quot;rows&quot;: res.value.list...}" />
+            <marker date="1514902229273" expanded="true" signature="7954:8076" ph="{...}" />
+            <marker date="1514902229273" expanded="true" signature="7979:8061" ph="{...}" />
+            <marker date="1514902229273" expanded="true" signature="8112:8159" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/bean/param/RegisterUserParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <marker date="1514902229260" expanded="true" signature="1870:1899" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/app/src/user/views/registerUserList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1514902229273" expanded="true" signature="2951:3264" ph="..." />
+            <marker date="1514902229273" expanded="false" signature="3327:3356" ph="..." />
+            <marker date="1514902229273" expanded="true" signature="3357:3423" ph="..." />
+            <marker date="1514902229273" expanded="true" signature="3395:3412" ph="..." />
+            <marker date="1514902229273" expanded="true" signature="3438:3501" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/util/ParamValidateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="32" lean-forward="false" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/firstWeb/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="53" column="43" lean-forward="false" selection-start-line="53" selection-start-column="43" selection-end-line="53" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/lib/js/bootstrap/bootstrap-datetimepicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/com/firstWeb/mapper/UserMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1496041939123" expanded="true" signature="809:864" ph="SELECT * FRO... tb_user" />
-            <marker date="1496041939123" expanded="true" signature="972:1023" ph="SELECT * FRO... tb_user" />
-          </folding>
+        <state relative-caret-position="145">
+          <caret line="56" column="59" lean-forward="true" selection-start-line="56" selection-start-column="59" selection-end-line="56" selection-end-column="59" />
+          <folding />
         </state>
       </provider>
     </entry>
