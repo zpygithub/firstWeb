@@ -1,7 +1,7 @@
 <div>
     <div class="container" style="width: 100%">
         <ol class="breadcrumb">
-            <li><strong><span style="color: #27a0d7">{{i18n.user_register_list}}</span></strong></li>
+            <li><strong><span style="color: #27a0d7">注册用户列表</span></strong></li>
         </ol>
         <form class="form-horizontal" role="form" style="float: left; width: 100%" method="post" id="queryForm">
             <div>
@@ -20,11 +20,8 @@
                 <div class="form-group col-md-3 five-columns">
                     <label class="col-md-3 control-label">{{sex.label}}</label>
                     <div class="col-md-9">
-                        <select class="form-control" id="sex">
-                            <option value=""></option>
-                            <option value="1">{{i18n.male}}</option>
-                            <option value="2">{{i18n.female}}</option>
-                            <option value="0">{{i18n.unknown}}</option>
+                        <select class="form-control" id="sex" ng-model="sex.value">
+                            <option ng-repeat="s in sex.selectedOptions" value="{{s.value}}">{{s.text}}</option>
                         </select>
                     </div>
                 </div>
@@ -55,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-md-offset-3 text-center">
+            <div class="col-md-12 text-center">
                 <button id="query" class="btn btn-primary">{{query.label}}</button>
                 <button id="reset" class="btn btn-warning">{{reset.label}}</button>
                 <button id="export" class="btn btn-info">{{export.label}}</button>
