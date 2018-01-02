@@ -7,7 +7,6 @@ require.config({
         "jquery": "lib/js/jquery/jquery-1.12.4",
         "angular": "lib/js/angular/angular",
         "ui-router": "lib/js/angular/angular-ui-router",
-        "file-input": "lib/js/bootstrap/bootstrap_fileinput4.4.4",
         "bootstrap": "lib/js/bootstrap/bootstrap3.3.7",
         "bootstrap-table": "lib/js/bootstrap/bootstrap-table1.11.1",
         "lobibox": "lib/js/lobibox/lobibox",
