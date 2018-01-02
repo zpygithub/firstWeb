@@ -16,6 +16,7 @@ define(function () {
         "address": "地址",
         "status": "状态",
         "createTime": "创建时间",
+        "to": "至",
         "normal": "正常",
         "freeze": "冻结",
         "query": "查询",
