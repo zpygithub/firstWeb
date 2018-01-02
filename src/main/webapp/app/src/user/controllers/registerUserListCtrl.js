@@ -18,7 +18,20 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         $scope.sex = {
             id: "sexId",
             label: i18n.sex,
-            value: ""
+            value: "",
+            selectedOptions: [{
+                value: "",
+                text: ""
+            }, {
+                value: "1",
+                text: i18n.male
+            }, {
+                value: "2",
+                text: i18n.female
+            }, {
+                value: "3",
+                text: i18n.unknown
+            }]
         };
 
         $scope.email = {
@@ -61,12 +74,6 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         };
 
         $("#query").bind("click", function () {
-            $scope.account.value = $("#account").val().trim();
-            $scope.username.value = $("#username").val().trim();
-            $scope.email.value = $("#email").val().trim();
-            $scope.telephone.value = $("#telephone").val().trim();
-            $scope.address.value = $("#address").val().trim();
-            $scope.sex.value = $("#sex").val();
             $("#registerUserList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
@@ -83,12 +90,12 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
 
         $("#export").bind("click", function () {
             var options = {
-                account: $("#account").val().trim(),
-                username: $("#username").val().trim(),
-                email: $("#email").val().trim(),
-                telephone: $("#telephone").val().trim(),
-                address: $("#address").val().trim(),
-                sex: $("#sex").val()
+                account: $scope.account.value,
+                username: $scope.username.value,
+                sex: $scope.sex.value,
+                email: $scope.email.value,
+                telephone: $scope.telephone.value,
+                address: $scope.address.value
             };
             $scope.operate.export(options);
         });
