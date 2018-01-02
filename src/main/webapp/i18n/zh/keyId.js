@@ -41,12 +41,15 @@ define(function () {
         "system_label": "系统",
         "system_admin_label": "管理员管理",
         //系统
+        "system_admin_list": "管理员列表",
         "admin_info": "个人信息",
         "modify_admin_info": "修改个人信息",
         "username_cannot_be_empty": "用户名不能为空。",
         "username_format_error": "用户名格式位2至8位任意字符。",
         "username_already_exists": "用户名已存在。",
         "logout": "退出",
+        //用户
+        "user_register_list": "注册用户列表",
     };
     return keyId;
 });
