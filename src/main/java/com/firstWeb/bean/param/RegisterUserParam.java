@@ -9,7 +9,6 @@ public class RegisterUserParam extends BaseParam {
     private String email;
     private String district;
     private String address;
-    private int status;
 
     public long getId() {
         return id;
@@ -75,14 +74,6 @@ public class RegisterUserParam extends BaseParam {
         this.address = address;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
     @Override
     public String toString() {
         return "RegisterUserParam{" +
@@ -94,7 +85,6 @@ public class RegisterUserParam extends BaseParam {
                 ", email='" + email + '\'' +
                 ", district='" + district + '\'' +
                 ", address='" + address + '\'' +
-                ", status=" + status +
                 '}';
     }
 }
