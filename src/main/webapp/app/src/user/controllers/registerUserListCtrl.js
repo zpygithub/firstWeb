@@ -198,7 +198,6 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                 telephone: $scope.telephone.value,
                 address: $scope.address.value
             };
-            console.log(options);
             return options;
         }
 
