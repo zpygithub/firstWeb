@@ -1,4 +1,4 @@
-define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function (i18n, bootstrapTable, CommonService) {
+define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/services/commonService"], function (i18n, bootstrapTable, bootstrapDatetimepicker, CommonService) {
     "use strict";
     var adminListCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
         var commonService = new CommonService($scope);
@@ -27,8 +27,14 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             value: ""
         };
 
-        $scope.createTime = {
-            id: "createTimeId",
+        $scope.createTimeBegin = {
+            id: "createTimeBeginId",
+            label: i18n.createTime,
+            value: ""
+        };
+
+        $scope.createTimeEnd = {
+            id: "createTimeEndId",
             label: i18n.createTime,
             value: ""
         };
@@ -49,25 +55,26 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         };
 
         $("#query").bind("click", function () {
+            getCreateTime();
             $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
         $("#reset").bind("click", function () {
-            $("#unzipPw").text("");
             $scope.account.value = "";
             $scope.username.value = "";
             $scope.email.value = "";
             $scope.telephone.value = "";
+            $("#unzipPw").text("");
+            $("#createTimeBegin").val("");
+            $scope.createTimeBegin.value = "";
+            $("#createTimeEnd").val("");
+            $scope.createTimeEnd.value = "";
             $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
         });
 
         $("#export").bind("click", function () {
-            var options = {
-                account: $scope.account.value,
-                username: $scope.username.value,
-                email: $scope.email.value,
-                telephone: $scope.telephone.value
-            };
+            getCreateTime();
+            var options = exportParams();
             $scope.operate.export(options);
         });
 
@@ -99,23 +106,27 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                             field: "account",
                             title: i18n.account,
                             align: "center",
-                            sortable: true
+                            width: "10%"
                         }, {
                             field: "username",
                             title: i18n.username,
-                            align: "center"
+                            align: "center",
+                            width: "10%"
                         }, {
                             field: "email",
                             title: i18n.email,
-                            align: "center"
+                            align: "center",
+                            width: "20%"
                         }, {
                             field: "telephone",
                             title: i18n.telephone,
-                            align: "center"
+                            align: "center",
+                            width: "10%"
                         }, {
                             field: "createTime",
                             title: i18n.createTime,
                             align: "center",
+                            width: "20%",
                             formatter: function (value) {
                                 value = commonService.getFormatTime(value);
                                 return value;
@@ -123,7 +134,8 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
                         }, {
                             field: "status",
                             title: i18n.status,
-                            align: "center"
+                            align: "center",
+                            width: "10%"
                         }]
                 });
             },
@@ -153,13 +165,20 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         }
 
         function queryParams() {
+            var options = exportParams();
+            options.page = this.pageNumber;
+            options.size = this.pageSize;
+            return options;
+        }
+
+        function exportParams() {
             var options = {
-                page: this.pageNumber,
-                size: this.pageSize,
                 account: $scope.account.value,
                 username: $scope.username.value,
                 email: $scope.email.value,
-                telephone: $scope.telephone.value
+                telephone: $scope.telephone.value,
+                createTimeBegin: $scope.createTimeBegin.value,
+                createTimeEnd: $scope.createTimeEnd.value
             };
             return options;
         }
@@ -178,7 +197,34 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
             }
         }
 
+        function initDateTimePicker() {
+            $("#createTimeBegin").datetimepicker({
+                format: "yyyy-mm-dd",
+                minView: 3,
+                clearBtn: true,
+                autoclose: true,
+                language: "zh-CN",
+                // startDate:
+            });
+            $("#createTimeEnd").datetimepicker({
+                format: "yyyy-mm-dd",
+                minView: 3,
+                clearBtn: true,
+                autoclose: true,
+            });
+        }
+
+        function getCreateTime() {
+            if ("" !== $("#createTimeBegin").val()) {
+                $scope.createTimeBegin.value = commonService.setFormatTime($("#createTimeBegin").val() + " 00:00:00");
+            }
+            if ("" !== $("#createTimeEnd").val()) {
+                $scope.createTimeEnd.value = commonService.setFormatTime($("#createTimeEnd").val() + " 23:59:59");
+            }
+        }
+
         function init() {
+            initDateTimePicker();
             $scope.operate.query();
         }
 
