@@ -89,14 +89,7 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         });
 
         $("#export").bind("click", function () {
-            var options = {
-                account: $scope.account.value,
-                username: $scope.username.value,
-                sex: $scope.sex.value,
-                email: $scope.email.value,
-                telephone: $scope.telephone.value,
-                address: $scope.address.value
-            };
+            var options = exportParams();
             $scope.operate.export(options);
         });
 
@@ -195,15 +188,22 @@ define(["i18n/keyId", "bootstrap-table", "app/services/commonService"], function
         }
 
         function queryParams() {
+            var options = exportParams();
+            options.page = this.pageNumber;
+            options.size = this.pageSize;
+            return options;
+        }
+
+        function exportParams() {
             var options = {
-                page: this.pageNumber,
-                size: this.pageSize,
                 account: $scope.account.value,
                 username: $scope.username.value,
                 sex: $scope.sex.value,
                 email: $scope.email.value,
                 telephone: $scope.telephone.value,
-                address: $scope.address.value
+                address: $scope.address.value,
+                // createTimeBegin: $scope.createTimeBegin.value,
+                // createTimeEnd: $scope.createTimeEnd.value
             };
             return options;
         }
