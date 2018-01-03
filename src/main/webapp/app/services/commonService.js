@@ -18,6 +18,22 @@ define([], function () {
             document.body.removeChild(tempForm);
         }
 
+        this.setFormatTime = function (d) {
+            if (d === null || d === "") {
+                return;
+            }
+            d = new Date(d);
+            var timeZone = -d.getTimezoneOffset() / 60;
+            d = new Date(d.getTime() - (timeZone * 60 * 60 * 1000));
+            var timeStr = d.getFullYear() + "-"
+                + appendZero(d.getMonth() + 1) + "-"
+                + appendZero(d.getDate()) + " "
+                + appendZero(d.getHours()) + ":"
+                + appendZero(d.getMinutes()) + ":"
+                + appendZero(d.getSeconds());
+            return timeStr;
+        }
+
         this.getFormatTime = function (d) {
             if (d === null || d === "" || !d) {
                 return '';
