@@ -136,6 +136,20 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                             title: i18n.status,
                             align: "center",
                             width: "10%"
+                        }, {
+                            field: "operate",
+                            title: i18n.operate,
+                            align: "center",
+                            width: "20%",
+                            formatter: function (value, row, index) {
+                                var modifyAdminInfo = "<a target='_blank' onclick='" + modifyAdminInfo(row.id) + ">" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
+                                if (row.status == i18n.freeze) {
+                                    var changeStatus = "<a id='changeStatus' target='_blank'>" + i18n.recover + "</a>";
+                                } else {
+                                    var changeStatus = "<a id='changeStatus' target='_blank'>" + i18n.freeze + "</a>";
+                                }
+                                return modifyAdminInfo + changeStatus;
+                            }
                         }]
                 });
             },
@@ -171,6 +185,15 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             return options;
         }
 
+        function getCreateTime() {
+            if ("" !== $("#createTimeBegin").val()) {
+                $scope.createTimeBegin.value = commonService.setFormatTime($("#createTimeBegin").val() + " 00:00:00");
+            }
+            if ("" !== $("#createTimeEnd").val()) {
+                $scope.createTimeEnd.value = commonService.setFormatTime($("#createTimeEnd").val() + " 23:59:59");
+            }
+        }
+
         function exportParams() {
             var options = {
                 account: $scope.account.value,
@@ -197,30 +220,31 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             }
         }
 
+        function modifyAdminInfo(id) {
+            $("#modifyAdminInfo").modal({
+                remote: "app/src/system/views/modifyAdminInfo.html",
+                backdrop: "static"
+            });
+        }
+
         function initDateTimePicker() {
             $("#createTimeBegin").datetimepicker({
                 format: "yyyy-mm-dd",
                 minView: 3,
                 clearBtn: true,
                 autoclose: true,
-                language: "zh-CN",
                 // startDate:
+            }).on("click", function () {
+                $("#createTimeBegin").datetimepicker("setEndDate", $("#createTimeEnd").val());
             });
             $("#createTimeEnd").datetimepicker({
                 format: "yyyy-mm-dd",
                 minView: 3,
                 clearBtn: true,
                 autoclose: true,
+            }).on("click", function () {
+                $("#createTimeEnd").datetimepicker("setStartDate", $("#createTimeBegin").val());
             });
-        }
-
-        function getCreateTime() {
-            if ("" !== $("#createTimeBegin").val()) {
-                $scope.createTimeBegin.value = commonService.setFormatTime($("#createTimeBegin").val() + " 00:00:00");
-            }
-            if ("" !== $("#createTimeEnd").val()) {
-                $scope.createTimeEnd.value = commonService.setFormatTime($("#createTimeEnd").val() + " 23:59:59");
-            }
         }
 
         function init() {
