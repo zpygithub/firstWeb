@@ -7,6 +7,8 @@ public class AdministratorReqModel extends Pagination {
     private String telephone;
     private String email;
     private String status;
+    private String createTimeBegin;
+    private String createTimeEnd;
 
     public String getId() {
         return id;
@@ -23,7 +25,6 @@ public class AdministratorReqModel extends Pagination {
     public void setAccount(String account) {
         this.account = account;
     }
-
 
     public String getUsername() {
         return username;
@@ -57,5 +58,19 @@ public class AdministratorReqModel extends Pagination {
         this.status = status;
     }
 
+    public String getCreateTimeBegin() {
+        return createTimeBegin;
+    }
 
+    public void setCreateTimeBegin(String createTimeBegin) {
+        this.createTimeBegin = createTimeBegin;
+    }
+
+    public String getCreateTimeEnd() {
+        return createTimeEnd;
+    }
+
+    public void setCreateTimeEnd(String createTimeEnd) {
+        this.createTimeEnd = createTimeEnd;
+    }
 }

@@ -6,6 +6,8 @@ public class AdministratorParam extends BaseParam {
     private String username;
     private String telephone;
     private String email;
+    private String createTimeBegin;
+    private String createTimeEnd;
 
     public long getId() {
         return id;
@@ -47,4 +49,19 @@ public class AdministratorParam extends BaseParam {
         this.email = email;
     }
 
+    public String getCreateTimeBegin() {
+        return createTimeBegin;
+    }
+
+    public void setCreateTimeBegin(String createTimeBegin) {
+        this.createTimeBegin = createTimeBegin;
+    }
+
+    public String getCreateTimeEnd() {
+        return createTimeEnd;
+    }
+
+    public void setCreateTimeEnd(String createTimeEnd) {
+        this.createTimeEnd = createTimeEnd;
+    }
 }

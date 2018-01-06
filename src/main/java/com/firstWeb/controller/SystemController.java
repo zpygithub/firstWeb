@@ -80,6 +80,8 @@ public class SystemController extends BaseController {
         params.setUsername(ParamValidateUtil.escapeSpecialCharacter(model.getUsername()));
         params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
+        params.setCreateTimeBegin(model.getCreateTimeBegin());
+        params.setCreateTimeEnd(model.getCreateTimeEnd());
         params.setPageInfo(createPageInfo(model.getPage(), model.getSize()));
         CollectionResult<AdministratorInfo> list = systemService.getAdminListOnCondition(params);
         result.setValue(list);
