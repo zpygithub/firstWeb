@@ -86,6 +86,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                     toolbar: "#toolbar",                //工具按钮用哪个容器
                     striped: false,                      //是否显示行间隔色
                     pagination: true,                   //是否显示分页（*）
+                    paginationLoop: false,
                     sortable: true,                    //是否启用排序
                     sortOrder: "asc",                   //排序方式
                     queryParamsType: 'limit',
@@ -93,13 +94,12 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                     sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
                     dataType: "json",
                     pageNumber: 1,                      //初始化加载第一页，默认第一页
-                    pageSize: 5,                       //每页的记录行数（*）
-                    pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                    pageSize: 10,                       //每页的记录行数（*）
+                    pageList: [10, 20, 50, 100],        //可供选择的每页的行数（*）
                     minimumCountColumns: 2,             //最少允许的列数
                     clickToSelect: true,                //是否启用点击选中行
                     uniqueId: "id",                     //每一行的唯一标识，一般为主键列
-                    // paginationPreText: "上一页",
-                    // paginationNextText: "下一页",
+                    showColumns: true,
                     responseHandler: getAdminListOnCondition,
                     columns: [
                         {
@@ -142,7 +142,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                             align: "center",
                             width: "20%",
                             formatter: function (value, row, index) {
-                                var modifyAdminInfo = "<a target='_blank' onclick='" + modifyAdminInfo(row.id) + ">" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
+                                var modifyAdminInfo = "<a id='modifyAdminInfo' target='_blank'>" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
                                 if (row.status == i18n.freeze) {
                                     var changeStatus = "<a id='changeStatus' target='_blank'>" + i18n.recover + "</a>";
                                 } else {
@@ -220,7 +220,8 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             }
         }
 
-        function modifyAdminInfo(id) {
+        $("#modifyAdminInfo").onclick = function () {
+            console.log(123);
             $("#modifyAdminInfo").modal({
                 remote: "app/src/system/views/modifyAdminInfo.html",
                 backdrop: "static"
@@ -233,7 +234,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 minView: 3,
                 clearBtn: true,
                 autoclose: true,
-                // startDate:
+                language: 'zh-CN'
             }).on("click", function () {
                 $("#createTimeBegin").datetimepicker("setEndDate", $("#createTimeEnd").val());
             });
@@ -242,6 +243,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 minView: 3,
                 clearBtn: true,
                 autoclose: true,
+                language: 'zh-CN'
             }).on("click", function () {
                 $("#createTimeEnd").datetimepicker("setStartDate", $("#createTimeBegin").val());
             });
