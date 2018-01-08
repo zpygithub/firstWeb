@@ -1,4 +1,4 @@
-define([], function () {
+define(["bootstrap"], function () {
     "use strict";
     var menusCtrl = ["$rootScope", "$scope", "$compile", "storage", function ($rootScope, $scope, $compile, storage) {
         var adminInfo = $rootScope.adminInfo;
