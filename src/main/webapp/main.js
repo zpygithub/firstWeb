@@ -9,7 +9,9 @@ require.config({
         "ui-router": "lib/js/angular/angular-ui-router",
         "bootstrap": "lib/js/bootstrap/bootstrap3.3.7",
         "bootstrap-table": "lib/js/bootstrap/bootstrap-table1.11.1",
+        "bootstrap-table-cn": "lib/js/bootstrap/bootstrap-table-zh-CN",
         "bootstrap-datetimepicker": "lib/js/bootstrap/bootstrap-datetimepicker",
+        "bootstrap-datetimepicker-cn": "lib/js/bootstrap/bootstrap-datetimepicker.zh-CN",
         "lobibox": "lib/js/lobibox/lobibox",
         "lazy-load": "lib/js/lazyLoad/lazyLoad",
         "i18n": "i18n/zh"
@@ -29,9 +31,17 @@ require.config({
             "deps": ["jquery", "bootstrap"],
             "exports": "bootstrap-table"
         },
+        "bootstrap-table-cn": {
+            "deps": ["jquery", "bootstrap-table"],
+            "exports": "bootstrap-table-cn"
+        },
         "bootstrap-datetimepicker": {
             "deps": ["jquery", "bootstrap"],
             "exports": "bootstrap-datetimepicker"
+        },
+        "bootstrap-datetimepicker-cn": {
+            "deps": ["jquery", "bootstrap-datetimepicker"],
+            "exports": "bootstrap-datetimepicker-cn"
         },
         "ui-router": {
             "deps": ["angular"]
