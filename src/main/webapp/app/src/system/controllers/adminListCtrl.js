@@ -1,5 +1,5 @@
 define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/services/commonService", "bootstrap-table-cn", "bootstrap-datetimepicker-cn"],
-    function (i18n, bootstrapTable, bootstrapDatetimepicker, CommonService) {
+    function (i18n, bootstrapTable, bootstrapDatetimepicker, CommonService, bootstrapTableCn, bootstrapDatetimepickerCn) {
         "use strict";
         var adminListCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
             var commonService = new CommonService($scope);
@@ -181,6 +181,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
 
             function queryParams() {
                 var options = exportParams();
+                console.log(options);
                 options.page = this.pageNumber;
                 options.size = this.pageSize;
                 return options;
@@ -233,7 +234,6 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 $("#createTimeBegin").datetimepicker({
                     format: "yyyy-mm-dd",
                     minView: 3,
-                    clearBtn: true,
                     autoclose: true,
                     language: 'zh-CN'
                 }).on("click", function () {
@@ -242,7 +242,6 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 $("#createTimeEnd").datetimepicker({
                     format: "yyyy-mm-dd",
                     minView: 3,
-                    clearBtn: true,
                     autoclose: true,
                     language: 'zh-CN'
                 }).on("click", function () {
