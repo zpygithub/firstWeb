@@ -143,13 +143,14 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 align: "center",
                                 width: "20%",
                                 formatter: function (value, row, index) {
-                                    var modifyAdminInfo = "<a id='modifyAdminInfo' target='_blank'>" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
+                                    var optColumn = "";
+                                    optColumn += "<a class='btn-link' onclick=" + modifyAdminInfo(row.id) + ">" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
                                     if (row.status == i18n.freeze) {
-                                        var changeStatus = "<a id='changeStatus' target='_blank'>" + i18n.recover + "</a>";
+                                        optColumn += "<a class='btn-link' >" + i18n.recover + "</a>";
                                     } else {
-                                        var changeStatus = "<a id='changeStatus' target='_blank'>" + i18n.freeze + "</a>";
+                                        optColumn += "<a class='btn-link' >" + i18n.freeze + "</a>";
                                     }
-                                    return modifyAdminInfo + changeStatus;
+                                    return optColumn;
                                 }
                             }]
                     });
@@ -181,7 +182,6 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
 
             function queryParams() {
                 var options = exportParams();
-                console.log(options);
                 options.page = this.pageNumber;
                 options.size = this.pageSize;
                 return options;
@@ -222,8 +222,8 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 }
             }
 
-            $("#modifyAdminInfo").onclick = function () {
-                console.log(123);
+            function modifyAdminInfo(id) {
+                console.log(id);
                 $("#modifyAdminInfo").modal({
                     remote: "app/src/system/views/modifyAdminInfo.html",
                     backdrop: "static"
