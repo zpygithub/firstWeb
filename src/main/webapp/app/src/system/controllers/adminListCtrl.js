@@ -142,16 +142,8 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 title: i18n.operate,
                                 align: "center",
                                 width: "20%",
-                                formatter: function (value, row, index) {
-                                    var optColumn = "";
-                                    optColumn += "<a class='btn-link' onclick=" + modifyAdminInfo(row.id) + ">" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
-                                    if (row.status == i18n.freeze) {
-                                        optColumn += "<a class='btn-link' >" + i18n.recover + "</a>";
-                                    } else {
-                                        optColumn += "<a class='btn-link' >" + i18n.freeze + "</a>";
-                                    }
-                                    return optColumn;
-                                }
+                                events: operateEvents,
+                                formatter: operateFormatter
                             }]
                     });
                 },
@@ -179,6 +171,30 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                     });
                 }
             }
+
+            function operateFormatter(value, row, index) {
+                var optColumn = "";
+                optColumn += "<a id='adminInfoModal'>" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
+                if (row.status == i18n.freeze) {
+                    optColumn += "<a id='change'>" + i18n.recover + "</a>";
+                } else {
+                    optColumn += "<a id='change'>" + i18n.freeze + "</a>";
+                }
+                return optColumn;
+            }
+
+            window.operateEvents = {
+                "click #adminInfoModal": function (e, value, row, index) {
+                    $("#adminInfoModal").data("id", row.id);
+                    $("#adminInfoModal").modal({
+                        remote: "app/src/system/views/modifyAdminInfo.html",
+                        backdrop: "static"
+                    });
+                },
+                "click #change": function (e, value, row, index) {
+                    // TODO
+                }
+            };
 
             function queryParams() {
                 var options = exportParams();
@@ -220,14 +236,6 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                         "total": 0
                     };
                 }
-            }
-
-            function modifyAdminInfo(id) {
-                console.log(id);
-                $("#modifyAdminInfo").modal({
-                    remote: "app/src/system/views/modifyAdminInfo.html",
-                    backdrop: "static"
-                });
             }
 
             function initDateTimePicker() {
