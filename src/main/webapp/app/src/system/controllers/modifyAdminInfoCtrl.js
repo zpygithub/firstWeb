@@ -1,12 +1,11 @@
-define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, SystemService) {
+define(["i18n/keyId", "bootstrap", "lobibox"], function (i18n, bootstrap, lobibox) {
     "use strict";
     var modifyAdminInfoCtrl = ["$rootScope", "$scope", "camel", function ($rootScope, $scope, camel) {
-            var systemService = new SystemService(camel, $scope);
-            var id = $rootScope.adminInfo.id;
-
+            var id = $("#adminInfoModal").data("id");
+            console.log(id);
             $scope.modifyAdminInfo = {
                 id: "modifyAdminInfoId",
-                label: i18n.modify_admin_info,
+                label: i18n.modify_admin_info
             };
 
             $scope.account = {
@@ -51,20 +50,8 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                     $("#username").focus();
                     return false;
                 }
-
                 var email = $("#email").val();
-                // if ("" == username) {
-                //     Lobibox.notify("error", {msg: getLocaleMsg("requiredPassword")});
-                //     $("#username").focus();
-                //     return false;
-                // }
-
                 var telephone = $("#telephone").val();
-                // if ("" == username) {
-                //     Lobibox.notify("error", {msg: getLocaleMsg("requiredPassword")});
-                //     $("#username").focus();
-                //     return false;
-                // }
 
                 var data = {
                     "id": id,
@@ -106,16 +93,6 @@ define(["i18n/keyId", "app/src/system/service/systemService"], function (i18n, S
                         $scope.telephone.value = data.value.telephone;
                     }
                 });
-                // var deferred = systemService.getAdministratorById(id);
-                // deferred.then(function (data) {
-                //     if (data.code === "00000") {
-                //         console.log(data);
-                //         $scope.account.value = data.value.account;
-                //         $scope.username.value = data.value.username;
-                //         $scope.email.value = data.value.email;
-                //         $scope.telephone.value = data.value.telephone;
-                //     }
-                // });
             }
 
             function init() {
