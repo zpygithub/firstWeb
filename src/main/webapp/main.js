@@ -27,6 +27,12 @@ require.config({
             "deps": ["jquery"],
             "exports": "bootstrap"
         },
+        "ui-router": {
+            "deps": ["angular"]
+        },
+        "lobibox": {
+            "deps": ["jquery"]
+        },
         "bootstrap-table": {
             "deps": ["jquery", "bootstrap"],
             "exports": "bootstrap-table"
@@ -42,13 +48,6 @@ require.config({
         "bootstrap-datetimepicker-cn": {
             "deps": ["jquery", "bootstrap-datetimepicker"],
             "exports": "bootstrap-datetimepicker-cn"
-        },
-        "ui-router": {
-            "deps": ["angular"]
-        },
-        "lobibox": {
-            "deps": ["jquery"],
-            "exports": "lobibox"
         }
     }
 });
