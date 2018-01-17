@@ -13,6 +13,7 @@ define(["bootstrap"], function () {
             id: "modifyAdminInfoId",
             label: i18n.admin_info,
             click: function () {
+                $("#adminInfoModal").data("id", $rootScope.adminInfo.id);
                 $("#adminInfoModal").modal({
                     remote: "app/src/system/views/modifyAdminInfo.html",
                     backdrop: "static"
