@@ -82,7 +82,7 @@
     </select>
 
     <select id="getAdministratorById" parameterType="long" resultMap="adminInfoMap">
-        SELECT * FROM tb_administrator WHERE id=#{id} AND status != -1
+        SELECT * FROM tb_administrator WHERE id=#{id}
     </select>
 
     <update id="modifyAdminInfo" parameterType="com.firstWeb.bean.param.AdministratorParam">
@@ -90,6 +90,12 @@
             username = #{username},
             telephone = #{telephone},
             email = #{email}
+        WHERE id = #{id}
+    </update>
+
+    <update id="changeAdminStatus" parameterType="com.firstWeb.bean.param.AdministratorParam">
+        UPDATE tb_administrator SET
+        status = #{status}
         WHERE id = #{id}
     </update>
 
