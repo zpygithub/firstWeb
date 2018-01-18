@@ -2,7 +2,7 @@ define(["i18n/keyId", "bootstrap", "lobibox"], function (i18n, bootstrap, lobibo
     "use strict";
     var modifyAdminInfoCtrl = ["$rootScope", "$scope", "camel", function ($rootScope, $scope, camel) {
             var id = $("#adminInfoModal").data("id");
-            console.log(id);
+
             $scope.modifyAdminInfo = {
                 id: "modifyAdminInfoId",
                 label: i18n.modify_admin_info
