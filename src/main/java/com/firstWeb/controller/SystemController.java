@@ -125,6 +125,29 @@ public class SystemController extends BaseController {
     }
 
     /**
+     * 变更管理员状态
+     *
+     * @param request
+     * @param response
+     * @return
+     */
+    @PostMapping(value = "/changeAdminStatus")
+    public ResultEntity<String> changeAdminStatus(AdministratorReqModel model, HttpServletRequest request, HttpServletResponse response) throws CommonException {
+        LOGGER.info("changeAdminStatus: begin");
+        ResultEntity<String> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+
+        AdministratorParam param = new AdministratorParam();
+        param.setId(Long.valueOf(model.getId()));
+        param.setStatus(model.getStatus());
+        systemService.changeAdminStatus(param);
+
+        result.setCode(ResultCode.SUCCESS);
+        LOGGER.info("changeAdminStatus: end");
+        return result;
+    }
+
+    /**
      * 获取管理员信息
      *
      * @param request
