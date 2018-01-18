@@ -99,6 +99,11 @@ public class SystemService {
         return ResultCode.SUCCESS;
     }
 
+    public String changeAdminStatus(AdministratorParam param) {
+        systemMapper.changeAdminStatus(param);
+        return ResultCode.SUCCESS;
+    }
+
     public AdministratorInfo getAdministratorById(long id) {
         AdministratorInfo administrator = systemMapper.getAdministratorById(id);
         return administrator;
