@@ -6,6 +6,7 @@ public class AdministratorParam extends BaseParam {
     private String username;
     private String telephone;
     private String email;
+    private String status;
     private String createTimeBegin;
     private String createTimeEnd;
 
@@ -47,6 +48,14 @@ public class AdministratorParam extends BaseParam {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCreateTimeBegin() {
