@@ -16,6 +16,8 @@ public interface SystemMapper {
 
     void modifyAdminInfo(AdministratorParam param);
 
+    void changeAdminStatus(AdministratorParam param);
+
     AdministratorInfo getAdministratorById(long id);
 
     String checkOwnUsername(long id);
