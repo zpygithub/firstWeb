@@ -59,11 +59,7 @@ public class AdministratorInfo extends PageInfo {
     }
 
     public void setStatus(String status) {
-        if ((UserStatusEnum.NORMAL.getValue() + "").equals(status)) {
-            this.status = ExportEnum.NORMAL.getValue();
-        } else {
-            this.status = ExportEnum.FREEZE.getValue();
-        }
+        this.status = status;
     }
 
     public Date getCreateTime() {
