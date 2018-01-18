@@ -1,5 +1,5 @@
-define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/services/commonService", "bootstrap-table-cn", "bootstrap-datetimepicker-cn"],
-    function (i18n, bootstrapTable, bootstrapDatetimepicker, CommonService, bootstrapTableCn, bootstrapDatetimepickerCn) {
+define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/services/commonService", "bootstrap-table-cn", "bootstrap-datetimepicker-cn", "lobibox"],
+    function (i18n, bootstrapTable, bootstrapDatetimepicker, CommonService, bootstrapTableCn, bootstrapDatetimepickerCn, lobibox) {
         "use strict";
         var adminListCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
             var commonService = new CommonService($scope);
@@ -129,14 +129,20 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 align: "center",
                                 width: "20%",
                                 formatter: function (value) {
-                                    value = commonService.getFormatTime(value);
-                                    return value;
+                                    return commonService.getFormatTime(value);
                                 }
                             }, {
                                 field: "status",
                                 title: i18n.status,
                                 align: "center",
-                                width: "10%"
+                                width: "10%",
+                                formatter: function (value) {
+                                    if (0 == value) {
+                                        return i18n.normal;
+                                    } else {
+                                        return i18n.freeze;
+                                    }
+                                }
                             }, {
                                 field: "operate",
                                 title: i18n.operate,
@@ -175,10 +181,10 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             function operateFormatter(value, row, index) {
                 var optColumn = "";
                 optColumn += "<a id='adminInfoModal'>" + i18n.modify + "</a>&nbsp;&nbsp;&nbsp;";
-                if (row.status == i18n.freeze) {
-                    optColumn += "<a id='change'>" + i18n.recover + "</a>";
-                } else {
+                if (0 == row.status) {
                     optColumn += "<a id='change'>" + i18n.freeze + "</a>";
+                } else {
+                    optColumn += "<a id='change'>" + i18n.recover + "</a>";
                 }
                 return optColumn;
             }
@@ -190,9 +196,49 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                         remote: "app/src/system/views/modifyAdminInfo.html",
                         backdrop: "static"
                     });
+                    $('#adminInfoModal').on('hidden.bs.modal', function () {
+                        $(this).removeData("bs.modal");
+                        $("#adminList").bootstrapTable('refresh', {pageNumber: this.pageNumber});
+                    })
                 },
                 "click #change": function (e, value, row, index) {
-                    // TODO
+                    var content = "";
+                    if (0 == row.status) {
+                        content = i18n.freeze_admin
+                    } else {
+                        content = i18n.recover_admin
+                    }
+                    Lobibox.confirm({
+                        title: i18n.confirm,
+                        msg: content,
+                        width: 300,
+                        callback: function ($this, type, ev) {
+                            if (type == "yes") {
+                                var options = {
+                                    id: row.id
+                                };
+                                if (0 == row.status) {
+                                    options.status = -1;
+                                } else {
+                                    options.status = 0;
+                                }
+                                $.ajax({
+                                    type: 'post',
+                                    url: 'system/changeAdminStatus/',
+                                    dataType: 'json',
+                                    async: false,
+                                    data: options
+                                }).done(function (data) {
+                                    if (data.code === "00000") {
+                                        Lobibox.notify("success", {msg: i18n.operation_succeeded});
+                                        $("#adminList").bootstrapTable('refresh', {pageNumber: this.pageNumber});
+                                    } else {
+                                        Lobibox.notify("error", {msg: i18n.operation_failed});
+                                    }
+                                });
+                            }
+                        }
+                    });
                 }
             };
 
