@@ -57,7 +57,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
 
             $("#query").bind("click", function () {
                 getCreateTime();
-                $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
+                $("#adminList").bootstrapTable("refresh", {pageNumber: 1});
             });
 
             $("#reset").bind("click", function () {
@@ -70,7 +70,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 $scope.createTimeBegin.value = "";
                 $("#createTimeEnd").val("");
                 $scope.createTimeEnd.value = "";
-                $("#adminList").bootstrapTable('refresh', {pageNumber: 1});
+                $("#adminList").bootstrapTable("refresh", {pageNumber: 1});
             });
 
             $("#export").bind("click", function () {
@@ -90,7 +90,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                         paginationLoop: false,
                         sortable: true,                    //是否启用排序
                         sortOrder: "asc",                   //排序方式
-                        queryParamsType: 'limit',
+                        queryParamsType: "limit",
                         queryParams: queryParams,           //传递参数（*）
                         sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
                         dataType: "json",
@@ -155,9 +155,9 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 },
                 "export": function (options) {
                     $.ajax({
-                        type: 'post',
-                        url: 'system/exportAdminList/',
-                        dataType: 'json',
+                        type: "post",
+                        url: "system/exportAdminList/",
+                        dataType: "json",
                         async: false,
                         data: options
                     }).done(function (data) {
@@ -196,9 +196,9 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                         remote: "app/src/system/views/modifyAdminInfo.html",
                         backdrop: "static"
                     });
-                    $('#adminInfoModal').on('hidden.bs.modal', function () {
+                    $("#adminInfoModal").on("hidden.bs.modal", function () {
                         $(this).removeData("bs.modal");
-                        $("#adminList").bootstrapTable('refresh', {pageNumber: this.pageNumber});
+                        $("#adminList").bootstrapTable("refresh", {pageNumber: this.pageNumber});
                     })
                 },
                 "click #change": function (e, value, row, index) {
@@ -223,15 +223,15 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                     options.status = 0;
                                 }
                                 $.ajax({
-                                    type: 'post',
-                                    url: 'system/changeAdminStatus/',
-                                    dataType: 'json',
+                                    type: "post",
+                                    url: "system/changeAdminStatus/",
+                                    dataType: "json",
                                     async: false,
                                     data: options
                                 }).done(function (data) {
                                     if (data.code === "00000") {
                                         Lobibox.notify("success", {msg: i18n.operation_succeeded});
-                                        $("#adminList").bootstrapTable('refresh', {pageNumber: this.pageNumber});
+                                        $("#adminList").bootstrapTable("refresh", {pageNumber: this.pageNumber});
                                     } else {
                                         Lobibox.notify("error", {msg: i18n.operation_failed});
                                     }
@@ -289,7 +289,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                     format: "yyyy-mm-dd",
                     minView: 3,
                     autoclose: true,
-                    language: 'zh-CN'
+                    language: "zh-CN"
                 }).on("click", function () {
                     $("#createTimeBegin").datetimepicker("setEndDate", $("#createTimeEnd").val());
                 });
@@ -297,7 +297,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                     format: "yyyy-mm-dd",
                     minView: 3,
                     autoclose: true,
-                    language: 'zh-CN'
+                    language: "zh-CN"
                 }).on("click", function () {
                     $("#createTimeEnd").datetimepicker("setStartDate", $("#createTimeBegin").val());
                 });
