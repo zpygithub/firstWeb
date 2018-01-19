@@ -60,9 +60,9 @@ define(["i18n/keyId", "bootstrap", "lobibox"], function (i18n, bootstrap, lobibo
                     "telephone": telephone
                 };
                 $.ajax({
-                    type: 'post',
-                    url: 'system/modifyAdminInfo',
-                    dataType: 'json',
+                    type: "post",
+                    url: "system/modifyAdminInfo",
+                    dataType: "json",
                     async: false,
                     data: data
                 }).done(function (data) {
@@ -81,9 +81,9 @@ define(["i18n/keyId", "bootstrap", "lobibox"], function (i18n, bootstrap, lobibo
 
             function getAdministratorById(id) {
                 $.ajax({
-                    type: 'get',
-                    url: 'system/getAdministratorById/' + id,
-                    dataType: 'json',
+                    type: "get",
+                    url: "system/getAdministratorById/" + id,
+                    dataType: "json",
                     async: false
                 }).done(function (data) {
                     if (data.code === "00000") {
