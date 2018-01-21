@@ -50,7 +50,7 @@
                 AND createTime &lt;= #{createTimeEnd}
             </if>
         </where>
-        ORDER BY id ASC
+        ORDER BY createTime DESC
         <if test="pageInfo.currentPage > 0 and pageInfo.perPageRecords > 0">
             LIMIT #{pageInfo.from}, #{pageInfo.perPageRecords}
         </if>

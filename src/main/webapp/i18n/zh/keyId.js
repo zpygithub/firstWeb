@@ -22,6 +22,7 @@ define(function () {
         "freeze": "冻结",
         "recover": "恢复",
         "modify": "修改",
+        "check": "查看",
         "query": "查询",
         "reset": "重置",
         "export": "导出",

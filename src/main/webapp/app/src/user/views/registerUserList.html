@@ -41,14 +41,52 @@
                 </div>
                 <div class="form-group col-md-3 five-columns">
                     <label class="col-md-3 control-label">{{district.label}}</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="district" ng-model="district.value"/>
+                    <!--<div class="col-md-9">-->
+                        <!--<input type="text" class="form-control" id="district" ng-model="district.value"/>-->
+                    <!--</div>-->
+                    <div class="col-md-3">
+                        <select class="form-control" id="province" ng-model="province.value">
+                            <option ng-repeat="s in province.selectedOptions" value="{{s.value}}">{{s.text}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control" id="city" ng-model="city.value">
+                            <option ng-repeat="s in city.selectedOptions" value="{{s.value}}">{{s.text}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control" id="district" ng-model="district.value">
+                            <option ng-repeat="s in district.selectedOptions" value="{{s.value}}">{{s.text}}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group col-md-3 five-columns">
                     <label class="col-md-3 control-label">{{address.label}}</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" id="address" ng-model="address.value"/>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 five-columns">
+                    <label class="col-md-3 control-label">{{createTimeBegin.label}}</label>
+                    <div class="col-md-4">
+                        <input type="button" class="form-control" id="createTimeBegin"
+                               ng-model="createTimeBegin.value"/>
+                    </div>
+                    <div class="col-md-1 time-to">
+                        <span>{{i18n.to}}</span>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="button" class="form-control" id="createTimeEnd" ng-model="createTimeEnd.value"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group col-md-3 five-columns">
+                    <label class="col-md-3 control-label">{{status.label}}</label>
+                    <div class="col-md-9">
+                        <select class="form-control" id="status" ng-model="status.value">
+                            <option ng-repeat="s in status.selectedOptions" value="{{s.value}}">{{s.text}}</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -69,4 +107,7 @@
     /*.five-columns {*/
     /*width: 20%;*/
     /*}*/
+    .time-to {
+        margin-top: 5px;
+    }
 </style>

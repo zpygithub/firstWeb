@@ -5,7 +5,7 @@ public class ParamValidateUtil {
     /**
      * 数字正则
      */
-    private static final String IS_NUMBER = "\\d+";
+    private static final String IS_NUMBER = "-?\\d+";
 
     /**
      * 账号正则（字母+数字）

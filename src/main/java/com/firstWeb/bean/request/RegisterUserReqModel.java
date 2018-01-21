@@ -9,7 +9,10 @@ public class RegisterUserReqModel extends Pagination {
     private String email;
     private String district;
     private String address;
+    private String profilePhoto;
     private String status;
+    private String createTimeBegin;
+    private String createTimeEnd;
 
     public String getId() {
         return id;
@@ -75,12 +78,36 @@ public class RegisterUserReqModel extends Pagination {
         this.address = address;
     }
 
+    public String getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(String profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
+
     public String getStatus() {
         return status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getCreateTimeBegin() {
+        return createTimeBegin;
+    }
+
+    public void setCreateTimeBegin(String createTimeBegin) {
+        this.createTimeBegin = createTimeBegin;
+    }
+
+    public String getCreateTimeEnd() {
+        return createTimeEnd;
+    }
+
+    public void setCreateTimeEnd(String createTimeEnd) {
+        this.createTimeEnd = createTimeEnd;
     }
 
     @Override
@@ -94,6 +121,7 @@ public class RegisterUserReqModel extends Pagination {
                 ", email='" + email + '\'' +
                 ", district='" + district + '\'' +
                 ", address='" + address + '\'' +
+                ", profilePhoto='" + profilePhoto + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }

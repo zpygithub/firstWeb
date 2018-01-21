@@ -45,8 +45,13 @@ public class UserController extends BaseController {
         params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
         params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
         params.setAddress(ParamValidateUtil.escapeSpecialCharacter(model.getAddress()));
+        params.setCreateTimeBegin(model.getCreateTimeBegin());
+        params.setCreateTimeEnd(model.getCreateTimeEnd());
         if (ParamValidateUtil.isNumber(model.getSex())) {
             params.setSex(Integer.valueOf(model.getSex()));
+        }
+        if (ParamValidateUtil.isNumber(model.getStatus())) {
+            params.setStatus(Integer.valueOf(model.getStatus()));
         }
         params.setPageInfo(createPageInfo(model.getPage(), model.getSize()));
         CollectionResult<RegisterUserInfo> list = userService.getRegisterUserListOnCondition(params);

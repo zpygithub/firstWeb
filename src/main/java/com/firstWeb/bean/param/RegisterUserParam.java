@@ -9,6 +9,9 @@ public class RegisterUserParam extends BaseParam {
     private String email;
     private String district;
     private String address;
+    private int status;
+    private String createTimeBegin;
+    private String createTimeEnd;
 
     public long getId() {
         return id;
@@ -74,6 +77,30 @@ public class RegisterUserParam extends BaseParam {
         this.address = address;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getCreateTimeBegin() {
+        return createTimeBegin;
+    }
+
+    public void setCreateTimeBegin(String createTimeBegin) {
+        this.createTimeBegin = createTimeBegin;
+    }
+
+    public String getCreateTimeEnd() {
+        return createTimeEnd;
+    }
+
+    public void setCreateTimeEnd(String createTimeEnd) {
+        this.createTimeEnd = createTimeEnd;
+    }
+
     @Override
     public String toString() {
         return "RegisterUserParam{" +
@@ -85,6 +112,9 @@ public class RegisterUserParam extends BaseParam {
                 ", email='" + email + '\'' +
                 ", district='" + district + '\'' +
                 ", address='" + address + '\'' +
+                ", status='" + status + '\'' +
+                ", createTimeBegin='" + createTimeBegin + '\'' +
+                ", createTimeEnd='" + createTimeEnd + '\'' +
                 '}';
     }
 }

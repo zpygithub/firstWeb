@@ -242,13 +242,6 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 }
             };
 
-            function queryParams() {
-                var options = exportParams();
-                options.page = this.pageNumber;
-                options.size = this.pageSize;
-                return options;
-            }
-
             function getCreateTime() {
                 if ("" !== $("#createTimeBegin").val()) {
                     $scope.createTimeBegin.value = commonService.setFormatTime($("#createTimeBegin").val() + " 00:00:00");
@@ -256,6 +249,13 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 if ("" !== $("#createTimeEnd").val()) {
                     $scope.createTimeEnd.value = commonService.setFormatTime($("#createTimeEnd").val() + " 23:59:59");
                 }
+            }
+
+            function queryParams() {
+                var options = exportParams();
+                options.page = this.pageNumber;
+                options.size = this.pageSize;
+                return options;
             }
 
             function exportParams() {
