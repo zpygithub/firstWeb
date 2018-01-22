@@ -40,10 +40,13 @@
                     </div>
                 </div>
                 <div class="form-group col-md-3 five-columns">
-                    <label class="col-md-3 control-label">{{district.label}}</label>
-                    <!--<div class="col-md-9">-->
-                        <!--<input type="text" class="form-control" id="district" ng-model="district.value"/>-->
-                    <!--</div>-->
+                    <label class="col-md-3 control-label">{{address.label}}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="address" ng-model="address.value"/>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 five-columns">
+                    <label class="col-md-2 control-label">{{district.label}}</label>
                     <div class="col-md-3">
                         <select class="form-control" id="province" ng-model="province.value">
                             <option ng-repeat="s in province.selectedOptions" value="{{s.value}}">{{s.text}}</option>
@@ -60,12 +63,8 @@
                         </select>
                     </div>
                 </div>
-                <div class="form-group col-md-3 five-columns">
-                    <label class="col-md-3 control-label">{{address.label}}</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="address" ng-model="address.value"/>
-                    </div>
-                </div>
+            </div>
+            <div>
                 <div class="form-group col-md-3 five-columns">
                     <label class="col-md-3 control-label">{{createTimeBegin.label}}</label>
                     <div class="col-md-4">
@@ -79,8 +78,6 @@
                         <input type="button" class="form-control" id="createTimeEnd" ng-model="createTimeEnd.value"/>
                     </div>
                 </div>
-            </div>
-            <div>
                 <div class="form-group col-md-3 five-columns">
                     <label class="col-md-3 control-label">{{status.label}}</label>
                     <div class="col-md-9">
