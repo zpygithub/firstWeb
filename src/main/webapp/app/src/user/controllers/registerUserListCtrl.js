@@ -1,8 +1,9 @@
-define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/services/commonService", "bootstrap-table-cn", "bootstrap-datetimepicker-cn", "lobibox"],
-    function (i18n, bootstrapTable, bootstrapDatetimepicker, CommonService, bootstrapTableCn, bootstrapDatetimepickerCn, lobibox) {
+define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/services/commonService", "app/services/initDataService", "bootstrap-table-cn", "bootstrap-datetimepicker-cn", "lobibox"],
+    function (i18n, bootstrapTable, bootstrapDatetimepicker, CommonService, InitDataService, bootstrapTableCn, bootstrapDatetimepickerCn, lobibox) {
         "use strict";
         var registerUserListCtrl = ["$rootScope", "$scope", "$compile", function ($rootScope, $scope, $compile) {
             var commonService = new CommonService($scope);
+            var initDataService = new InitDataService($scope);
 
             $scope.account = {
                 id: "accountId",
@@ -44,12 +45,6 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             $scope.telephone = {
                 id: "telephoneId",
                 label: i18n.telephone,
-                value: ""
-            };
-
-            $scope.district = {
-                id: "districtId",
-                label: i18n.district,
                 value: ""
             };
 
@@ -114,8 +109,12 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                 $scope.sex.value = "";
                 $scope.email.value = "";
                 $scope.telephone.value = "";
-                $scope.address.value = "";
+                $scope.province.value = "";
+                $scope.city.value = "";
+                $scope.city.disabled = true;
                 $scope.district.value = "";
+                $scope.district.disabled = true;
+                $scope.address.value = "";
                 $("#createTimeBegin").val("");
                 $scope.createTimeBegin.value = "";
                 $("#createTimeEnd").val("");
@@ -311,18 +310,22 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             }
 
             function exportParams() {
+                // $scope.district.value = $scope.district.value ? $scope.district.value : ($scope.city.value ? $scope.city.value : $scope.province.value);
                 var options = {
                     account: $scope.account.value,
                     username: $scope.username.value,
                     sex: $scope.sex.value,
                     email: $scope.email.value,
                     telephone: $scope.telephone.value,
-                    district: $scope.district.value,
                     address: $scope.address.value,
                     createTimeBegin: $scope.createTimeBegin.value,
                     createTimeEnd: $scope.createTimeEnd.value,
-                    status: $scope.status.value
+                    status: $scope.status.value,
+                    province: $scope.province.value,
+                    city: $scope.city.value,
+                    district: $scope.district.value
                 };
+                console.log(options);
                 return options;
             }
 
@@ -360,6 +363,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             }
 
             function init() {
+                initDataService.initDistrict($scope);
                 initDateTimePicker();
                 $scope.operate.query();
             }
