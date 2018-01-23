@@ -6,6 +6,7 @@ import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.request.AdministratorReqModel;
 import com.firstWeb.bean.response.AdministratorInfo;
+import com.firstWeb.bean.response.DistrictInfo;
 import com.firstWeb.bean.response.ExportTaskInfo;
 import com.firstWeb.common.CollectionResult;
 import com.firstWeb.common.ResultEntity;
@@ -20,6 +21,7 @@ import com.firstWeb.util.ParamValidateUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -238,6 +240,30 @@ public class SystemController extends BaseController {
     @PostMapping(value = "/downLoadToPage")
     public void downLoadToPage(String downloadUrl, HttpServletRequest request, HttpServletResponse response) {
         downloadToPage(downloadUrl, response);
+    }
+
+    /**
+     * 查询所有地区
+     *
+     * @param code
+     * @param request
+     * @param response
+     * @return
+     * @throws CommonException
+     */
+    @GetMapping(value = "/getDistricts/{code}")
+    public ResultEntity<List<DistrictInfo>> getDistricts(@PathVariable String code, HttpServletRequest request, HttpServletResponse response)
+            throws CommonException {
+        LOGGER.info("getDistricts: begin");
+        ResultEntity<List<DistrictInfo>> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+        if (StringUtils.isEmpty(code)) {
+            throw new CommonException(ResultCode.PARAMCANNOTBENULL, "the param can not be null.");
+        }
+        result.setValue(systemService.getDistricts(code));
+        result.setCode(ResultCode.SUCCESS);
+        LOGGER.info("getDistricts: end");
+        return result;
     }
 
 }
