@@ -4,6 +4,7 @@ import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.response.AdministratorInfo;
+import com.firstWeb.bean.response.DistrictInfo;
 import com.firstWeb.bean.response.ExportTaskInfo;
 import com.firstWeb.bean.response.PageInfo;
 import com.firstWeb.common.CollectionResult;
@@ -19,6 +20,7 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.util.StringUtils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -52,6 +54,8 @@ public class SystemService {
     private static final String BLANKREG = " ";
 
     private static String EXPORTFILEPATH = PropertiesUtil.getValue("export.file.path");
+
+    private static final String COMMA = ",";
 
     public List<MainMenu> getMainMenus() {
         List<MainMenu> list = systemMapper.getMainMenus();
@@ -119,7 +123,7 @@ public class SystemService {
 
     public ExportTaskInfo exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException, CommonException {
         exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINLIST.getValue());
-        exportTaskparams.setFileName(EXPORTADMINLIST + getLocalTime().replace(COLONREG, "").replace(HYPHENREG, "").replace(BLANKREG,""));
+        exportTaskparams.setFileName(EXPORTADMINLIST + getLocalTime().replace(COLONREG, "").replace(HYPHENREG, "").replace(BLANKREG, ""));
         exportTaskparams = taskService.addExportTask(exportTaskparams);
 
         List<AdministratorInfo> list = systemMapper.exportAdminList(params);
@@ -179,6 +183,15 @@ public class SystemService {
             exportTaskInfo = taskService.getExportTaskInfo(exportTaskparams.getId());
         }
         return exportTaskInfo;
+    }
+
+    public List<DistrictInfo> getDistricts(String code) {
+        List<DistrictInfo> districtList = new ArrayList<>();
+        String[] codeArray = code.split(COMMA);
+        for (String codeString : codeArray) {
+            districtList.addAll(systemMapper.getDistricts(codeString));
+        }
+        return districtList;
     }
 
 }
