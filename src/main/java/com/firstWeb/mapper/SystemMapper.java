@@ -3,6 +3,7 @@ package com.firstWeb.mapper;
 import com.firstWeb.bean.model.MainMenu;
 import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.response.AdministratorInfo;
+import com.firstWeb.bean.response.DistrictInfo;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface SystemMapper {
     String checkOwnUsername(long id);
 
     List<AdministratorInfo> exportAdminList(AdministratorParam params);
+
+    List<DistrictInfo> getDistricts(String code);
 }
