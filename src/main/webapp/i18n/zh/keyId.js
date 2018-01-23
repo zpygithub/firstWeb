@@ -12,8 +12,6 @@ define(function () {
         "unknown": "未知",
         "email": "邮箱",
         "telephone": "电话",
-        "district": "地区",
-        "address": "地址",
         "status": "状态",
         "operate": "操作",
         "createTime": "创建时间",
@@ -57,6 +55,10 @@ define(function () {
         "recover_admin": "确认恢复该管理员吗？",
         //用户
         "user_register_list": "注册用户列表",
+        "province": "省份",
+        "city": "城市",
+        "district": "地区",
+        "address": "地址",
     };
     return keyId;
 });
