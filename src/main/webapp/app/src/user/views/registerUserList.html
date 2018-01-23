@@ -1,7 +1,7 @@
 <div>
     <div class="container" style="width: 100%">
         <ol class="breadcrumb">
-            <li><strong><span style="color: #27a0d7">注册用户列表</span></strong></li>
+            <li><strong><span style="color: #27a0d7">{{i18n.user_register_list}}</span></strong></li>
         </ol>
         <form class="form-horizontal" role="form" style="float: left; width: 100%" method="post" id="queryForm">
             <div>
@@ -39,28 +39,28 @@
                         <input type="text" class="form-control" id="telephone" ng-model="telephone.value"/>
                     </div>
                 </div>
-                <div class="form-group col-md-3 five-columns">
-                    <label class="col-md-3 control-label">{{address.label}}</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="address" ng-model="address.value"/>
-                    </div>
-                </div>
                 <div class="form-group col-md-6 five-columns">
-                    <label class="col-md-2 control-label">{{district.label}}</label>
+                    <label class="col-md-3 control-label">{{district.label}}</label>
                     <div class="col-md-3">
-                        <select class="form-control" id="province" ng-model="province.value">
+                        <select class="form-control" id="province" ng-model="province.value" ng-change="province.select()" ng-disabled="province.disabled">
                             <option ng-repeat="s in province.selectedOptions" value="{{s.value}}">{{s.text}}</option>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <select class="form-control" id="city" ng-model="city.value">
+                        <select class="form-control" id="city" ng-model="city.value" ng-change="city.select()" ng-disabled="city.disabled">
                             <option ng-repeat="s in city.selectedOptions" value="{{s.value}}">{{s.text}}</option>
                         </select>
                     </div>
                     <div class="col-md-3">
-                        <select class="form-control" id="district" ng-model="district.value">
+                        <select class="form-control" id="district" ng-model="district.value" ng-disabled="district.disabled">
                             <option ng-repeat="s in district.selectedOptions" value="{{s.value}}">{{s.text}}</option>
                         </select>
+                    </div>
+                </div>
+                <div class="form-group col-md-3 five-columns">
+                    <label class="col-md-3 control-label">{{address.label}}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="address" ng-model="address.value"/>
                     </div>
                 </div>
             </div>
