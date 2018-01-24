@@ -7,6 +7,8 @@ public class RegisterUserReqModel extends Pagination {
     private String sex;
     private String telephone;
     private String email;
+    private String province;
+    private String city;
     private String district;
     private String address;
     private String profilePhoto;
@@ -60,6 +62,22 @@ public class RegisterUserReqModel extends Pagination {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getDistrict() {
