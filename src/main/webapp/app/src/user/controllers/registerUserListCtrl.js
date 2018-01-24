@@ -127,7 +127,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             $("#export").bind("click", function () {
                 getCreateTime();
                 var options = exportParams();
-                $scope.operate.export(options);
+                // $scope.operate.export(options);
             });
 
             $scope.operate = {
@@ -168,7 +168,16 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 field: "sex",
                                 title: i18n.sex,
                                 align: "center",
-                                width: "5%"
+                                width: "5%",
+                                formatter: function (value) {
+                                    if (1 == value) {
+                                        return i18n.male;
+                                    } else if (2 == value) {
+                                        return i18n.female;
+                                    } else {
+                                        return i18n.unknown;
+                                    }
+                                }
                             }, {
                                 field: "email",
                                 title: i18n.email,
@@ -180,10 +189,19 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 align: "center",
                                 width: "10%"
                             }, {
-                                field: "district",
+                                field: "districtInfo",
                                 title: i18n.district,
                                 align: "center",
-                                width: "10%"
+                                width: "15%",
+                                formatter: function (value) {
+                                    if (value.provinceName) {
+                                        return value.provinceName + value.cityName + value.districtName;
+                                    } else if (!value.provinceName && value.cityName) {
+                                        return value.cityName + value.districtName;
+                                    } else {
+                                        return value.districtName;
+                                    }
+                                }
                             }, {
                                 field: "address",
                                 title: i18n.address,
@@ -193,7 +211,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 field: "createTime",
                                 title: i18n.createTime,
                                 align: "center",
-                                width: "15%",
+                                width: "10%",
                                 formatter: function (value) {
                                     return commonService.getFormatTime(value);
                                 }
@@ -201,7 +219,14 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 field: "status",
                                 title: i18n.status,
                                 align: "center",
-                                width: "5%"
+                                width: "5%",
+                                formatter: function (value) {
+                                    if (0 == value) {
+                                        return i18n.normal;
+                                    } else {
+                                        return i18n.freeze;
+                                    }
+                                }
                             }, {
                                 field: "operate",
                                 title: i18n.operate,
@@ -325,7 +350,6 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                     city: $scope.city.value,
                     district: $scope.district.value
                 };
-                console.log(options);
                 return options;
             }
 
