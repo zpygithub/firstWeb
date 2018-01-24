@@ -13,7 +13,6 @@ public class RegisterUserInfo extends PageInfo {
     private String sex;
     private String telephone;
     private String email;
-    private String district;
     private String address;
     private String status;
     private Date createTime;
@@ -65,14 +64,6 @@ public class RegisterUserInfo extends PageInfo {
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
     }
 
     public String getAddress() {
