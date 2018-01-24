@@ -24,7 +24,9 @@
         <result property="id" column="id" />
         <result property="parentId" column="parentId" />
         <result property="name" column="name" />
-        <!--<result property="parentName" column="parentName" />-->
+        <result property="districtName" column="districtName" />
+        <result property="cityName" column="cityName" />
+        <result property="provinceName" column="provinceName" />
     </resultMap>
 
     <select id="getMainMenus" resultMap="mainMenuMap">
@@ -150,5 +152,12 @@
             </when>
         </choose>
         ORDER BY id ASC
+    </select>
+
+    <select id="getDistrictNameByDistrict" parameterType="String" resultMap="districtInfoMap">
+        SELECT td1.name as districtName, td2.name AS cityName, td3.name AS provinceName FROM  tb_district td1
+        LEFT JOIN tb_district td2 ON td1.parentId = td2.id
+        LEFT JOIN tb_district td3 ON td2.parentId = td3.id
+        WHERE td1.id = #{district}
     </select>
 </mapper>
