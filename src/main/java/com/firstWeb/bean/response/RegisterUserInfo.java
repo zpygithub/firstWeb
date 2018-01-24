@@ -17,6 +17,7 @@ public class RegisterUserInfo extends PageInfo {
     private String address;
     private String status;
     private Date createTime;
+    private DistrictInfo districtInfo;
 
     public long getId() {
         return id;
@@ -63,13 +64,7 @@ public class RegisterUserInfo extends PageInfo {
     }
 
     public void setSex(String sex) {
-        if ((UserSexEnum.MALE.getValue() + "").equals(sex)) {
-            this.sex = ExportEnum.MALE.getValue();
-        } else if ((UserSexEnum.FEMALE.getValue() + "").equals(sex)) {
-            this.sex = ExportEnum.FEMALE.getValue();
-        } else {
-            this.sex = ExportEnum.UNKNOWN.getValue();
-        }
+        this.sex = sex;
     }
 
     public String getDistrict() {
@@ -93,11 +88,7 @@ public class RegisterUserInfo extends PageInfo {
     }
 
     public void setStatus(String status) {
-        if ((UserStatusEnum.NORMAL.getValue() + "").equals(status)) {
-            this.status = ExportEnum.NORMAL.getValue();
-        } else {
-            this.status = ExportEnum.FREEZE.getValue();
-        }
+        this.status = status;
     }
 
     public Date getCreateTime() {
@@ -108,19 +99,12 @@ public class RegisterUserInfo extends PageInfo {
         this.createTime = createTime;
     }
 
-    @Override
-    public String toString() {
-        return "RegisterUserInfo{" +
-                "id=" + id +
-                ", account='" + account + '\'' +
-                ", username='" + username + '\'' +
-                ", sex=" + sex +
-                ", telephone='" + telephone + '\'' +
-                ", email='" + email + '\'' +
-                ", district=" + district +
-                ", address='" + address + '\'' +
-                ", status=" + status +
-                ", createTime=" + createTime +
-                '}';
+    public DistrictInfo getDistrictInfo() {
+        return districtInfo;
     }
+
+    public void setDistrictInfo(DistrictInfo districtInfo) {
+        this.districtInfo = districtInfo;
+    }
+
 }
