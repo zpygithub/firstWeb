@@ -4,12 +4,14 @@ public class RegisterUserParam extends BaseParam {
     private long id;
     private String account;
     private String username;
-    private int sex;
+    private String sex;
     private String telephone;
     private String email;
+    private String province;
+    private String city;
     private String district;
     private String address;
-    private int status;
+    private String status;
     private String createTimeBegin;
     private String createTimeEnd;
 
@@ -37,11 +39,11 @@ public class RegisterUserParam extends BaseParam {
         this.username = username;
     }
 
-    public int getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -61,6 +63,22 @@ public class RegisterUserParam extends BaseParam {
         this.email = email;
     }
 
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
     public String getDistrict() {
         return district;
     }
@@ -77,11 +95,11 @@ public class RegisterUserParam extends BaseParam {
         this.address = address;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
