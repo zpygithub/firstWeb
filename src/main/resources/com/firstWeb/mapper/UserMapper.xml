@@ -10,10 +10,11 @@
         <result property="sex" column="sex"/>
         <result property="telephone" column="telephone"/>
         <result property="email" column="email"/>
-        <result property="district" column="district"/>
         <result property="address" column="address"/>
         <result property="status" column="status"/>
         <result property="createTime" column="createTime"/>
+        <association property="districtInfo" select="com.firstWeb.mapper.SystemMapper.getDistrictNameByDistrict"
+                     column="district"></association>
     </resultMap>
 
     <select id="getRegisterUserListOnCondition" parameterType="com.firstWeb.bean.param.RegisterUserParam"
@@ -35,6 +36,16 @@
             </if>
             <if test="telephone != '' and telephone != null">
                 AND telephone LIKE CONCAT("%",#{telephone},"%")
+            </if>
+            <if test="district != '' and district != null">
+                AND district = #{district}
+            </if>
+            <if test="city != '' and city != null and (district == '' or district == null)">
+                AND district IN (SELECT id FROM tb_district WHERE parentId = #{city})
+            </if>
+            <if test="province != '' and province != null and (city == '' or city == null) and (district == '' or district == null)">
+                AND district IN (SELECT id FROM tb_district WHERE parentId IN (SELECT id FROM tb_district WHERE parentId
+                = #{province}))
             </if>
             <if test="address != '' and address != null">
                 AND address LIKE CONCAT("%",#{address},"%")
@@ -73,6 +84,16 @@
             </if>
             <if test="telephone != '' and telephone != null">
                 AND telephone LIKE CONCAT("%",#{telephone},"%")
+            </if>
+            <if test="district != '' and district != null">
+                AND district = #{district}
+            </if>
+            <if test="city != '' and city != null and (district == '' or district == null)">
+                AND district IN (SELECT id FROM tb_district WHERE parentId = #{city})
+            </if>
+            <if test="province != '' and province != null and (city == '' or city == null) and (district == '' or district == null)">
+                AND district IN (SELECT id FROM tb_district WHERE parentId IN (SELECT id FROM tb_district WHERE parentId
+                = #{province}))
             </if>
             <if test="address != '' and address != null">
                 AND address LIKE CONCAT("%",#{address},"%")
