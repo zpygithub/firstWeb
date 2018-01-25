@@ -60,19 +60,9 @@ define(['i18n/keyId'], function (i18n) {
                         if (code == "init") {
                             $scope.province.selectedOptions = valuesArr;
                         } else if (code.indexOf("0000") > -1) {
-                            $scope.city.disabled = false;
                             $scope.city.selectedOptions = valuesArr;
                         } else {
-                            $scope.district.disabled = false;
                             $scope.district.selectedOptions = valuesArr;
-                        }
-                    } else {
-                        $scope.district.disabled = true;
-                        if (!$scope.city.value) {
-                            $scope.city.selectedOptions = "";
-                            $scope.city.disabled = true;
-                        } else {
-                            $scope.district.selectedOptions = "";
                         }
                     }
                 }
