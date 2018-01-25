@@ -194,13 +194,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
                                 align: "center",
                                 width: "15%",
                                 formatter: function (value) {
-                                    if (value.provinceName) {
-                                        return value.provinceName + value.cityName + value.districtName;
-                                    } else if (!value.provinceName && value.cityName) {
-                                        return value.cityName + value.districtName;
-                                    } else {
-                                        return value.districtName;
-                                    }
+                                    return value.provinceName + value.cityName + value.districtName;
                                 }
                             }, {
                                 field: "address",
