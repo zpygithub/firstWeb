@@ -5,15 +5,23 @@ public enum ExportEnum {
 
     ADMINLIST("管理员列表"),
 
+    REGISTERUSERLIST("注册用户列表"),
+
     ID("序号"),
 
     ACCOUNT("账号"),
 
     USERNAME("用户名"),
 
+    SEX("性别"),
+
     EMAIL("邮箱"),
 
     TELEPHONE("电话"),
+
+    DISTRICT("地区"),
+
+    ADDRESS("地址"),
 
     CREATETIME("创建时间"),
 

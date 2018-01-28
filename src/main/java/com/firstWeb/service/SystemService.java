@@ -141,36 +141,32 @@ public class SystemService {
 
             HSSFCell cell;
             cell = row.createCell(ExcelRowEnum.FIRSTROW.getValue());
-            cell.setCellValue(ExportEnum.ID.getValue());
-            cell.setCellStyle(style);
-            cell = row.createCell(ExcelRowEnum.SECONDROW.getValue());
             cell.setCellValue(ExportEnum.ACCOUNT.getValue());
             cell.setCellStyle(style);
-            cell = row.createCell(ExcelRowEnum.THIRDROW.getValue());
+            cell = row.createCell(ExcelRowEnum.SECONDROW.getValue());
             cell.setCellValue(ExportEnum.USERNAME.getValue());
             cell.setCellStyle(style);
-            cell = row.createCell(ExcelRowEnum.FOURTHROW.getValue());
+            cell = row.createCell(ExcelRowEnum.THIRDROW.getValue());
             cell.setCellValue(ExportEnum.EMAIL.getValue());
             cell.setCellStyle(style);
-            cell = row.createCell(ExcelRowEnum.FIFTHROW.getValue());
+            cell = row.createCell(ExcelRowEnum.FOURTHROW.getValue());
             cell.setCellValue(ExportEnum.TELEPHONE.getValue());
             cell.setCellStyle(style);
-            cell = row.createCell(ExcelRowEnum.SIXTHROW.getValue());
+            cell = row.createCell(ExcelRowEnum.FIFTHROW.getValue());
             cell.setCellValue(ExportEnum.CREATETIME.getValue());
             cell.setCellStyle(style);
-            cell = row.createCell(ExcelRowEnum.SeventhROW.getValue());
+            cell = row.createCell(ExcelRowEnum.SIXTHROW.getValue());
             cell.setCellValue(ExportEnum.STATUS.getValue());
             cell.setCellStyle(style);
             for (int i = 0; i < list.size(); i++) {
                 row = sheet.createRow(i + 1);
                 AdministratorInfo adminInfo = list.get(i);
-                row.createCell(ExcelRowEnum.FIRSTROW.getValue()).setCellValue(adminInfo.getId());
-                row.createCell(ExcelRowEnum.SECONDROW.getValue()).setCellValue(adminInfo.getAccount());
-                row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(adminInfo.getUsername());
-                row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(adminInfo.getEmail());
-                row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(adminInfo.getTelephone());
-                row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));
-                row.createCell(ExcelRowEnum.SeventhROW.getValue()).setCellValue(adminInfo.getStatus());
+                row.createCell(ExcelRowEnum.FIRSTROW.getValue()).setCellValue(adminInfo.getAccount());
+                row.createCell(ExcelRowEnum.SECONDROW.getValue()).setCellValue(adminInfo.getUsername());
+                row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(adminInfo.getEmail());
+                row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(adminInfo.getTelephone());
+                row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));
+                row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(adminInfo.getStatus());
             }
             try {
                 FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ADMINLIST + XLS);

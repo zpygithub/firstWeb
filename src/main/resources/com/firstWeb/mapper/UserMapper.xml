@@ -109,4 +109,50 @@
             </if>
         </where>
     </select>
+
+    <select id="exportRegisterUserList" parameterType="com.firstWeb.bean.param.RegisterUserParam"
+            resultMap="registerUserInfoMap">
+        SELECT * FROM tb_register_user
+        <where>
+            1 = 1
+            <if test="account != '' and account != null">
+                AND account LIKE CONCAT("%",#{account},"%")
+            </if>
+            <if test="username != '' and username != null">
+                AND username LIKE CONCAT("%",#{username},"%")
+            </if>
+            <if test="sex != '' and sex != null">
+                AND sex = #{sex}
+            </if>
+            <if test="email != '' and email != null">
+                AND email LIKE CONCAT("%",#{email},"%")
+            </if>
+            <if test="telephone != '' and telephone != null">
+                AND telephone LIKE CONCAT("%",#{telephone},"%")
+            </if>
+            <if test="district != '' and district != null">
+                AND district = #{district}
+            </if>
+            <if test="city != '' and city != null and (district == '' or district == null)">
+                AND district IN (SELECT id FROM tb_district WHERE parentId = #{city})
+            </if>
+            <if test="province != '' and province != null and (city == '' or city == null) and (district == '' or district == null)">
+                AND district IN (SELECT id FROM tb_district WHERE parentId IN (SELECT id FROM tb_district WHERE parentId
+                = #{province}))
+            </if>
+            <if test="address != '' and address != null">
+                AND address LIKE CONCAT("%",#{address},"%")
+            </if>
+            <if test="createTimeBegin != '' and createTimeBegin != null">
+                AND createTime &gt;= #{createTimeBegin}
+            </if>
+            <if test="createTimeEnd != '' and createTimeEnd != null">
+                AND createTime &lt;= #{createTimeEnd}
+            </if>
+            <if test="status != '' and status != null">
+                AND status = #{status}
+            </if>
+        </where>
+        ORDER BY id ASC
+    </select>
 </mapper>

@@ -1,11 +1,16 @@
 package com.firstWeb.controller;
 
+import com.firstWeb.bean.param.AdministratorParam;
+import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.param.RegisterUserParam;
+import com.firstWeb.bean.request.AdministratorReqModel;
 import com.firstWeb.bean.request.RegisterUserReqModel;
+import com.firstWeb.bean.response.ExportTaskInfo;
 import com.firstWeb.bean.response.RegisterUserInfo;
 import com.firstWeb.common.CollectionResult;
 import com.firstWeb.common.ResultEntity;
 import com.firstWeb.constant.ResultCode;
+import com.firstWeb.exception.CommonException;
 import com.firstWeb.service.UserService;
 import com.firstWeb.util.ParamValidateUtil;
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -57,6 +63,45 @@ public class UserController extends BaseController {
         result.setValue(list);
         result.setCode(ResultCode.SUCCESS);
         LOGGER.info("getRegisterUserListOnCondition: end");
+        return result;
+    }
+
+    /**
+     * 导出管理员列表
+     *
+     * @param model
+     * @param request
+     * @param response
+     * @return
+     */
+    @PostMapping(value = "/exportRegisterUserList")
+    public ResultEntity<ExportTaskInfo> exportRegisterUserList(RegisterUserReqModel model, HttpServletRequest request, HttpServletResponse response) throws IOException, CommonException {
+        LOGGER.info("exportRegisterUserList: begin");
+        ResultEntity<ExportTaskInfo> result = new ResultEntity<>();
+        result.setCode(ResultCode.FAIL);
+//        Token token = getToken(request);
+//        long id = token.getId();
+        ExportTaskParam exportTaskparams = new ExportTaskParam();
+        exportTaskparams.setCreatorId(1);
+
+        RegisterUserParam params = new RegisterUserParam();
+        params.setAccount(ParamValidateUtil.escapeSpecialCharacter(model.getAccount()));
+        params.setUsername(ParamValidateUtil.escapeSpecialCharacter(model.getUsername()));
+        params.setEmail(ParamValidateUtil.escapeSpecialCharacter(model.getEmail()));
+        params.setTelephone(ParamValidateUtil.escapeSpecialCharacter(model.getTelephone()));
+        params.setAddress(ParamValidateUtil.escapeSpecialCharacter(model.getAddress()));
+        params.setCreateTimeBegin(model.getCreateTimeBegin());
+        params.setCreateTimeEnd(model.getCreateTimeEnd());
+        params.setProvince(model.getProvince());
+        params.setCity(model.getCity());
+        params.setDistrict(model.getDistrict());
+        params.setSex(model.getSex());
+        params.setStatus(model.getStatus());
+        ExportTaskInfo exportTaskInfo = userService.exportRegisterUserList(params, exportTaskparams);
+
+        result.setValue(exportTaskInfo);
+        result.setCode(ResultCode.SUCCESS);
+        LOGGER.info("exportRegisterUserList: end");
         return result;
     }
 

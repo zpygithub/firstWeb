@@ -13,13 +13,13 @@ public enum ExcelRowEnum {
 
     SIXTHROW(5),
 
-    SeventhROW(6),
+    SEVENTHROW(6),
 
-    EighthROW(7),
+    EIGHTHROW(7),
 
-    NinthROW(8),
+    NINTHROW(8),
 
-    tenthrow(9);
+    TENTHROW(9);
 
     private int value;
 
