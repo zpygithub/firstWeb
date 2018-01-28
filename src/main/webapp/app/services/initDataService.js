@@ -50,6 +50,7 @@ define(['i18n/keyId'], function (i18n) {
                 var valuesArr = [];
                 if (data.code === "00000") {
                     if (data.value && data.value.length > 0) {
+                        valuesArr.push({});
                         data.value.forEach(function (item) {
                             var obj = {
                                 value: item.id,
