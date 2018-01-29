@@ -10,8 +10,12 @@ define(['i18n/keyId'], function (i18n) {
                 select: function () {
                     $scope.city.value = "";
                     $scope.district.value = "";
-                    $scope.city.disabled = false;
-                    $scope.district.disabled = false;
+                    $scope.district.disabled = true;
+                    if ($scope.province.value) {
+                        $scope.city.disabled = false;
+                    } else {
+                        $scope.city.disabled = true;
+                    }
                     var selectedValue = $scope.province.value;
                     if (selectedValue) {
                         initDistrictData($scope, selectedValue);
@@ -24,6 +28,13 @@ define(['i18n/keyId'], function (i18n) {
                 disabled: true,
                 selectedOptions: "",
                 select: function () {
+                    $scope.district.value = "";
+                    if ($scope.city.value) {
+                        $scope.district.disabled = false;
+                    } else {
+                        $scope.district.disabled = true;
+                    }
+
                     var selectedValue = $scope.city.value;
                     if (selectedValue) {
                         initDistrictData($scope, selectedValue);
