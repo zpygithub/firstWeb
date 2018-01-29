@@ -3,7 +3,23 @@ package com.firstWeb.constant;
 public enum ExportEnum {
     EXPORT("导出"),
 
-    ADMINLIST("管理员列表"),
+    XLS(".xls"),
+
+    COLONREG(":"),
+
+    HYPHENREG("-"),
+
+    BLANKREG(" "),
+
+    EXPORTADMINLIST("export_adminList_"),
+
+    ADMINLIST("AdminList"),
+
+    ADMINISTRATORLIST("管理员列表"),
+
+    EXPORTREGISTERUSERLIST("export_registerUserList_"),
+
+    RUSERLIST("RegisterUserList"),
 
     REGISTERUSERLIST("注册用户列表"),
 
