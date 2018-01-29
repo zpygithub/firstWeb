@@ -127,7 +127,7 @@ define(["i18n/keyId", "bootstrap-table", "bootstrap-datetimepicker", "app/servic
             $("#export").bind("click", function () {
                 getCreateTime();
                 var options = exportParams();
-                // $scope.operate.export(options);
+                $scope.operate.export(options);
             });
 
             $scope.operate = {
