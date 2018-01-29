@@ -20,7 +20,6 @@ import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.util.StringUtils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -40,18 +39,6 @@ public class SystemService {
     private SystemMapper systemMapper;
 
     private static final Logger LOGGER = LogManager.getLogger(SystemService.class);
-
-    private static final String EXPORTADMINLIST = "export_adminList_";
-
-    private static final String ADMINLIST = "AdminList";
-
-    private static final String XLS = ".xls";
-
-    private static final String COLONREG = ":";
-
-    private static final String HYPHENREG = "-";
-
-    private static final String BLANKREG = " ";
 
     private static String EXPORTFILEPATH = PropertiesUtil.getValue("export.file.path");
 
@@ -122,8 +109,8 @@ public class SystemService {
     }
 
     public ExportTaskInfo exportAdminList(AdministratorParam params, ExportTaskParam exportTaskparams) throws IOException, CommonException {
-        exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINLIST.getValue());
-        exportTaskparams.setFileName(EXPORTADMINLIST + getLocalTime().replace(COLONREG, "").replace(HYPHENREG, "").replace(BLANKREG, ""));
+        exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.ADMINISTRATORLIST.getValue());
+        exportTaskparams.setFileName(ExportEnum.EXPORTADMINLIST.getValue() + getLocalTime().replace(ExportEnum.COLONREG.getValue(), "").replace(ExportEnum.HYPHENREG.getValue(), "").replace(ExportEnum.BLANKREG.getValue(), ""));
         exportTaskparams = taskService.addExportTask(exportTaskparams);
 
         List<AdministratorInfo> list = systemMapper.exportAdminList(params);
@@ -134,7 +121,7 @@ public class SystemService {
             return exportTaskInfo;
         } else {
             HSSFWorkbook wb = new HSSFWorkbook();
-            HSSFSheet sheet = wb.createSheet(ExportEnum.ADMINLIST.getValue());
+            HSSFSheet sheet = wb.createSheet(ExportEnum.ADMINISTRATORLIST.getValue());
             HSSFRow row = sheet.createRow(ExcelRowEnum.FIRSTROW.getValue());
             HSSFCellStyle style = wb.createCellStyle();
             style.setAlignment(HorizontalAlignment.CENTER); // 创建一个居中格式
@@ -166,16 +153,20 @@ public class SystemService {
                 row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(adminInfo.getEmail());
                 row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(adminInfo.getTelephone());
                 row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(adminInfo.getCreateTime())));
-                row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(adminInfo.getStatus());
+                if ((UserStatusEnum.NORMAL.getValue() + "").equals(adminInfo.getStatus())) {
+                    row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(ExportEnum.NORMAL.getValue());
+                } else {
+                    row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(ExportEnum.FREEZE.getValue());
+                }
             }
             try {
-                FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ADMINLIST + XLS);
+                FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ExportEnum.ADMINLIST.getValue() + ExportEnum.XLS.getValue());
                 wb.write(fos);
                 fos.close();
             } catch (Exception e) {
                 LOGGER.error(e);
             }
-            taskService.updateExportTask(EXPORTFILEPATH + ADMINLIST + XLS, exportTaskparams);
+            taskService.updateExportTask(EXPORTFILEPATH + ExportEnum.ADMINLIST.getValue() + ExportEnum.XLS.getValue(), exportTaskparams);
             exportTaskInfo = taskService.getExportTaskInfo(exportTaskparams.getId());
         }
         return exportTaskInfo;
