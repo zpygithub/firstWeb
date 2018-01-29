@@ -1,16 +1,12 @@
 package com.firstWeb.service;
 
-import com.firstWeb.bean.param.AdministratorParam;
 import com.firstWeb.bean.param.ExportTaskParam;
 import com.firstWeb.bean.param.RegisterUserParam;
-import com.firstWeb.bean.response.AdministratorInfo;
 import com.firstWeb.bean.response.ExportTaskInfo;
 import com.firstWeb.bean.response.PageInfo;
 import com.firstWeb.bean.response.RegisterUserInfo;
 import com.firstWeb.common.CollectionResult;
-import com.firstWeb.constant.ExcelRowEnum;
-import com.firstWeb.constant.ExportEnum;
-import com.firstWeb.constant.ExportStatusEnum;
+import com.firstWeb.constant.*;
 import com.firstWeb.exception.CommonException;
 import com.firstWeb.mapper.UserMapper;
 import com.firstWeb.util.DateUtil;
@@ -41,18 +37,6 @@ public class UserService {
 
     private static final Logger LOGGER = LogManager.getLogger(UserService.class);
 
-    private static final String EXPORTREGISTERUSERLIST = "export_registerUserList_";
-
-    private static final String REGISTERUSERLIST = "RegisterUserList";
-
-    private static final String XLS = ".xls";
-
-    private static final String COLONREG = ":";
-
-    private static final String HYPHENREG = "-";
-
-    private static final String BLANKREG = " ";
-
     private static String EXPORTFILEPATH = PropertiesUtil.getValue("export.file.path");
 
     private static final String COMMA = ",";
@@ -70,7 +54,7 @@ public class UserService {
 
     public ExportTaskInfo exportRegisterUserList(RegisterUserParam params, ExportTaskParam exportTaskparams) throws IOException, CommonException {
         exportTaskparams.setTaskName(ExportEnum.EXPORT.getValue() + ExportEnum.REGISTERUSERLIST.getValue());
-        exportTaskparams.setFileName(EXPORTREGISTERUSERLIST + getLocalTime().replace(COLONREG, "").replace(HYPHENREG, "").replace(BLANKREG, ""));
+        exportTaskparams.setFileName(ExportEnum.EXPORTREGISTERUSERLIST.getValue() + getLocalTime().replace(ExportEnum.COLONREG.getValue(), "").replace(ExportEnum.HYPHENREG.getValue(), "").replace(ExportEnum.BLANKREG.getValue(), ""));
         exportTaskparams = taskService.addExportTask(exportTaskparams);
 
         List<RegisterUserInfo> list = userMapper.exportRegisterUserList(params);
@@ -119,22 +103,32 @@ public class UserService {
                 RegisterUserInfo registerUserInfo = list.get(i);
                 row.createCell(ExcelRowEnum.FIRSTROW.getValue()).setCellValue(registerUserInfo.getAccount());
                 row.createCell(ExcelRowEnum.SECONDROW.getValue()).setCellValue(registerUserInfo.getUsername());
-                row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(registerUserInfo.getSex());
+                if ((UserSexEnum.MALE.getValue() + "").equals(registerUserInfo.getSex())) {
+                    row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(ExportEnum.MALE.getValue());
+                } else if ((UserSexEnum.FEMALE.getValue() + "").equals(registerUserInfo.getSex())) {
+                    row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(ExportEnum.FEMALE.getValue());
+                } else {
+                    row.createCell(ExcelRowEnum.THIRDROW.getValue()).setCellValue(ExportEnum.UNKNOWN.getValue());
+                }
                 row.createCell(ExcelRowEnum.FOURTHROW.getValue()).setCellValue(registerUserInfo.getEmail());
                 row.createCell(ExcelRowEnum.FIFTHROW.getValue()).setCellValue(registerUserInfo.getTelephone());
                 row.createCell(ExcelRowEnum.SIXTHROW.getValue()).setCellValue(registerUserInfo.getDistrictInfo().getProvinceName() + registerUserInfo.getDistrictInfo().getCityName() + registerUserInfo.getDistrictInfo().getDistrictName());
                 row.createCell(ExcelRowEnum.SEVENTHROW.getValue()).setCellValue(registerUserInfo.getAddress());
                 row.createCell(ExcelRowEnum.EIGHTHROW.getValue()).setCellValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(DateUtil.getLocalTimeFromUTC(registerUserInfo.getCreateTime())));
-                row.createCell(ExcelRowEnum.NINTHROW.getValue()).setCellValue(registerUserInfo.getStatus());
+                if ((UserStatusEnum.NORMAL.getValue() + "").equals(registerUserInfo.getStatus())) {
+                    row.createCell(ExcelRowEnum.NINTHROW.getValue()).setCellValue(ExportEnum.NORMAL.getValue());
+                } else {
+                    row.createCell(ExcelRowEnum.NINTHROW.getValue()).setCellValue(ExportEnum.FREEZE.getValue());
+                }
             }
             try {
-                FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + REGISTERUSERLIST + XLS);
+                FileOutputStream fos = new FileOutputStream(EXPORTFILEPATH + ExportEnum.RUSERLIST.getValue() + ExportEnum.XLS.getValue());
                 wb.write(fos);
                 fos.close();
             } catch (Exception e) {
                 LOGGER.error(e);
             }
-            taskService.updateExportTask(EXPORTFILEPATH + REGISTERUSERLIST + XLS, exportTaskparams);
+            taskService.updateExportTask(EXPORTFILEPATH + ExportEnum.RUSERLIST.getValue() + ExportEnum.XLS.getValue(), exportTaskparams);
             exportTaskInfo = taskService.getExportTaskInfo(exportTaskparams.getId());
         }
         return exportTaskInfo;
