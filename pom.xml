@@ -23,6 +23,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.5.3</version>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.39</version>
@@ -101,6 +107,29 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!--<plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>3.5.3</version>
+                <configuration>
+                    <changeLogFile>src/main/resources/config/liquibase/master.xml</changeLogFile>
+                    <driver>com.mysql.jdbc.Driver</driver>
+                    <url>jdbc:mysql://localhost:3306/firstweb_db</url>
+                    <username>root</username>
+                    <password></password>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                            <goal>tag</goal>
+                            <goal>rollback</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
         </plugins>
     </build>
 
